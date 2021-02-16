@@ -60,7 +60,7 @@
 
                                 <div class="form-group mb-3">
                                     <label for="simpleinput">Email</label>
-                                    <input type="email" id="simpleinput" class="form-control" name="email" placeholder="Email" value="{{old('email')}}">
+                                    <input type="text" id="simpleinput" class="form-control" name="email" placeholder="Email" value="{{old('email')}}">
                                 </div>
 
                                 <div class="form-group mb-3">
