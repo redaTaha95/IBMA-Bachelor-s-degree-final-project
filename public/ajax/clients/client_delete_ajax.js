@@ -38,12 +38,6 @@ $('.delete-client').on('click', function (event) {
             )
             window.setTimeout(function(){location.reload()},1000)
         } else if (
-            // Read more about handling dismissals
-            swalWithBootstrapButtons(
-                'Attention',
-                'Vous ne pouvez pas supprimer ce staff car il est lié avec des rendez-vous',
-                'error'
-            ),
             result.dismiss === swal.DismissReason.cancel
         ) {
             swalWithBootstrapButtons(

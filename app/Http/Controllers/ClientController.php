@@ -8,10 +8,12 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+
     private $clientRepository;
 
     public function __construct(ClientRepositoryInterface $clientRepository)
     {
+
         $this->clientRepository = $clientRepository;
     }
 

@@ -30,7 +30,7 @@
 <div id="wrapper">
 
     <!-- Topbar Start -->
-        @include('layouts.top_bar')
+    @include('layouts.top_bar')
     <!-- end Topbar -->
 
     <!-- ========== Left Sidebar Start ========== -->
