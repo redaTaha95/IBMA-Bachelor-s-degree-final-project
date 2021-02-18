@@ -42,7 +42,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{url('candidates')}}">Candidats</a>
+                                <a href="{{url('candidates')}}">
                                     <i class="fas fa-user-check"></i>
                                     <span> Candidats </span>
                                 </a>
