@@ -32,7 +32,7 @@ class ClientController extends Controller
     {
         $this->clientRepository->addClient($request->all());
         session()->flash('success', 'Client has been added');
-        return redirect('/clients');
+        return redirect('clients');
     }
 
     public function show($id)
@@ -50,7 +50,7 @@ class ClientController extends Controller
     {
         $this->clientRepository->updateClient($request->all(), $id);
         session()->flash('update', 'Client has been added');
-        return redirect('/clients');
+        return redirect('clients');
     }
 
     public function destroy($id)

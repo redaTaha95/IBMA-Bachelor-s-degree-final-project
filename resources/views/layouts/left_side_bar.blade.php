@@ -36,7 +36,7 @@
                                 <a href="ecommerce-products.html">Demande de recrutement</a>
                             </li>
                             <li>
-                                <a href="ecommerce-product-detail.html">Candidats</a>
+                                <a href="{{url('candidates')}}">Candidats</a>
                             </li>
                         </ul>
                     </div>
