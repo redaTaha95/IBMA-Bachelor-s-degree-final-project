@@ -13,7 +13,6 @@ class ClientController extends Controller
 
     public function __construct(ClientRepositoryInterface $clientRepository)
     {
-
         $this->clientRepository = $clientRepository;
     }
 

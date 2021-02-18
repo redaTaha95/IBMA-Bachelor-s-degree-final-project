@@ -72,7 +72,7 @@
                                     <td class="align-middle">
                                         <a href="#" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
                                         <a href="{{route('clients.edit', $client->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{url('clients/'.$client->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-client"><i class="mdi mdi-trash-can-outline"></i></a>
+                                        <a href="{{url('clients/'.$client->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-project"><i class="mdi mdi-trash-can-outline"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -104,6 +104,7 @@
     <!-- Sweet alert init js-->
     <script src="{{asset('assets/js/pages/sweet-alerts.init.js')}}"></script>
 
+    {{--file of delete client--}}
     <script src="{{asset('ajax/clients/client_delete_ajax.js')}}"></script>
 
     @if(session('success'))
