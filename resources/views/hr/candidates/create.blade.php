@@ -50,7 +50,7 @@
 
                                 <div class="form-group mb-3">
                                     <label for="simpleinput">Nom *</label>
-                                    <input type="text" id="simpleinput" class="form-control" name="lastName" placeholder="Nom *" value="{{old('lastName')}}">
+                                    <input type="text" id="simpleinput" class="form-control" name="last_name" placeholder="Nom *" value="{{old('lastName')}}">
                                 </div>
 
                                 <div class="form-group mb-3">
@@ -74,7 +74,7 @@
 
                                 <div class="form-group mb-3">
                                     <label for="simpleinput">Prénom *</label>
-                                    <input type="text" id="simpleinput" class="form-control" name="firstName" placeholder="Prénom" value="{{old('firstName')}}">
+                                    <input type="text" id="simpleinput" class="form-control" name="first_name" placeholder="Prénom" value="{{old('firstName')}}">
                                 </div>
 
                                 <div class="form-group mb-3">
