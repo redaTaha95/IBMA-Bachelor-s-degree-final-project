@@ -46,15 +46,10 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Nom</th>
-                                <th>Prénom</th>
-{{--                                <th>Date de Naissance</th>--}}
+                                <th>Nom Complet</th>
                                 <th>CIN</th>
-{{--                                <th>Email</th>--}}
                                 <th>Téléphone</th>
-{{--                                <th>Adresse</th>--}}
-                                <th>Ville</th>
-{{--                                <th>Logo</th>--}}
+                                <th>Email</th>
                                 <th style="width: 15%;">Actions</th>
                             </tr>
                             </thead>
@@ -64,21 +59,10 @@
                             @foreach($candidates as $index => $candidate)
                                 <tr>
                                     <td class="align-middle">{{$index + 1}}</td>
-{{--                                    <td class="align-middle">--}}
-{{--                                        @if($candidate->logo)--}}
-{{--                                            <img src="{{asset('storage/candidates/'.$candidate->logo)}}" alt="image" class="avatar-sm rounded-circle">--}}
-{{--                                        @else--}}
-{{--                                            <img src="{{asset('assets/images/users/default_user.png')}}" alt="image" class="avatar-sm rounded-circle">--}}
-{{--                                        @endif--}}
-{{--                                    </td>--}}
-                                    <td class="align-middle">{{$candidate->lastName}}</td>
-                                    <td class="align-middle">{{$candidate->firstName}}</td>
-{{--                                    <td class="align-middle">{{$candidate->birthday}}</td>--}}
+                                    <td class="align-middle">{{$candidate->lastName.' '.$candidate->firstName}}</td>
                                     <td class="align-middle">{{$candidate->cin}}</td>
-{{--                                    <td class="align-middle">{{$candidate->email}}</td>--}}
                                     <td class="align-middle">{{$candidate->phone}}</td>
-{{--                                    <td class="align-middle">{{$candidate->address}}</td>--}}
-                                    <td class="align-middle">{{$candidate->city}}</td>
+                                    <td class="align-middle">{{$candidate->email}}</td>
                                     <td class="align-middle">
                                         <a href="" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
                                         <a href="{{route('candidates.edit', $candidate->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>

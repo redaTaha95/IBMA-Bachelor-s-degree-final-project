@@ -50,30 +50,7 @@
 
                                 <div class="form-group mb-3">
                                     <label for="simpleinput">Nom *</label>
-                                    <input type="text" id="simpleinput" class="form-control" name="lastName" placeholder="Nom" value="{{old('lastName')}}">
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="simpleinput">Date de Naissance</label>
-                                    <input type="date" id="simpleinput" class="form-control" name="birthday" placeholder="Date de Naissance" value="{{old('birthday')}}">
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="simpleinput">Email</label>
-                                    <input type="text" id="simpleinput" class="form-control" name="email" placeholder="Email" value="{{old('email')}}">
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="simpleinput">Adresse</label>
-                                    <input type="text" id="simpleinput" class="form-control" name="address" placeholder="Address" value="{{old('address')}}">
-                                </div>
-
-                            </div> <!-- end col -->
-
-                            <div class="col-lg-6">
-                                <div class="form-group mb-3">
-                                    <label for="simpleinput">Prénom *</label>
-                                    <input type="text" id="simpleinput" class="form-control" name="firstName" placeholder="Prénom" value="{{old('firstName')}}">
+                                    <input type="text" id="simpleinput" class="form-control" name="lastName" placeholder="Nom *" value="{{old('lastName')}}">
                                 </div>
 
                                 <div class="form-group mb-3">
@@ -82,8 +59,32 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="simpleinput">Téléphone</label>
+                                    <label for="simpleinput">Téléphone *</label>
                                     <input type="tel" id="simpleinput" class="form-control" name="phone" placeholder="Téléphone" value="{{old('phone')}}">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="simpleinput">Adresse</label>
+                                    <input type="text" id="simpleinput" class="form-control" name="address" placeholder="Adresse" value="{{old('address')}}">
+                                </div>
+
+                            </div> <!-- end col -->
+
+                            <div class="col-lg-6">
+
+                                <div class="form-group mb-3">
+                                    <label for="simpleinput">Prénom *</label>
+                                    <input type="text" id="simpleinput" class="form-control" name="firstName" placeholder="Prénom" value="{{old('firstName')}}">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="simpleinput">Date de Naissance</label>
+                                    <input type="date" id="simpleinput" class="form-control" name="birthday" placeholder="Date de Naissance" value="{{old('birthday')}}">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="simpleinput">Email *</label>
+                                    <input type="text" id="simpleinput" class="form-control" name="email" placeholder="Email" value="{{old('email')}}">
                                 </div>
 
                                 <div class="form-group mb-3">
@@ -92,11 +93,9 @@
                                 </div>
 
                             </div> <!-- end col -->
-{{--                            <div class="form-group mb-3">--}}
-{{--                                <label for="simpleinput">Logo</label>--}}
-{{--                                <input type="file" data-plugins="dropify" name="logo"/>--}}
-{{--                            </div>--}}
+
                         </div>
+
                         <!-- end row-->
                         <div class="row">
                             <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">Ajouter</button>
