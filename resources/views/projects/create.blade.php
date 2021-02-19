@@ -51,21 +51,21 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Nom *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name')}}">
+                                        <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name')}}" required>
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Déscription</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="description" placeholder="description" value="{{old('description')}}">
+                                        <label for="simpleinput">Déscription *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="description" placeholder="description" value="{{old('description')}}" required>
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Start date</label>
+                                        <label for="simpleinput">Date début</label>
                                         <input type="date" id="simpleinput" class="form-control" name="startdate" placeholder="startdate" value="{{old('startdate')}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Due date</label>
+                                        <label for="simpleinput">Date d'échéance</label>
                                         <input type="date" id="simpleinput" class="form-control" name="duedate" placeholder="duedate" value="{{old('duedate')}}">
                                     </div>
 
@@ -81,7 +81,7 @@
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Team member</label>
+                                        <label for="simpleinput">Membres d'équipe</label>
                                         <input type="text" id="simpleinput" class="form-control" name="teamMember" placeholder="teamMember" value="{{old('teamMember')}}">
                                     </div>
 

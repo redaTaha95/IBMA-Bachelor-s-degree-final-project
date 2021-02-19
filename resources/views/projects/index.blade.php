@@ -49,10 +49,10 @@
                             <tr>
                                 <th>id</th>
                                 <th>Logo</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                               <!-- <th>startDate</th>-->
-                                <!--<th>dueDate</th>-->
+                                <th>Nom</th>
+                                <th>Déscription</th>
+                               <!-- <th>Date début</th>-->
+                                <!--<th>Date d'échéance</th>-->
                                 <th>budget</th>
                                 <!--<th>teamMember</th>-->
                                 <th style="width: 15%;">Actions</th>

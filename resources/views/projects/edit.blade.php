@@ -60,12 +60,12 @@
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Start date</label>
+                                        <label for="simpleinput">Date début</label>
                                         <input type="date" id="simpleinput" class="form-control" name="startDate" placeholder="startDate" value="{{old('startDate', $project->startDate)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Due date</label>
+                                        <label for="simpleinput">Date d'échéance</label>
                                         <input type="date" id="simpleinput" class="form-control" name="dueDate" placeholder="duedate" value="{{old('dueDate', $project->dueDate)}}">
                                     </div>
 

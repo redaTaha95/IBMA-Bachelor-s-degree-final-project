@@ -64,6 +64,11 @@
                                 </div>
 
                                 <div class="form-group mb-3">
+                                    <label for="simpleinput">Email</label>
+                                    <input type="email" id="simpleinput" class="form-control" name="email" placeholder="Email" value="{{old('email')}}">
+                                </div>
+
+                                <div class="form-group mb-3">
                                     <label for="simpleinput">Adresse</label>
                                     <input type="text" id="simpleinput" class="form-control" name="address" placeholder="Adresse" value="{{old('address')}}">
                                 </div>
@@ -79,12 +84,7 @@
 
                                 <div class="form-group mb-3">
                                     <label for="simpleinput">Date de Naissance</label>
-                                    <input type="date" id="simpleinput" class="form-control" name="birthday" placeholder="Date de Naissance" value="{{old('birthday')}}">
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="simpleinput">Email *</label>
-                                    <input type="text" id="simpleinput" class="form-control" name="email" placeholder="Email" value="{{old('email')}}">
+                                    <input type="date" id="date-input" class="form-control" name="birthday" placeholder="Date de Naissance" value="{{old('birthday')}}">
                                 </div>
 
                                 <div class="form-group mb-3">
@@ -118,4 +118,22 @@
 
     <!-- Init js-->
     <script src="{{asset('assets/js/pages/form-fileuploads.init.js')}}"></script>
+
+    <script>
+
+        $(document).ready(function()
+        {
+            var date = new Date();
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+            if (month < 10)
+                month = "0" + month;
+            if (day < 10)
+                day = "0" + day;
+            var today = year + "-" + month + "-" + day;
+            $("#date-input").attr("value", today);
+        });
+
+    </script>
 @endsection

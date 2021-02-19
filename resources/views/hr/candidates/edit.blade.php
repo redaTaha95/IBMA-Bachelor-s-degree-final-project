@@ -61,7 +61,7 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Email</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="email" placeholder="Email" value="{{old('email', $candidate->email)}}">
+                                        <input type="email" id="simpleinput" class="form-control" name="email" placeholder="Email" value="{{old('email', $candidate->email)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
