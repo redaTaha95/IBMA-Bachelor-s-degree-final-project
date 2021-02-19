@@ -21,11 +21,11 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Employees</a></li>
-                            <li class="breadcrumb-item active">Liste des employees</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Employés</a></li>
+                            <li class="breadcrumb-item active">Liste des employés</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Liste des employees</h4>
+                    <h4 class="page-title">Liste des employés</h4>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
 
                         <div class="text-lg-right mb-2">
                             <a href="{{url('employees/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>Ajouter un Employee
+                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>Ajouter un Employé
                             </a>
                         </div>
 
@@ -111,7 +111,7 @@
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "Employee a été ajouté avec succés",
+                title: "Employé a été ajouté avec succés",
                 showConfirmButton: !1,
                 timer: 1500
             })
@@ -123,7 +123,7 @@
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "Employee a été modifié avec succés",
+                title: "Employé a été modifié avec succés",
                 showConfirmButton: !1,
                 timer: 1500
             })

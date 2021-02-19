@@ -32,7 +32,7 @@
                             <li>
                                 <a href="{{url('employees')}}">
                                     <i class="fas fa-user-tie"></i>
-                                    <span>  Employées  </span>
+                                    <span>  Employés  </span>
                                 </a>
                             </li>
                             <li>

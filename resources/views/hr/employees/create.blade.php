@@ -16,11 +16,11 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Employees</a></li>
-                            <li class="breadcrumb-item active">Ajouter un employee</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Employés</a></li>
+                            <li class="breadcrumb-item active">Ajouter un employé</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Ajouter un employee</h4>
+                    <h4 class="page-title">Ajouter un employé</h4>
                 </div>
             </div>
         </div>
@@ -53,14 +53,25 @@
                                         <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name')}}">
                                     </div>
 
-                                    <div class="form-group mb-3">
+                                    <!--<div class="form-group mb-3">
                                         <label for="simpleinput">Téléphone *</label>
                                         <input type="tel" id="simpleinput" class="form-control" name="phone" placeholder="Téléphone" value="{{old('phone')}}">
+                                    </div>-->
+                                    <div class="form-group">
+                                        <label for="simpleinput">Téléphone *</label>
+                                        <input type="text" class="form-control" data-toggle="input-mask" name="phone" placeholder="Exemple : 0630-303030" data-mask-format="0000-000000" maxlength="14" value="{{old('phone')}}">
+                                        <!--<span class="font-13 text-muted">e.g "(xx) xxxx-xxxx"</span>-->
                                     </div>
 
-                                    <div class="form-group mb-3">
+                                    <!--<div class="form-group mb-3">
                                         <label for="simpleinput">Email *</label>
                                         <input type="text" id="simpleinput" class="form-control" name="email" placeholder="Email" value="{{old('email')}}">
+                                        <ul class="parsley-errors-list" id="parsley-id-7" aria-hidden="true"></ul>
+                                    </div>-->
+                                    <div class="form-group">
+                                        <label for="email">Email *</label>
+                                        <input type="email" id="email" class="form-control" name="email" placeholder="Exemple : ABC@gmail.com"  data-parsley-trigger="change" required="" data-parsley-id="7" value="{{old('email')}}">
+                                        <ul class="parsley-errors-list" id="parsley-id-7" aria-hidden="true"></ul>
                                     </div>
 
                                     <div class="form-group mb-3">
@@ -78,7 +89,7 @@
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Date d'embauche *</label>
-                                        <input class="form-control" type="date" id="example-date-input" name="hire_date" value="{{old('date')}}">
+                                        <input class="form-control" type="date" id="example-date-input" name="hire_date" value="{{old('hire_date')}}">
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Logo</label>
@@ -108,6 +119,33 @@
     <script src="{{asset('assets/libs/dropzone/min/dropzone.min.js')}}"></script>
     <script src="{{asset('assets/libs/dropify/js/dropify.min.js')}}"></script>
 
+    <!-- Plugins js -->
+    <script src="../assets/libs/jquery-mask-plugin/jquery.mask.min.js"></script>
+    <script src="../assets/libs/autonumeric/autoNumeric-min.js"></script>
+
+    <!-- Init js-->
+    <script src="../assets/js/pages/form-masks.init.js"></script>
+
     <!-- Init js-->
     <script src="{{asset('assets/js/pages/form-fileuploads.init.js')}}"></script>
+
+
+    <script>
+
+        $(document).ready(function()
+        {
+          var date = new Date();
+          var day = date.getDate();
+          var month = date.getMonth() + 1;
+          var year = date.getFullYear();
+          if (month < 10)
+              month = "0" + month;
+          if (day < 10)
+              day = "0" + day;
+          var today = year + "-" + month + "-" + day;
+          $("#example-date-input").attr("value", today);
+        });
+
+    </script>
+
 @endsection
