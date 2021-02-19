@@ -6,6 +6,7 @@
     <link href="{{asset('assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
+
 @section('content')
     <div class="container-fluid">
 
@@ -16,11 +17,11 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Clients</a></li>
-                            <li class="breadcrumb-item active">Modifier client</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Projets</a></li>
+                            <li class="breadcrumb-item active">Ajouter un projet</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Modifier client</h4>
+                    <h4 class="page-title">Ajouter un projet</h4>
                 </div>
             </div>
         </div>
@@ -30,7 +31,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">Informations générales</h4>
+                        <h4 class="header-title">Informations générales du projet</h4>
 
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -43,43 +44,50 @@
                         @endif
 
                         <br>
-                        <form action="{{route('clients.update', $client->id)}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('projects.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
-                            @method('PUT')
                             <div class="row">
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Nom *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name', $client->name)}}">
+                                        <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name')}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Téléphone</label>
-                                        <input type="tel" id="simpleinput" class="form-control" name="phone" placeholder="Téléphone" value="{{old('phone', $client->phone)}}">
+                                        <label for="simpleinput">Déscription</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="description" placeholder="description" value="{{old('description')}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Email</label>
-                                        <input type="email" id="simpleinput" class="form-control" name="email" placeholder="Email" value="{{old('email', $client->email)}}">
+                                        <label for="simpleinput">Start date</label>
+                                        <input type="date" id="simpleinput" class="form-control" name="startdate" placeholder="startdate" value="{{old('startdate')}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Pays</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="country" placeholder="Pays" value="{{old('country', $client->country)}}">
+                                        <label for="simpleinput">Due date</label>
+                                        <input type="date" id="simpleinput" class="form-control" name="duedate" placeholder="duedate" value="{{old('duedate')}}">
                                     </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Budget</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="budget" placeholder="budget" value="{{old('budget')}}">
+                                    </div>
+
+
 
                                 </div> <!-- end col -->
 
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Adresse</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="Address" value="{{old('address', $client->address)}}">
+                                        <label for="simpleinput">Team member</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="teamMember" placeholder="teamMember" value="{{old('teamMember')}}">
                                     </div>
+
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Logo</label>
-                                        <input type="file" data-plugins="dropify" name="logo" data-default-file="{{$client->logo ? asset('storage/clients/'.$client->logo) : ''}}"/>
+                                        <input type="file" data-plugins="dropify" name="logo"/>
                                     </div>
 
 
@@ -87,8 +95,8 @@
                             </div>
                             <!-- end row-->
                             <div class="row">
-                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">Modifier</button>
-                                <a href="{{url('clients')}}" class="btn btn-white btn-rounded waves-effect">Annuler</a>
+                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">Ajouter</button>
+                                <a href="{{url('projects')}}" class="btn btn-white btn-rounded waves-effect">Annuler</a>
                             </div>
                         </form>
 

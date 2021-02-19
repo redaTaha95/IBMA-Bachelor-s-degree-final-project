@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('css')
@@ -21,15 +22,16 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Clients</a></li>
-                            <li class="breadcrumb-item active">Liste des clients</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Projects</a></li>
+                            <li class="breadcrumb-item active">Liste des projets</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Liste des clients</h4>
+                    <h4 class="page-title">Liste des projets</h4>
                 </div>
             </div>
         </div>
         <!-- end page title -->
+
 
         <div class="row">
             <div class="col-12">
@@ -37,42 +39,49 @@
                     <div class="card-body">
 
                         <div class="text-lg-right mb-2">
-                            <a href="{{url('clients/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>Ajouter un client
+                            <a href="{{url('projects/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
+                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>Ajouter un projet
                             </a>
                         </div>
 
                         <table id="data_table" class="table table-striped dt-responsive nowrap w-100">
                             <thead>
                             <tr>
-                                <th>#</th>
+                                <th>id</th>
                                 <th>Logo</th>
-                                <th>Nom</th>
-                                <th>Téléphone</th>
-                                <th>Email</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                               <!-- <th>startDate</th>-->
+                                <!--<th>dueDate</th>-->
+                                <th>budget</th>
+                                <!--<th>teamMember</th>-->
                                 <th style="width: 15%;">Actions</th>
+
                             </tr>
                             </thead>
 
 
                             <tbody>
-                            @foreach($clients as $index => $client)
+                            @foreach($projects as $index => $project)
                                 <tr>
                                     <td class="align-middle">{{$index + 1}}</td>
                                     <td class="align-middle">
-                                        @if($client->logo)
-                                            <img src="{{asset('storage/clients/'.$client->logo)}}" alt="image" class="avatar-sm rounded-circle">
+                                        @if($project->logo)
+                                            <img src="{{asset('storage/projects/'.$project->logo)}}" alt="image" class="avatar-sm rounded-circle">
                                         @else
                                             <img src="{{asset('assets/images/users/default_user.png')}}" alt="image" class="avatar-sm rounded-circle">
                                         @endif
                                     </td>
-                                    <td class="align-middle">{{$client->name}}</td>
-                                    <td class="align-middle">{{$client->phone}}</td>
-                                    <td class="align-middle">{{$client->email}}</td>
+                                    <td class="align-middle">{{$project->name}}</td>
+                                    <td class="align-middle">{{$project->description}}</td>
+                                    <!--<td class="align-middle">{{$project->startDate}}</td>-->
+                                   <!-- <td class="align-middle">{{$project->dueDate}}</td>-->
+                                    <td class="align-middle">{{$project->budget}}</td>
+                                    <!--<td class="align-middle">{{$project->teamMember}}</td>-->
                                     <td class="align-middle">
                                         <a href="#" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
-                                        <a href="{{route('clients.edit', $client->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{url('clients/'.$client->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-client"><i class="mdi mdi-trash-can-outline"></i></a>
+                                        <a href="{{route('projects.edit', $project->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
+                                        <a href="{{url('projects/'.$project->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-project"><i class="mdi mdi-trash-can-outline"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -85,6 +94,8 @@
         </div>
     </div>
 @endsection
+
+
 
 @section('js')
 
@@ -104,15 +115,14 @@
     <!-- Sweet alert init js-->
     <script src="{{asset('assets/js/pages/sweet-alerts.init.js')}}"></script>
 
-    {{--file of delete client--}}
-    <script src="{{asset('ajax/clients/client_delete_ajax.js')}}"></script>
+    <script src="{{asset('ajax/projects/project_delete_ajax.js')}}"></script>
 
     @if(session('success'))
         <script>
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "Client a été ajouté avec succés",
+                title: "Projet a été ajouté avec succés",
                 showConfirmButton: !1,
                 timer: 1500
             })
@@ -124,7 +134,7 @@
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "Client a été modifié avec succés",
+                title: "Projet a été modifié avec succés",
                 showConfirmButton: !1,
                 timer: 1500
             })
