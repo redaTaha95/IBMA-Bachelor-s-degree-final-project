@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Logo</label>
-                                        <input type="file" data-plugins="dropify" name="logo" data-default-file="{{asset('storage/clients/'.$client->logo)}}"/>
+                                        <input type="file" data-plugins="dropify" name="logo" data-default-file="{{$client->logo ? asset('storage/clients/'.$client->logo) : ''}}"/>
                                     </div>
 
 
