@@ -54,7 +54,8 @@
 
         <!-- LOGO -->
         <div class="logo-box">
-            <a href="index.html" class="logo logo-light text-center">
+            <!--<a href="index.html" class="logo logo-light text-center">-->
+            <a href="/#" class="logo logo-light text-center">
                 <span class="logo-lg">
                     <img src="{{asset('assets/images/logo_ibma.png')}}" alt="" height="20">
                 </span>

@@ -30,5 +30,4 @@ class ClientRepository extends BaseRepository implements Interfaces\ClientReposi
     {
         uploadImage($id, $file_name, $folder_name, $table);
     }
-
 }

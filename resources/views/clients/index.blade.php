@@ -104,6 +104,7 @@
     <!-- Sweet alert init js-->
     <script src="{{asset('assets/js/pages/sweet-alerts.init.js')}}"></script>
 
+    {{--file of delete client--}}
     <script src="{{asset('ajax/clients/client_delete_ajax.js')}}"></script>
 
     @if(session('success'))
