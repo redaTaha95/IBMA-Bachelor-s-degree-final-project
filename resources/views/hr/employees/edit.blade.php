@@ -16,11 +16,11 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Employees</a></li>
-                            <li class="breadcrumb-item active">Modifier employee</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Employés</a></li>
+                            <li class="breadcrumb-item active">Modifier employé</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Modifier employee</h4>
+                    <h4 class="page-title">Modifier employé</h4>
                 </div>
             </div>
         </div>
@@ -65,8 +65,8 @@
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Salary</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="salary" placeholder="Salary" value="{{old('salary', $employee->salary)}}">
+                                        <label for="simpleinput">Salaire</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="salary" placeholder="Salaire" value="{{old('salary', $employee->salary)}}">
                                     </div>
 
                                 </div> <!-- end col -->
@@ -83,7 +83,7 @@
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Logo</label>
-                                        <input type="file" data-plugins="dropify" name="logo" data-default-file="{{asset('storage/employees/'.$employee->logo)}}"/>
+                                        <input type="file" data-plugins="dropify" name="logo" data-default-file="@if($employee->logo) {{asset('storage/employees/'.$employee->logo)}} @endif"/>
                                     </div>
 
 

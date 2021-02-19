@@ -8,7 +8,7 @@ $('.delete-employee').on('click', function (event) {
         buttonsStyling: false,
     })
     swalWithBootstrapButtons({
-        title: 'Souhaitez-vous vraiment supprimer ce employee ?',
+        title: 'Souhaitez-vous vraiment supprimer cet employé ?',
         text: "",
         type: 'warning',
         showCancelButton: true,
