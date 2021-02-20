@@ -21,7 +21,6 @@ class CandidateRequest extends FormRequest
             'cin' => 'required',
             'email' => 'required',
             'phone' => 'required',
-
         ];
     }
 

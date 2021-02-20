@@ -50,7 +50,7 @@
                                 <th>CIN</th>
                                 <th>Téléphone</th>
                                 <th>Email</th>
-                                <th style="width: 15%;">Actions</th>
+                                <th style="width: 15%;"></th>
                             </tr>
                             </thead>
 
