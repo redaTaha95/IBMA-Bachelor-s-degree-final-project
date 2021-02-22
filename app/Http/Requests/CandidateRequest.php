@@ -19,6 +19,9 @@ class CandidateRequest extends FormRequest
             'lastName' => 'required',
             'firstName' => 'required',
             'cin' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+
         ];
     }
 
@@ -29,6 +32,8 @@ class CandidateRequest extends FormRequest
             'lastName.required' => 'Nom du candidat est obligatoire !',
             'firstName.required' => 'Prenom du candidat est obligatoire !',
             'cin.required' => 'CIN du candidat est obligatoire !',
+            'email.required' => 'Email du candidat est obligatoire !',
+            'phone.required' => 'Téléphone du candidat est obligatoire !',
         ];
     }
 }
