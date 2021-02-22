@@ -19,7 +19,7 @@ class BaseRepository implements Interfaces\BaseRepositoryInterface
 
     public function all()
     {
-        return $this->model->all();
+        return $this->model->latest()->get();
     }
 
     public function create(array $data)

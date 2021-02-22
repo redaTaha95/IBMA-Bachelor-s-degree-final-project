@@ -13,6 +13,7 @@ class ClientController extends Controller
 
     public function __construct(ClientRepositoryInterface $clientRepository)
     {
+        $this->middleware('auth');
         $this->clientRepository = $clientRepository;
     }
 
@@ -37,6 +38,7 @@ class ClientController extends Controller
     public function show($id)
     {
         $client = $this->clientRepository->find($id);
+        return view('clients.show', compact('client'));
     }
 
     public function edit($id)

@@ -17,6 +17,7 @@ class ClientRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'email' => 'required',
         ];
     }
 
@@ -24,6 +25,7 @@ class ClientRequest extends FormRequest
     {
         return [
             'name.required' => 'Nom du client est obligatoire !!',
+            'email.required' => 'Email du client est obligatoire !!',
         ];
     }
 }
