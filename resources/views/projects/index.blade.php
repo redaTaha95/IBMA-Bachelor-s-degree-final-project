@@ -47,13 +47,13 @@
                         <table id="data_table" class="table table-striped dt-responsive nowrap w-100">
                             <thead>
                             <tr>
-                                <th>id</th>
+                                <th>Id</th>
                                 <th>Logo</th>
                                 <th>Nom</th>
-                                <th>Déscription</th>
+                                <th>Description</th>
                                <!-- <th>Date début</th>-->
                                 <!--<th>Date d'échéance</th>-->
-                                <th>budget</th>
+                                <th>Budget</th>
                                 <!--<th>teamMember</th>-->
                                 <th style="width: 15%;">Actions</th>
 

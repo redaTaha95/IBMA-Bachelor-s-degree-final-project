@@ -56,22 +56,22 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Déscription *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="description" placeholder="description" value="{{old('description')}}" required>
+                                        <input type="text" id="simpleinput" class="form-control" name="description" placeholder="Description" value="{{old('description')}}" required>
                                     </div>
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Date début</label>
-                                        <input type="date" id="simpleinput" class="form-control" name="startdate" placeholder="startdate" value="{{old('startdate')}}">
+                                        <input type="date" id="simpleinput" class="form-control" name="startdate" placeholder="Date début" value="{{old('startdate')}}">
                                     </div>
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Date d'échéance</label>
-                                        <input type="date" id="simpleinput" class="form-control" name="duedate" placeholder="duedate" value="{{old('duedate')}}">
+                                        <input type="date" id="simpleinput" class="form-control" name="duedate" placeholder="Date d'échéance" value="{{old('duedate')}}">
                                     </div>
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Budget</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="budget" placeholder="budget" value="{{old('budget')}}">
+                                        <input type="text" id="simpleinput" class="form-control" name="budget" placeholder="Budget" value="{{old('budget')}}">
                                     </div>
 
 
@@ -82,7 +82,7 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Membres d'équipe</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="teamMember" placeholder="teamMember" value="{{old('teamMember')}}">
+                                        <input type="text" id="simpleinput" class="form-control" name="teamMember" placeholder="Membres d'équipe" value="{{old('teamMember')}}">
                                     </div>
 
                                     <div class="form-group mb-3">

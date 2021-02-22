@@ -8,7 +8,7 @@ $('.delete-project').on('click', function (event) {
         buttonsStyling: false,
     })
     swalWithBootstrapButtons({
-        title: 'Souhaitez-vous vraiment supprimer ce project ?',
+        title: 'Souhaitez-vous vraiment supprimer ce projet ?',
         text: "",
         type: 'warning',
         showCancelButton: true,
