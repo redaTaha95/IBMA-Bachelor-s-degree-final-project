@@ -50,7 +50,7 @@
                                 <th>CIN</th>
                                 <th>Téléphone</th>
                                 <th>Email</th>
-                                <th style="width: 15%;">Actions</th>
+                                <th style="width: 15%;"></th>
                             </tr>
                             </thead>
 
@@ -59,7 +59,7 @@
                             @foreach($candidates as $index => $candidate)
                                 <tr>
                                     <td class="align-middle">{{$index + 1}}</td>
-                                    <td class="align-middle">{{$candidate->lastName.' '.$candidate->firstName}}</td>
+                                    <td class="align-middle">{{$candidate->last_name.' '.$candidate->first_name}}</td>
                                     <td class="align-middle">{{$candidate->cin}}</td>
                                     <td class="align-middle">{{$candidate->phone}}</td>
                                     <td class="align-middle">{{$candidate->email}}</td>

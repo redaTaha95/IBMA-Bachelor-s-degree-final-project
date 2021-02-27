@@ -51,46 +51,45 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Nom *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="lastName" placeholder="Nom" value="{{old('lastName', $candidate->lastName)}}">
+                                        <input type="text" id="simpleinput" class="form-control" name="last_name" placeholder="Nom" value="{{old('lastName', $candidate->last_name)}}">
                                     </div>
 
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">CIN *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="cin" placeholder="CIN" value="{{old('cin', $candidate->cin)}}">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Téléphone *</label>
+                                        <input type="tel" id="simpleinput" class="form-control" name="phone" placeholder="Téléphone" value="{{old('phone', $candidate->phone)}}">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Adresse</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="Adresse" value="{{old('address',$candidate->address)}}">
+                                    </div>
+
+                                </div> <!-- end col -->
+
+                                <div class="col-lg-6">
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Prénom *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="first_name" placeholder="Prénom" value="{{old('firstName', $candidate->first_name)}}">
+                                    </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Date de Naissance</label>
                                         <input type="date" id="simpleinput" class="form-control" name="birthday" placeholder="Date de Naissance" value="{{old('birthday', $candidate->birthday)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Email</label>
+                                        <label for="simpleinput">Email *</label>
                                         <input type="email" id="simpleinput" class="form-control" name="email" placeholder="Email" value="{{old('email', $candidate->email)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Adresse</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="Address" value="{{old('address',$candidate->address)}}">
+                                        <label for="simpleinput">Ville</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="city" placeholder="Ville" value="{{old('city', $candidate->city)}}">
                                     </div>
-
-                                </div> <!-- end col -->
-
-                                <div class="col-lg-6">
-                                        <div class="form-group mb-3">
-                                            <label for="simpleinput">Prénom *</label>
-                                            <input type="text" id="simpleinput" class="form-control" name="firstName" placeholder="Prénom" value="{{old('firstName', $candidate->firstName)}}">
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label for="simpleinput">CIN *</label>
-                                            <input type="text" id="simpleinput" class="form-control" name="cin" placeholder="CIN" value="{{old('cin', $candidate->cin)}}">
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label for="simpleinput">Téléphone</label>
-                                            <input type="tel" id="simpleinput" class="form-control" name="phone" placeholder="Téléphone" value="{{old('phone', $candidate->phone)}}">
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label for="simpleinput">Ville</label>
-                                            <input type="text" id="simpleinput" class="form-control" name="city" placeholder="Ville" value="{{old('city', $candidate->city)}}">
-                                        </div>
                                 </div>
                                     <!-- end col -->
                             </div>

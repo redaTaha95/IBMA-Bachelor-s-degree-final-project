@@ -27,86 +27,85 @@
         <!-- end page title -->
 
         <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="header-title">Informations générales</h4>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title">Informations générales</h4>
 
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
-                    <br>
-                    <form action="{{route('candidates.store')}}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <div class="row">
-                            <div class="col-lg-6">
+                        <br>
+                        <form action="{{route('candidates.store')}}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-lg-6">
 
-                                <div class="form-group mb-3">
-                                    <label for="simpleinput">Nom *</label>
-                                    <input type="text" id="simpleinput" class="form-control" name="lastName" placeholder="Nom *" value="{{old('lastName')}}">
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Nom *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="last_name" placeholder="Nom" value="{{old('last_name')}}">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">CIN *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="cin" placeholder="CIN" value="{{old('cin')}}">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Téléphone *</label>
+                                        <input type="tel" id="simpleinput" class="form-control" name="phone" placeholder="Téléphone" value="{{old('phone')}}">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Adresse</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="Adresse" value="{{old('address')}}">
+                                    </div>
+
+                                </div> <!-- end col -->
+
+                                <div class="col-lg-6">
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Prénom *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="first_name" placeholder="Prénom" value="{{old('first_name')}}">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Date de Naissance</label>
+                                        <input type="date" id="birthday" class="form-control" name="birthday" placeholder="Date de Naissance" value="{{old('birthday')}}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email">Email *</label>
+                                        <input type="email" id="email" class="form-control" name="email" placeholder="e.g : ABC@gmail.com"  data-parsley-trigger="change" required="" data-parsley-id="7" value="{{old('email')}}">
+                                        <ul class="parsley-errors-list" id="parsley-id-7" aria-hidden="true"></ul>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">Ville</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="city" placeholder="Ville" value="{{old('city')}}">
+                                    </div>
+
                                 </div>
+                                <!-- end col -->
+                            </div>
+                            <!-- end row-->
+                            <div class="row">
+                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">Ajouter</button>
+                                <a href="{{url('candidates')}}" class="btn btn-white btn-rounded waves-effect">Annuler</a>
+                            </div>
+                        </form>
 
-                                <div class="form-group mb-3">
-                                    <label for="simpleinput">CIN *</label>
-                                    <input type="text" id="simpleinput" class="form-control" name="cin" placeholder="CIN" value="{{old('cin')}}">
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="simpleinput">Téléphone *</label>
-                                    <input type="tel" id="simpleinput" class="form-control" name="phone" placeholder="Téléphone" value="{{old('phone')}}">
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="simpleinput">Email</label>
-                                    <input type="email" id="simpleinput" class="form-control" name="email" placeholder="Email" value="{{old('email')}}">
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="simpleinput">Adresse</label>
-                                    <input type="text" id="simpleinput" class="form-control" name="address" placeholder="Adresse" value="{{old('address')}}">
-                                </div>
-
-                            </div> <!-- end col -->
-
-                            <div class="col-lg-6">
-
-                                <div class="form-group mb-3">
-                                    <label for="simpleinput">Prénom *</label>
-                                    <input type="text" id="simpleinput" class="form-control" name="firstName" placeholder="Prénom" value="{{old('firstName')}}">
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="simpleinput">Date de Naissance</label>
-                                    <input type="date" id="date-input" class="form-control" name="birthday" placeholder="Date de Naissance" value="{{old('birthday')}}">
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="simpleinput">Ville</label>
-                                    <input type="text" id="simpleinput" class="form-control" name="city" placeholder="Ville" value="{{old('city')}}">
-                                </div>
-
-                            </div> <!-- end col -->
-
-                        </div>
-
-                        <!-- end row-->
-                        <div class="row">
-                            <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">Ajouter</button>
-                            <a href="{{url('candidates')}}" class="btn btn-white btn-rounded waves-effect">Annuler</a>
-                        </div>
-                    </form>
-
-                </div> <!-- end card-body -->
-            </div> <!-- end card -->
-        </div><!-- end col -->
-    </div>
+                    </div> <!-- end card-body -->
+                </div> <!-- end card -->
+            </div><!-- end col -->
+        </div>
     </div>
 
 @endsection
@@ -132,7 +131,7 @@
             if (day < 10)
                 day = "0" + day;
             var today = year + "-" + month + "-" + day;
-            $("#date-input").attr("value", today);
+            $("#birthday").attr("value", today);
         });
 
     </script>
