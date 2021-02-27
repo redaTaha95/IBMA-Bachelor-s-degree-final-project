@@ -30,22 +30,13 @@
                     <div class="collapse" id="sidebarEcommerce">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{url('employees')}}">
-                                    <i class="fas fa-user-tie"></i>
-                                    <span>  Employés  </span>
-                                </a>
+                                <a href="{{url('employees')}}">Employés</a>
                             </li>
                             <li>
-                                <a href="ecommerce-products.html">
-                                    <i class="fas fa-search"></i>
-                                    <span> Demande de recrutement </span>
-                                </a>
+                                <a href="ecommerce-products.html">Demande de recrutement</a>
                             </li>
                             <li>
-                                <a href="{{url('candidates')}}">
-                                    <i class="fas fa-user-check"></i>
-                                    <span> Candidats </span>
-                                </a>
+                                <a href="{{url('candidates')}}">Candidats</a>
                             </li>
                         </ul>
                     </div>
