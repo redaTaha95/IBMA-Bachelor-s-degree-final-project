@@ -1,3 +1,4 @@
 {{ $client->name }}
 
 {{ $client->email }}
+

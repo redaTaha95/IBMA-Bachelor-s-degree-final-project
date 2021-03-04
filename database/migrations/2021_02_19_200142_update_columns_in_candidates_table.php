@@ -14,8 +14,8 @@ class UpdateColumnsInCandidatesTable extends Migration
     public function up()
     {
         Schema::table('candidates', function (Blueprint $table) {
-            $table->renameColumn('lastName', 'last_name');
-            $table->renameColumn('firstName', 'first_name');
+            //$table->renameColumn('lastName', 'last_name');
+            //$table->renameColumn('firstName', 'first_name');
             $table->string('cin')->nullable($value = false)->change();
             $table->string('email')->nullable($value = false)->change();
             $table->string('phone')->nullable($value = false)->change();

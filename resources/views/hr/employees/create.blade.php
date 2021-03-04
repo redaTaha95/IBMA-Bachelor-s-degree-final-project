@@ -85,7 +85,7 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Adresse</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="Address" value="{{old('address')}}">
+                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="Adresse" value="{{old('address')}}">
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Date d'embauche *</label>

@@ -55,12 +55,12 @@
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Téléphone</label>
+                                        <label for="simpleinput">Téléphone *</label>
                                         <input type="tel" id="simpleinput" class="form-control" name="phone" placeholder="Téléphone" value="{{old('phone', $employee->phone)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Email</label>
+                                        <label for="simpleinput">Email *</label>
                                         <input type="email" id="simpleinput" class="form-control" name="email" placeholder="Email" value="{{old('email', $employee->email)}}">
                                     </div>
 
@@ -75,10 +75,10 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Adresse</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="Address" value="{{old('address', $employee->address)}}">
+                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="Adresse" value="{{old('address', $employee->address)}}">
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Date d'embauche</label>
+                                        <label for="simpleinput">Date d'embauche *</label>
                                         <input class="form-control" type="date" id="example-date-input" name="hire_date" value="{{old('hire_date',$employee->hire_date)}}">
                                     </div>
                                     <div class="form-group mb-3">
