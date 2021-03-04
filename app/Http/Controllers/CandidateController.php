@@ -11,6 +11,7 @@ class CandidateController extends Controller
 
     public function __construct(CandidateRepositoryInterface $candidateRepository)
     {
+        $this->middleware('auth');
         $this->candidateRepository = $candidateRepository;
     }
 
@@ -38,6 +39,7 @@ class CandidateController extends Controller
     public function show($id)
     {
         $candidate = $this->candidateRepository->find($id);
+        return view('hr.candidates.show', compact('candidate'));
     }
 
 

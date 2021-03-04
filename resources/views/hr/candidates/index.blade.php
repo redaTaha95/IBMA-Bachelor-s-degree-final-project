@@ -64,7 +64,7 @@
                                     <td class="align-middle">{{$candidate->phone}}</td>
                                     <td class="align-middle">{{$candidate->email}}</td>
                                     <td class="align-middle">
-                                        <a href="" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
+                                        <a href="{{route('candidates.show', $candidate->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
                                         <a href="{{route('candidates.edit', $candidate->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
                                         <a href="{{url('candidates/'.$candidate->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-candidate"><i class="mdi mdi-trash-can-outline"></i></a>
                                     </td>
