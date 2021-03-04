@@ -12,6 +12,7 @@ class ProjectController extends Controller
     private $projectRepository;
 
     public function __construct(ProjectRepositoryInterface $projectRepository){
+        $this->middleware('auth');
         $this->projectRepository = $projectRepository;
     }
 
@@ -36,6 +37,7 @@ class ProjectController extends Controller
     public function show($id)
     {
         $project = $this->projectRepository->find($id);
+        return view('projects.show', compact('project'));
     }
 
     public function edit($id)
