@@ -32,7 +32,7 @@
                             <li>
                                 <a href="{{url('employees')}}">
                                     <i class="fas fa-user-tie"></i>
-                                    <span>  Employés  </span>
+                                    <span>  {{ __('employee.employee_folder') }}  </span>
                                 </a>
                             </li>
                             <li>

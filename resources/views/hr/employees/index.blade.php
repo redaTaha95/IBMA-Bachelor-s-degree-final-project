@@ -21,11 +21,11 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Employés</a></li>
-                            <li class="breadcrumb-item active">Liste des employés</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('employee.employee_folder') }}</a></li>
+                            <li class="breadcrumb-item active">{{ __('employee.list') }}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Liste des employés</h4>
+                    <h4 class="page-title">{{ __('employee.list') }}</h4>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
 
                         <div class="text-lg-right mb-2">
                             <a href="{{url('employees/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>Ajouter un employé
+                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{ __('employee.addEmployee') }}
                             </a>
                         </div>
 
@@ -46,11 +46,11 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Logo</th>
-                                <th>Nom</th>
-                                <th>Téléphone</th>
-                                <th>Email</th>
-                                <th style="width: 15%;">Actions</th>
+                                <th>{{ __('employee.logo') }}</th>
+                                <th>{{ __('employee.name') }}</th>
+                                <th>{{ __('employee.phone') }}</th>
+                                <th>{{ __('employee.email') }}</th>
+                                <th style="width: 15%;">{{ __('employee.actions') }}</th>
                             </tr>
                             </thead>
 
@@ -111,7 +111,7 @@
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "Employé a été ajouté avec succés",
+                title: "{{ __('employee.addSuccessfully') }}",
                 showConfirmButton: !1,
                 timer: 1500
             })
@@ -123,7 +123,7 @@
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "Employé a été modifié avec succés",
+                title: "{{ __('employee.updatedSuccessfully') }}",
                 showConfirmButton: !1,
                 timer: 1500
             })
@@ -144,11 +144,11 @@
                 "oLanguage": {
                     "sInfo": "Affichage de la page _PAGE_ sur _PAGES_",
                     "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
-                    "sSearchPlaceholder": "Rechercher...",
-                    "sLengthMenu": "Résultats :  _MENU_",
-                    "sEmptyTable": "Aucune donnée disponible",
-                    "sZeroRecords": "Aucun enregistrements correspondants trouvés",
-                    "sInfoFiltered":   "(filtré de _MAX_ entrées au total)",
+                    "sSearchPlaceholder": "{{ __('employee.search') }}...",
+                    "sLengthMenu": "{{ __('employee.results') }} :  _MENU_",
+                    "sEmptyTable": "{{ __('employee.nothing_found') }}",
+                    "sZeroRecords": "{{ __('employee.No_matching_records_found') }}",
+                    "sInfoFiltered":   "({{ __('employee.filtered') }})",
                 },
                 'aoColumnDefs': [{
                     'bSortable': false,
