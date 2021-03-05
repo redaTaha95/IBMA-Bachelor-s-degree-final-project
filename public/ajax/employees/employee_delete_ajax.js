@@ -1,6 +1,7 @@
 $('.delete-employee').on('click', function (event) {
     event.preventDefault();
     var url = $(this).attr('href');
+    var wrn = "{{ __('employee.warning') }}";
     csrf_token = $('meta[name="csrf-token"]').attr('content');
     const swalWithBootstrapButtons = swal.mixin({
         confirmButtonClass: 'btn btn-success btn-rounded',
@@ -8,7 +9,7 @@ $('.delete-employee').on('click', function (event) {
         buttonsStyling: false,
     })
     swalWithBootstrapButtons({
-        title: 'Souhaitez-vous vraiment supprimer cet employé ?',
+        title: "Souhaitez-vous vraiment supprimer cet employé ?",
         text: "",
         type: 'warning',
         showCancelButton: true,

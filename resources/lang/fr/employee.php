@@ -27,8 +27,8 @@ return[
     'filtered'=>'filtré de _MAX_ entrées au total',
     'update_page'=>'Modifier employé',
     'update'=>'Modifier',
-
-
+    'show_pages'=>'Affichage de la page _PAGE_ sur _PAGES_',
+    'warning' => 'Souhaitez-vous vraiment supprimer cet employé ?',
 
 
 ];
