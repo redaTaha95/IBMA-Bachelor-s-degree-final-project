@@ -21,11 +21,11 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Candidats</a></li>
-                            <li class="breadcrumb-item active">Liste des candidats</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Demandes de recrutement</a></li>
+                            <li class="breadcrumb-item active">Liste des demandes de recrutement</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Liste des candidats</h4>
+                    <h4 class="page-title">Liste des demandes de recrutement</h4>
                 </div>
             </div>
         </div>
@@ -37,8 +37,8 @@
                     <div class="card-body">
 
                         <div class="text-lg-right mb-2">
-                            <a href="{{url('candidates/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>Ajouter un candidat
+                            <a href="{{url('recruitment_demands/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
+                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>Ajouter une demande de recrutement
                             </a>
                         </div>
 
@@ -46,27 +46,27 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Nom Complet</th>
-                                <th>CIN</th>
-                                <th>Téléphone</th>
-                                <th>Email</th>
+                                <th>Poste</th>
+                                <th>Nombre de profil</th>
+                                <th>Date de la demande</th>
+                                <th>Statut de la demande</th>
                                 <th style="width: 15%;"></th>
                             </tr>
                             </thead>
 
 
                             <tbody>
-                            @foreach($candidates as $index => $candidate)
+                            @foreach($recruitmentDemands as $index => $recruitmentDemand)
                                 <tr>
-                                    <td class="align-middle">{{$candidate->id}}</td>
-                                    <td class="align-middle">{{$candidate->first_name.' '.$candidate->last_name}}</td>
-                                    <td class="align-middle">{{$candidate->cin}}</td>
-                                    <td class="align-middle">{{$candidate->phone}}</td>
-                                    <td class="align-middle">{{$candidate->email}}</td>
+                                    <td class="align-middle">{{$recruitmentDemand->id}}</td>
+                                    <td class="align-middle">{{$recruitmentDemand->post_name}}</td>
+                                    <td class="align-middle">{{$recruitmentDemand->number_of_profiles}}</td>
+                                    <td class="align-middle">{{$recruitmentDemand->date_of_demand}}</td>
+                                    <td class="align-middle">{{$recruitmentDemand->status_of_demand}}</td>
                                     <td class="align-middle">
-                                        <a href="{{route('candidates.show', $candidate->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
-                                        <a href="{{route('candidates.edit', $candidate->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{url('candidates/'.$candidate->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-candidate"><i class="mdi mdi-trash-can-outline"></i></a>
+                                        <a href="{{route('recruitment_demands.show', $recruitmentDemand->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
+                                        <a href="{{route('recruitment_demands.edit', $recruitmentDemand->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
+                                        <a href="{{url('recruitment_demands/'.$recruitmentDemand->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-recruitment_demands"><i class="mdi mdi-trash-can-outline"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -98,14 +98,14 @@
     <!-- Sweet alert init js-->
     <script src="{{asset('assets/js/pages/sweet-alerts.init.js')}}"></script>
 
-    <script src="{{asset('ajax/candidates/candidate_delete_ajax.js')}}"></script>
+    <script src="{{asset('ajax/recruitment_demands/recruitment_demand_delete_ajax.js')}}"></script>
 
     @if(session('success'))
         <script>
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "Candidat a été ajouté avec succés",
+                title: "Demande de recrutement a été ajoutée avec succés",
                 showConfirmButton: !1,
                 timer: 1500
             })
@@ -117,7 +117,7 @@
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "Candidat a été modifié avec succés",
+                title: "Demande de recrutement a été modifiée avec succés",
                 showConfirmButton: !1,
                 timer: 1500
             })

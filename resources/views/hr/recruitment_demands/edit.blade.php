@@ -16,11 +16,11 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Candidats</a></li>
-                            <li class="breadcrumb-item active">Modifier un candidat</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Demande de recrutement</a></li>
+                            <li class="breadcrumb-item active">Modifier une demande de recrutement</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Modifier un candidat</h4>
+                    <h4 class="page-title">Modifier une demande de recrutement</h4>
                 </div>
             </div>
         </div>
@@ -43,52 +43,37 @@
                         @endif
 
                         <br>
-                        <form action="{{route('candidates.update', $candidate->id)}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('recruitment_demands.update', $recruitmentDemand->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row">
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Nom *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="last_name" placeholder="Nom" value="{{old('lastName', $candidate->last_name)}}">
+                                        <label for="simpleinput">Poste *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="post_name" placeholder="Poste" value="{{old('post_name', $recruitmentDemand->post_name)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">CIN *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="cin" placeholder="CIN" value="{{old('cin', $candidate->cin)}}">
+                                        <label for="simpleinput">Nombre de profil *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="number_of_profiles" placeholder="Nombre de profil" value="{{old('number_of_profiles', $recruitmentDemand->number_of_profiles)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Téléphone *</label>
-                                        <input type="tel" id="simpleinput" class="form-control" name="phone" placeholder="Téléphone" value="{{old('phone', $candidate->phone)}}">
-                                    </div>
-
-                                    <div class="form-group mb-3">
-                                        <label for="simpleinput">Adresse</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="Adresse" value="{{old('address',$candidate->address)}}">
+                                        <label for="simpleinput">Nombre d'années d'expérience *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="number_of_years_of_experience" placeholder="Nombre d'années d'expérience" value="{{old('number_of_years_of_experience', $recruitmentDemand->number_of_years_of_experience)}}">
                                     </div>
 
                                 </div> <!-- end col -->
 
                                 <div class="col-lg-6">
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Prénom *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="first_name" placeholder="Prénom" value="{{old('firstName', $candidate->first_name)}}">
+                                        <label for="simpleinput">Date de la demande *</label>
+                                        <input type="date" id="simpleinput" class="form-control" name="date_of_demand" placeholder="Date de la demande" value="{{old('date_of_demand', $recruitmentDemand->date_of_demand)}}">
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Date de Naissance</label>
-                                        <input type="date" id="simpleinput" class="form-control" name="birthday" placeholder="Date de Naissance" value="{{old('birthday', $candidate->birthday)}}">
-                                    </div>
-
-                                    <div class="form-group mb-3">
-                                        <label for="simpleinput">Email *</label>
-                                        <input type="email" id="simpleinput" class="form-control" name="email" placeholder="Email" value="{{old('email', $candidate->email)}}">
-                                    </div>
-
-                                    <div class="form-group mb-3">
-                                        <label for="simpleinput">Ville</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="city" placeholder="Ville" value="{{old('city', $candidate->city)}}">
+                                        <label for="simpleinput">Statut de la demande *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="status_of_demand" placeholder="Statut de la demande" value="{{old('status_of_demand', $recruitmentDemand->status_of_demand)}}">
                                     </div>
                                 </div>
                                     <!-- end col -->
@@ -96,7 +81,7 @@
                             <!-- end row-->
                                 <div class="row">
                                     <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">Modifier</button>
-                                    <a href="{{url('candidates')}}" class="btn btn-white btn-rounded waves-effect">Annuler</a>
+                                    <a href="{{url('recruitment_demands')}}" class="btn btn-white btn-rounded waves-effect">Annuler</a>
                                 </div>
                         </form>
 
