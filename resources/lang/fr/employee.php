@@ -13,7 +13,7 @@ return[
     'actions'=>'Actions',
     'salary' => 'Salaire',
     'updatedSuccessfully'=>'Employé a été modifié avec succés',
-    'employee.addSuccessfully' => 'Employé a été ajouté avec succés',
+    'addSuccessfully' => 'Employé a été ajouté avec succés',
     'information'=>'Informations générales',
     'example' =>'Exemple',
     'address'=>'Adresse',
@@ -28,7 +28,10 @@ return[
     'update_page'=>'Modifier employé',
     'update'=>'Modifier',
     'show_pages'=>'Affichage de la page _PAGE_ sur _PAGES_',
-    'warning' => 'Souhaitez-vous vraiment supprimer cet employé ?',
+    'warning_message' => 'Souhaitez-vous vraiment supprimer cet employé ?',
+    'secure_data'=>'Vos données sont en sécurité',
+    'delete'=>'Supprimer',
+    'deleted_data'=>'Vos données ont été supprimées.',
 
 
 ];

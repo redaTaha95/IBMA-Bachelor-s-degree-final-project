@@ -39,7 +39,10 @@ class EmployeeTest extends TestCase
 
         $response = $this->get('/employees/'.$employee->id);
 
-        $response->assertSee($employee->name);
+        $response->assertSee($employee->name)
+                 ->assertSee($employee->phone)
+                 ->assertSee($employee->email)
+                 ->assertSee($employee->hire_date);
     }
 
     /** @test */

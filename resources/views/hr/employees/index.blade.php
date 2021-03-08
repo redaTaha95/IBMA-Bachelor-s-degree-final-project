@@ -84,6 +84,11 @@
             </div><!-- end col-->
         </div>
     </div>
+    <div id="warning_message" hidden>{{ __('employee.warning_message') }}</div>
+    <div id="secure" hidden>{{ __('employee.secure_data') }}</div>
+    <div id="delete_btn" hidden>{{ __('employee.delete') }}</div>
+    <div id="deleted_data" hidden>{{ __('employee.deleted_data') }}</div>
+    <div id="cancel" hidden>{{ __('employee.cancel') }}</div>
 @endsection
 
 @section('js')

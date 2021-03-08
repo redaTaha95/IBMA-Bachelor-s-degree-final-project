@@ -27,6 +27,11 @@ return[
     'update_page'=>'Edit employee',
     'update'=>'Edit',
     'show_pages'=>'Display of page _PAGE_ on _PAGES_',
+    'warning_message' => 'Are you sure you want to delete this employee ?',
+    'secure_data'=>'Your data is safe',
+    'delete'=>'Delete',
+    'deleted_data'=>'Your data has been deleted.',
+
 
 
 ];
