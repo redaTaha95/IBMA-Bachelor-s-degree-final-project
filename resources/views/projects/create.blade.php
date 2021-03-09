@@ -16,12 +16,12 @@
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Projets</a></li>
-                            <li class="breadcrumb-item active">Ajouter un projet</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('tradprojet.title4') }}</a></li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('tradprojet.title5') }}</a></li>
+                            <li class="breadcrumb-item active">{{ __('tradprojet.title6') }}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Ajouter un projet</h4>
+                    <h4 class="page-title">{{ __('tradprojet.introduction2') }}</h4>
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">Informations générales du projet</h4>
+                        <h4 class="header-title">{{ __('tradprojet.title7') }}</h4>
 
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -50,27 +50,27 @@
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Nom *</label>
+                                        <label for="simpleinput">{{ __('tradprojet.addnom') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name')}}" required>
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Déscription *</label>
+                                        <label for="simpleinput">{{ __('tradprojet.adddesc') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="description" placeholder="Description" value="{{old('description')}}" required>
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Date début</label>
+                                        <label for="simpleinput">{{ __('tradprojet.adddated') }}</label>
                                         <input type="date" id="simpleinput" class="form-control" name="startdate" placeholder="Date début" value="{{old('startdate')}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Date d'échéance</label>
+                                        <label for="simpleinput">{{ __('tradprojet.adddatef') }}</label>
                                         <input type="date" id="simpleinput" class="form-control" name="duedate" placeholder="Date d'échéance" value="{{old('duedate')}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Budget</label>
+                                        <label for="simpleinput">{{ __('tradprojet.addbud') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="budget" placeholder="Budget" value="{{old('budget')}}">
                                     </div>
 
@@ -81,12 +81,12 @@
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Membres d'équipe</label>
+                                        <label for="simpleinput">{{ __('tradprojet.addteam') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="teamMember" placeholder="Membres d'équipe" value="{{old('teamMember')}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Logo</label>
+                                        <label for="simpleinput">{{ __('tradprojet.addlogo') }}</label>
                                         <input type="file" data-plugins="dropify" name="logo"/>
                                     </div>
 
@@ -95,8 +95,8 @@
                             </div>
                             <!-- end row-->
                             <div class="row">
-                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">Ajouter</button>
-                                <a href="{{url('projects')}}" class="btn btn-white btn-rounded waves-effect">Annuler</a>
+                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">{{ __('tradprojet.btnajout') }}</button>
+                                <a href="{{url('projects')}}" class="btn btn-white btn-rounded waves-effect">{{ __('tradprojet.btnan') }}</a>
                             </div>
                         </form>
 
