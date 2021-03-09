@@ -17,10 +17,10 @@
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Clients</a></li>
-                            <li class="breadcrumb-item active">Ajouter un client</li>
+                            <li class="breadcrumb-item active">{{__('client.add_client')}}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Ajouter un client</h4>
+                    <h4 class="page-title">{{__('client.add_client')}}</h4>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title">Informations générales</h4>
+                    <h4 class="header-title">{{__('client.general_information')}}</h4>
 
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -49,13 +49,13 @@
                             <div class="col-lg-6">
 
                                 <div class="form-group mb-3">
-                                    <label for="simpleinput">Nom *</label>
-                                    <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name')}}">
+                                    <label for="simpleinput">{{__('client.name')}} *</label>
+                                    <input type="text" id="simpleinput" class="form-control" name="name" placeholder="{{__('client.name')}}" value="{{old('name')}}">
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="simpleinput">Téléphone</label>
-                                    <input type="tel" id="simpleinput" class="form-control" name="phone" placeholder="Téléphone" value="{{old('phone')}}">
+                                    <label for="simpleinput">{{__('client.phone')}}</label>
+                                    <input type="tel" id="simpleinput" class="form-control" name="phone" placeholder="{{__('client.phone')}}" value="{{old('phone')}}">
                                 </div>
 
                                 <div class="form-group mb-3">
@@ -64,8 +64,8 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="simpleinput">Pays</label>
-                                    <input type="text" id="simpleinput" class="form-control" name="country" placeholder="Pays" value="{{old('country')}}">
+                                    <label for="simpleinput">{{__('client.country')}}</label>
+                                    <input type="text" id="simpleinput" class="form-control" name="country" placeholder="{{__('client.country')}}" value="{{old('country')}}">
                                 </div>
 
                             </div> <!-- end col -->
@@ -73,8 +73,8 @@
                             <div class="col-lg-6">
 
                                 <div class="form-group mb-3">
-                                    <label for="simpleinput">Adresse</label>
-                                    <input type="text" id="simpleinput" class="form-control" name="address" placeholder="Address" value="{{old('address')}}">
+                                    <label for="simpleinput">{{__('client.address')}}</label>
+                                    <input type="text" id="simpleinput" class="form-control" name="address" placeholder="{{__('client.address')}}" value="{{old('address')}}">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="simpleinput">Logo</label>
@@ -86,8 +86,8 @@
                         </div>
                         <!-- end row-->
                         <div class="row">
-                            <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">Ajouter</button>
-                            <a href="{{url('clients')}}" class="btn btn-white btn-rounded waves-effect">Annuler</a>
+                            <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">{{__('client.add')}}</button>
+                            <a href="{{url('clients')}}" class="btn btn-white btn-rounded waves-effect">{{__('client.cancel')}}</a>
                         </div>
                     </form>
 

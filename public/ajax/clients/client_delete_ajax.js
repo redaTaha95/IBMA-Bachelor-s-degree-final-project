@@ -2,22 +2,26 @@ $('.delete-client').on('click', function (event) {
     event.preventDefault();
     var url = $(this).attr('href');
     csrf_token = $('meta[name="csrf-token"]').attr('content');
-    const swalWithBootstrapButtons = swal.mixin({
-        confirmButtonClass: 'btn btn-success btn-rounded',
-        cancelButtonClass: 'btn btn-danger btn-rounded mr-3',
-        buttonsStyling: false,
+
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success btn-rounded',
+            cancelButton: 'btn btn-danger btn-rounded mr-3'
+        },
+        buttonsStyling: false
     })
-    swalWithBootstrapButtons({
-        title: 'Souhaitez-vous vraiment supprimer ce client ?',
+
+    swalWithBootstrapButtons.fire({
+        title: delete_confirmation,
         text: "",
-        type: 'warning',
+        icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Supprimer',
-        cancelButtonText: 'Annuler',
+        confirmButtonText: _delete,
+        cancelButtonText: cancel,
         reverseButtons: true,
         padding: '2em'
-    }).then(function(result) {
-        if (result.value) {
+    }).then((result) => {
+        if (result.isConfirmed) {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -31,18 +35,19 @@ $('.delete-client').on('click', function (event) {
                     '_token': csrf_token
                 },
             })
-            swalWithBootstrapButtons(
-                'Supprimé!',
-                'Vos données ont été supprimées.',
+            swalWithBootstrapButtons.fire(
+                deleted,
+                data_deleted,
                 'success'
             )
             window.setTimeout(function(){location.reload()},1000)
         } else if (
-            result.dismiss === swal.DismissReason.cancel
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
         ) {
-            swalWithBootstrapButtons(
-                'Annulé',
-                'Vos données sont en sécurité',
+            swalWithBootstrapButtons.fire(
+                canceled,
+                data_is_safe,
                 'error'
             )
         }

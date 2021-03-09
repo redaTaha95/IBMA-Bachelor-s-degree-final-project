@@ -7,8 +7,6 @@
     <link href="{{asset('assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/libs/datatables.net-select-bs4/css//select.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
 
-    <!-- Sweet Alert-->
-    <link href="{{asset('assets/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -22,10 +20,10 @@
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Clients</a></li>
-                            <li class="breadcrumb-item active">Liste des clients</li>
+                            <li class="breadcrumb-item active">{{__('client.list_of_clients')}}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Liste des clients</h4>
+                    <h4 class="page-title">{{__('client.list_of_clients')}}</h4>
                 </div>
             </div>
         </div>
@@ -38,7 +36,7 @@
 
                         <div class="text-lg-right mb-2">
                             <a href="{{url('clients/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>Ajouter un client
+                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{__('client.add_client')}}
                             </a>
                         </div>
 
@@ -47,8 +45,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>Logo</th>
-                                <th>Nom</th>
-                                <th>Téléphone</th>
+                                <th>{{__('client.name')}}</th>
+                                <th>{{__('client.phone')}}</th>
                                 <th>Email</th>
                                 <th style="width: 15%;">Actions</th>
                             </tr>
@@ -99,11 +97,7 @@
     <!-- Datatables init -->
     <script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>
 
-    <script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-    <!-- Sweet alert init js-->
-    <script src="{{asset('assets/js/pages/sweet-alerts.init.js')}}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>>
 
     {{--file of delete client--}}
     <script src="{{asset('ajax/clients/client_delete_ajax.js')}}"></script>
@@ -124,7 +118,7 @@
 
             Toast.fire({
                 icon: 'success',
-                title: 'Client a été ajouté avec succés'
+                title: '{{__('client.client_added')}}'
             })
         </script>
     @endif
@@ -145,7 +139,7 @@
 
             Toast.fire({
                 icon: 'success',
-                title: 'Client a été modifié avec succés'
+                title: '{{__('client.client_updated')}}'
             })
         </script>
     @endif
@@ -162,13 +156,13 @@
                     $(".dataTables_paginate > .pagination").addClass("pagination-rounded")
                 },
                 "oLanguage": {
-                    "sInfo": "Affichage de la page _PAGE_ sur _PAGES_",
+                    "sInfo": "{{__('datatable.show_page')}} _PAGE_ {{__('datatable.in')}} _PAGES_",
                     "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
-                    "sSearchPlaceholder": "Rechercher...",
-                    "sLengthMenu": "Résultats :  _MENU_",
-                    "sEmptyTable": "Aucune donnée disponible",
-                    "sZeroRecords": "Aucun enregistrements correspondants trouvés",
-                    "sInfoFiltered":   "(filtré de _MAX_ entrées au total)",
+                    "sSearchPlaceholder": "{{__('datatable.search')}}...",
+                    "sLengthMenu": "{{__('datatable.results')}} :  _MENU_",
+                    "sEmptyTable": "{{__('datatable.no_data')}}",
+                    "sZeroRecords": "{{__('datatable.search_failed')}}",
+                    "sInfoFiltered":   "({{__('datatable.filtered_from')}} _MAX_ {{__('datatable.total_inputs')}})",
                 },
                 'aoColumnDefs': [{
                     'bSortable': false,
@@ -180,6 +174,16 @@
                 "aaSorting": []
             } );
         } );
+    </script>
+
+    <script>
+        var delete_confirmation = '{{__('client.delete_confirmation')}}';
+        var _delete = '{{__('client.delete')}}';
+        var cancel = '{{__('client.cancel')}}';
+        var deleted = '{{__('client.deleted')}}';
+        var data_deleted = '{{__('client.data_deleted')}}';
+        var canceled = '{{__('client.canceled')}}';
+        var data_is_safe = '{{__('client.data_is_safe')}}';
     </script>
 
 @endsection
