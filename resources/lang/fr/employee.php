@@ -31,6 +31,8 @@ return[
     'warning_message' => 'Souhaitez-vous vraiment supprimer cet employé ?',
     'secure_data'=>'Vos données sont en sécurité',
     'delete'=>'Supprimer',
+    'deleted'=> 'Supprimé',
+    'canceled' => 'Annulé',
     'deleted_data'=>'Vos données ont été supprimées.',
 
 

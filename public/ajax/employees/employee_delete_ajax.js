@@ -6,6 +6,8 @@ $('.delete-employee').on('click', function (event) {
     const delete_btn = document.querySelector('div[id=delete_btn]').textContent;
     const deleted_data = document.querySelector('div[id=deleted_data]').textContent;
     const cancel = document.querySelector('div[id=cancel]').textContent;
+    const canceled = document.querySelector('div[id=canceled]').textContent;
+    const deleted = document.querySelector('div[id=deleted]').textContent;
 
     csrf_token = $('meta[name="csrf-token"]').attr('content');
     const swalWithBootstrapButtons = swal.mixin({
@@ -38,7 +40,7 @@ $('.delete-employee').on('click', function (event) {
                 },
             })
             swalWithBootstrapButtons(
-                delete_btn+'!',
+                deleted+'!',
                 deleted_data,
                 'success'
             )
@@ -47,7 +49,7 @@ $('.delete-employee').on('click', function (event) {
             result.dismiss === swal.DismissReason.cancel
         ) {
             swalWithBootstrapButtons(
-                cancel,
+                canceled,
                 secure,
                 'error'
             )

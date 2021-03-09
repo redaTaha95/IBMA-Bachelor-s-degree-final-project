@@ -30,6 +30,8 @@ return[
     'warning_message' => 'Are you sure you want to delete this employee ?',
     'secure_data'=>'Your data is safe',
     'delete'=>'Delete',
+    'deleted'=> 'Deleted',
+    'canceled' => 'canceled',
     'deleted_data'=>'Your data has been deleted.',
 
 

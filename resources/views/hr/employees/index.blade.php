@@ -89,6 +89,8 @@
     <div id="delete_btn" hidden>{{ __('employee.delete') }}</div>
     <div id="deleted_data" hidden>{{ __('employee.deleted_data') }}</div>
     <div id="cancel" hidden>{{ __('employee.cancel') }}</div>
+    <div id="canceled" hidden>{{ __('employee.canceled') }}</div>
+    <div id="deleted" hidden>{{ __('employee.deleted') }}</div>
 @endsection
 
 @section('js')
