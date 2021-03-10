@@ -94,32 +94,52 @@
     <script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>
 
     <script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Sweet alert init js-->
     <script src="{{asset('assets/js/pages/sweet-alerts.init.js')}}"></script>
 
+    {{--file of delete client--}}
     <script src="{{asset('ajax/recruitment_demands/recruitment_demand_delete_ajax.js')}}"></script>
 
     @if(session('success'))
         <script>
-            Swal.fire({
-                position: "top-end",
-                type: "success",
-                title: "Demande de recrutement a été ajoutée avec succés",
-                showConfirmButton: !1,
-                timer: 1500
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Demande de recrutement a été ajoutée avec succés'
             })
         </script>
     @endif
 
     @if(session('update'))
         <script>
-            Swal.fire({
-                position: "top-end",
-                type: "success",
-                title: "Demande de recrutement a été modifiée avec succés",
-                showConfirmButton: !1,
-                timer: 1500
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Demande de recrutement a été modifiée avec succés'
             })
         </script>
     @endif

@@ -22,10 +22,10 @@
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Candidats</a></li>
-                            <li class="breadcrumb-item active">Liste des candidats</li>
+                            <li class="breadcrumb-item active">{{__('candidate.list_of_candidates')}}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Liste des candidats</h4>
+                    <h4 class="page-title">{{__('candidate.list_of_candidates')}}</h4>
                 </div>
             </div>
         </div>
@@ -38,18 +38,18 @@
 
                         <div class="text-lg-right mb-2">
                             <a href="{{url('candidates/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>Ajouter un candidat
+                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{__('candidate.add_candidate')}}
                             </a>
                         </div>
 
                         <table id="data_table" class="table table-striped dt-responsive nowrap w-100">
                             <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>Nom Complet</th>
-                                <th>CIN</th>
-                                <th>Téléphone</th>
-                                <th>Email</th>
+                                <th>#</th>
+                                <th>{{__('candidate.last_name')}} Complet</th>
+                                <th>{{__('candidate.cin')}}</th>
+                                <th>{{__('candidate.phone')}}</th>
+                                <th>{{__('candidate.email')}}</th>
                                 <th style="width: 15%;"></th>
                             </tr>
                             </thead>
@@ -93,33 +93,50 @@
     <!-- Datatables init -->
     <script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>
 
-    <script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Sweet alert init js-->
-    <script src="{{asset('assets/js/pages/sweet-alerts.init.js')}}"></script>
 
     <script src="{{asset('ajax/candidates/candidate_delete_ajax.js')}}"></script>
 
     @if(session('success'))
         <script>
-            Swal.fire({
-                position: "top-end",
-                type: "success",
-                title: "Candidat a été ajouté avec succés",
-                showConfirmButton: !1,
-                timer: 1500
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'success',
+                title: '{{__('candidate.candidate_added')}}'
             })
         </script>
     @endif
 
     @if(session('update'))
         <script>
-            Swal.fire({
-                position: "top-end",
-                type: "success",
-                title: "Candidat a été modifié avec succés",
-                showConfirmButton: !1,
-                timer: 1500
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'success',
+                title: '{{__('candidate.candidate_updated')}}'
             })
         </script>
     @endif
@@ -136,13 +153,13 @@
                     $(".dataTables_paginate > .pagination").addClass("pagination-rounded")
                 },
                 "oLanguage": {
-                    "sInfo": "Affichage de la page _PAGE_ sur _PAGES_",
+                    "sInfo": "{{__('datatable.show_page')}} _PAGE_ {{__('datatable.in')}} _PAGES_",
                     "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
-                    "sSearchPlaceholder": "Rechercher...",
-                    "sLengthMenu": "Résultats :  _MENU_",
-                    "sEmptyTable": "Aucune donnée disponible",
-                    "sZeroRecords": "Aucun enregistrements correspondants trouvés",
-                    "sInfoFiltered":   "(filtré de _MAX_ entrées au total)",
+                    "sSearchPlaceholder": "{{__('datatable.search')}}...",
+                    "sLengthMenu": "{{__('datatable.results')}} :  _MENU_",
+                    "sEmptyTable": "{{__('datatable.no_data')}}",
+                    "sZeroRecords": "{{__('datatable.search_failed')}}",
+                    "sInfoFiltered":   "({{__('datatable.filtered_from')}} _MAX_ {{__('datatable.total_inputs')}})",
                 },
                 'aoColumnDefs': [{
                     'bSortable': false,
@@ -156,4 +173,13 @@
         } );
     </script>
 
+    <script>
+        var delete_confirmation = '{{__('candidate.delete_confirmation')}}';
+        var _delete = '{{__('candidate.delete')}}';
+        var cancel = '{{__('candidate.cancel')}}';
+        var deleted = '{{__('candidate.deleted')}}';
+        var data_deleted = '{{__('candidate.data_deleted')}}';
+        var canceled = '{{__('candidate.canceled')}}';
+        var data_is_safe = '{{__('candidate.data_is_safe')}}';
+    </script>
 @endsection
