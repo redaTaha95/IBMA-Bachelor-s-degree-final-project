@@ -21,12 +21,12 @@
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Projects</a></li>
-                            <li class="breadcrumb-item active">Liste des projets</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('tradprojet.title1') }}</a></li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('tradprojet.title2') }}</a></li>
+                            <li class="breadcrumb-item active">{{ __('tradprojet.title3') }}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Liste des projets</h4>
+                    <h4 class="page-title">{{ __('tradprojet.introduction') }}</h4>
                 </div>
             </div>
         </div>
@@ -40,22 +40,22 @@
 
                         <div class="text-lg-right mb-2">
                             <a href="{{url('projects/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>Ajouter un projet
+                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{ __('tradprojet.ajout') }}
                             </a>
                         </div>
 
                         <table id="data_table" class="table table-striped dt-responsive nowrap w-100">
                             <thead>
                             <tr>
-                                <th>id</th>
-                                <th>Logo</th>
-                                <th>Nom</th>
-                                <th>Déscription</th>
+                                <th>{{ __('tradprojet.id') }}</th>
+                                <th>{{ __('tradprojet.logo') }}</th>
+                                <th>{{ __('tradprojet.nom') }}</th>
+                                <th>{{ __('tradprojet.desc') }}</th>
                                <!-- <th>Date début</th>-->
                                 <!--<th>Date d'échéance</th>-->
-                                <th>budget</th>
+                                <th>{{ __('tradprojet.Bud') }}</th>
                                 <!--<th>teamMember</th>-->
-                                <th style="width: 15%;">Actions</th>
+                                <th style="width: 15%;">{{ __('tradprojet.act') }}</th>
 
                             </tr>
                             </thead>
@@ -79,7 +79,7 @@
                                     <td class="align-middle">{{$project->budget}}</td>
                                     <!--<td class="align-middle">{{$project->teamMember}}</td>-->
                                     <td class="align-middle">
-                                        <a href="#" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
+                                        <a href="{{route('projects.show', $project->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
                                         <a href="{{route('projects.edit', $project->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
                                         <a href="{{url('projects/'.$project->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-project"><i class="mdi mdi-trash-can-outline"></i></a>
                                     </td>
@@ -93,6 +93,14 @@
             </div><!-- end col-->
         </div>
     </div>
+
+    <div id="warning_message" hidden>{{ __('tradprojet.warning_message') }}</div>
+    <div id="secure" hidden>{{ __('tradprojet.secure_data') }}</div>
+    <div id="delete_btn" hidden>{{ __('tradprojet.delete') }}</div>
+    <div id="deleted_data" hidden>{{ __('tradprojet.deleted_data') }}</div>
+    <div id="cancel" hidden>{{ __('tradprojet.btnannul') }}</div>
+    <div id="canceled" hidden>{{ __('tradprojet.canceled') }}</div>
+    <div id="deleted" hidden>{{ __('tradprojet.deleted') }}</div>
 @endsection
 
 
@@ -122,7 +130,7 @@
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "Projet a été ajouté avec succés",
+                title: "{{ __('tradprojet.AjoutSuccess') }}",
                 showConfirmButton: !1,
                 timer: 1500
             })
@@ -134,7 +142,7 @@
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "Projet a été modifié avec succés",
+                title: "{{ __('tradprojet.ModifSuccess') }}",
                 showConfirmButton: !1,
                 timer: 1500
             })
@@ -155,10 +163,10 @@
                 "oLanguage": {
                     "sInfo": "Affichage de la page _PAGE_ sur _PAGES_",
                     "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
-                    "sSearchPlaceholder": "Rechercher...",
-                    "sLengthMenu": "Résultats :  _MENU_",
-                    "sEmptyTable": "Aucune donnée disponible",
-                    "sZeroRecords": "Aucun enregistrements correspondants trouvés",
+                    "sSearchPlaceholder": "{{ __('tradprojet.Rech') }}...",
+                    "sLengthMenu": "{{ __('tradprojet.Res') }} :  _MENU_",
+                    "sEmptyTable": "{{ __('tradprojet.NoData') }}",
+                    "sZeroRecords": "{{ __('tradprojet.NoErg') }}",
                     "sInfoFiltered":   "(filtré de _MAX_ entrées au total)",
                 },
                 'aoColumnDefs': [{
