@@ -30,4 +30,14 @@ class EmployeeRequest extends FormRequest
             'email' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Nom du employee est obligatoire !!',
+            'email.required' => 'Email du employee est obligatoire !!',
+            'phone.required' => 'Téléphone du employee est obligatoire !!',
+            'hire_date.required' => 'la date d embouche du employee est obligatoire !!',
+        ];
+    }
 }

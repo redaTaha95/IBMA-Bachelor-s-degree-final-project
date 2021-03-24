@@ -16,11 +16,11 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Employés</a></li>
-                            <li class="breadcrumb-item active">Ajouter un employé</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('employee.employee_folder') }}</a></li>
+                            <li class="breadcrumb-item active">{{ __('employee.addEmployee') }}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Ajouter un employé</h4>
+                    <h4 class="page-title">{{ __('employee.addEmployee') }}</h4>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">Informations générales</h4>
+                        <h4 class="header-title">{{ __('employee.information') }}</h4>
 
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -49,34 +49,25 @@
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Nom *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name')}}">
+                                        <label for="simpleinput">{{ __('employee.name') }} *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="name" placeholder="{{ __('employee.name') }}" value="{{old('name')}}">
                                     </div>
 
-                                    <!--<div class="form-group mb-3">
-                                        <label for="simpleinput">Téléphone *</label>
-                                        <input type="tel" id="simpleinput" class="form-control" name="phone" placeholder="Téléphone" value="{{old('phone')}}">
-                                    </div>-->
                                     <div class="form-group">
-                                        <label for="simpleinput">Téléphone *</label>
-                                        <input type="text" class="form-control" data-toggle="input-mask" name="phone" placeholder="Exemple : 0630-303030" data-mask-format="0000-000000" maxlength="14" value="{{old('phone')}}">
+                                        <label for="simpleinput">{{ __('employee.phone') }} *</label>
+                                        <input type="text" class="form-control" data-toggle="input-mask" name="phone" placeholder="{{ __('employee.example') }} : 0630-303030" data-mask-format="0000-000000" maxlength="14" value="{{old('phone')}}">
                                         <!--<span class="font-13 text-muted">e.g "(xx) xxxx-xxxx"</span>-->
                                     </div>
 
-                                    <!--<div class="form-group mb-3">
-                                        <label for="simpleinput">Email *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="email" placeholder="Email" value="{{old('email')}}">
-                                        <ul class="parsley-errors-list" id="parsley-id-7" aria-hidden="true"></ul>
-                                    </div>-->
                                     <div class="form-group">
-                                        <label for="email">Email *</label>
-                                        <input type="email" id="email" class="form-control" name="email" placeholder="Exemple : ABC@gmail.com"  data-parsley-trigger="change" required="" data-parsley-id="7" value="{{old('email')}}">
+                                        <label for="email">{{ __('employee.email') }} *</label>
+                                        <input type="email" id="email" class="form-control" name="email" placeholder="{{ __('employee.example') }} : ABC@gmail.com"  data-parsley-trigger="change" required="" data-parsley-id="7" value="{{old('email')}}">
                                         <ul class="parsley-errors-list" id="parsley-id-7" aria-hidden="true"></ul>
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Salaire</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="salary" placeholder="Salaire" value="{{old('salary')}}">
+                                        <label for="simpleinput">{{ __('employee.salary') }}</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="salary" placeholder="{{ __('employee.salary') }}" value="{{old('salary')}}">
                                     </div>
 
                                 </div> <!-- end col -->
@@ -84,15 +75,15 @@
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Adresse</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="Address" value="{{old('address')}}">
+                                        <label for="simpleinput">{{ __('employee.address') }}</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="{{ __('employee.address') }}" value="{{old('address')}}">
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Date d'embauche *</label>
+                                        <label for="simpleinput">{{ __('employee.hire_date') }} *</label>
                                         <input class="form-control" type="date" id="example-date-input" name="hire_date" value="{{old('hire_date')}}">
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Logo</label>
+                                        <label for="simpleinput">{{ __('employee.logo') }}</label>
                                         <input type="file" data-plugins="dropify" name="logo"/>
                                     </div>
 
@@ -101,8 +92,8 @@
                             </div>
                             <!-- end row-->
                             <div class="row">
-                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">Ajouter</button>
-                                <a href="{{url('employees')}}" class="btn btn-white btn-rounded waves-effect">Annuler</a>
+                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">{{ __('employee.add') }}</button>
+                                <a href="{{url('employees')}}" class="btn btn-white btn-rounded waves-effect">{{ __('employee.cancel') }}</a>
                             </div>
                         </form>
 

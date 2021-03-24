@@ -6,14 +6,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EmployeeRequest;
 use App\Repositories\Interfaces\EmployeeRepositoryInterface;
+use Illuminate\Http\Request;
 
-class EmployeeController
+class EmployeeController extends Controller
 {
     private $employeeRepository;
+    private $projectRepository;
 
     public function __construct(EmployeeRepositoryInterface $employeeRepository)
     {
-
+        $this->middleware('auth');
         $this->employeeRepository = $employeeRepository;
     }
 
@@ -38,6 +40,7 @@ class EmployeeController
     public function show($id)
     {
         $employee = $this->employeeRepository->find($id);
+        return view('hr.employees.show', compact('employee'));
     }
 
     public function edit($id)
@@ -49,8 +52,10 @@ class EmployeeController
     public function update(EmployeeRequest $request, $id)
     {
         $this->employeeRepository->updateEmployee($request->all(), $id);
-        session()->flash('update', 'Employee has been added');
-        return redirect('/employees');
+       // session()->flash('update', 'Employee has been added');
+
+        return redirect('/employees')->with('update', 'Employee has been added');
+
     }
 
     public function destroy($id)
