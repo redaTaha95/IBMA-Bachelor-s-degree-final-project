@@ -33,7 +33,9 @@ return[
     'deleted'=> 'Deleted',
     'canceled' => 'canceled',
     'deleted_data'=>'Your data has been deleted.',
-
+    'employee_profile'=>'The profile of ',
+    'profile'=>'Profile',
+    'projects_assigned'=>'Projects assigned to this employee',
 
 
 ];
