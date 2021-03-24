@@ -1,18 +1,18 @@
 <?php
-//
+
 namespace Database\Factories;
 
-use App\Models\Client;
+use App\Models\Candidate;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ClientFactory extends Factory
+class CandidateFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Client::class;
+    protected $model = Candidate::class;
 
     /**
      * Define the model's default state.
@@ -22,13 +22,14 @@ class ClientFactory extends Factory
     public function definition()
     {
         return [
-            'logo' => $this->faker->image(),
-            'name' => $this->faker->company,
+            'last_name' => $this->faker->lastName,
+            'first_name' => $this->faker->firstName,
+            'birthday' => $this->faker->dateTimeBetween('1960-01-01', '2020-12-31') ->format('d/m/Y'),
+            'cin' => $this->faker->word,
+            'email' => $this->faker->email,
             'phone' => $this->faker->phoneNumber,
-            'email' => $this->faker->companyEmail,
             'address' => $this->faker->address,
-            'country' => $this->faker->country,
-            'domain' => $this->faker->domainWord,
+            'city' => $this->faker->city,
         ];
     }
 }

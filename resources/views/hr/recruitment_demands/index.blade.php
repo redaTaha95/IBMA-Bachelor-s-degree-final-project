@@ -21,11 +21,11 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Candidats</a></li>
-                            <li class="breadcrumb-item active">{{__('candidate.list_of_candidates')}}</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Demandes de recrutement</a></li>
+                            <li class="breadcrumb-item active">{{__('recruitment_demand.list_of_recruitment_demands')}}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{__('candidate.list_of_candidates')}}</h4>
+                    <h4 class="page-title">{{__('recruitment_demand.list_of_recruitment_demands')}}</h4>
                 </div>
             </div>
         </div>
@@ -37,36 +37,36 @@
                     <div class="card-body">
 
                         <div class="text-lg-right mb-2">
-                            <a href="{{url('candidates/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{__('candidate.add_candidate')}}
+                            <a href="{{url('recruitment_demands/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
+                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{__('recruitment_demand.add_recruitment_demand')}}
                             </a>
                         </div>
 
                         <table id="data_table" class="table table-striped dt-responsive nowrap w-100">
                             <thead>
                             <tr>
-                                <th>#</th>
-                                <th>{{__('candidate.last_name')}} Complet</th>
-                                <th>{{__('candidate.cin')}}</th>
-                                <th>{{__('candidate.phone')}}</th>
-                                <th>{{__('candidate.email')}}</th>
+                                <th>Id</th>
+                                <th>{{__('recruitment_demand.post_name')}}</th>
+                                <th>{{__('recruitment_demand.number_of_profiles')}}</th>
+                                <th>{{__('recruitment_demand.date_of_demand')}}</th>
+                                <th>{{__('recruitment_demand.status_of_demand')}}</th>
                                 <th style="width: 15%;"></th>
                             </tr>
                             </thead>
 
 
                             <tbody>
-                            @foreach($candidates as $index => $candidate)
+                            @foreach($recruitmentDemands as $index => $recruitmentDemand)
                                 <tr>
-                                    <td class="align-middle">{{$candidate->id}}</td>
-                                    <td class="align-middle">{{$candidate->first_name.' '.$candidate->last_name}}</td>
-                                    <td class="align-middle">{{$candidate->cin}}</td>
-                                    <td class="align-middle">{{$candidate->phone}}</td>
-                                    <td class="align-middle">{{$candidate->email}}</td>
+                                    <td class="align-middle">{{$recruitmentDemand->id}}</td>
+                                    <td class="align-middle">{{$recruitmentDemand->post_name}}</td>
+                                    <td class="align-middle">{{$recruitmentDemand->number_of_profiles}}</td>
+                                    <td class="align-middle">{{$recruitmentDemand->date_of_demand}}</td>
+                                    <td class="align-middle">{{$recruitmentDemand->status_of_demand}}</td>
                                     <td class="align-middle">
-                                        <a href="{{route('candidates.show', $candidate->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
-                                        <a href="{{route('candidates.edit', $candidate->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{url('candidates/'.$candidate->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-candidate"><i class="mdi mdi-trash-can-outline"></i></a>
+                                        <a href="{{route('recruitment_demands.show', $recruitmentDemand->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
+                                        <a href="{{route('recruitment_demands.edit', $recruitmentDemand->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
+                                        <a href="{{url('recruitment_demands/'.$recruitmentDemand->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-recruitment_demands"><i class="mdi mdi-trash-can-outline"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -97,7 +97,7 @@
 
     <!-- Sweet alert init js-->
 
-    <script src="{{asset('ajax/candidates/candidate_delete_ajax.js')}}"></script>
+    <script src="{{asset('ajax/recruitment_demands/recruitment_demand_delete_ajax.js')}}"></script>
 
     @if(session('success'))
         <script>
@@ -115,7 +115,7 @@
 
             Toast.fire({
                 icon: 'success',
-                title: '{{__('candidate.candidate_added')}}'
+                title: '{{__('recruitment_demand.recruitment_demand_added')}}'
             })
         </script>
     @endif
@@ -136,7 +136,7 @@
 
             Toast.fire({
                 icon: 'success',
-                title: '{{__('candidate.candidate_updated')}}'
+                title: '{{__('recruitment_demand.recruitment_demand_updated')}}'
             })
         </script>
     @endif
@@ -174,12 +174,12 @@
     </script>
 
     <script>
-        var delete_confirmation = '{{__('candidate.delete_confirmation')}}';
-        var _delete = '{{__('candidate.delete')}}';
-        var cancel = '{{__('candidate.cancel')}}';
-        var deleted = '{{__('candidate.deleted')}}';
-        var data_deleted = '{{__('candidate.data_deleted')}}';
-        var canceled = '{{__('candidate.canceled')}}';
-        var data_is_safe = '{{__('candidate.data_is_safe')}}';
+        var delete_confirmation = '{{__('recruitment_demand.delete_confirmation')}}';
+        var _delete = '{{__('recruitment_demand.delete')}}';
+        var cancel = '{{__('recruitment_demand.cancel')}}';
+        var deleted = '{{__('recruitment_demand.deleted')}}';
+        var data_deleted = '{{__('recruitment_demand.data_deleted')}}';
+        var canceled = '{{__('recruitment_demand.canceled')}}';
+        var data_is_safe = '{{__('recruitment_demand.data_is_safe')}}';
     </script>
 @endsection

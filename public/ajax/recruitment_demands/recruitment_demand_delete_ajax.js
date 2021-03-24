@@ -1,4 +1,4 @@
-$('.delete-candidate').on('click', function (event) {
+$('.delete-recruitment_demands').on('click', function (event) {
     event.preventDefault();
     var url = $(this).attr('href');
     csrf_token = $('meta[name="csrf-token"]').attr('content');
@@ -53,3 +53,4 @@ $('.delete-candidate').on('click', function (event) {
         }
     })
 })
+

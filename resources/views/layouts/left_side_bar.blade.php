@@ -33,7 +33,7 @@
                                 <a href="{{url('employees')}}">Employés</a>
                             </li>
                             <li>
-                                <a href="ecommerce-products.html">Demande de recrutement</a>
+                                <a href="{{url('recruitment_demands')}}">Demandes de recrutement</a>
                             </li>
                             <li>
                                 <a href="{{url('candidates')}}">Candidats</a>
