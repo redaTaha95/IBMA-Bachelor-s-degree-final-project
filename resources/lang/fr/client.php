@@ -23,5 +23,6 @@ return [
     'details_of_client' => 'Détails du client',
     'profile' => 'Profil',
     'contact' => 'Contacter',
-    'location' => 'Lieu'
+    'location' => 'Lieu',
+    'example' =>'Exemple',
 ];
