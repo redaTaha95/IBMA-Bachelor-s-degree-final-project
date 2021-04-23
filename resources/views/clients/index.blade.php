@@ -35,6 +35,9 @@
                     <div class="card-body">
 
                         <div class="text-lg-right mb-2">
+                            <a href="{{url('export/clients/')}}" class="btn btn-info btn-rounded waves-effect waves-light mb-2">
+                                <span class="btn-label"><i class="mdi mdi-download"></i></span>{{__('client.export')}}
+                            </a>
                             <a href="{{url('clients/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
                                 <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{__('client.add_client')}}
                             </a>

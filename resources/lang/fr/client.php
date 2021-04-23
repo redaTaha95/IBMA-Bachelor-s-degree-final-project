@@ -25,4 +25,5 @@ return [
     'contact' => 'Contacter',
     'location' => 'Lieu',
     'example' =>'Exemple',
+    'export' =>'Exporter',
 ];

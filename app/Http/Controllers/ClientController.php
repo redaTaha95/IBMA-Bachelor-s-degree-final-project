@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ClientRequest;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
-use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
@@ -57,5 +56,9 @@ class ClientController extends Controller
     public function destroy($id)
     {
         $this->clientRepository->delete($id);
+    }
+
+    public function export(){
+        return $this->clientRepository->exportClientsDataAsExcel();
     }
 }

@@ -4,7 +4,9 @@
 namespace App\Repositories;
 
 
+use App\Exports\ClientExport;
 use App\Models\Client;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ClientRepository extends BaseRepository implements Interfaces\ClientRepositoryInterface
 {
@@ -29,5 +31,10 @@ class ClientRepository extends BaseRepository implements Interfaces\ClientReposi
     public function storeImage($id, $file_name, $folder_name, $table)
     {
         uploadImage($id, $file_name, $folder_name, $table);
+    }
+
+    public function exportClientsDataAsExcel()
+    {
+        return Excel::download(new ClientExport, 'clients.xlsx');
     }
 }
