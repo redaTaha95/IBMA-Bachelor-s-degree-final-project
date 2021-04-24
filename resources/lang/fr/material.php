@@ -1,0 +1,40 @@
+<?php
+
+return[
+
+    'material_folder' => 'matériaux',
+    'list' => 'Liste des matériaux',
+    'addMaterial' => 'Ajouter un matériel',
+    'material_code'=> 'Code du matériel',
+    'designation'=> 'Désignation',
+    'category' => 'Catégorie',
+    'quantity'=> 'Quantité',
+    'actions'=>'Actions',
+    'origin' => 'Origine',
+    'updatedSuccessfully'=>'matériel a été modifié avec succés',
+    'addSuccessfully' => 'matériel a été ajouté avec succés',
+    'information'=>'Informations générales',
+    'example' =>'Exemple',
+    'condition'=>'État',
+    'add'=>'Ajouter',
+    'cancel'=>'Annuler',
+    'nothing_found' => 'Aucune donnée disponible',
+    'results'=>'Résultats',
+    'search' =>'Rechercher',
+    'No_matching_records_found' => 'Aucun enregistrements correspondants trouvés',
+    'filtered'=>'filtré de _MAX_ entrées au total',
+    'update_page'=>'Modifier matériel',
+    'update'=>'Modifier',
+    'show_pages'=>'Affichage de la page _PAGE_ sur _PAGES_',
+    'warning_message' => 'Souhaitez-vous vraiment supprimer ce matériel ?',
+    'secure_data'=>'Vos données sont en sécurité',
+    'delete'=>'Supprimer',
+    'deleted'=> 'Supprimé',
+    'canceled' => 'Annulé',
+    'deleted_data'=>'Vos données ont été supprimées.',
+    'material_profile'=>'Le profil de ',
+    'profile'=>'Profil',
+    'export' =>'Exporter',
+
+];
+

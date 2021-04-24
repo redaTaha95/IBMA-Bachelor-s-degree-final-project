@@ -57,6 +57,12 @@
                         <span> Projets </span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{url('materials')}}">
+                        <i class="fe-clipboard"></i>
+                        <span> Matériaux </span>
+                    </a>
+                </li>
             </ul>
 
         </div>
