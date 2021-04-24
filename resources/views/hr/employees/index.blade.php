@@ -37,6 +37,9 @@
                     <div class="card-body">
 
                         <div class="text-lg-right mb-2">
+                            <a href="{{url('export/employees/')}}" class="btn btn-info btn-rounded waves-effect waves-light mb-2">
+                                <span class="btn-label"><i class="mdi mdi-download"></i></span>{{__('employee.export')}}
+                            </a>
                             <a href="{{url('employees/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
                                 <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{ __('employee.addEmployee') }}
                             </a>

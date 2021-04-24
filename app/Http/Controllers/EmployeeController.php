@@ -62,4 +62,8 @@ class EmployeeController extends Controller
     {
         $this->employeeRepository->delete($id);
     }
+
+    public function export(){
+        return $this->employeeRepository->exportEmployeesDataAsExcel();
+    }
 }
