@@ -57,6 +57,13 @@
                         <span> Projets </span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="{{url('products')}}">
+                        <i class="fe-box"></i>
+                        <span> Produits </span>
+                    </a>
+                </li>
             </ul>
 
         </div>
