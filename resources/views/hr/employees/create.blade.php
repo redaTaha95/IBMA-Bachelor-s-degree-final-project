@@ -111,11 +111,11 @@
     <script src="{{asset('assets/libs/dropify/js/dropify.min.js')}}"></script>
 
     <!-- Plugins js -->
-    <script src="../assets/libs/jquery-mask-plugin/jquery.mask.min.js"></script>
-    <script src="../assets/libs/autonumeric/autoNumeric-min.js"></script>
+    <script src="{{asset('assets/libs/jquery-mask-plugin/jquery.mask.min.js')}}"></script>
+    <script src="{{asset('assets/libs/autonumeric/autoNumeric-min.js')}}"></script>
 
     <!-- Init js-->
-    <script src="../assets/js/pages/form-masks.init.js"></script>
+    <script src="{{asset('assets/js/pages/form-masks.init.js')}}"></script>
 
     <!-- Init js-->
     <script src="{{asset('assets/js/pages/form-fileuploads.init.js')}}"></script>

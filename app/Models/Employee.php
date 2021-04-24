@@ -11,4 +11,8 @@ class Employee extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
+
+    public function recruitment_demands(){
+        return $this->hasMany('app\Models\RecruitmentDemand');
+    }
 }

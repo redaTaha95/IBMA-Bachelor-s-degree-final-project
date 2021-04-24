@@ -84,13 +84,7 @@
             </div><!-- end col-->
         </div>
     </div>
-    <div id="warning_message" hidden>{{ __('employee.warning_message') }}</div>
-    <div id="secure" hidden>{{ __('employee.secure_data') }}</div>
-    <div id="delete_btn" hidden>{{ __('employee.delete') }}</div>
-    <div id="deleted_data" hidden>{{ __('employee.deleted_data') }}</div>
-    <div id="cancel" hidden>{{ __('employee.cancel') }}</div>
-    <div id="canceled" hidden>{{ __('employee.canceled') }}</div>
-    <div id="deleted" hidden>{{ __('employee.deleted') }}</div>
+
 @endsection
 
 @section('js')
@@ -106,36 +100,53 @@
     <!-- Datatables init -->
     <script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>
 
-    <script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>>
 
-    <!-- Sweet alert init js-->
-    <script src="{{asset('assets/js/pages/sweet-alerts.init.js')}}"></script>
-    <!-- delete of employee-->
+    {{--file of delete client--}}
     <script src="{{asset('ajax/employees/employee_delete_ajax.js')}}"></script>
 
-    @if(session('success'))
-        <script>
-            Swal.fire({
-                position: "top-end",
-                type: "success",
-                title: "{{ __('employee.addSuccessfully') }}",
-                showConfirmButton: !1,
-                timer: 1500
-            })
-        </script>
-    @endif
 
-    @if(session('update'))
-        <script>
-            Swal.fire({
-                position: "top-end",
-                type: "success",
-                title: "{{ __('employee.updatedSuccessfully') }}",
-                showConfirmButton: !1,
-                timer: 1500
-            })
-        </script>
-    @endif
+        @if(session('success'))
+            <script>
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: '{{ __('employee.addSuccessfully') }}'
+                })
+            </script>
+        @endif
+
+        @if(session('update'))
+            <script>
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: '{{ __('employee.updatedSuccessfully') }}'
+                })
+            </script>
+        @endif
 
     <script>
         $(document).ready(function() {
@@ -168,5 +179,14 @@
             } );
         } );
     </script>
+        <script>
+            var delete_confirmation = '{{ __('employee.warning_message') }}';
+            var _delete = '{{ __('employee.delete') }}';
+            var cancel = '{{ __('employee.cancel') }}';
+            var deleted = '{{ __('employee.deleted') }}';
+            var data_deleted = '{{ __('employee.deleted_data') }}';
+            var canceled = '{{ __('employee.canceled') }}';
+            var data_is_safe = '{{ __('employee.secure_data') }}';
+        </script>
 
 @endsection

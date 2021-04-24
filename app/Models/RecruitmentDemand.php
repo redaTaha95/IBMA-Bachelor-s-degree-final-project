@@ -11,4 +11,8 @@ class RecruitmentDemand extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
+
+    public function employee(){
+        return $this->belongsTo('app\Models\Employee');
+    }
 }
