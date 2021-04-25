@@ -67,7 +67,7 @@
                                     <td class="align-middle">
                                         <a href="{{route('materials.show', $material->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
                                         <a href="{{route('materials.edit', $material->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{url('materials/'.$material->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-employee"><i class="mdi mdi-trash-can-outline"></i></a>
+                                        <a href="{{url('materials/'.$material->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-material"><i class="mdi mdi-trash-can-outline"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
