@@ -4,7 +4,10 @@
 namespace App\Repositories;
 
 
+use App\Models\Client;
 use App\Models\Project;
+use App\Exports\ProjectExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Database\Eloquent\Model;
 
 class ProjectRepository extends BaseRepository implements Interfaces\ProjectRepositoryInterface
@@ -31,4 +34,14 @@ class ProjectRepository extends BaseRepository implements Interfaces\ProjectRepo
     {
         uploadImage($id, $file_name, $folder_name, $table);
     }
-}
+
+    public function exportProjectsDataAsExcel()
+    {
+        return Excel::download(new ProjectExport, 'projects.xlsx');
+    }
+
+    public function getClients()
+    {
+        return Client::all();
+    }
+ }

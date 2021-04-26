@@ -1,4 +1,4 @@
-$('.delete-project').on('click', function (event) {
+$('.delete-partner').on('click', function (event) {
     event.preventDefault();
     var url = $(this).attr('href');
     const warning_message = document.querySelector('div[id=warning_message]').textContent;
@@ -13,8 +13,8 @@ $('.delete-project').on('click', function (event) {
 
     const swalWithBootstrapButtons = swal.mixin({
         customClass : {
-        confirmButtonClass: 'btn btn-success btn-rounded',
-        cancelButtonClass: 'btn btn-danger btn-rounded mr-3'
+            confirmButtonClass: 'btn btn-success btn-rounded',
+            cancelButtonClass: 'btn btn-danger btn-rounded mr-3'
         },
         buttonsStyling: false,
     })

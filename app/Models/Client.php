@@ -11,4 +11,9 @@ class Client extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ClientRequest;
+use App\Models\Client;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -58,4 +59,6 @@ class ClientController extends Controller
     {
         $this->clientRepository->delete($id);
     }
+
+
 }
