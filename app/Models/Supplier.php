@@ -6,13 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class RecruitmentDemand extends Model
+class Supplier extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
-
-    public function candidates(){
-        return $this->belongsToMany(Candidate::class, 'candidate_recruitment_demand');
-    }
 }

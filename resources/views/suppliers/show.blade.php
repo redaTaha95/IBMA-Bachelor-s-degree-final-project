@@ -16,10 +16,10 @@
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Demandes de recrutement</a></li>
-                            <li class="breadcrumb-item active">{{__('recruitment_demand.demand_details')}}</li>
+                            <li class="breadcrumb-item active">{{__('supplier.profile')}}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{__('recruitment_demand.demand_details')}}</h4>
+                    <h4 class="page-title">{{__('supplier.profile')}}</h4>
                 </div>
             </div>
         </div>
@@ -28,6 +28,7 @@
             <div class="col-6">
                 <div class="card">
                     <div class="card-body">
+                        <h4 class="mb-0">{{__('supplier.general_information')}}</h4>
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -39,28 +40,39 @@
                         @endif
 
                         <br>
-                        <form action="{{route('recruitment_demands.show', $recruitmentDemand->id)}}"  enctype="multipart/form-data">
+                        <form action="{{route('suppliers.show', $supplier->id)}}"  enctype="multipart/form-data">
                             @csrf
                             <div class="col-12">
                                 <div class="card-box text-center">
 
                                     <div class="text-left mt-3">
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('recruitment_demand.post_name')}} :</strong>
-                                            <span class="ml-1">{{$recruitmentDemand->post_name}}</span>
+                                        <p class="text-muted mb-2 font-13"><strong>{{__('supplier.full_name')}} :</strong>
+                                            <span class="ml-1">{{$supplier->full_name}}</span>
                                         </p>
 
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('recruitment_demand.number_of_profiles')}} :</strong>
-                                            <span class="ml-1">{{$recruitmentDemand->number_of_profiles}}</span>
+                                        <p class="text-muted mb-2 font-13"><strong>{{__('supplier.cin')}} :</strong>
+                                            <span class="ml-1">{{$supplier->cin}}</span>
                                         </p>
 
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('recruitment_demand.date_of_demand')}} :</strong>
-                                            <span class="ml-1 ">{{$recruitmentDemand->date_of_demand}}</span>
+                                        <p class="text-muted mb-2 font-13"><strong>{{__('supplier.postal_code')}} :</strong>
+                                            <span class="ml-1 ">{{$supplier->postal_code}}</span>
                                         </p>
 
-                                        <p class="text-muted mb-1 font-13"><strong>{{__('recruitment_demand.status_of_demand')}} :</strong>
-                                            <span class="ml-1">{{$recruitmentDemand->status_of_demand}}</span>
+                                        <p class="text-muted mb-1 font-13"><strong>{{__('supplier.phone')}} :</strong>
+                                            <span class="ml-1">{{$supplier->phone}}</span>
                                         </p>
 
+                                        <p class="text-muted mb-1 font-13"><strong>{{__('supplier.email')}} :</strong>
+                                            <span class="ml-1">{{$supplier->email}}</span>
+                                        </p>
+
+                                        <p class="text-muted mb-1 font-13"><strong>{{__('supplier.address')}} :</strong>
+                                            <span class="ml-1">{{$supplier->address}}</span>
+                                        </p>
+
+                                        <p class="text-muted mb-1 font-13"><strong>{{__('supplier.city')}} :</strong>
+                                            <span class="ml-1">{{$supplier->city}}</span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +83,7 @@
             </div><!-- end col -->
 
         </div>
-        </div>
+    </div>
     </div>
 
 @endsection

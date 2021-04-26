@@ -55,12 +55,12 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('recruitment_demand.number_of_profiles')}} *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="number_of_profiles" placeholder="{{__('recruitment_demand.number_of_profiles')}}" value="{{old('number_of_profiles')}}">
+                                        <input type="number" class="form-control" data-toggle="input-mask" name="number_of_profiles" placeholder="{{__('recruitment_demand.number_of_profiles')}}" data-mask-format="00" maxlength="2" value="{{old('number_of_profiles')}}">
                                     </div>
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('recruitment_demand.number_of_years_of_experience')}} *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="number_of_years_of_experience" placeholder="{{__('recruitment_demand.number_of_years_of_experience')}}" value="{{old('number_of_years_of_experience')}}">
+                                        <input type="number" class="form-control" data-toggle="input-mask" name="number_of_years_of_experience" placeholder="{{__('recruitment_demand.number_of_years_of_experience')}}" data-mask-format="00" maxlength="2" value="{{old('number_of_years_of_experience')}}">
                                     </div>
 
                                 </div> <!-- end col -->
@@ -73,9 +73,25 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('recruitment_demand.status_of_demand')}} *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="status_of_demand" placeholder="{{__('recruitment_demand.status_of_demand')}}" value="{{old('status_of_demand')}}">
+                                        <select id="select-status_of_demand" class="form-control" name="status_of_demand">
+                                            <option value="Actif">Actif</option>
+                                            <option value="En cours">En cours</option>
+                                            <option value="Rejeté">Rejeté</option>
+                                            <option value="Fermé">Fermé</option>
+                                        </select>
                                     </div>
 
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">{{__('recruitment_demand.level_of_studies')}} *</label>
+                                        <select id="select-level_of_studies" class="form-control" name="level_of_studies">
+                                            <option value="NiveauBac">Niveau Bac</option>
+                                            <option value="Bac">Bac</option>
+                                            <option value="Bac + 2">Bac + 2</option>
+                                            <option value="Bac + 3">Bac + 3</option>
+                                            <option value="Bac + 4">Bac + 4</option>
+                                            <option value="Bac + 5">Bac + 5</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <!-- end col -->
                             </div>
@@ -98,6 +114,13 @@
     <!-- Plugins js -->
     <script src="{{asset('assets/libs/dropzone/min/dropzone.min.js')}}"></script>
     <script src="{{asset('assets/libs/dropify/js/dropify.min.js')}}"></script>
+
+
+    <script src="{{asset('assets/libs/jquery-mask-plugin/jquery.mask.min.js')}}"></script>
+    <script src="{{asset('assets/libs/autonumeric/autoNumeric-min.js')}}"></script>
+
+    <!-- Init js-->
+    <script src="{{asset('assets/js/pages/form-masks.init.js')}}"></script>
 
     <!-- Init js-->
     <script src="{{asset('assets/js/pages/form-fileuploads.init.js')}}"></script>

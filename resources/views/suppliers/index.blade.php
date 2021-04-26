@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('css')
@@ -22,10 +23,10 @@
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Candidats</a></li>
-                            <li class="breadcrumb-item active">{{__('candidate.list_of_candidates')}}</li>
+                            <li class="breadcrumb-item active">{{__('supplier.list_of_suppliers')}}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{__('candidate.list_of_candidates')}}</h4>
+                    <h4 class="page-title">{{__('supplier.list_of_suppliers')}}</h4>
                 </div>
             </div>
         </div>
@@ -35,12 +36,10 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+
                         <div class="text-lg-right mb-2">
-                            <a href="{{url('export/candidates/')}}" class="btn btn-info btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-download"></i></span>{{__('candidate.export')}}
-                            </a>
-                            <a href="{{url('candidates/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{__('candidate.add_candidate')}}
+                            <a href="{{url('suppliers/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
+                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{__('supplier.add_supplier')}}
                             </a>
                         </div>
 
@@ -48,27 +47,29 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>{{__('candidate.last_name')}} Complet</th>
-                                <th>{{__('candidate.cin')}}</th>
-                                <th>{{__('candidate.phone')}}</th>
-                                <th>{{__('candidate.email')}}</th>
+                                <th>{{__('supplier.full_name')}}</th>
+                                <th>{{__('supplier.cin')}}</th>
+                                <th>{{__('supplier.address')}}</th>
+                                <th>{{__('supplier.phone')}}</th>
+                                <th>{{__('supplier.email')}}</th>
                                 <th style="width: 15%;"></th>
                             </tr>
                             </thead>
 
 
                             <tbody>
-                            @foreach($candidates as $index => $candidate)
+                            @foreach($suppliers as $index => $supplier)
                                 <tr>
-                                    <td class="align-middle">{{$candidate->id}}</td>
-                                    <td class="align-middle">{{$candidate->first_name.' '.$candidate->last_name}}</td>
-                                    <td class="align-middle">{{$candidate->cin}}</td>
-                                    <td class="align-middle">{{$candidate->phone}}</td>
-                                    <td class="align-middle">{{$candidate->email}}</td>
+                                    <td class="align-middle">{{$supplier->id}}</td>
+                                    <td class="align-middle">{{$supplier->full_name}}</td>
+                                    <td class="align-middle">{{$supplier->cin}}</td>
+                                    <td class="align-middle">{{$supplier->address}}</td>
+                                    <td class="align-middle">{{$supplier->phone}}</td>
+                                    <td class="align-middle">{{$supplier->email}}</td>
                                     <td class="align-middle">
-                                        <a href="{{route('candidates.show', $candidate->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
-                                        <a href="{{route('candidates.edit', $candidate->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{url('candidates/'.$candidate->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-candidate"><i class="mdi mdi-trash-can-outline"></i></a>
+                                        <a href="{{route('suppliers.show', $supplier->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
+                                        <a href="{{route('suppliers.edit', $supplier->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
+                                        <a href="{{url('suppliers/'.$supplier->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-supplier"><i class="mdi mdi-trash-can-outline"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -99,7 +100,7 @@
 
     <!-- Sweet alert init js-->
 
-    <script src="{{asset('ajax/candidates/candidate_delete_ajax.js')}}"></script>
+    <script src="{{asset('ajax/suppliers/supplier_delete_ajax.js')}}"></script>
 
     @if(session('success'))
         <script>
@@ -117,7 +118,7 @@
 
             Toast.fire({
                 icon: 'success',
-                title: '{{__('candidate.candidate_added')}}'
+                title: '{{__('supplier.supplier_added')}}'
             })
         </script>
     @endif
@@ -138,7 +139,7 @@
 
             Toast.fire({
                 icon: 'success',
-                title: '{{__('candidate.candidate_updated')}}'
+                title: '{{__('supplier.supplier_updated')}}'
             })
         </script>
     @endif
@@ -176,12 +177,12 @@
     </script>
 
     <script>
-        var delete_confirmation = '{{__('candidate.delete_confirmation')}}';
-        var _delete = '{{__('candidate.delete')}}';
-        var cancel = '{{__('candidate.cancel')}}';
-        var deleted = '{{__('candidate.deleted')}}';
-        var data_deleted = '{{__('candidate.data_deleted')}}';
-        var canceled = '{{__('candidate.canceled')}}';
-        var data_is_safe = '{{__('candidate.data_is_safe')}}';
+        var delete_confirmation = '{{__('supplier.delete_confirmation')}}';
+        var _delete = '{{__('supplier.delete')}}';
+        var cancel = '{{__('supplier.cancel')}}';
+        var deleted = '{{__('supplier.deleted')}}';
+        var data_deleted = '{{__('supplier.data_deleted')}}';
+        var canceled = '{{__('supplier.canceled')}}';
+        var data_is_safe = '{{__('supplier.data_is_safe')}}';
     </script>
 @endsection

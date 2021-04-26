@@ -11,4 +11,8 @@ class Candidate extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
+
+    public function recruitment_demands(){
+        return $this->belongsToMany(RecruitmentDemand::class, 'candidate_recruitment_demand');
+    }
 }

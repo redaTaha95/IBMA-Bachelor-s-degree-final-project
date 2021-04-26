@@ -9,6 +9,8 @@ return [
     'number_of_profiles' => 'Nombre de profil',
     'number_of_years_of_experience' => "Nombre d'années d'expérience",
     'date_of_demand' => 'Date de la demande',
+    'demand_details' => 'Détails de la demande',
+    'level_of_studies' => "Niveau d'études",
     'status_of_demand' => 'Statut de la demande',
     'add' => 'Ajouter',
     'edit' => 'Modifier',

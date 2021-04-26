@@ -12,8 +12,10 @@ use App\Repositories\Interfaces\ClientRepositoryInterface;
 use App\Repositories\Interfaces\EmployeeRepositoryInterface;
 use App\Repositories\Interfaces\ProjectRepositoryInterface;
 use App\Repositories\Interfaces\RecruitmentDemandRepositoryInterface;
+use App\Repositories\Interfaces\SupplierRepositoryInterface;
 use App\Repositories\ProjectRepository;
 use App\Repositories\RecruitmentDemandRepository;
+use App\Repositories\SupplierRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -27,11 +29,12 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(EmployeeRepositoryInterface::class, EmployeeRepository::class);
         $this->app->bind(ProjectRepositoryInterface::class, ProjectRepository::class);
         $this->app->bind(RecruitmentDemandRepositoryInterface::class, RecruitmentDemandRepository::class);
+        $this->app->bind(SupplierRepositoryInterface::class, SupplierRepository::class);
     }
 
 
     public function boot()
     {
-        //
+
     }
 }
