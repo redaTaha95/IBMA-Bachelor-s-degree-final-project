@@ -86,7 +86,7 @@
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('employee.logo') }}</label>
-                                        <input type="file" data-plugins="dropify" name="logo" data-default-file="@if($employee->logo) {{asset('storage/employees/'.$employee->logo)}} @endif"/>
+                                        <input type="file" data-plugins="dropify" name="logo" data-default-file="{{$employee->logo ? asset('storage/employees/'.$employee->logo) : ''}}"/>
                                     </div>
 
 
