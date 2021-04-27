@@ -56,12 +56,12 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('recruitment_demand.number_of_profiles')}} *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="number_of_profiles" placeholder="{{__('recruitment_demand.number_of_profiles')}}" value="{{old('number_of_profiles', $recruitmentDemand->number_of_profiles)}}">
+                                        <input type="number" id="simpleinput" class="form-control" name="number_of_profiles" placeholder="{{__('recruitment_demand.number_of_profiles')}}" value="{{old('number_of_profiles', $recruitmentDemand->number_of_profiles)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('recruitment_demand.number_of_years_of_experience')}} *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="number_of_years_of_experience" placeholder="{{__('recruitment_demand.number_of_years_of_experience')}}" value="{{old('number_of_years_of_experience', $recruitmentDemand->number_of_years_of_experience)}}">
+                                        <input type="number" id="simpleinput" class="form-control" name="number_of_years_of_experience" placeholder="{{__('recruitment_demand.number_of_years_of_experience')}}" value="{{old('number_of_years_of_experience', $recruitmentDemand->number_of_years_of_experience)}}">
                                     </div>
 
                                 </div> <!-- end col -->
@@ -73,7 +73,23 @@
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('recruitment_demand.status_of_demand')}} *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="status_of_demand" placeholder="{{__('recruitment_demand.status_of_demand')}}" value="{{old('status_of_demand', $recruitmentDemand->status_of_demand)}}">
+                                        <select id="select-status_of_demand" class="form-control" name="status_of_demand" data-value="{{ $recruitmentDemand ? $recruitmentDemand->status_of_demand : old('status_of_demand')}}">
+                                            <option value="Actif">Actif</option>
+                                            <option value="En cours">En cours</option>
+                                            <option value="Rejeté">Rejeté</option>
+                                            <option value="Fermé">Fermé</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">{{__('recruitment_demand.level_of_studies')}} *</label>
+                                        <select id="select-level_of_studies" class="form-control" name="level_of_studies" data-value="{{ $recruitmentDemand ? $recruitmentDemand->level_of_studies : old('level_of_studies') }}">>
+                                            <option value="Niveau Bac">Niveau Bac</option>
+                                            <option value="Bac">Bac</option>
+                                            <option value="Bac + 2">Bac + 2</option>
+                                            <option value="Bac + 3">Bac + 3</option>
+                                            <option value="Bac + 4">Bac + 4</option>
+                                            <option value="Bac + 5">Bac + 5</option>
+                                        </select>
                                     </div>
                                 </div>
                                     <!-- end col -->
@@ -100,4 +116,14 @@
 
     <!-- Init js-->
     <script src="{{asset('assets/js/pages/form-fileuploads.init.js')}}"></script>
+    <script>
+        $(function() {
+            $("select").each(function (index, element) {
+                const val = $(this).data('value');
+                if(val !== '') {
+                    $(this).val(val);
+                }
+            });
+        })
+    </script>
 @endsection

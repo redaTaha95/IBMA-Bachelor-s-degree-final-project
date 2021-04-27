@@ -17,10 +17,10 @@
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Candidats</a></li>
-                            <li class="breadcrumb-item active">{{__('candidate.edit_candidate')}}</li>
+                            <li class="breadcrumb-item active">{{__('supplier.edit_supplier')}}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{__('candidate.edit_candidate')}}</h4>
+                    <h4 class="page-title">{{__('supplier.edit_supplier')}}</h4>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{__('candidate.general_information')}}</h4>
+                        <h4 class="header-title">{{__('supplier.general_information')}}</h4>
 
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -43,53 +43,30 @@
                         @endif
 
                         <br>
-                        <form action="{{route('candidates.update', $candidate->id)}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('suppliers.update', $supplier->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row">
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{__('candidate.last_name')}} *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="last_name" placeholder="{{__('candidate.last_name')}}" value="{{old('last_name', $candidate->last_name)}}">
+                                        <label for="simpleinput">{{__('supplier.full_name')}} *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="full_name" placeholder="{{__('supplier.full_name')}}" value="{{old('full_name', $supplier->full_name)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{__('candidate.cin')}} *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="cin" placeholder="{{__('candidate.cin')}}" maxlength="8" value="{{old('cin', $candidate->cin)}}">
+                                        <label for="simpleinput">{{__('supplier.address')}} *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="{{__('supplier.address')}}" value="{{old('address',$supplier->address)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{__('candidate.phone')}} *</label>
-                                        <input type="text" class="form-control" data-toggle="input-mask" name="phone" placeholder="{{ __('candidate.example') }} : 0630-303030" data-mask-format="0000-000000" maxlength="14" value="{{old('phone', $candidate->phone)}}">
+                                        <label for="simpleinput">{{__('supplier.email')}} *</label>
+                                        <input type="email" id="simpleinput" class="form-control" name="email" placeholder="{{__('supplier.email')}}" value="{{old('email', $supplier->email)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{__('candidate.address')}}</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="{{__('candidate.address')}}" value="{{old('address',$candidate->address)}}">
-                                    </div>
-
-                                </div> <!-- end col -->
-
-                                <div class="col-lg-6">
-                                    <div class="form-group mb-3">
-                                        <label for="simpleinput">{{__('candidate.first_name')}}</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="first_name" placeholder="{{__('candidate.first_name')}}" value="{{old('first_name', $candidate->first_name)}}">
-                                    </div>
-
-                                    <div class="form-group mb-3">
-                                        <label for="simpleinput">{{__('candidate.birthday')}}</label>
-                                        <input type="date" id="simpleinput" class="form-control" name="birthday" placeholder="{{__('candidate.birthday')}}" value="{{old('birthday', $candidate->birthday)}}">
-                                    </div>
-
-                                    <div class="form-group mb-3">
-                                        <label for="simpleinput">{{__('candidate.email')}} *</label>
-                                        <input type="email" id="simpleinput" class="form-control" name="email" placeholder="{{__('candidate.email')}}" value="{{old('email', $candidate->email)}}">
-                                    </div>
-
-                                    <div class="form-group mb-3">
-                                        <label for="simpleinput">{{__('candidate.city')}}</label>
-                                        <select id="select-city" class="form-control" name="city" data-value="{{ $candidate ? $candidate->city : old('city') }}">>
+                                        <label for="simpleinput">{{__('supplier.city')}}</label>
+                                        <select id="select-city" class="form-control" name="city" data-value="{{ $supplier ? $supplier->city : old('city') }}">>
                                             <option value="Casablanca">Casablanca</option>
                                             <option value="Fès">Fès</option>
                                             <option value="Tanger">Tanger</option>
@@ -98,7 +75,7 @@
                                             <option value="Meknès" >Meknès</option>
                                             <option value="Rabat">Rabat</option>
                                             <option value="Oujda">Oujda</option>
-                                            <option value="Kénitra#">Kénitra</option>
+                                            <option value="Kénitra">Kénitra</option>
                                             <option value="Agadir">Agadir</option>
                                             <option value="Tétouan">Tétouan</option>
                                             <option value="Safi">Safi</option>
@@ -107,14 +84,38 @@
                                             <option value="El Jadida">El Jadida</option>
                                         </select>
                                     </div>
+
+                                </div> <!-- end col -->
+
+                                <div class="col-lg-6">
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">{{__('supplier.cin')}} *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="cin" placeholder="{{__('supplier.cin')}}" maxlength="8" value="{{old('cin', $supplier->cin)}}">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">{{__('supplier.phone')}} *</label>
+                                        <input type="tel" id="simpleinput" class="form-control" name="phone" placeholder="{{__('supplier.phone')}}" value="{{old('phone', $supplier->phone)}}">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">{{__('supplier.postal_code')}} </label>
+                                        <input type="tel" id="simpleinput" class="form-control" name="postal_code" placeholder="{{__('supplier.postal_code')}}" value="{{old('postal_code', $supplier->postal_code)}}">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">{{__('supplier.country')}} </label>
+                                        <input type="tel" id="simpleinput" class="form-control" name="country" placeholder="{{__('supplier.country')}}" value="{{old('country', $supplier->country)}}">
+                                    </div>
+
                                 </div>
-                                    <!-- end col -->
+                                <!-- end col -->
                             </div>
                             <!-- end row-->
-                                <div class="row">
-                                    <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">{{__('candidate.edit')}}</button>
-                                    <a href="{{url('candidates')}}" class="btn btn-white btn-rounded waves-effect">{{__('candidate.cancel')}}</a>
-                                </div>
+                            <div class="row">
+                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">{{__('supplier.edit')}}</button>
+                                <a href="{{url('suppliers')}}" class="btn btn-white btn-rounded waves-effect">{{__('supplier.cancel')}}</a>
+                            </div>
                         </form>
 
                     </div> <!-- end card-body -->
@@ -130,16 +131,8 @@
     <script src="{{asset('assets/libs/dropzone/min/dropzone.min.js')}}"></script>
     <script src="{{asset('assets/libs/dropify/js/dropify.min.js')}}"></script>
 
-
-    <script src="{{asset('assets/libs/jquery-mask-plugin/jquery.mask.min.js')}}"></script>
-    <script src="{{asset('assets/libs/autonumeric/autoNumeric-min.js')}}"></script>
-
-    <!-- Init js-->
-    <script src="{{asset('assets/js/pages/form-masks.init.js')}}"></script>
-
     <!-- Init js-->
     <script src="{{asset('assets/js/pages/form-fileuploads.init.js')}}"></script>
-
     <script>
         $(function() {
             $("select").each(function (index, element) {

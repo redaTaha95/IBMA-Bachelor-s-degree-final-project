@@ -15,7 +15,7 @@ class EmployeeController extends Controller
 
     public function __construct(EmployeeRepositoryInterface $employeeRepository)
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
         $this->employeeRepository = $employeeRepository;
     }
 

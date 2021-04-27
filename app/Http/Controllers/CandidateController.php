@@ -11,7 +11,7 @@ class CandidateController extends Controller
 
     public function __construct(CandidateRepositoryInterface $candidateRepository)
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
         $this->candidateRepository = $candidateRepository;
     }
 
@@ -55,5 +55,9 @@ class CandidateController extends Controller
     public function destroy($id)
     {
         $this->candidateRepository->delete($id);
+    }
+
+    public function export(){
+        return $this->candidateRepository->exportCandidatesDataAsExcel();
     }
 }

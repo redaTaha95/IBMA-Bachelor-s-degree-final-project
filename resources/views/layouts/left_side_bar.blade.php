@@ -64,6 +64,13 @@
                         <span> Produits </span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="{{url('suppliers')}}">
+                        <i data-feather="users"></i>
+                        <span> Fournisseurs </span>
+                    </a>
+                </li>
             </ul>
 
         </div>
