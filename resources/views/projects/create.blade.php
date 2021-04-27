@@ -63,6 +63,7 @@
                                         </div>
 
 
+
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('tradprojet.addnom') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name')}}" required>
