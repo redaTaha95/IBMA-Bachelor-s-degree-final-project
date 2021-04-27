@@ -66,6 +66,7 @@
                                         <label for="simpleinput">{{__('product.price')}}</label>
                                         <input id="touchsprinPrice" data-toggle="touchspin" type="number" step="0.5" data-bts-prefix="$" class="form-control" name="price" placeholder="{{__('product.price')}}" value="{{old('price')}}">
                                     </div>
+
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">Image</label>
                                         <input type="file" data-plugins="dropify" name="image"/>
