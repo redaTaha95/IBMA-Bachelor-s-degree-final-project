@@ -11,7 +11,7 @@ class RecruitmentDemandController extends Controller
 
     public function __construct(RecruitmentDemandRepositoryInterface $recruitmentDemandRepository)
     {
-//        $this->middleware('auth');
+        //$this->middleware('auth');
         $this->recruitmentDemandRepository = $recruitmentDemandRepository;
     }
 

@@ -35,6 +35,9 @@
                     <div class="card-body">
 
                         <div class="text-lg-right mb-2">
+                            <a href="{{url('export/clients/')}}" class="btn btn-info btn-rounded waves-effect waves-light mb-2">
+                                <span class="btn-label"><i class="mdi mdi-download"></i></span>{{__('client.export')}}
+                            </a>
                             <a href="{{url('clients/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
                                 <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{__('client.add_client')}}
                             </a>
@@ -68,7 +71,7 @@
                                     <td class="align-middle">{{$client->phone}}</td>
                                     <td class="align-middle">{{$client->email}}</td>
                                     <td class="align-middle">
-                                        <a href="#" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
+                                        <a href="{{route('clients.show', $client->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
                                         <a href="{{route('clients.edit', $client->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
                                         <a href="{{url('clients/'.$client->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-client"><i class="mdi mdi-trash-can-outline"></i></a>
                                     </td>

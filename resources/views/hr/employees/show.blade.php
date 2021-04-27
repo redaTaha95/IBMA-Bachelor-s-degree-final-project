@@ -12,10 +12,10 @@
     <link href="{{asset('assets/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+    <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
 
     <!-- Summernote css -->
-    <link href="../assets/libs/summernote/summernote-bs4.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/libs/summernote/summernote-bs4.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -139,23 +139,23 @@
                 <!-- Team-->
                 <div class="avatar-group mb-3">
                     <a href="javascript: void(0);" class="avatar-group-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
-                        <img src="../assets/images/users/user-1.jpg" class="rounded-circle avatar-sm" alt="friend">
+                        <img src="{{asset('assets/images/users/user-1.jpg')}}" class="rounded-circle avatar-sm" alt="friend">
                     </a>
 
                     <a href="javascript: void(0);" class="avatar-group-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Michael Zenaty">
-                        <img src="../assets/images/users/user-2.jpg" class="rounded-circle avatar-sm" alt="friend">
+                        <img src="{{asset('assets/images/users/user-2.jpg')}}" class="rounded-circle avatar-sm" alt="friend">
                     </a>
 
                     <a href="javascript: void(0);" class="avatar-group-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="James Anderson">
-                        <img src="../assets/images/users/user-3.jpg" class="rounded-circle avatar-sm" alt="friend">
+                        <img src="{{asset('assets/images/users/user-3.jpg')}}" class="rounded-circle avatar-sm" alt="friend">
                     </a>
 
                     <a href="javascript: void(0);" class="avatar-group-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mat Helme">
-                        <img src="../assets/images/users/user-4.jpg" class="rounded-circle avatar-sm" alt="friend">
+                        <img src="{{asset('assets/images/users/user-4.jpg')}}" class="rounded-circle avatar-sm" alt="friend">
                     </a>
 
                     <a href="javascript: void(0);" class="avatar-group-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Username">
-                        <img src="../assets/images/users/user-5.jpg" class="rounded-circle avatar-sm" alt="friend">
+                        <img src="{{asset('assets/images/users/user-5.jpg')}}" class="rounded-circle avatar-sm" alt="friend">
                     </a>
                 </div>
                 <!-- Progress-->
@@ -175,7 +175,7 @@
 
 @section('js')
     <!--Summernote js-->
-    <script src="../assets/libs/summernote/summernote-bs4.min.js"></script>
+    <script src="{{asset('assets/libs/summernote/summernote-bs4.min.js')}}"></script>
 
     <script>
         jQuery(document).ready(function(){

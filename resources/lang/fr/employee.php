@@ -37,6 +37,6 @@ return[
     'employee_profile'=>'Le profil de ',
     'profile'=>'Profil',
     'projects_assigned'=>'Les projets affectés a cet employé',
-
+    'export' =>'Exporter',
 
 ];

@@ -23,7 +23,6 @@ class CandidateRequest extends FormRequest
         ];
     }
 
-
     public function messages()
     {
         return [

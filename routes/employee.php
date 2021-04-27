@@ -4,3 +4,5 @@ use App\Http\Controllers\EmployeeController;
 
 
 Route::resource('employees', EmployeeController::class);
+
+Route::get('export/employees/', [EmployeeController::class, 'export']);

@@ -3,7 +3,8 @@
 
 namespace App\Repositories;
 
-
+use App\Exports\EmployeeExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Employee;
 
 class EmployeeRepository extends BaseRepository implements Interfaces\EmployeeRepositoryInterface
@@ -29,5 +30,10 @@ class EmployeeRepository extends BaseRepository implements Interfaces\EmployeeRe
     public function storeImage($id, $file_name, $folder_name, $table)
     {
         uploadImage($id, $file_name, $folder_name, $table);
+    }
+
+    public function exportEmployeesDataAsExcel()
+    {
+        return Excel::download(new EmployeeExport, 'employees.xlsx');
     }
 }

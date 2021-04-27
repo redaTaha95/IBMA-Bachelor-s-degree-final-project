@@ -54,12 +54,12 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="simpleinput">{{__('client.phone')}}</label>
-                                    <input type="tel" id="simpleinput" class="form-control" name="phone" placeholder="{{__('client.phone')}}" value="{{old('phone')}}">
+                                    <label for="simpleinput">{{__('client.phone')}} *</label>
+                                    <input type="tel" id="simpleinput" class="form-control" data-toggle="input-mask" name="phone" placeholder="{{ __('client.example') }} : 0630-303030" data-mask-format="0000-000000" maxlength="14" value="{{old('phone')}}">
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="simpleinput">Email</label>
+                                    <label for="simpleinput">Email *</label>
                                     <input type="text" id="simpleinput" class="form-control" name="email" placeholder="Email" value="{{old('email')}}">
                                 </div>
 
@@ -104,6 +104,14 @@
     <script src="{{asset('assets/libs/dropzone/min/dropzone.min.js')}}"></script>
     <script src="{{asset('assets/libs/dropify/js/dropify.min.js')}}"></script>
 
+    <!-- Plugins js -->
+    <script src="{{asset('assets/libs/jquery-mask-plugin/jquery.mask.min.js')}}"></script>
+    <script src="{{asset('assets/libs/autonumeric/autoNumeric-min.js')}}"></script>
+
+    <!-- Init js-->
+    <script src="{{asset('assets/js/pages/form-masks.init.js')}}"></script>
+
     <!-- Init js-->
     <script src="{{asset('assets/js/pages/form-fileuploads.init.js')}}"></script>
+
 @endsection

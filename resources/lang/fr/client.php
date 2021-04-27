@@ -19,5 +19,11 @@ return [
     'deleted' => 'Supprimé',
     'data_deleted' => 'Vos données ont été supprimées',
     'canceled' => 'Annulé',
-    'data_is_safe' => 'Vos données sont en sécurité'
+    'data_is_safe' => 'Vos données sont en sécurité',
+    'details_of_client' => 'Détails du client',
+    'profile' => 'Profil',
+    'contact' => 'Contacter',
+    'location' => 'Lieu',
+    'example' =>'Exemple',
+    'export' =>'Exporter',
 ];

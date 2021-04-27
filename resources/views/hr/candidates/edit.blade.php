@@ -51,17 +51,17 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('candidate.last_name')}} *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="last_name" placeholder="{{__('candidate.last_name')}}" value="{{old('lastName', $candidate->last_name)}}">
+                                        <input type="text" id="simpleinput" class="form-control" name="last_name" placeholder="{{__('candidate.last_name')}}" value="{{old('last_name', $candidate->last_name)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('candidate.cin')}} *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="cin" placeholder="{{__('candidate.cin')}}" value="{{old('cin', $candidate->cin)}}">
+                                        <input type="text" id="simpleinput" class="form-control" name="cin" placeholder="{{__('candidate.cin')}}" maxlength="8" value="{{old('cin', $candidate->cin)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('candidate.phone')}} *</label>
-                                        <input type="tel" id="simpleinput" class="form-control" name="phone" placeholder="{{__('candidate.phone')}}" value="{{old('phone', $candidate->phone)}}">
+                                        <input type="text" class="form-control" data-toggle="input-mask" name="phone" placeholder="{{ __('candidate.example') }} : 0630-303030" data-mask-format="0000-000000" maxlength="14" value="{{old('phone', $candidate->phone)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
@@ -73,9 +73,10 @@
 
                                 <div class="col-lg-6">
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{__('candidate.first_name')}} *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="{{__('candidate.first_name')}}" placeholder="Prénom" value="{{old('firstName', $candidate->first_name)}}">
+                                        <label for="simpleinput">{{__('candidate.first_name')}}</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="first_name" placeholder="{{__('candidate.first_name')}}" value="{{old('first_name', $candidate->first_name)}}">
                                     </div>
+
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('candidate.birthday')}}</label>
                                         <input type="date" id="simpleinput" class="form-control" name="birthday" placeholder="{{__('candidate.birthday')}}" value="{{old('birthday', $candidate->birthday)}}">
@@ -88,7 +89,23 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('candidate.city')}}</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="city" placeholder="{{__('candidate.city')}}" value="{{old('city', $candidate->city)}}">
+                                        <select id="select-city" class="form-control" name="city" data-value="{{ $candidate ? $candidate->city : old('city') }}">>
+                                            <option value="Casablanca">Casablanca</option>
+                                            <option value="Fès">Fès</option>
+                                            <option value="Tanger">Tanger</option>
+                                            <option value="Marrakech">Marrakech</option>
+                                            <option value="Salé">Salé</option>
+                                            <option value="Meknès" >Meknès</option>
+                                            <option value="Rabat">Rabat</option>
+                                            <option value="Oujda">Oujda</option>
+                                            <option value="Kénitra#">Kénitra</option>
+                                            <option value="Agadir">Agadir</option>
+                                            <option value="Tétouan">Tétouan</option>
+                                            <option value="Safi">Safi</option>
+                                            <option value="Mohammédia">Mohammédia</option>
+                                            <option value="Khouribga">Khouribga</option>
+                                            <option value="El Jadida">El Jadida</option>
+                                        </select>
                                     </div>
                                 </div>
                                     <!-- end col -->
@@ -113,6 +130,24 @@
     <script src="{{asset('assets/libs/dropzone/min/dropzone.min.js')}}"></script>
     <script src="{{asset('assets/libs/dropify/js/dropify.min.js')}}"></script>
 
+
+    <script src="{{asset('assets/libs/jquery-mask-plugin/jquery.mask.min.js')}}"></script>
+    <script src="{{asset('assets/libs/autonumeric/autoNumeric-min.js')}}"></script>
+
+    <!-- Init js-->
+    <script src="{{asset('assets/js/pages/form-masks.init.js')}}"></script>
+
     <!-- Init js-->
     <script src="{{asset('assets/js/pages/form-fileuploads.init.js')}}"></script>
+
+    <script>
+        $(function() {
+            $("select").each(function (index, element) {
+                const val = $(this).data('value');
+                if(val !== '') {
+                    $(this).val(val);
+                }
+            });
+        })
+    </script>
 @endsection
