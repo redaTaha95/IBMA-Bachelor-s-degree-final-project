@@ -52,14 +52,18 @@ class EmployeeController extends Controller
     public function update(EmployeeRequest $request, $id)
     {
         $this->employeeRepository->updateEmployee($request->all(), $id);
-       // session()->flash('update', 'Employee has been added');
+        session()->flash('update', 'Employee has been added');
 
-        return redirect('/employees')->with('update', 'Employee has been added');
+        return redirect('/employees');
 
     }
 
     public function destroy($id)
     {
         $this->employeeRepository->delete($id);
+    }
+
+    public function export(){
+        return $this->employeeRepository->exportEmployeesDataAsExcel();
     }
 }

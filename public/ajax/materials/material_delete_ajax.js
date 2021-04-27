@@ -1,4 +1,4 @@
-$('.delete-employee').on('click', function (event) {
+$('.delete-material').on('click', function (event) {
     event.preventDefault();
     var url = $(this).attr('href');
     csrf_token = $('meta[name="csrf-token"]').attr('content');

@@ -12,7 +12,12 @@ class RecruitmentDemand extends Model
 
     protected $guarded = [];
 
+<<<<<<< HEAD
     public function candidates(){
         return $this->belongsToMany(Candidate::class, 'candidate_recruitment_demand');
+=======
+    public function employee(){
+        return $this->belongsTo('app\Models\Employee');
+>>>>>>> ba6073d842059f023397fb9416320862e7630b67
     }
 }

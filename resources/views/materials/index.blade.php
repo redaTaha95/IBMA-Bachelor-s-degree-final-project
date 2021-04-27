@@ -21,11 +21,11 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('employee.employee_folder') }}</a></li>
-                            <li class="breadcrumb-item active">{{ __('employee.list') }}</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('material.material_folder') }}</a></li>
+                            <li class="breadcrumb-item active">{{ __('material.list') }}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{ __('employee.list') }}</h4>
+                    <h4 class="page-title">{{ __('material.list') }}</h4>
                 </div>
             </div>
         </div>
@@ -36,12 +36,12 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <div class="text-lg-right mb-2">
-                            <a href="{{url('export/employees/')}}" class="btn btn-info btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-download"></i></span>{{__('employee.export')}}
+                        <div class="text-lg-right mb-2"><!---->
+                            <a href="{{url('export/materials/')}}" class="btn btn-info btn-rounded waves-effect waves-light mb-2">
+                                <span class="btn-label"><i class="mdi mdi-download"></i></span>{{__('material.export')}}
                             </a>
-                            <a href="{{url('employees/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{ __('employee.addEmployee') }}
+                            <a href="{{url('materials/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
+                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{ __('material.addMaterial') }}
                             </a>
                         </div>
 
@@ -49,33 +49,25 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>{{ __('employee.logo') }}</th>
-                                <th>{{ __('employee.name') }}</th>
-                                <th>{{ __('employee.phone') }}</th>
-                                <th>{{ __('employee.email') }}</th>
-                                <th style="width: 15%;">{{ __('employee.actions') }}</th>
+                                <th>{{ __('material.material_code') }}</th>
+                                <th>{{ __('material.designation') }}</th>
+                                <th>{{ __('material.category') }}</th>
+                                <th style="width: 15%;">{{ __('material.actions') }}</th>
                             </tr>
                             </thead>
 
 
                             <tbody>
-                            @foreach($employees as $index => $employee)
+                            @foreach($materials as $index => $material)
                                 <tr>
                                     <td class="align-middle">{{$index + 1}}</td>
+                                    <td class="align-middle">{{$material->material_code}}</td>
+                                    <td class="align-middle">{{$material->designation}}</td>
+                                    <td class="align-middle">{{$material->category}}</td>
                                     <td class="align-middle">
-                                        @if($employee->logo)
-                                            <img src="{{asset('storage/employees/'.$employee->logo)}}" alt="image" class="avatar-sm rounded-circle">
-                                        @else
-                                            <img src="{{asset('assets/images/users/default_user.png')}}" alt="image" class="avatar-sm rounded-circle">
-                                        @endif
-                                    </td>
-                                    <td class="align-middle">{{$employee->name}}</td>
-                                    <td class="align-middle">{{$employee->phone}}</td>
-                                    <td class="align-middle">{{$employee->email}}</td>
-                                    <td class="align-middle">
-                                        <a href="{{route('employees.show', $employee->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
-                                        <a href="{{route('employees.edit', $employee->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{url('employees/'.$employee->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-employee"><i class="mdi mdi-trash-can-outline"></i></a>
+                                        <a href="{{route('materials.show', $material->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
+                                        <a href="{{route('materials.edit', $material->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
+                                        <a href="{{url('materials/'.$material->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-material"><i class="mdi mdi-trash-can-outline"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -106,7 +98,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>>
 
     {{--file of delete client--}}
-    <script src="{{asset('ajax/employees/employee_delete_ajax.js')}}"></script>
+    <script src="{{asset('ajax/materials/material_delete_ajax.js')}}"></script>
 
 
         @if(session('success'))
@@ -125,7 +117,7 @@
 
                 Toast.fire({
                     icon: 'success',
-                    title: '{{ __('employee.addSuccessfully') }}'
+                    title: '{{ __('material.addSuccessfully') }}'
                 })
             </script>
         @endif
@@ -146,7 +138,7 @@
 
                 Toast.fire({
                     icon: 'success',
-                    title: '{{ __('employee.updatedSuccessfully') }}'
+                    title: '{{ __('material.updatedSuccessfully') }}'
                 })
             </script>
         @endif
@@ -163,13 +155,13 @@
                     $(".dataTables_paginate > .pagination").addClass("pagination-rounded")
                 },
                 "oLanguage": {
-                    "sInfo": "{{ __('employee.show_pages') }}",
+                    "sInfo": "{{ __('material.show_pages') }}",
                     "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
-                    "sSearchPlaceholder": "{{ __('employee.search') }}...",
-                    "sLengthMenu": "{{ __('employee.results') }} :  _MENU_",
-                    "sEmptyTable": "{{ __('employee.nothing_found') }}",
-                    "sZeroRecords": "{{ __('employee.No_matching_records_found') }}",
-                    "sInfoFiltered":   "({{ __('employee.filtered') }})",
+                    "sSearchPlaceholder": "{{ __('material.search') }}...",
+                    "sLengthMenu": "{{ __('material.results') }} :  _MENU_",
+                    "sEmptyTable": "{{ __('material.nothing_found') }}",
+                    "sZeroRecords": "{{ __('material.No_matching_records_found') }}",
+                    "sInfoFiltered":   "({{ __('material.filtered') }})",
                 },
                 'aoColumnDefs': [{
                     'bSortable': false,
@@ -183,13 +175,13 @@
         } );
     </script>
         <script>
-            var delete_confirmation = '{{ __('employee.warning_message') }}';
-            var _delete = '{{ __('employee.delete') }}';
-            var cancel = '{{ __('employee.cancel') }}';
-            var deleted = '{{ __('employee.deleted') }}';
-            var data_deleted = '{{ __('employee.deleted_data') }}';
-            var canceled = '{{ __('employee.canceled') }}';
-            var data_is_safe = '{{ __('employee.secure_data') }}';
+            var delete_confirmation = '{{ __('material.warning_message') }}';
+            var _delete = '{{ __('material.delete') }}';
+            var cancel = '{{ __('material.cancel') }}';
+            var deleted = '{{ __('material.deleted') }}';
+            var data_deleted = '{{ __('material.deleted_data') }}';
+            var canceled = '{{ __('material.canceled') }}';
+            var data_is_safe = '{{ __('material.secure_data') }}';
         </script>
 
 @endsection

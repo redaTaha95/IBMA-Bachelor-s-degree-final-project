@@ -15,6 +15,8 @@ use App\Repositories\Interfaces\ProjectRepositoryInterface;
 use App\Repositories\Interfaces\RecruitmentDemandRepositoryInterface;
 use App\Repositories\ProductRepository;
 use App\Repositories\Interfaces\SupplierRepositoryInterface;
+use App\Repositories\Interfaces\MaterialRepositoryInterface;
+use App\Repositories\MaterialRepository;
 use App\Repositories\ProjectRepository;
 use App\Repositories\RecruitmentDemandRepository;
 use App\Repositories\SupplierRepository;
@@ -33,6 +35,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(RecruitmentDemandRepositoryInterface::class, RecruitmentDemandRepository::class);
         $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
         $this->app->bind(SupplierRepositoryInterface::class, SupplierRepository::class);
+        $this->app->bind(MaterialRepositoryInterface::class, MaterialRepository::class);
     }
 
 
