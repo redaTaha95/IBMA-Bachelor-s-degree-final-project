@@ -54,7 +54,7 @@ return[
     'deleted'=> 'Deleted',
     'canceled' => 'canceled',
     'introduction4' => 'Project Details',
-    'titre12' => 'UBold',
+    'titre12' => 'IBMA',
     'titre13' => 'Projects',
     'titre14' => 'Project Details',
     'Ongoing' => 'Ongoing',
@@ -82,4 +82,8 @@ return[
     'oneD' => '1 day ago',
     '3hrs' => '3 hours ago',
     '1hr' => '1 hours ago',
+    'Export' => 'Export',
+    'cltid' => 'Client id',
+    'edcltid' => 'Client id'
+
 ];

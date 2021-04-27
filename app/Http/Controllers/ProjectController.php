@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
+use App\Models\Client;
 use App\Repositories\Interfaces\ProjectRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,8 @@ class ProjectController extends Controller
 
     public function create()
     {
-        return view('projects.create');
+        $clients = $this->projectRepository->getClients();
+        return view('projects.create',compact('clients'));
     }
 
     public function store(ProjectRequest $request)
@@ -43,7 +45,9 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project = $this->projectRepository->find($id);
-        return view('projects.edit', compact('project'));
+        $clients = $this->projectRepository->getClients();
+        return view('projects.edit', compact('project','clients'));
+
     }
 
     public function update(ProjectRequest $request, $id)
@@ -56,5 +60,9 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         $this->projectRepository->delete($id);
+    }
+
+    public function export(){
+        return $this->projectRepository->exportProjectsDataAsExcel();
     }
 }

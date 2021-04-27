@@ -49,6 +49,20 @@
                             <div class="row">
                                 <div class="col-lg-6">
 
+
+                                        <div class="dropdown">
+
+                                            <label for="client">{{ __('tradprojet.cltid') }}</label>
+                                            <select name="client_id" class="form-control" style="width:250px">
+                                                <option value="">--- Select id ---</option>
+                                                @foreach ($clients as $client)
+                                                    <option value="{{ $client->id }}">{{ $client->name }}</option>
+                                                @endforeach
+
+                                            </select>
+                                        </div>
+
+
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('tradprojet.addnom') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name')}}" required>

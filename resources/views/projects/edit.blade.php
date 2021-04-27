@@ -49,6 +49,24 @@
                             <div class="row">
                                 <div class="col-lg-6">
 
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="dropdown">
+
+                                                <label for="client">{{ __('tradprojet.edcltid') }}</label>
+                                                <select name="client_id" class="form-control" style="width:250px" >
+
+                                                    @foreach ($clients as $client)
+                                                        <option value="{{ $client->id}}" {{old('client_id', $client->id) == $project->client_id ? 'selected' : ' '}}>{{ $client->name }}</option>
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('tradprojet.Ednom') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name', $project->name)}}">

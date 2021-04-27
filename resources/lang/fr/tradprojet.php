@@ -23,7 +23,7 @@ return[
     'adddated' => 'Date début',
     'adddatef' => 'Date écheance',
     'addbud' => 'Budget',
-    'addteam' => 'Membres équipe',
+    'addteam' => "Membres d'équipe",
     'addlogo' => 'Logo',
     'btnajout' => 'Ajouter',
     'btnan' => 'Annuler',
@@ -54,9 +54,9 @@ return[
     'deleted'=> 'Supprimé',
     'canceled' => 'Annulé',
     'introduction4' => 'Détails du projet',
-    'titre12' => 'UBold',
+    'titre12' => 'IBMA',
     'titre13' => 'Projets',
-    'titre14' => 'détails du projet',
+    'titre14' => 'Détails du projet',
     'Ongoing' => 'En cours',
     'Aperçu' => 'Aperçu du projet',
     'showstartd' => 'Date début',
@@ -82,6 +82,8 @@ return[
     'oneD' => 'il y a un jour',
     '3hrs' => 'il y a 3 heures',
     '1hr' => 'il y a 1 heure',
-
+    'Export' => 'Exporter',
+    'cltid' => 'Client id',
+    'edcltid' => 'Client id'
 
 ];
