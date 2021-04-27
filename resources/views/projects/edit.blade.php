@@ -58,13 +58,14 @@
                                                 <select name="client_id" class="form-control" style="width:250px" >
 
                                                     @foreach ($clients as $client)
-                                                      <option value="{{ $client->id}}" {{old('name', $client->name) == '{{$client->name}}' ? 'selected' : ' '}}></option>
+                                                        <option value="{{ $client->id}}" {{old('client_id', $client->id) == $project->client_id ? 'selected' : ' '}}>{{ $client->name }}</option>
                                                     @endforeach
 
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
+                                    <br>
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('tradprojet.Ednom') }}</label>
