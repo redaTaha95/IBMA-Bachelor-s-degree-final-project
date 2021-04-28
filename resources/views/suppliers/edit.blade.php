@@ -66,22 +66,22 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('supplier.city')}}</label>
-                                        <select id="select-city" class="form-control" name="city" data-value="{{ $supplier ? $supplier->city : old('city') }}">>
+                                        <select id="select-city" class="form-control" name="city" data-value="{{ old('city', $supplier->city) }}">
                                             <option value="Select-city" disabled selected>Sélectionner une ville</option>
-                                            <option value="Casablanca">Casablanca</option>
+                                            <option value="Casablanca" >Casablanca</option>
                                             <option value="Fès">Fès</option>
-                                            <option value="Tanger">Tanger</option>
-                                            <option value="Marrakech">Marrakech</option>
-                                            <option value="Salé">Salé</option>
+                                            <option value="Tanger" >Tanger</option>
+                                            <option value="Marrakech" >Marrakech</option>
+                                            <option value="Salé" >Salé</option>
                                             <option value="Meknès" >Meknès</option>
-                                            <option value="Rabat">Rabat</option>
-                                            <option value="Oujda">Oujda</option>
-                                            <option value="Kénitra">Kénitra</option>
-                                            <option value="Agadir">Agadir</option>
-                                            <option value="Tétouan">Tétouan</option>
+                                            <option value="Rabat" >Rabat</option>
+                                            <option value="Oujda" >Oujda</option>
+                                            <option value="Kénitra" >Kénitra</option>
+                                            <option value="Agadir" >Agadir</option>
+                                            <option value="Tétouan" >Tétouan</option>
                                             <option value="Safi">Safi</option>
-                                            <option value="Mohammédia">Mohammédia</option>
-                                            <option value="Khouribga">Khouribga</option>
+                                            <option value="Mohammédia" >Mohammédia</option>
+                                            <option value="Khouribga" >Khouribga</option>
                                             <option value="El Jadida">El Jadida</option>
                                         </select>
                                     </div>

@@ -90,21 +90,21 @@
                                         <label for="simpleinput">{{__('candidate.city')}}</label>
                                         <select id="select-city" class="form-control" name="city">
                                             <option value="Select-city" disabled selected>Sélectionner une ville</option>
-                                            <option value="Casablanca">Casablanca</option>
-                                            <option value="Fès">Fès</option>
-                                            <option value="Tanger">Tanger</option>
-                                            <option value="Marrakech">Marrakech</option>
-                                            <option value="Salé">Salé</option>
-                                            <option value="Meknès" >Meknès</option>
-                                            <option value="Rabat">Rabat</option>
-                                            <option value="Oujda">Oujda</option>
-                                            <option value="Kénitra#">Kénitra</option>
-                                            <option value="Agadir">Agadir</option>
-                                            <option value="Tétouan">Tétouan</option>
-                                            <option value="Safi">Safi</option>
-                                            <option value="Mohammédia">Mohammédia</option>
-                                            <option value="khouribga#">Khouribga</option>
-                                            <option value="El Jadida">El Jadida</option>
+                                            <option value="Casablanca" {{old('city') == 'Casablanca' ? 'selected' : ''}}>Casablanca</option>
+                                            <option value="Fès" {{old('city') == 'Fès' ? 'selected' : ''}}>Fès</option>
+                                            <option value="Tanger" {{old('city') == 'Tanger' ? 'selected' : ''}}>Tanger</option>
+                                            <option value="Marrakech" {{old('city') == 'Marrakech' ? 'selected' : ''}}>Marrakech</option>
+                                            <option value="Salé" {{old('city') == 'Salé' ? 'selected' : ''}}>Salé</option>
+                                            <option value="Meknès" {{old('city') == 'Meknès' ? 'selected' : ''}}>Meknès</option>
+                                            <option value="Rabat" {{old('city') == 'Rabat' ? 'selected' : ''}}>Rabat</option>
+                                            <option value="Oujda" {{old('city') == 'Oujda' ? 'selected' : ''}}>Oujda</option>
+                                            <option value="Kénitra" {{old('city') == 'Kénitra' ? 'selected' : ''}}>Kénitra</option>
+                                            <option value="Agadir" {{old('city') == 'Agadir' ? 'selected' : ''}}>Agadir</option>
+                                            <option value="Tétouan" {{old('city') == 'Tétouan' ? 'selected' : ''}}>Tétouan</option>
+                                            <option value="Safi" {{old('city') == 'Safi' ? 'selected' : ''}}>Safi</option>
+                                            <option value="Mohammédia" {{old('city') == 'Mohammédia' ? 'selected' : ''}}>Mohammédia</option>
+                                            <option value="Khouribga" {{old('city') == 'Khouribga' ? 'selected' : ''}}>Khouribga</option>
+                                            <option value="El Jadida" {{old('city') == 'El Jadida' ? 'selected' : ''}}>El Jadida</option>
                                         </select>
                                     </div>
                                 </div>

@@ -26,7 +26,7 @@ class SupplierRequest extends FormRequest
     public function messages()
     {
         return [
-            'full_name.required' => 'Nom Complet du fournisseur est obligatoire !',
+            'full_name.required' => 'Nom & Prénom du fournisseur sont obligatoires !',
             'cin.required' => 'CIN du fournisseur est obligatoire !',
             'address.required' => 'Adresse du fournisseur est obligatoire !',
             'phone.required' => 'Téléphone du fournisseur est obligatoire !',

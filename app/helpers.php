@@ -10,6 +10,5 @@ function uploadImage($id, $file_name, $folder_name, $table)
 
         // update logo value with file name
         DB::table($table)->where('id',$id)->update([$file_name => $date.$file]);
-
     }
 }
