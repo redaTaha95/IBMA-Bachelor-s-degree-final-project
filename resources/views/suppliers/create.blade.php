@@ -67,6 +67,7 @@
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('supplier.city')}}</label>
                                         <select id="select-city" class="form-control" name="city">
+                                            <option value="Select-city" disabled selected>Sélectionner une ville</option>
                                             <option value="Casablanca">Casablanca</option>
                                             <option value="Fès">Fès</option>
                                             <option value="Tanger">Tanger</option>
