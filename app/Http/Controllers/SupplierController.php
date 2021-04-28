@@ -56,4 +56,8 @@ class SupplierController extends Controller
     {
         $this->supplierRepository->delete($id);
     }
+
+    public function export(){
+        return $this->supplierRepository->exportSuppliersDataAsExcel();
+    }
 }

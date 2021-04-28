@@ -16,6 +16,7 @@ return [
     'country' => 'Pays',
     'add' => 'Ajouter',
     'example' => 'Exemple',
+    'export' =>'Exporter',
     'edit' => 'Modifier',
     'cancel' => 'Annuler',
     'supplier_added' => 'Fournisseur a été ajouté avec succès',
