@@ -49,7 +49,7 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>{{ __('material.material_code') }}</th>
+                                <th>{{ __('material.material_reference') }}</th>
                                 <th>{{ __('material.designation') }}</th>
                                 <th>{{ __('material.category') }}</th>
                                 <th style="width: 15%;">{{ __('material.actions') }}</th>
@@ -61,7 +61,7 @@
                             @foreach($materials as $index => $material)
                                 <tr>
                                     <td class="align-middle">{{$index + 1}}</td>
-                                    <td class="align-middle">{{$material->material_code}}</td>
+                                    <td class="align-middle">{{$material->material_reference}}</td>
                                     <td class="align-middle">{{$material->designation}}</td>
                                     <td class="align-middle">{{$material->category}}</td>
                                     <td class="align-middle">
@@ -95,7 +95,8 @@
     <!-- Datatables init -->
     <script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>
 
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
     {{--file of delete client--}}
     <script src="{{asset('ajax/materials/material_delete_ajax.js')}}"></script>

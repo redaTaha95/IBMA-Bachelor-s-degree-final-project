@@ -69,6 +69,11 @@
                                         <label for="simpleinput">{{ __('employee.salary') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="salary" placeholder="{{ __('employee.salary') }}" value="{{old('salary')}}">
                                     </div>
+                                <!--<div class="form-group">
+                                        <label for="simpleinput">{{ __('employee.salary') }}</label>
+                                        <input type="text" id="simpleinput" class="form-control autonumber" name="salary" placeholder="{{ __('employee.salary') }}" data-a-sep="." data-a-dec="," value="{{old('salary')}}">
+                                        <span class="font-13 text-muted">e.g. "1.234.567.890.123"</span>
+                                    </div>-->
 
                                 </div> <!-- end col -->
 

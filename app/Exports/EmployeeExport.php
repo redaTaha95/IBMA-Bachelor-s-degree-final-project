@@ -31,12 +31,12 @@ class EmployeeExport implements FromCollection, WithHeadings, ShouldAutoSize, Wi
     {
         return [
             '#',
-            'Name',
-            'Phone',
+            'Nom',
+            'Téléphone',
             'Email',
-            'Address',
-            'Salary',
-            'Hire Date'
+            'Adresse',
+            'Salaire',
+            "date d'embauche"
         ];
     }
 

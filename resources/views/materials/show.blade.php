@@ -43,14 +43,14 @@
 
                     <img src="{{asset('assets/images/users/default_user.png')}}" alt="image" class="avatar-lg rounded-circle">
 
-                <h4 class="mb-0">{{$material->material_code}}</h4><br>
+                <h4 class="mb-0">{{$material->material_reference}}</h4><br>
                <!-- <p class="text-muted">@webdesigner</p>-->
 
                 <!--<button type="button" class="btn btn-success btn-xs waves-effect mb-2 waves-light">Follow</button>-->
                 <div class="text-left mt-3">
                     <div class="row">
                         <div class="col-sm-12">
-                            <p class="text-muted mb-2 font-13"><strong>{{ __('material.material_code') }} :</strong> <span class="ml-2" style="color: #0a0a0a">{{$material->material_code}}</span></p>
+                            <p class="text-muted mb-2 font-13"><strong>{{ __('material.material_reference') }} :</strong> <span class="ml-2" style="color: #0a0a0a">{{$material->material_reference}}</span></p>
 
                             <p class="text-muted mb-2 font-13"><strong>{{ __('material.designation') }} :</strong><span class="ml-2" style="color: #0a0a0a">{{$material->designation}}</span></p>
 
