@@ -58,7 +58,7 @@
                                         <input type="text" id="simpleinput" class="form-control" name="cin" placeholder="{{__('candidate.cin')}}" maxlength="8" value="{{old('cin')}}">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('candidate.phone')}} *</label>
                                         <input type="text" class="form-control" data-toggle="input-mask" name="phone" placeholder="{{ __('candidate.example') }} : 0630-303030" data-mask-format="0000-000000" maxlength="14" value="{{old('phone')}}">
                                     </div>

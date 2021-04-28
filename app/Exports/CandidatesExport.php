@@ -30,14 +30,14 @@ class CandidatesExport implements FromCollection
     {
         return [
             '#',
-            'Last Name',
-            'First Name',
+            'Nom',
+            'Prénom',
             'CIN',
-            'Birthday',
-            'Phone',
+            'Date de naissance',
+            'Téléphone',
             'Email',
-            'Address',
-            'City'
+            'Adresse',
+            'Ville'
         ];
     }
 

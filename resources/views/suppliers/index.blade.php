@@ -60,7 +60,7 @@
                             <tbody>
                             @foreach($suppliers as $index => $supplier)
                                 <tr>
-                                    <td class="align-middle">{{$supplier->id}}</td>
+                                    <td class="align-middle">{{$index + 1}}</td>
                                     <td class="align-middle">{{$supplier->full_name}}</td>
                                     <td class="align-middle">{{$supplier->cin}}</td>
                                     <td class="align-middle">{{$supplier->address}}</td>
