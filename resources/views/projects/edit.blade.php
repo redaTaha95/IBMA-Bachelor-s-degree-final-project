@@ -15,12 +15,12 @@
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('tradprojet.title8') }}</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('tradprojet.title9') }}</a></li>
-                            <li class="breadcrumb-item active">{{ __('tradprojet.title10') }}</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.title8') }}</a></li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.title9') }}</a></li>
+                            <li class="breadcrumb-item active">{{ __('project.title10') }}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{ __('tradprojet.introduction3') }}</h4>
+                    <h4 class="page-title">{{ __('project.introduction3') }}</h4>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{ __('tradprojet.title11') }}</h4>
+                        <h4 class="header-title">{{ __('project.title11') }}</h4>
 
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -51,57 +51,58 @@
 
 
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-12">
                                             <div class="dropdown">
 
-                                                <label for="client">{{ __('tradprojet.edcltid') }}</label>
-                                                <select name="client_id" class="form-control" style="width:250px" >
-
+                                                <label for="client">{{ __('project.edcltid') }}</label>
+                                                <select name="client_id" class="form-control">
                                                     @foreach ($clients as $client)
                                                         <option value="{{ $client->id}}" {{old('client_id', $client->id) == $project->client_id ? 'selected' : ' '}}>{{ $client->name }}</option>
                                                     @endforeach
 
                                                 </select>
                                             </div>
+
+
                                         </div>
                                     </div>
                                     <br>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('tradprojet.Ednom') }}</label>
+                                        <label for="simpleinput">{{ __('project.Ednom') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name', $project->name)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('tradprojet.Eddesc') }}</label>
+                                        <label for="simpleinput">{{ __('project.Eddesc') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="description" placeholder="Description" value="{{old('description', $project->description)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('tradprojet.Eddated') }}</label>
+                                        <label for="simpleinput">{{ __('project.Eddated') }}</label>
                                         <input type="date" id="simpleinput" class="form-control" name="startDate" placeholder="Date début" value="{{old('startDate', $project->startDate)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('tradprojet.Eddatef') }}</label>
+                                        <label for="simpleinput">{{ __('project.Eddatef') }}</label>
                                         <input type="date" id="simpleinput" class="form-control" name="dueDate" placeholder="Date d'échéance" value="{{old('dueDate', $project->dueDate)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('tradprojet.Edbud') }}</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="budget" placeholder="Budget" value="{{old('budget', $project->budget)}}">
+                                        <label for="simpleinput">{{ __('project.Edbud') }}</label>
+                                        <input type="number" id="simpleinput" class="form-control" name="budget" placeholder="Budget" value="{{old('budget', $project->budget)}}">
                                     </div>
 
                                 </div> <!-- end col -->
 
                                 <div class="col-lg-6">
 
-                                    <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('tradprojet.Edteam') }}</label>
+                                 <!--   <div class="form-group mb-3">
+                                        <label for="simpleinput">{{ __('project.Edteam') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="teamMember" placeholder="Membres d'équipe" value="{{old('teamMember', $project->teamMember)}}">
-                                    </div>
+                                    </div>-->
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('tradprojet.Edlogo') }}</label>
+                                        <label for="simpleinput">{{ __('project.Edlogo') }}</label>
                                         <input type="file" data-plugins="dropify" name="logo" data-default-file="{{asset('storage/projects/'.$project->logo)}}"/>
                                     </div>
 
@@ -110,8 +111,8 @@
                             </div>
                             <!-- end row-->
                             <div class="row">
-                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">{{ __('tradprojet.btnModif') }}</button>
-                                <a href="{{url('projects')}}" class="btn btn-white btn-rounded waves-effect">{{ __('tradprojet.btnannul') }}</a>
+                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">{{ __('project.btnModif') }}</button>
+                                <a href="{{url('projects')}}" class="btn btn-white btn-rounded waves-effect">{{ __('project.btnannul') }}</a>
                             </div>
                         </form>
 

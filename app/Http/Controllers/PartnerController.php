@@ -57,4 +57,8 @@ class PartnerController extends Controller
     {
         $this->partnerRepository->delete($id);
     }
+
+    public function export(){
+        return $this->partnerRepository->exportPartnersDataAsExcel();
+    }
 }
