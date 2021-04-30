@@ -104,10 +104,10 @@
                                         <input type="text" id="simpleinput" class="form-control" name="postal_code" placeholder="{{__('supplier.postal_code')}}" value="{{old('postal_code')}}">
                                     </div>
 
-                                    <div class="form-group mb-3">
-                                        <label for="simpleinput">{{__('supplier.country')}}</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="country" placeholder="{{__('supplier.country')}}" value="{{old('country')}}">
-                                    </div>
+{{--                                    <div class="form-group mb-3">--}}
+{{--                                        <label for="simpleinput">{{__('supplier.country')}}</label>--}}
+{{--                                        <input type="text" id="simpleinput" class="form-control" name="country" placeholder="{{__('supplier.country')}}" value="{{old('country')}}">--}}
+{{--                                    </div>--}}
 
                                 </div>
                                 <!-- end col -->

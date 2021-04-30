@@ -64,21 +64,31 @@
                                         <input type="text" class="form-control" data-toggle="input-mask" name="phone" placeholder="{{ __('candidate.example') }} : 0630-303030" data-mask-format="0000-000000" maxlength="14" value="{{old('phone', $candidate->phone)}}">
                                     </div>
 
+{{--                                    <div class="form-group mb-3">--}}
+{{--                                        <label for="simpleinput">{{__('candidate.address')}}</label>--}}
+{{--                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="{{__('candidate.address')}}" value="{{old('address',$candidate->address)}}">--}}
+{{--                                    </div>--}}
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{__('candidate.address')}}</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="{{__('candidate.address')}}" value="{{old('address',$candidate->address)}}">
+                                        <label for="simpleinput">{{__('candidate.status')}} *</label>
+                                        <select id="select-status" class="form-control" name="status" data-value="{{ old('status', $candidate->status)}}">
+                                            <option value="select-status" disabled selected>Sélectionner un statut</option>
+                                            <option value="En attente">En attente</option>
+                                            <option value="En cours">En cours</option>
+                                            <option value="Embauché">Embauché</option>
+                                            <option value="Non Embauché">Non Embauché</option>
+                                        </select>
                                     </div>
 
                                 </div> <!-- end col -->
 
                                 <div class="col-lg-6">
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{__('candidate.first_name')}}</label>
+                                        <label for="simpleinput">{{__('candidate.first_name')}} *</label>
                                         <input type="text" id="simpleinput" class="form-control" name="first_name" placeholder="{{__('candidate.first_name')}}" value="{{old('first_name', $candidate->first_name)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{__('candidate.birthday')}}</label>
+                                        <label for="simpleinput">{{__('candidate.birthday')}} *</label>
                                         <input type="date" id="simpleinput" class="form-control" name="birthday" placeholder="{{__('candidate.birthday')}}" value="{{old('birthday', $candidate->birthday)}}">
                                     </div>
 
