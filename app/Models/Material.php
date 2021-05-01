@@ -11,4 +11,8 @@ class Material extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
+
+    public function Projects(){
+        return $this->belongsToMany(Project::class,'material_project');
+    }
 }

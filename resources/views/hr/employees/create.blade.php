@@ -65,15 +65,19 @@
                                         <ul class="parsley-errors-list" id="parsley-id-7" aria-hidden="true"></ul>
                                     </div>
 
-                                    <div class="form-group mb-3">
+                                <!--<div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('employee.salary') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="salary" placeholder="{{ __('employee.salary') }}" value="{{old('salary')}}">
                                     </div>
-                                <!--<div class="form-group">
+                                <div class="form-group">
                                         <label for="simpleinput">{{ __('employee.salary') }}</label>
                                         <input type="text" id="simpleinput" class="form-control autonumber" name="salary" placeholder="{{ __('employee.salary') }}" data-a-sep="." data-a-dec="," value="{{old('salary')}}">
                                         <span class="font-13 text-muted">e.g. "1.234.567.890.123"</span>
                                     </div>-->
+                                    <div class="form-group">
+                                        <label for="simpleinput">{{ __('employee.salary') }}</label>
+                                        <input type="text" id="simpleinput" class="form-control" data-toggle="input-mask" name="salary" placeholder="{{ __('employee.salary') }}" data-mask-format="0000000000" data-reverse="true" maxlength="22" value="{{old('salary')}}">
+                                    </div>
 
                                 </div> <!-- end col -->
 
