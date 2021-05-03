@@ -1,6 +1,7 @@
 $('.delete-client').on('click', function (event) {
     event.preventDefault();
     var url = $(this).attr('href');
+    var projects = $(this).attr('projects');
     csrf_token = $('meta[name="csrf-token"]').attr('content');
 
     const swalWithBootstrapButtons = Swal.mixin({
@@ -22,25 +23,34 @@ $('.delete-client').on('click', function (event) {
         padding: '2em'
     }).then((result) => {
         if (result.isConfirmed) {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                url: url,
-                type: "POST",
-                data: {
-                    '_method': 'DELETE',
-                    '_token': csrf_token
-                },
-            })
-            swalWithBootstrapButtons.fire(
-                deleted,
-                data_deleted,
-                'success'
-            )
-            window.setTimeout(function(){location.reload()},1000)
+            if (projects === '0'){
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    data: {
+                        '_method': 'DELETE',
+                        '_token': csrf_token
+                    },
+                })
+                swalWithBootstrapButtons.fire(
+                    deleted,
+                    data_deleted,
+                    'success'
+                )
+                window.setTimeout(function(){location.reload()},1000)
+            }
+            else {
+                swalWithBootstrapButtons.fire(
+                    delete_impossible,
+                    delete_impossible_explanation,
+                    'warning'
+                )
+            }
         } else if (
             /* Read more about handling dismissals below */
             result.dismiss === Swal.DismissReason.cancel
