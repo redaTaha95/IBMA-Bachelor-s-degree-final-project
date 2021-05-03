@@ -58,4 +58,8 @@ class ProductController extends Controller
     {
         $this->productRepository->delete($id);
     }
+
+    public function export(){
+        return $this->productRepository->exportProductsDataAsExcel();
+    }
 }

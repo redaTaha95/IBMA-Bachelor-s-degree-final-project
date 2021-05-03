@@ -4,7 +4,9 @@
 namespace App\Repositories;
 
 
+use App\Exports\ProductExport;
 use App\Models\Product;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductRepository extends BaseRepository implements Interfaces\ProductRepositoryInterface
 {
@@ -29,5 +31,10 @@ class ProductRepository extends BaseRepository implements Interfaces\ProductRepo
     public function storeImage($id, $file_name, $folder_name, $table)
     {
         uploadImage($id, $file_name, $folder_name, $table);
+    }
+
+    public function exportProductsDataAsExcel()
+    {
+        return Excel::download(new ProductExport, 'products.xlsx');
     }
 }
