@@ -5,7 +5,7 @@ return [
     'add_product' => 'Ajouter un produit',
     'general_information' => 'Informations générales',
     'title' => 'Titre',
-    'description' => 'Déscription',
+    'description' => 'Description',
     'price' => 'Prix',
     'add' => 'Ajouter',
     'edit' => 'Modifier',
