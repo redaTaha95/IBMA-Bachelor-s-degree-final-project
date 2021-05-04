@@ -83,7 +83,10 @@ return[
     '3hrs' => 'il y a 3 heures',
     '1hr' => 'il y a 1 heure',
     'Export' => 'Exporter',
-    'cltid' => 'Client id',
-    'edcltid' => 'Client id'
+    'cltid' => 'Client',
+    'edcltid' => 'Client id',
+    'show_page' => 'Affichage de la page',
+    'in' => 'sur',
+    'selectclt' => 'Selectionner un client'
 
 ];

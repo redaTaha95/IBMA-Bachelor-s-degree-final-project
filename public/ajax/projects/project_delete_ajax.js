@@ -1,34 +1,27 @@
 $('.delete-project').on('click', function (event) {
     event.preventDefault();
     var url = $(this).attr('href');
-    const warning_message = document.querySelector('div[id=warning_message]').textContent;
-    const secure = document.querySelector('div[id=secure]').textContent;
-    const delete_btn = document.querySelector('div[id=delete_btn]').textContent;
-    const deleted_data = document.querySelector('div[id=deleted_data]').textContent;
-    const cancel = document.querySelector('div[id=cancel]').textContent;
-    const canceled = document.querySelector('div[id=canceled]').textContent;
-    const deleted = document.querySelector('div[id=deleted]').textContent;
-
     csrf_token = $('meta[name="csrf-token"]').attr('content');
 
-    const swalWithBootstrapButtons = swal.mixin({
-        customClass : {
-        confirmButtonClass: 'btn btn-success btn-rounded',
-        cancelButtonClass: 'btn btn-danger btn-rounded mr-3'
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success btn-rounded',
+            cancelButton: 'btn btn-danger btn-rounded mr-3'
         },
-        buttonsStyling: false,
+        buttonsStyling: false
     })
+
     swalWithBootstrapButtons.fire({
-        title: warning_message,
+        title: delete_confirmation,
         text: "",
-        type: 'warning',
+        icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: delete_btn,
+        confirmButtonText: _delete,
         cancelButtonText: cancel,
         reverseButtons: true,
         padding: '2em'
-    }).then(function(result) {
-        if (result.value) {
+    }).then((result) => {
+        if (result.isConfirmed) {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -43,19 +36,21 @@ $('.delete-project').on('click', function (event) {
                 },
             })
             swalWithBootstrapButtons.fire(
-                deleted + '!',
-                deleted_data,
+                deleted,
+                data_deleted,
                 'success'
             )
             window.setTimeout(function(){location.reload()},1000)
         } else if (
-            result.dismiss === swal.DismissReason.cancel
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
         ) {
             swalWithBootstrapButtons.fire(
                 canceled,
-                secure,
+                data_is_safe,
                 'error'
             )
         }
     })
 })
+

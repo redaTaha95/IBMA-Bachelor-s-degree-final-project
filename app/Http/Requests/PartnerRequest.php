@@ -25,6 +25,7 @@ class PartnerRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'description' => 'required'
         ];
     }
 
@@ -32,6 +33,7 @@ class PartnerRequest extends FormRequest
     {
         return [
             'name.required' => 'Nom du partenaire est obligatoire !!',
+            'description.required' => 'Description du partenaire est obligatoire !!'
         ];
     }
 }

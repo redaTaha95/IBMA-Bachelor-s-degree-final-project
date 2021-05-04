@@ -61,4 +61,13 @@ return [
     'rev' => 'Revenue (DHS)',
     'nbE' => 'Nombre des employés',
     'more' => "Voir plus d'info",
+    'search' => 'Recherche',
+    'sort' => 'Trier par',
+    'name' => 'Nom',
+    'cit' => 'Ville',
+    'Descr' => 'Description',
+    'inco' => 'Revenu',
+    'Selec' => 'Selectionner',
+    'addnew' => 'Ajouter un nouveau'
+
 ];

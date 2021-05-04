@@ -21,12 +21,12 @@
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('tradprojet.title1') }}</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('tradprojet.title2') }}</a></li>
-                            <li class="breadcrumb-item active">{{ __('tradprojet.title3') }}</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.title1') }}</a></li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.title2') }}</a></li>
+                            <li class="breadcrumb-item active">{{ __('project.title3') }}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{ __('tradprojet.introduction') }}</h4>
+                    <h4 class="page-title">{{ __('project.introduction') }}</h4>
                 </div>
             </div>
         </div>
@@ -38,30 +38,29 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <div class="text-lg-right mb-2">
+                        <div class="text-lg-right mb-2"><!---->
+                            <a href="{{url('export/projects/')}}" class="btn btn-info btn-rounded waves-effect waves-light mb-2">
+                                <span class="btn-label"><i class="mdi mdi-download"></i></span>{{__('project.Export')}}
+                            </a>
                             <a href="{{url('projects/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{ __('tradprojet.ajout') }}
+                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{ __('project.ajout') }}
                             </a>
                         </div>
-                        <div class="button-list">
-                            <a href="{{url('export/projects/')}}">
-                            <button type="button" class="btn btn-dark btn-rounded waves-effect waves-light">{{ __('tradprojet.Export') }}</button>
-                        </div><br>
 
                         <table id="data_table" class="table table-striped dt-responsive nowrap w-100">
                             <thead>
                             <tr>
-                                <th>{{ __('tradprojet.id') }}</th>
-                                <th>{{ __('tradprojet.cltid') }}</th>
-                                <th>{{ __('tradprojet.logo') }}</th>
+                                <th>#</th>
+                                <th>{{ __('project.cltid') }}</th>
+                                <th>{{ __('project.logo') }}</th>
 
-                                <th>{{ __('tradprojet.nom') }}</th>
-                                <th>{{ __('tradprojet.desc') }}</th>
+                                <th>{{ __('project.nom') }}</th>
+                                <th>{{ __('project.desc') }}</th>
                                <!-- <th>Date début</th>-->
                                 <!--<th>Date d'échéance</th>-->
-                                <th>{{ __('tradprojet.Bud') }}</th>
+                                <th>{{ __('project.Bud') }}</th>
                                 <!--<th>teamMember</th>-->
-                                <th style="width: 15%;">{{ __('tradprojet.act') }}</th>
+                                <th style="width: 15%;">{{ __('project.act') }}</th>
 
                             </tr>
                             </thead>
@@ -71,7 +70,13 @@
                             @foreach($projects as $index => $project)
                                 <tr>
                                     <td class="align-middle">{{$index + 1}}</td>
-                                    <td class="align-middle">{{$project->client->name}}</td>
+                                    <td class="align-middle">{{$project->client->name}}&nbsp;
+                                        @if($project->client->logo)
+                                            <img src="{{asset('storage/clients/'.$project->client->logo)}}" alt="image" class="avatar-sm rounded-circle">
+                                        @else
+                                            <img src="{{asset('assets/images/users/default_user.png')}}" alt="image" class="avatar-sm rounded-circle">
+                                        @endif
+                                    </td>
                                     <td class="align-middle">
                                         @if($project->logo)
                                             <img src="{{asset('storage/projects/'.$project->logo)}}" alt="image" class="avatar-sm rounded-circle">
@@ -85,7 +90,7 @@
                                     <!--<td class="align-middle">{{$project->startDate}}</td>-->
                                    <!-- <td class="align-middle">{{$project->dueDate}}</td>-->
                                     <td class="align-middle">{{$project->budget}}</td>
-                                    <!--<td class="align-middle">{{$project->teamMember}}</td>-->
+
                                     <td class="align-middle">
                                         <a href="{{route('projects.show', $project->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
                                         <a href="{{route('projects.edit', $project->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
@@ -102,13 +107,7 @@
         </div>
     </div>
 
-    <div id="warning_message" hidden>{{ __('tradprojet.warning_message') }}</div>
-    <div id="secure" hidden>{{ __('tradprojet.secure_data') }}</div>
-    <div id="delete_btn" hidden>{{ __('tradprojet.delete') }}</div>
-    <div id="deleted_data" hidden>{{ __('tradprojet.deleted_data') }}</div>
-    <div id="cancel" hidden>{{ __('tradprojet.btnannul') }}</div>
-    <div id="canceled" hidden>{{ __('tradprojet.canceled') }}</div>
-    <div id="deleted" hidden>{{ __('tradprojet.deleted') }}</div>
+
 @endsection
 
 
@@ -141,7 +140,7 @@
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "{{ __('tradprojet.AjoutSuccess') }}",
+                title: "{{ __('project.AjoutSuccess') }}",
                 showConfirmButton: !1,
                 timer: 1500
             })
@@ -161,7 +160,7 @@
 
            Toast.fire({
                icon: 'success',
-               title: '{{ __('tradprojet.AjoutSuccess') }}'
+               title: '{{ __('project.AjoutSuccess') }}'
            })
        </script>
     @endif
@@ -171,7 +170,7 @@
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "{{ __('tradprojet.ModifSuccess') }}",
+                title: "{{ __('project.ModifSuccess') }}",
                 showConfirmButton: !1,
                 timer: 1500
             })
@@ -191,7 +190,7 @@
 
            Toast.fire({
                icon: 'success',
-               title: '{{ __('tradprojet.ModifSuccess') }}'
+               title: '{{ __('project.ModifSuccess') }}'
            })
        </script>
     @endif
@@ -208,12 +207,12 @@
                     $(".dataTables_paginate > .pagination").addClass("pagination-rounded")
                 },
                 "oLanguage": {
-                    "sInfo": "Affichage de la page _PAGE_ sur _PAGES_",
+                    "sInfo": "{{__('project.show_page')}} _PAGE_ {{__('project.in')}} _PAGES_",
                     "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
-                    "sSearchPlaceholder": "{{ __('tradprojet.Rech') }}...",
-                    "sLengthMenu": "{{ __('tradprojet.Res') }} :  _MENU_",
-                    "sEmptyTable": "{{ __('tradprojet.NoData') }}",
-                    "sZeroRecords": "{{ __('tradprojet.NoErg') }}",
+                    "sSearchPlaceholder": "{{ __('project.Rech') }}...",
+                    "sLengthMenu": "{{ __('project.Res') }} :  _MENU_",
+                    "sEmptyTable": "{{ __('project.NoData') }}",
+                    "sZeroRecords": "{{ __('project.NoErg') }}",
                     "sInfoFiltered":   "(filtré de _MAX_ entrées au total)",
                 },
                 'aoColumnDefs': [{
@@ -226,6 +225,26 @@
                 "aaSorting": []
             } );
         } );
+    </script>
+
+    <script>
+        var delete_confirmation = '{{ __('project.warning_message') }}';
+        var _delete = '{{ __('project.delete') }}';
+        var cancel = '{{ __('project.btnannul') }}';
+        var deleted = '{{ __('project.deleted') }}';
+        var data_deleted = '{{ __('project.deleted_data') }}';
+        var canceled = '{{ __('project.canceled') }}';
+        var data_is_safe = '{{ __('project.secure_data') }}';
+    </script>
+
+    <script>
+        $('.showDescriptionModal').on('click', function (event) {
+            var data = $(this).attr('data');
+            data = data.split('$$');
+            $('#myCenterModalLabel').text(data[0]);
+            $('#productDescription').text(data[1]);
+            $('#centermodal').modal('show');
+        })
     </script>
 
 @endsection

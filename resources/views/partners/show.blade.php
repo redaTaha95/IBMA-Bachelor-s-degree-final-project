@@ -21,22 +21,53 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('tradpartner.titre12') }}</a></li>
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('tradpartner.titre13') }}</a></li>
-                                <li class="breadcrumb-item active">{{ __('tradpartner.titre14') }}</li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('partner.titre12') }}</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('partner.titre13') }}</a></li>
+                                <li class="breadcrumb-item active">{{ __('partner.titre14') }}</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">{{ __('tradpartner.DetPart') }}</h4>
+                        <h4 class="page-title">{{ __('partner.DetPart') }}</h4>
                     </div>
                 </div>
             </div>
             <!-- end page title -->
 
-
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="inputPassword2" class="sr-only">{{ __('partner.search') }}</label>
+                                        <input type="search" class="form-control" id="inputPassword2" placeholder="Search...">
+                                    </div>
+                                    <div class="form-group mx-sm-3">
+                                        <label for="status-select" class="mr-2">{{ __('partner.sort') }}</label>
+                                        <select class="custom-select" id="status-select">
+                                            <option hidden>{{ __('partner.selec') }}</option>
+                                            <option>{{ __('partner.name') }}</option>
+                                            <option selected="">{{ __('partner.cit') }}</option>
+                                            <option>{{ __('partner.Descr') }}</option>
+                                            <option>{{ __('partner.inco') }}</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="text-lg-right mt-3 mt-lg-0">
+                                    <button type="button" class="btn btn-success waves-effect waves-light mr-1"><i class="mdi mdi-cog"></i></button>
+                                    <button type="button" class="btn btn-danger waves-effect waves-light mr-1"><i class="mdi mdi-plus-circle mr-1"></i>{{ __('partner.addnew') }}</button>
+                                </div>
+                            </div><!-- end col-->
+                        </div> <!-- end row -->
+                    </div> <!-- end card-box -->
+                </div><!-- end col-->
+            </div>
 
 
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-5">
                     <div class="card-box bg-pattern">
                         <div class="text-center">
                             <img src="../assets/images/companies/amazon.png" alt="logo" class="avatar-xl rounded-circle mb-3">
@@ -49,16 +80,16 @@
                         </p>
 
                         <div class="text-center">
-                            <a href="javascript:void(0);" class="btn btn-sm btn-light">{{ __('tradpartner.more') }}</a>
+                            <a href="javascript:void(0);" class="btn btn-sm btn-light">{{ __('partner.more') }}</a>
                         </div>
 
                         <div class="row mt-4 text-center">
                             <div class="col-6">
-                                <h5 class="font-weight-normal text-muted">{{ __('tradpartner.rev') }}</h5>
+                                <h5 class="font-weight-normal text-muted">{{ __('partner.rev') }}</h5>
                                 <h4>{{$partners->income}}</h4>
                             </div>
                             <div class="col-6">
-                                <h5 class="font-weight-normal text-muted">{{ __('tradpartner.nbE') }}</h5>
+                                <h5 class="font-weight-normal text-muted">{{ __('partner.nbE') }}</h5>
                                 <h4>{{$partners->NumberOfEmployees}}</h4>
                             </div>
                         </div>

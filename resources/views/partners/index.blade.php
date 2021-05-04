@@ -21,12 +21,12 @@
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('tradpartner.title1') }}</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('tradpartner.title2') }}</a></li>
-                            <li class="breadcrumb-item active">{{ __('tradpartner.title3') }}</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('partner.title1') }}</a></li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('partner.title2') }}</a></li>
+                            <li class="breadcrumb-item active">{{ __('partner.title3') }}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{ __('tradpartner.introduction') }}</h4>
+                    <h4 class="page-title">{{ __('partner.introduction') }}</h4>
                 </div>
             </div>
         </div>
@@ -38,27 +38,28 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <div class="text-lg-right mb-2">
+
+                        <div class="text-lg-right mb-2"><!---->
+                            <a href="{{url('export/partners/')}}" class="btn btn-info btn-rounded waves-effect waves-light mb-2">
+                                <span class="btn-label"><i class="mdi mdi-download"></i></span>{{__('partner.Export')}}
+                            </a>
                             <a href="{{url('partners/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{ __('tradpartner.ajout') }}
+                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{ __('partner.ajout') }}
                             </a>
                         </div>
-                        <div class="button-list">
-                            <button type="button" class="btn btn-dark btn-rounded waves-effect waves-light">{{ __('tradpartner.Export') }}</button>
-                        </div><br>
 
                         <table id="data_table" class="table table-striped dt-responsive nowrap w-100">
                             <thead>
                             <tr>
-                                <th>{{ __('tradpartner.id') }}</th>
-                                <th>{{ __('tradpartner.logo') }}</th>
-                                <th>{{ __('tradpartner.nom') }}</th>
-                                <th>{{ __('tradpartner.city') }}</th>
+                                <th>#</th>
+                                <th>{{ __('partner.logo') }}</th>
+                                <th>{{ __('partner.nom') }}</th>
+                                <th>{{ __('partner.city') }}</th>
                                 <!-- <th>Date début</th>-->
                                 <!--<th>Date d'échéance</th>-->
-                                <th>{{ __('tradpartner.inc') }}</th>
-                                <!--<th>teamMember</th>-->
-                                <th style="width: 15%;">{{ __('tradpartner.act') }}</th>
+                                <th>{{ __('partner.inc') }}</th>
+
+                                <th style="width: 15%;">{{ __('partner.act') }}</th>
 
                             </tr>
                             </thead>
@@ -79,7 +80,7 @@
                                     <td class="align-middle">{{$partner->city}}</td>
                                 <!--<td class="align-middle">{{$partner->description}}</td>-->
                                     <td class="align-middle">{{$partner->income}}</td>
-                                <!--<td class="align-middle">{{$partner->NumberOfEmployees}}</td>-->
+
                                     <td class="align-middle">
                                         <a href="{{route('partners.show', $partner->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
                                         <a href="{{route('partners.edit', $partner->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
@@ -96,13 +97,7 @@
         </div>
     </div>
 
-    <div id="warning_message" hidden>{{ __('tradpartner.warning_message') }}</div>
-    <div id="secure" hidden>{{ __('tradpartner.secure_data') }}</div>
-    <div id="delete_btn" hidden>{{ __('tradpartner.delete') }}</div>
-    <div id="deleted_data" hidden>{{ __('tradpartner.deleted_data') }}</div>
-    <div id="cancel" hidden>{{ __('tradpartner.btnannul') }}</div>
-    <div id="canceled" hidden>{{ __('tradpartner.canceled') }}</div>
-    <div id="deleted" hidden>{{ __('tradpartner.deleted') }}</div>
+
 @endsection
 
 
@@ -134,7 +129,7 @@
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "{{ __('tradpartner.AjoutSuccess') }}",
+                title: "{{ __('partner.AjoutSuccess') }}",
                 showConfirmButton: !1,
                 timer: 1500
             })
@@ -154,7 +149,7 @@
 
             Toast.fire({
                 icon: 'success',
-                title: '{{ __('tradpartner.AjoutSuccess') }}'
+                title: '{{ __('partner.AjoutSuccess') }}'
             })
         </script>
     @endif
@@ -164,7 +159,7 @@
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "{{ __('tradpartner.ModifSuccess') }}",
+                title: "{{ __('partner.ModifSuccess') }}",
                 showConfirmButton: !1,
                 timer: 1500
             })
@@ -184,7 +179,7 @@
 
             Toast.fire({
                 icon: 'success',
-                title: '{{ __('tradpartner.ModifSuccess') }}'
+                title: '{{ __('partner.ModifSuccess') }}'
             })
         </script>
     @endif
@@ -203,10 +198,10 @@
                 "oLanguage": {
                     "sInfo": "Affichage de la page _PAGE_ sur _PAGES_",
                     "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
-                    "sSearchPlaceholder": "{{ __('tradprojet.Rech') }}...",
-                    "sLengthMenu": "{{ __('tradpartner.Res') }} :  _MENU_",
-                    "sEmptyTable": "{{ __('tradpartner.NoData') }}",
-                    "sZeroRecords": "{{ __('tradpartner.NoErg') }}",
+                    "sSearchPlaceholder": "{{ __('partner.Rech') }}...",
+                    "sLengthMenu": "{{ __('partner.Res') }} :  _MENU_",
+                    "sEmptyTable": "{{ __('partner.NoData') }}",
+                    "sZeroRecords": "{{ __('partner.NoErg') }}",
                     "sInfoFiltered":   "(filtré de _MAX_ entrées au total)",
                 },
                 'aoColumnDefs': [{
@@ -219,6 +214,16 @@
                 "aaSorting": []
             } );
         } );
+    </script>
+
+    <script>
+        var delete_confirmation = '{{ __('partner.warning_message') }}';
+        var _delete = '{{ __('partner.delete') }}';
+        var cancel = '{{ __('partner.btnannul') }}';
+        var deleted = '{{ __('partner.deleted') }}';
+        var data_deleted = '{{ __('partner.deleted_data') }}';
+        var canceled = '{{ __('partner.canceled') }}';
+        var data_is_safe = '{{ __('partner.secure_data') }}';
     </script>
 
 @endsection

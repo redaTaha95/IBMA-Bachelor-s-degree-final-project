@@ -25,6 +25,7 @@ class ProjectRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'description' => 'required'
         ];
     }
 
@@ -32,6 +33,7 @@ class ProjectRequest extends FormRequest
     {
         return [
             'name.required' => 'Nom du project est obligatoire !!',
+            'description.required' => 'Description du project est obligatoire !!',
         ];
     }
 }

@@ -83,7 +83,10 @@ return[
     '3hrs' => '3 hours ago',
     '1hr' => '1 hours ago',
     'Export' => 'Export',
-    'cltid' => 'Client id',
-    'edcltid' => 'Client id'
+    'cltid' => 'Client',
+    'edcltid' => 'Client id',
+    'show_page' => 'showing page',
+    'in' => 'of',
+    'selectclt' => 'Select client'
 
 ];

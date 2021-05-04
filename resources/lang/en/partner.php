@@ -62,4 +62,12 @@ return [
     'rev' => 'Income (DHS)',
     'nbE' => 'Number of employees',
     'more' => 'View more info',
+    'search' => 'Search',
+    'sort' => 'Sort by',
+    'name' => 'Name',
+    'cit' => 'City',
+    'Descr' => 'Description',
+    'inco' => 'Income',
+    'Selec' => 'Select',
+    'addnew' => 'Add new'
 ];

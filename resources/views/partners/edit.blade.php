@@ -15,12 +15,12 @@
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('tradpartner.title8') }}</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('tradpartner.title9') }}</a></li>
-                            <li class="breadcrumb-item active">{{ __('tradpartner.title10') }}</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('partner.title8') }}</a></li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('partner.title9') }}</a></li>
+                            <li class="breadcrumb-item active">{{ __('partner.title10') }}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{ __('tradpartner.introduction3') }}</h4>
+                    <h4 class="page-title">{{ __('partner.introduction3') }}</h4>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{ __('tradpartner.title11') }}</h4>
+                        <h4 class="header-title">{{ __('partner.title11') }}</h4>
 
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -50,36 +50,36 @@
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('tradpartner.Ednom') }}</label>
+                                        <label for="simpleinput">{{ __('partner.Ednom') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name', $partners->name)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('tradpartner.Edcity') }}</label>
+                                        <label for="simpleinput">{{ __('partner.Edcity') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="city" placeholder="Ville" value="{{old('city', $partners->city)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('tradpartner.Eddesc') }}</label>
+                                        <label for="simpleinput">{{ __('partner.Eddesc') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="description" placeholder="Description" value="{{old('description', $partners->description)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('tradpartner.Edinc') }}</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="income" placeholder="Revenu" value="{{old('income', $partners->income)}}">
+                                        <label for="simpleinput">{{ __('partner.Edinc') }}</label>
+                                        <input type="number" id="simpleinput" class="form-control" name="income" placeholder="Revenu" value="{{old('income', $partners->income)}}">
                                     </div>
 
-                                    <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('tradpartner.Ednbemp') }}</label>
+                                  <!--  <div class="form-group mb-3">
+                                        <label for="simpleinput">{{ __('partner.Ednbemp') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="NumberOfEmployees" placeholder="Nombre des employés" value="{{old('NumberOfEmployees', $partners->NumberOfEmployees)}}">
-                                    </div>
+                                    </div>-->
 
                                 </div> <!-- end col -->
 
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('tradpartner.Edlogo') }}</label>
+                                        <label for="simpleinput">{{ __('partner.Edlogo') }}</label>
                                         <input type="file" data-plugins="dropify" name="logo" data-default-file="{{asset('storage/partners/'.$partners->logo)}}"/>
                                     </div>
 
@@ -88,8 +88,8 @@
                             </div>
                             <!-- end row-->
                             <div class="row">
-                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">{{ __('tradpartner.btnModif') }}</button>
-                                <a href="{{url('partners')}}" class="btn btn-white btn-rounded waves-effect">{{ __('tradpartner.btnannul') }}</a>
+                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">{{ __('partner.btnModif') }}</button>
+                                <a href="{{url('partners')}}" class="btn btn-white btn-rounded waves-effect">{{ __('partner.btnannul') }}</a>
                             </div>
                         </form>
 
