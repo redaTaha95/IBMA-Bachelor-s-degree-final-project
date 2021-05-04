@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\Models\Client;
+use App\Models\Material;
 use App\Models\Project;
 use App\Exports\ProjectExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -44,4 +45,9 @@ class ProjectRepository extends BaseRepository implements Interfaces\ProjectRepo
     {
         return Client::all();
     }
- }
+
+    public function getMaterials()
+    {
+        return Material::all();
+    }
+}

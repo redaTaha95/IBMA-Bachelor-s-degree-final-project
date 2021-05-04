@@ -11,4 +11,5 @@ interface ProjectRepositoryInterface
     public function storeImage($id, $file_name, $folder_name, $table);
     public function exportProjectsDataAsExcel();
     public function getClients();
+    public function getMaterials();
 }

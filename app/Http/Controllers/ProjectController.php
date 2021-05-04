@@ -26,12 +26,15 @@ class ProjectController extends Controller
     public function create()
     {
         $clients = $this->projectRepository->getClients();
-        return view('projects.create',compact('clients'));
+        $materials = $this->projectRepository->getMaterials();
+        return view('projects.create',compact('clients','materials'));
     }
 
     public function store(ProjectRequest $request)
     {
-        $this->projectRepository->addProject($request->all());
+        //return $request;//->only('material_name','id','_token');
+        $this->projectRepository->addProject($request->except('material_name'));
+        //$this->projectRepository->addProject($request->all());
         session()->flash('success', 'Project has been added');
         return redirect('/projects');
     }
@@ -46,6 +49,7 @@ class ProjectController extends Controller
     {
         $project = $this->projectRepository->find($id);
         $clients = $this->projectRepository->getClients();
+        $materials = $this->projectRepository->getMaterials();
         return view('projects.edit', compact('project','clients'));
 
     }

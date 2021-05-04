@@ -15,4 +15,9 @@ class Employee extends Model
     public function recruitment_demands(){
         return $this->hasMany('app\Models\RecruitmentDemand');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
