@@ -13,7 +13,6 @@
 
 @section('content')
     <div class="container-fluid">
-
         <!-- start page title -->
         <div class="row">
             <div class="col-12">
@@ -48,7 +47,7 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>{{__('candidate.last_name')}} Complet</th>
+                                <th>{{__('candidate.last_name')}} & {{__('candidate.first_name')}}</th>
                                 <th>{{__('candidate.cin')}}</th>
                                 <th>{{__('candidate.phone')}}</th>
                                 <th>{{__('candidate.email')}}</th>
@@ -60,7 +59,7 @@
                             <tbody>
                             @foreach($candidates as $index => $candidate)
                                 <tr>
-                                    <td class="align-middle">{{$candidate->id}}</td>
+                                    <td class="align-middle">{{$index + 1}}</td>
                                     <td class="align-middle">{{$candidate->first_name.' '.$candidate->last_name}}</td>
                                     <td class="align-middle">{{$candidate->cin}}</td>
                                     <td class="align-middle">{{$candidate->phone}}</td>

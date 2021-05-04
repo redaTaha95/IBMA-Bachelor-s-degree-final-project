@@ -66,13 +66,14 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('supplier.city')}}</label>
-                                        <select id="select-city" class="form-control" name="city" data-value="{{ $supplier ? $supplier->city : old('city') }}">>
+                                        <select id="select-city" class="form-control" name="city" data-value="{{ old('city', $supplier->city) }}">
+                                            <option value="Select-city" disabled selected>Sélectionner une ville</option>
                                             <option value="Casablanca">Casablanca</option>
                                             <option value="Fès">Fès</option>
                                             <option value="Tanger">Tanger</option>
                                             <option value="Marrakech">Marrakech</option>
                                             <option value="Salé">Salé</option>
-                                            <option value="Meknès" >Meknès</option>
+                                            <option value="Meknès">Meknès</option>
                                             <option value="Rabat">Rabat</option>
                                             <option value="Oujda">Oujda</option>
                                             <option value="Kénitra">Kénitra</option>
@@ -102,12 +103,6 @@
                                         <label for="simpleinput">{{__('supplier.postal_code')}} </label>
                                         <input type="tel" id="simpleinput" class="form-control" name="postal_code" placeholder="{{__('supplier.postal_code')}}" value="{{old('postal_code', $supplier->postal_code)}}">
                                     </div>
-
-                                    <div class="form-group mb-3">
-                                        <label for="simpleinput">{{__('supplier.country')}} </label>
-                                        <input type="tel" id="simpleinput" class="form-control" name="country" placeholder="{{__('supplier.country')}}" value="{{old('country', $supplier->country)}}">
-                                    </div>
-
                                 </div>
                                 <!-- end col -->
                             </div>

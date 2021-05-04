@@ -2,42 +2,42 @@
 
 namespace App\Exports;
 
-use App\Models\Candidate;
+use App\Models\Supplier;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Events\AfterSheet;
 
-class CandidatesExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
+class SuppliersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
 {
     public function collection()
     {
-        return Candidate::select(
+        return Supplier::select(
             'id',
-            'last_name',
-            'first_name',
+            'full_name',
             'cin',
-            'birthday',
-            'phone',
-            'email',
             'address',
-            'city'
+            'postal_code',
+            'city',
+            'country',
+            'phone',
+            'email'
         )->get();
     }
 
-    public function headings() : array
+    public function headings(): array
     {
         return [
             '#',
-            'Nom',
-            'Prénom',
+            'Nom & Prénom',
             'CIN',
-            'Date de naissance',
-            'Téléphone',
-            'Email',
             'Adresse',
-            'Ville'
+            'Code Postal',
+            'Ville',
+            'Pays',
+            'Téléphone',
+            'Email'
         ];
     }
 

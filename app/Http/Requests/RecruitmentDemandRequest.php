@@ -24,6 +24,7 @@ class RecruitmentDemandRequest extends FormRequest
             'number_of_years_of_experience' => 'required',
             'date_of_demand' => 'required',
             'status_of_demand' => 'required',
+            'level_of_studies' => 'required',
         ];
     }
 
@@ -35,6 +36,7 @@ class RecruitmentDemandRequest extends FormRequest
             'number_of_years_of_experience.required' => "Nombre d'années d'expérience est obligatoire !",
             'date_of_demand.required' => 'Date de la demande est obligatoire !',
             'status_of_demand.required' => 'Statut de la demande est obligatoire !',
+            'level_of_studies.required' => "Niveau d'études est obligatoire !",
         ];
     }
 }

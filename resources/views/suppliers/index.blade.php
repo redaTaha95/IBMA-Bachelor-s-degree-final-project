@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('css')
@@ -14,7 +13,6 @@
 
 @section('content')
     <div class="container-fluid">
-
         <!-- start page title -->
         <div class="row">
             <div class="col-12">
@@ -36,8 +34,10 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-
                         <div class="text-lg-right mb-2">
+                            <a href="{{url('export/suppliers/')}}" class="btn btn-info btn-rounded waves-effect waves-light mb-2">
+                                <span class="btn-label"><i class="mdi mdi-download"></i></span>{{__('supplier.export')}}
+                            </a>
                             <a href="{{url('suppliers/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
                                 <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{__('supplier.add_supplier')}}
                             </a>
@@ -60,7 +60,7 @@
                             <tbody>
                             @foreach($suppliers as $index => $supplier)
                                 <tr>
-                                    <td class="align-middle">{{$supplier->id}}</td>
+                                    <td class="align-middle">{{$index + 1}}</td>
                                     <td class="align-middle">{{$supplier->full_name}}</td>
                                     <td class="align-middle">{{$supplier->cin}}</td>
                                     <td class="align-middle">{{$supplier->address}}</td>

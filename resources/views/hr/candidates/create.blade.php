@@ -58,15 +58,25 @@
                                         <input type="text" id="simpleinput" class="form-control" name="cin" placeholder="{{__('candidate.cin')}}" maxlength="8" value="{{old('cin')}}">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('candidate.phone')}} *</label>
                                         <input type="text" class="form-control" data-toggle="input-mask" name="phone" placeholder="{{ __('candidate.example') }} : 0630-303030" data-mask-format="0000-000000" maxlength="14" value="{{old('phone')}}">
                                     </div>
-                                    <div class="form-group mb-3">
-                                        <label for="simpleinput">{{__('candidate.address')}}</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="{{__('candidate.address')}}" value="{{old('address')}}">
-                                    </div>
+{{--                                    <div class="form-group mb-3">--}}
+{{--                                        <label for="simpleinput">{{__('candidate.address')}}</label>--}}
+{{--                                        <input type="text" id="simpleinput" class="form-control" name="address" placeholder="{{__('candidate.address')}}" value="{{old('address')}}">--}}
+{{--                                    </div>--}}
 
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">{{__('candidate.status')}} *</label>
+                                        <select id="select-status" class="form-control" name="status">
+                                            <option value="select-status" disabled selected>Sélectionner un statut</option>
+                                            <option value="En attente" {{old('status') == 'En attente' ? 'selected' : ''}}>En attente</option>
+                                            <option value="En cours" {{old('status') == 'En cours' ? 'selected' : ''}}>En cours</option>
+                                            <option value="Embauché" {{old('status') == 'Embauché' ? 'selected' : ''}}>Embauché</option>
+                                            <option value="Non Embauché" {{old('status') == 'Non Embauché' ? 'selected' : ''}}>Non Embauché</option>
+                                        </select>
+                                    </div>
                                 </div> <!-- end col -->
 
                                 <div class="col-lg-6">
@@ -76,7 +86,7 @@
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{__('candidate.birthday')}}</label>
+                                        <label for="simpleinput">{{__('candidate.birthday')}} *</label>
                                         <input type="date" id="birthday" class="form-control" name="birthday" placeholder="{{__('candidate.birthday')}}" value="{{old('birthday')}}">
                                     </div>
 
@@ -89,21 +99,22 @@
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('candidate.city')}}</label>
                                         <select id="select-city" class="form-control" name="city">
-                                            <option value="Casablanca">Casablanca</option>
-                                            <option value="Fès">Fès</option>
-                                            <option value="Tanger">Tanger</option>
-                                            <option value="Marrakech">Marrakech</option>
-                                            <option value="Salé">Salé</option>
-                                            <option value="Meknès" >Meknès</option>
-                                            <option value="Rabat">Rabat</option>
-                                            <option value="Oujda">Oujda</option>
-                                            <option value="Kénitra#">Kénitra</option>
-                                            <option value="Agadir">Agadir</option>
-                                            <option value="Tétouan">Tétouan</option>
-                                            <option value="Safi">Safi</option>
-                                            <option value="Mohammédia">Mohammédia</option>
-                                            <option value="khouribga#">Khouribga</option>
-                                            <option value="El Jadida">El Jadida</option>
+                                            <option value="select-city" disabled selected>Sélectionner une ville</option>
+                                            <option value="Casablanca" {{old('city') == 'Casablanca' ? 'selected' : ''}}>Casablanca</option>
+                                            <option value="Fès" {{old('city') == 'Fès' ? 'selected' : ''}}>Fès</option>
+                                            <option value="Tanger" {{old('city') == 'Tanger' ? 'selected' : ''}}>Tanger</option>
+                                            <option value="Marrakech" {{old('city') == 'Marrakech' ? 'selected' : ''}}>Marrakech</option>
+                                            <option value="Salé" {{old('city') == 'Salé' ? 'selected' : ''}}>Salé</option>
+                                            <option value="Meknès" {{old('city') == 'Meknès' ? 'selected' : ''}}>Meknès</option>
+                                            <option value="Rabat" {{old('city') == 'Rabat' ? 'selected' : ''}}>Rabat</option>
+                                            <option value="Oujda" {{old('city') == 'Oujda' ? 'selected' : ''}}>Oujda</option>
+                                            <option value="Kénitra" {{old('city') == 'Kénitra' ? 'selected' : ''}}>Kénitra</option>
+                                            <option value="Agadir" {{old('city') == 'Agadir' ? 'selected' : ''}}>Agadir</option>
+                                            <option value="Tétouan" {{old('city') == 'Tétouan' ? 'selected' : ''}}>Tétouan</option>
+                                            <option value="Safi" {{old('city') == 'Safi' ? 'selected' : ''}}>Safi</option>
+                                            <option value="Mohammédia" {{old('city') == 'Mohammédia' ? 'selected' : ''}}>Mohammédia</option>
+                                            <option value="Khouribga" {{old('city') == 'Khouribga' ? 'selected' : ''}}>Khouribga</option>
+                                            <option value="El Jadida" {{old('city') == 'El Jadida' ? 'selected' : ''}}>El Jadida</option>
                                         </select>
                                     </div>
                                 </div>

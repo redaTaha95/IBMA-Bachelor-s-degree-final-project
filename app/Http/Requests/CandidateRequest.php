@@ -20,6 +20,7 @@ class CandidateRequest extends FormRequest
             'cin' => 'required',
             'email' => 'required',
             'phone' => 'required',
+            'status' => 'required',
         ];
     }
 
@@ -31,6 +32,7 @@ class CandidateRequest extends FormRequest
             'cin.required' => 'CIN du candidat est obligatoire !',
             'email.required' => 'Email du candidat est obligatoire !',
             'phone.required' => 'Téléphone du candidat est obligatoire !',
+            'status.required' => 'Statut du candidat est obligatoire !',
         ];
     }
 }
