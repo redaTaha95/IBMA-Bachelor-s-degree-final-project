@@ -19,39 +19,31 @@ class EmployeeController extends Controller
     private $userRepository;
     private $projectRepository;
 
-    public function __construct(EmployeeRepositoryInterface $employeeRepository,UserRepositoryInterface $userRepository)
+    public function __construct(EmployeeRepositoryInterface $employeeRepository)
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
         $this->employeeRepository = $employeeRepository;
-        $this->userRepository = $userRepository;
     }
 
     public function index()
     {
         $employees =$this->employeeRepository->all();
-        //$emp = Employee::find(1);
-        //return $emp;
         return view('hr.employees.index', compact('employees'));
     }
 
     public function create()
     {
-
         return view('hr.employees.create');
     }
 
     public function store(EmployeeRequest $request)
     {
-
-        //$this->employeeRepository->createUser($request);
-        //return $request->only(['name', 'email','_token']);
-
-        $this->userRepository->create($request->only(['name', 'email','_token']));
+        //$this->userRepository->create($request->only(['name', 'email','_token']));
         //$res = array_merge($request->all(), ['user_id' => $this->employeeRepository->lastUser()->id]);
-        //$this->employeeRepository->addEmployee($request->all());
+        $this->employeeRepository->addEmployee($request->all());
         //$this->employeeRepository->addEmployee($res);
-        //session()->flash('success', 'Employee has been added');
-        //return redirect('/employees');
+        session()->flash('success', 'Employee has been added');
+        return redirect('/employees');
     }
 
     public function show($id)

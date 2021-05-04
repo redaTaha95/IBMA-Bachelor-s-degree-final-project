@@ -73,22 +73,23 @@
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('recruitment_demand.status_of_demand')}} *</label>
-                                        <select id="select-status_of_demand" class="form-control" name="status_of_demand" data-value="{{ $recruitmentDemand ? $recruitmentDemand->status_of_demand : old('status_of_demand')}}">
+                                        <select id="select-status_of_demand" class="form-control" name="status_of_demand" data-value="{{ old('status_of_demand', $recruitmentDemand->status_of_demand)}}">
                                             <option value="Actif">Actif</option>
                                             <option value="En cours">En cours</option>
                                             <option value="Rejeté">Rejeté</option>
-                                            <option value="Fermé">Fermé</option>
+                                            <option value="Traité">Traité</option>
                                         </select>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('recruitment_demand.level_of_studies')}} *</label>
-                                        <select id="select-level_of_studies" class="form-control" name="level_of_studies" data-value="{{ $recruitmentDemand ? $recruitmentDemand->level_of_studies : old('level_of_studies') }}">>
+                                        <select id="select-level_of_studies" class="form-control" name="level_of_studies" data-value="{{ old('level_of_studies', $recruitmentDemand->level_of_studies) }}">>
                                             <option value="Niveau Bac">Niveau Bac</option>
                                             <option value="Bac">Bac</option>
+                                            <option value="Bac">Bac + 1</option>
                                             <option value="Bac + 2">Bac + 2</option>
                                             <option value="Bac + 3">Bac + 3</option>
                                             <option value="Bac + 4">Bac + 4</option>
-                                            <option value="Bac + 5">Bac + 5</option>
+                                            <option value="Bac + 5">Bac + 5 et plus</option>
                                         </select>
                                     </div>
                                 </div>

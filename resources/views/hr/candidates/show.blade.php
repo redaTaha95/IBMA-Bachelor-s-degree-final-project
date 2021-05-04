@@ -26,191 +26,163 @@
         <!-- end page title -->
 
         <div class="row">
-            <div class="col-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="mb-0">{{__('candidate.general_information')}}</h4>
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-
-                        <br>
-                        <form action="{{route('candidates.show', $candidate->id)}}"  enctype="multipart/form-data">
-                            @csrf
-                            <div class="col-lg-12 col-xl-12">
-                                <div class="card-box text-center">
-
-                                    <div class="text-left mt-3">
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.last_name')}} Complet :</strong>
-                                            <span class="ml-1">{{$candidate->first_name.' '.$candidate->last_name}}</span>
-                                        </p>
-
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.cin')}} :</strong>
-                                            <span class="ml-1">{{$candidate->cin}}</span>
-                                        </p>
-
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.birthday')}} :</strong>
-                                            <span class="ml-1 ">{{$candidate->birthday}}</span>
-                                        </p>
-
-                                        <p class="text-muted mb-1 font-13"><strong>{{__('candidate.phone')}} :</strong>
-                                            <span class="ml-1">{{$candidate->phone}}</span>
-                                        </p>
-
-                                        <p class="text-muted mb-1 font-13"><strong>{{__('candidate.email')}} :</strong>
-                                            <span class="ml-0">{{$candidate->email}}</span>
-                                        </p>
-
-                                        <p class="text-muted mb-1 font-13"><strong>{{__('candidate.address')}} :</strong>
-                                            <span class="ml-1">{{$candidate->address}}</span>
-                                        </p>
-
-                                        <p class="text-muted mb-1 font-13"><strong>{{__('candidate.city')}} :</strong>
-                                            <span class="ml-1">{{$candidate->city}}</span>
-                                        </p>
+            <div class="col-lg-12 col-xl-12">
+                <div class="card-box">
+                    <ul class="nav nav-pills navtab-bg nav-justified">
+                        <li class="nav-item">
+                            <a href="#informations" data-toggle="tab" aria-expanded="false" class="nav-link active">
+                                {{__('candidate.general_information')}}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#experiences" data-toggle="tab" aria-expanded="true" class="nav-link">
+                                {{__('candidate.professional_experiences')}}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#formations" data-toggle="tab" aria-expanded="false" class="nav-link">
+                                {{__('candidate.formations')}}
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="informations">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <form action="{{route('candidates.show', $candidate->id)}}"  enctype="multipart/form-data">
+                                @csrf
+                                <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle mr-1"></i> {{__('candidate.general_information')}}</h5>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4 class="header-title mb-0" style="display: inline-block">{{__('candidate.last_name')}} & {{__('candidate.first_name')}} :</h4>
+                                        <p class="header-title mb-0 text-center" style="display: inline-block">{{$candidate->first_name.' '.$candidate->last_name}}</p></span>
                                     </div>
                                 </div>
-                            </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h4 class="header-title mb-0" style="display: inline-block">{{__('candidate.birthday')}} :</h4>
+                                        <p class="header-title mb-0 text-center" style="display: inline-block">{{$candidate->birthday   }}</p></span>
+                                    </div>
 
-                        </form>
-                    </div> <!-- end card-body -->
-                </div> <!-- end card -->
-            </div><!-- end col -->
+                                    <div class="col-md-4">
+                                        <h4 class="header-title mb-0" style="display: inline-block">{{__('candidate.cin')}} :</h4>
+                                        <p class="header-title mb-0 text-center" style="display: inline-block">{{$candidate->cin}}</p></span>
+                                    </div>
 
-            <div class="col-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="mb-0">{{__('candidate.professional_experiences')}}</h4>
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-
-                        <br>
-                        <form action="{{route('candidates.show', $candidate->id)}}"  enctype="multipart/form-data">
-                            @csrf
-                            <div class="col-lg-12 col-xl-12">
-                                <div class="card-box text-center">
-
-                                    <div class="text-left mt-3">
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.company_name')}} :</strong>
-                                            <span class="ml-1">INVOLYS</span>
-                                        </p>
-
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.post')}} :</strong>
-                                            <span class="ml-1">Développeuse .NET</span>
-                                        </p>
-
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.start_date')}} :</strong>
-                                            <span class="ml-1">2020-11-16</span>
-                                        </p>
-
-                                        <p class="text-muted mb-1 font-13"><strong>{{__('candidate.end_date')}} :</strong>
-                                            <span class="ml-1">2021-04-02</span>
-                                        </p>
-                                        <hr>
-
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.company_name')}} :</strong>
-                                            <span class="ml-1">SOFRECOM</span>
-                                        </p>
-
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.post')}} :</strong>
-                                            <span class="ml-1">Stage PFE</span>
-                                        </p>
-
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.start_date')}} :</strong>
-                                            <span class="ml-1 ">2020-01-20</span>
-                                        </p>
-
-                                        <p class="text-muted mb-1 font-13"><strong>{{__('candidate.end_date')}} :</strong>
-                                            <span class="ml-1">2020-03-20</span>
-                                        </p>
+                                    <div class="col-md-4">
+                                        <h4 class="header-title mb-0" style="display: inline-block">{{__('candidate.phone')}} :</h4>
+                                        <p class="header-title mb-0 text-center" style="display: inline-block">{{$candidate->phone}}</p></span>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div> <!-- end card-body -->
-                </div> <!-- end card -->
-            </div><!-- end col -->
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h4 class="header-title mb-0" style="display: inline-block">{{__('candidate.email')}} :</h4>
+                                        <p class="header-title mb-0 text-center" style="display: inline-block">{{$candidate->email}}</p></span>
+                                    </div>
 
-            <div class="col-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="mb-0">{{__('candidate.formations')}}</h4>
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+                                    <div class="col-md-4">
+                                        <h4 class="header-title mb-0" style="display: inline-block">{{__('candidate.status')}} :</h4>
+                                        <p class="header-title mb-0 text-center" style="display: inline-block">{{$candidate->status}}</p></span>
+                                    </div>
 
-                        <br>
-                        <form action="{{route('candidates.show', $candidate->id)}}"  enctype="multipart/form-data">
-                            @csrf
-                            <div class="col-lg-12 col-xl-12">
-                                <div class="card-box text-center">
-                                    <div class="text-left mt-3">
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.year')}} :</strong>
-                                            <span class="ml-1">2021</span>
-                                        </p>
-
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.school')}} :</strong>
-                                            <span class="ml-1">IT Learning</span>
-                                        </p>
-
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.diploma')}} :</strong>
-                                            <span class="ml-1">LICDA</span>
-                                        </p>
-                                        <hr>
-
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.year')}} :</strong>
-                                            <span class="ml-1">2020</span>
-                                        </p>
-
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.school')}} :</strong>
-                                            <span class="ml-1">ISGI</span>
-                                        </p>
-
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.diploma')}} :</strong>
-                                            <span class="ml-1">DTS en développement informatique</span>
-                                        </p>
-                                        <hr>
-
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.year')}} :</strong>
-                                            <span class="ml-1">2018</span>
-                                        </p>
-
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.school')}} :</strong>
-                                            <span class="ml-1">GSB</span>
-                                        </p>
-
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('candidate.diploma')}} :</strong>
-                                            <span class="ml-1">Bac PC</span>
-                                        </p>
+                                    <div class="col-md-4">
+                                        <h4 class="header-title mb-0" style="display: inline-block">{{__('candidate.city')}} :</h4>
+                                        <p class="header-title mb-0 text-center" style="display: inline-block">{{$candidate->city}}</p></span>
                                     </div>
                                 </div>
-                            </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <h4 class="header-title mb-0" style="display: inline-block">Liste des demandes de recrutement :</h4>
+                                            <select id="select-recruitment_demands" multiple class="form-control">
+                                                <option>Technicien spécialisé en Réseau Informatique</option>
+                                                <option>Ingénieur en Développement Mobile</option>
+                                                <option>Assistante RH</option>
+                                                <option>Chef de projets</option>
+                                                <option>Développeur Full Stack</option>
+                                                <option>Technicien spécialisé en Finance</option>
+                                                <option>Ingénieur DevOps</option>
+                                                <option>Développeur Support</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
 
-                        </form>
-                    </div> <!-- end card-body -->
-                </div> <!-- end card -->
-            </div><!-- end col -->
+                        <div class="tab-pane" id="experiences">
+                            <h5 class="mb-4 text-uppercase"><i class="mdi mdi-briefcase mr-1"></i>
+                                {{__('candidate.professional_experiences')}}</h5>
+
+                            <ul class="list-unstyled timeline-sm">
+                                <li class="timeline-sm-item">
+                                    <span class="timeline-sm-date">2015 - 18</span>
+                                    <h5 class="mt-0 mb-1">Lead designer / Developer</h5>
+                                    <p>Internship</p>
+                                    <p class="text-muted mt-2">Everyone realizes why a new common language
+                                        would be desirable: one could refuse to pay expensive translators.
+                                        To achieve this, it would be necessary to have uniform grammar,
+                                        pronunciation and more common words.</p>
+                                </li>
+                                <li class="timeline-sm-item">
+                                    <span class="timeline-sm-date">2020 - 11</span>
+                                    <h5 class="mt-0 mb-1">Senior Graphic Designer</h5>
+                                    <p>Software Inc.</p>
+                                    <p class="text-muted mt-2">If several languages coalesce, the grammar
+                                        of the resulting language is more simple and regular than that of
+                                        the individual languages. The new common language will be more
+                                        simple and regular than the existing European languages.</p>
+                                </li>
+                                <li class="timeline-sm-item">
+                                    <span class="timeline-sm-date">2010 - 12</span>
+                                    <h5 class="mt-0 mb-1">Graphic Designer</h5>
+                                    <p>Coderthemes LLP</p>
+                                    <p class="text-muted mt-2 mb-0">The European languages are members of
+                                        the same family. Their separate existence is a myth. For science
+                                        music sport etc, Europe uses the same vocabulary. The languages
+                                        only differ in their grammar their pronunciation.</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="tab-pane" id="formations">
+                            <h5 class="mb-4 text-uppercase"><i class="fas fa-graduation-cap mr-1"></i>
+                                {{__('candidate.formations')}}</h5>
+
+                            <ul class="list-unstyled timeline-sm">
+                                <li class="timeline-sm-item">
+                                    <span class="timeline-sm-date">2020 - 2021</span>
+                                    <h5 class="mt-0 mb-1">Licence d’Ingénierie de Conception et de Développement d'Applications</h5>
+                                    <p class="text-uppercase">IT Learning / Fst Settat.</p>
+                                </li>
+                                <li class="timeline-sm-item">
+                                    <span class="timeline-sm-date">2018 - 2020</span>
+                                    <h5 class="mt-0 mb-1">Diplôme de Technicien Spécialisé (DTS) en Développement Informatique.</h5>
+                                    <p class="text-uppercase">Institut Spécialisé de Gestion et d’Informatique (ISGI).</p>
+                                </li>
+                                <li class="timeline-sm-item">
+                                    <span class="timeline-sm-date">2018</span>
+                                    <h5 class="mt-0 mb-1">Baccalaureate.</h5>
+                                    <p class="text-uppercase">Groupe Scolaire Belvédère.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
 
 @endsection
 

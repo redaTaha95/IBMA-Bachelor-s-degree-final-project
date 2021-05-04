@@ -2,42 +2,35 @@
 
 namespace App\Exports;
 
-use App\Models\Candidate;
+use App\Models\Product;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Events\AfterSheet;
 
-class CandidatesExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
+class ProductExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
 {
+    /**
+    * @return \Illuminate\Support\Collection
+    */
     public function collection()
     {
-        return Candidate::select(
+        return Product::select(
             'id',
-            'last_name',
-            'first_name',
-            'cin',
-            'birthday',
-            'phone',
-            'email',
-            'address',
-            'city'
+            'title',
+            'description',
+            'price'
         )->get();
     }
 
-    public function headings() : array
+    public function headings(): array
     {
         return [
             '#',
-            'Nom',
-            'Prénom',
-            'CIN',
-            'Date de naissance',
-            'Téléphone',
-            'Email',
-            'Adresse',
-            'Ville'
+            'title',
+            'description',
+            'price'
         ];
     }
 
@@ -45,7 +38,7 @@ class CandidatesExport implements FromCollection, WithHeadings, ShouldAutoSize, 
     {
         return [
             AfterSheet::class    => function(AfterSheet $event) {
-                $cellRange = 'A1:W1'; // All headers
+                $cellRange = 'A1:D1'; // All headers
                 $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(14);
             },
         ];

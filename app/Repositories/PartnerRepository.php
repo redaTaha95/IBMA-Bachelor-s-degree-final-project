@@ -3,9 +3,11 @@
 
 namespace App\Repositories;
 
+use App\Exports\ProjectExport;
 use App\Models\Partner;
-
+use App\Exports\PartnerExport;
 use Illuminate\Database\Eloquent\Model;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PartnerRepository extends BaseRepository implements Interfaces\PartnerRepositoryInterface
 {
@@ -30,5 +32,10 @@ class PartnerRepository extends BaseRepository implements Interfaces\PartnerRepo
     public function storeImage($id, $file_name, $folder_name, $table)
     {
         uploadImage($id, $file_name, $folder_name, $table);
+    }
+
+    public function exportPartnersDataAsExcel()
+    {
+        return Excel::download(new PartnerExport, 'partners.xlsx');
     }
 }

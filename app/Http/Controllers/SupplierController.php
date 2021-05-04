@@ -11,7 +11,7 @@ class SupplierController extends Controller
 
     public function __construct(SupplierRepositoryInterface $supplierRepository)
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
         $this->supplierRepository = $supplierRepository;
     }
 
@@ -55,5 +55,9 @@ class SupplierController extends Controller
     public function destroy($id)
     {
         $this->supplierRepository->delete($id);
+    }
+
+    public function export(){
+        return $this->supplierRepository->exportSuppliersDataAsExcel();
     }
 }

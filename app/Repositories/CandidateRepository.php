@@ -16,6 +16,6 @@ class CandidateRepository extends BaseRepository implements Interfaces\Candidate
 
     public function exportCandidatesDataAsExcel()
     {
-        return Excel::download(new CandidatesExport(), 'candidates.xlsx');
+        return Excel::download(new CandidatesExport, 'candidates.xlsx');
     }
 }

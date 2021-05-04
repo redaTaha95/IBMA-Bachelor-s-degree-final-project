@@ -5,7 +5,7 @@ return [
     'add_product' => 'Ajouter un produit',
     'general_information' => 'Informations générales',
     'title' => 'Titre',
-    'description' => 'Déscription',
+    'description' => 'Description',
     'price' => 'Prix',
     'add' => 'Ajouter',
     'edit' => 'Modifier',
@@ -22,4 +22,7 @@ return [
     'canceled' => 'Annulé',
     'data_is_safe' => 'Vos données sont en sécurité',
     'details_of_product' => 'Détails du produit',
+    'choose' => 'Choisissez un fournisseur',
+    'supplier' => 'Fournisseur',
+    'unknown' => 'Inconnu'
 ];

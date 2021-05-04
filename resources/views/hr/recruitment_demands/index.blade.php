@@ -58,7 +58,7 @@
                             <tbody>
                             @foreach($recruitmentDemands as $index => $recruitmentDemand)
                                 <tr>
-                                    <td class="align-middle">{{$recruitmentDemand->id}}</td>
+                                    <td class="align-middle">{{$index + 1}}</td>
                                     <td class="align-middle">{{$recruitmentDemand->post_name}}</td>
                                     <td class="align-middle">{{$recruitmentDemand->number_of_profiles}}</td>
                                     <td class="align-middle">{{$recruitmentDemand->date_of_demand}}</td>

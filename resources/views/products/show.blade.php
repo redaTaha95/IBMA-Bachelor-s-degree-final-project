@@ -53,7 +53,7 @@
                                 <p class="mb-4"><a href="" class="text-muted">( 36 Customer Reviews )</a></p>
                                 <h6 class="text-danger text-uppercase">Soon</h6>
                                 <h4 class="mb-4">Price : <span class="text-muted mr-2"></span> <b>${{$product->price}} USD</b></h4>
-                                <h4><span class="badge bg-soft-success text-success mb-4">Soon</span></h4>
+                                <h4><span class="badge bg-soft-success text-success mb-4">{{isset($product->supplier->full_name)? $product->supplier->full_name : __('product.unknown')}}</span></h4>
                                 <p class="text-muted mb-4">{{$product->description}}</p>
                                 <div class="row mb-3">
                                     <div class="col-md-6">

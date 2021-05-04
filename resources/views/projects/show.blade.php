@@ -18,12 +18,12 @@
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('tradprojet.titre12') }}</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('tradprojet.titre13') }}</a></li>
-                                    <li class="breadcrumb-item active">{{ __('tradprojet.titre14') }}</li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.titre12') }}</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.titre13') }}</a></li>
+                                    <li class="breadcrumb-item active">{{ __('project.titre14') }}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">{{ __('tradprojet.introduction4') }}</h4>
+                            <h4 class="page-title">{{ __('project.introduction4') }}</h4>
                         </div>
                     </div>
                 </div>
@@ -56,9 +56,9 @@
                                     <!--App design and development-->
                                     {{$project->name}}
                                 </h3>
-                                <div class="badge badge-secondary mb-3">{{ __('tradprojet.Ongoing') }}</div>
+                                <div class="badge badge-secondary mb-3">{{ __('project.Ongoing') }}</div>
 
-                                <h5>{{ __('tradprojet.Aperçu') }}</h5>
+                                <h5>{{ __('project.Aperçu') }}</h5>
 
                                 <p class="text-muted mb-2">
                                 {{$project->description}}
@@ -86,28 +86,27 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="mb-4">
-                                            <h5>{{ __('tradprojet.showstartd') }}</h5>
+                                            <h5>{{ __('project.showstartd') }}</h5>
                                             <p>{{$project->startDate}}<small class="text-muted"></small></p>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-4">
-                                            <h5>{{ __('tradprojet.showdued') }}</h5>
+                                            <h5>{{ __('project.showdued') }}</h5>
                                             <p>{{$project->dueDate}} <small class="text-muted"></small></p>
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="mb-4">
-                                            <h5>{{ __('tradprojet.showbud') }}</h5>
+                                            <h5>{{ __('project.showbud') }}</h5>
                                             <p>{{$project->budget}}</p>
                                         </div>
                                     </div>
                                 </div>
 
 
-                                    <h5>{{ __('tradprojet.showmember') }}</h5><div>
-                                    {{$project->teamMember}}
+
 
                                     <br>
 
@@ -150,19 +149,19 @@
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item">Latest</a>
                                         <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item">{{ __('tradprojet.pop') }}</a>
+                                        <a href="javascript:void(0);" class="dropdown-item">{{ __('project.pop') }}</a>
                                     </div>
                                 </div>
 
-                                <h4 class="mt-0 mb-3">{{ __('tradprojet.Comment') }}</h4>
+                                <h4 class="mt-0 mb-3">{{ __('project.Comment') }}</h4>
 
-                                <textarea class="form-control form-control-light mb-2" placeholder="{{ __('tradprojet.writemsg') }}" id="example-textarea" rows="3"></textarea>
+                                <textarea class="form-control form-control-light mb-2" placeholder="{{ __('project.writemsg') }}" id="example-textarea" rows="3"></textarea>
                                 <div class="text-right">
                                     <div class="btn-group mb-2">
                                         <button type="button" class="btn btn-link btn-sm text-muted font-18"><i class="dripicons-paperclip"></i></button>
                                     </div>
                                     <div class="btn-group mb-2 ml-2">
-                                        <button type="button" class="btn btn-primary btn-sm">{{ __('tradprojet.btnenv') }}</button>
+                                        <button type="button" class="btn btn-primary btn-sm">{{ __('project.btnenv') }}</button>
                                     </div>
                                 </div>
 
@@ -170,18 +169,18 @@
                                     <div class="media">
                                         <img class="mr-2 avatar-sm rounded-circle" src="../assets/images/users/user-3.jpg" alt="Generic placeholder image">
                                         <div class="media-body">
-                                            <h5 class="mt-0"><a href="contacts-profile.html" class="text-reset">Jeremy Tomlinson</a> <small class="text-muted">{{ __('tradprojet.3hrs') }}</small></h5>
+                                            <h5 class="mt-0"><a href="contacts-profile.html" class="text-reset">Jeremy Tomlinson</a> <small class="text-muted">{{ __('project.3hrs') }}</small></h5>
                                             Nice work, makes me think of The Money Pit.
 
                                             <br>
-                                            <a href="javascript: void(0);" class="text-muted font-13 d-inline-block mt-2"><i class="mdi mdi-reply"></i> {{ __('tradprojet.Rep') }}</a>
+                                            <a href="javascript: void(0);" class="text-muted font-13 d-inline-block mt-2"><i class="mdi mdi-reply"></i> {{ __('project.Rep') }}</a>
 
                                             <div class="media mt-3">
                                                 <a class="pr-2" href="#">
                                                     <img src="../assets/images/users/user-4.jpg" class="avatar-sm rounded-circle" alt="Generic placeholder image">
                                                 </a>
                                                 <div class="media-body">
-                                                    <h5 class="mt-0"><a href="contacts-profile.html" class="text-reset">Kathleen Thomas</a> <small class="text-muted">{{ __('tradprojet.1hr') }}</small></h5>
+                                                    <h5 class="mt-0"><a href="contacts-profile.html" class="text-reset">Kathleen Thomas</a> <small class="text-muted">{{ __('project.1hr') }}</small></h5>
                                                     i'm in the middle of a timelapse animation myself! (Very different though.) Awesome stuff.
                                                 </div>
                                             </div>
@@ -191,11 +190,11 @@
                                     <div class="media mt-3">
                                         <img class="mr-2 avatar-sm rounded-circle" src="../assets/images/users/user-2.jpg" alt="Generic placeholder image">
                                         <div class="media-body">
-                                            <h5 class="mt-0"><a href="contacts-profile.html" class="text-reset">Jonathan Tiner</a> <small class="text-muted">{{ __('tradprojet.oneD') }}</small></h5>
+                                            <h5 class="mt-0"><a href="contacts-profile.html" class="text-reset">Jonathan Tiner</a> <small class="text-muted">{{ __('project.oneD') }}</small></h5>
                                             The parallax is a little odd but O.o that house build is awesome!!
 
                                             <br>
-                                            <a href="javascript: void(0);" class="text-muted font-13 d-inline-block mt-2"><i class="mdi mdi-reply"></i> {{ __('tradprojet.Rep') }}</a>
+                                            <a href="javascript: void(0);" class="text-muted font-13 d-inline-block mt-2"><i class="mdi mdi-reply"></i> {{ __('project.Rep') }}</a>
 
                                         </div>
                                     </div>
@@ -205,13 +204,13 @@
                                             <img src="../assets/images/users/user-1.jpg" class="rounded-circle" alt="Generic placeholder image" height="31">
                                         </a>
                                         <div class="media-body">
-                                            <input type="text" id="simpleinput" class="form-control form-control-sm form-control-light" placeholder="{{ __('tradprojet.Addcmt') }}">
+                                            <input type="text" id="simpleinput" class="form-control form-control-sm form-control-light" placeholder="{{ __('project.Addcmt') }}">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="text-center mt-2">
-                                    <a href="javascript:void(0);" class="text-danger"><i class="mdi mdi-spin mdi-loading mr-1 font-16"></i> {{ __('tradprojet.load') }}</a>
+                                    <a href="javascript:void(0);" class="text-danger"><i class="mdi mdi-spin mdi-loading mr-1 font-16"></i> {{ __('project.load') }}</a>
                                 </div>
                             </div> <!-- end card-body-->
                         </div>
@@ -229,32 +228,32 @@
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item">
-                                            <i class="mdi mdi-attachment mr-1"></i>{{ __('tradprojet.attachment') }}
+                                            <i class="mdi mdi-attachment mr-1"></i>{{ __('project.attachment') }}
                                         </a>
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item">
-                                            <i class="mdi mdi-pencil-outline mr-1"></i>{{ __('tradprojet.attEd') }}
+                                            <i class="mdi mdi-pencil-outline mr-1"></i>{{ __('project.attEd') }}
                                         </a>
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item">
-                                            <i class="mdi mdi-content-copy mr-1"></i>{{ __('tradprojet.Dup') }}
+                                            <i class="mdi mdi-content-copy mr-1"></i>{{ __('project.Dup') }}
                                         </a>
                                         <div class="dropdown-divider"></div>
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item text-danger">
-                                            <i class="mdi mdi-delete-outline mr-1"></i>{{ __('tradprojet.Del') }}
+                                            <i class="mdi mdi-delete-outline mr-1"></i>{{ __('project.Del') }}
                                         </a>
                                     </div> <!-- end dropdown menu-->
                                 </div> <!-- end dropdown-->
 
-                                <h5 class="card-title font-16 mb-3">{{ __('tradprojet.atach') }}</h5>
+                                <h5 class="card-title font-16 mb-3">{{ __('project.atach') }}</h5>
 
                                 <form action="/" method="post" class="dropzone dz-clickable" id="myAwesomeDropzone" data-plugin="dropzone" data-previews-container="#file-previews" data-upload-preview-template="#uploadPreviewTemplate">
 
 
                                     <div class="dz-message needsclick">
                                         <i class="h3 text-muted dripicons-cloud-upload"></i>
-                                        <h4>{{ __('tradprojet.Upload') }}</h4>
+                                        <h4>{{ __('project.Upload') }}</h4>
                                     </div>
                                 </form>
 
@@ -377,9 +376,9 @@
                     </div>
                     <div class="col-md-6">
                         <div class="text-md-right footer-links d-none d-sm-block">
-                            <a href="javascript:void(0);">{{ __('tradprojet.about') }}</a>
-                            <a href="javascript:void(0);">{{ __('tradprojet.help') }}</a>
-                            <a href="javascript:void(0);"> {{ __('tradprojet.Contact') }}</a>
+                            <a href="javascript:void(0);">{{ __('project.about') }}</a>
+                            <a href="javascript:void(0);">{{ __('project.help') }}</a>
+                            <a href="javascript:void(0);"> {{ __('project.Contact') }}</a>
                         </div>
                     </div>
                 </div>

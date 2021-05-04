@@ -74,22 +74,25 @@
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('recruitment_demand.status_of_demand')}} *</label>
                                         <select id="select-status_of_demand" class="form-control" name="status_of_demand">
-                                            <option value="Actif">Actif</option>
-                                            <option value="En cours">En cours</option>
-                                            <option value="Rejeté">Rejeté</option>
-                                            <option value="Fermé">Fermé</option>
+                                            <option value="select-status_of_demand" disabled selected>Sélectionner un statut</option>
+                                            <option value="Actif" {{old('status_of_demand') == 'Actif' ? 'selected' : ''}}>Actif</option>
+                                            <option value="En cours" {{old('status_of_demand') == 'En cours' ? 'selected' : ''}}>En cours</option>
+                                            <option value="Rejeté" {{old('status_of_demand') == 'Rejeté' ? 'selected' : ''}}>Rejeté</option>
+                                            <option value="Traité" {{old('status_of_demand') == 'Traité' ? 'selected' : ''}}>Traité</option>
                                         </select>
                                     </div>
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('recruitment_demand.level_of_studies')}} *</label>
                                         <select id="select-level_of_studies" class="form-control" name="level_of_studies">
-                                            <option value="NiveauBac">Niveau Bac</option>
-                                            <option value="Bac">Bac</option>
-                                            <option value="Bac + 2">Bac + 2</option>
-                                            <option value="Bac + 3">Bac + 3</option>
-                                            <option value="Bac + 4">Bac + 4</option>
-                                            <option value="Bac + 5">Bac + 5</option>
+                                            <option value="select-city" disabled selected>Sélectionner un niveau d'études</option>
+                                            <option value="Niveau Bac" {{old('level_of_studies') == 'Niveau Bac' ? 'selected' : ''}}>Niveau Bac</option>
+                                            <option value="Bac" {{old('level_of_studies') == 'Bac' ? 'selected' : ''}}>Bac</option>
+                                            <option value="Bac + 1" {{old('level_of_studies') == 'Bac + 1' ? 'selected' : ''}}>Bac + 1</option>
+                                            <option value="Bac + 2" {{old('level_of_studies') == 'Bac + 2' ? 'selected' : ''}}>Bac + 2</option>
+                                            <option value="Bac + 3" {{old('level_of_studies') == 'Bac + 3' ? 'selected' : ''}}>Bac + 3</option>
+                                            <option value="Bac + 4" {{old('level_of_studies') == 'Bac + 4' ? 'selected' : ''}}>Bac + 4</option>
+                                            <option value="Bac + 5" {{old('level_of_studies') == 'Bac + 5 et plus' ? 'selected' : ''}}>Bac + 5 et plus</option>
                                         </select>
                                     </div>
                                 </div>
