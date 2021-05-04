@@ -16,4 +16,9 @@ class Project extends Model
     {
         return $this->belongsTo(Client::class);
     }
+
+    public function Materials()
+    {
+        return $this->belongsToMany(Material::class,'material_project');
+    }
 }

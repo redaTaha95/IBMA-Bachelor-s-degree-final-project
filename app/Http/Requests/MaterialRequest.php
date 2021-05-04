@@ -25,7 +25,7 @@ class MaterialRequest extends FormRequest
     public function rules()
     {
         return [
-            'material_code' => 'required',
+            'material_reference' => 'required',
             'designation' => 'required',
             'category' => 'required',
             'quantity' => 'required',
@@ -36,7 +36,7 @@ class MaterialRequest extends FormRequest
     public function messages()
     {
         return [
-            'material_code.required' => 'Le code de matériel est obligatoire !!',
+            'material_reference.required' => 'Le référence d matériel est obligatoire !!',
             'designation.required' => 'La désignation du matériel est obligatoire !!',
             'category.required' => 'la catégorie du matériel est obligatoire !!',
             'quantity.required' => 'la quantité du matériel est obligatoire !!',
