@@ -55,6 +55,16 @@
                                     </div>
 
                                     <div class="form-group mb-3">
+                                        <label for="simpleinput">{{__('product.supplier')}}</label>
+                                        <select id="inputState" name="supplier_id" class="form-control placeholder">
+                                            <option selected disabled>{{__('product.choose')}}</option>
+                                            @foreach($suppliers as $supplier)
+                                                <option value="{{$supplier->id}}" {{old('supplier_id', $product->supplier_id) == $supplier->id ? 'selected' : ''}}>{{$supplier->full_name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group mb-3">
                                         <label for="simpleinput">{{__('product.description')}}</label>
                                         <textarea class="form-control" id="example-textarea" name="description" rows="8">{{old('description', $product->description)}}</textarea>
                                     </div>

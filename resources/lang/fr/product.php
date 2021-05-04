@@ -22,4 +22,7 @@ return [
     'canceled' => 'Annulé',
     'data_is_safe' => 'Vos données sont en sécurité',
     'details_of_product' => 'Détails du produit',
+    'choose' => 'Choisissez un fournisseur',
+    'supplier' => 'Fournisseur',
+    'unknown' => 'Inconnu'
 ];

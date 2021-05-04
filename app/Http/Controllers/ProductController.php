@@ -25,7 +25,8 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('products.create');
+        $suppliers = $this->productRepository->getSuppliers();
+        return view('products.create', compact('suppliers'));
     }
 
     public function store(ProductRequest $request)
@@ -44,7 +45,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = $this->productRepository->find($id);
-        return view('products.edit', compact('product'));
+        $suppliers = $this->productRepository->getSuppliers();
+        return view('products.edit', compact('product', 'suppliers'));
     }
 
     public function update(ProductRequest $request, $id)

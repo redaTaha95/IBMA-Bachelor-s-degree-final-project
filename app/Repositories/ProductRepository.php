@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Exports\ProductExport;
 use App\Models\Product;
+use App\Models\Supplier;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ProductRepository extends BaseRepository implements Interfaces\ProductRepositoryInterface
@@ -36,5 +37,10 @@ class ProductRepository extends BaseRepository implements Interfaces\ProductRepo
     public function exportProductsDataAsExcel()
     {
         return Excel::download(new ProductExport, 'products.xlsx');
+    }
+
+    public function getSuppliers()
+    {
+        return Supplier::all();
     }
 }
