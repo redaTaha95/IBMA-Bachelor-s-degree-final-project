@@ -21,12 +21,12 @@
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.title1') }}</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.title2') }}</a></li>
-                            <li class="breadcrumb-item active">{{ __('project.title3') }}</li>
+                            <li class="breadcrumb-item active"><a href="javascript: void(0);">{{ __('sale.title1') }}</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript: void(0);">{{ __('sale.title2') }}</a></li>
+                            <li class="breadcrumb-item active">{{ __('sale.title3') }}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{ __('project.introduction') }}</h4>
+                    <h4 class="page-title">{{ __('sale.introduction') }}</h4>
                 </div>
             </div>
         </div>
@@ -39,11 +39,11 @@
                     <div class="card-body">
 
                         <div class="text-lg-right mb-2"><!---->
-                            <a href="{{url('export/projects/')}}" class="btn btn-info btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-download"></i></span>{{__('project.Export')}}
+                            <a href="{{url('export/sales/')}}" class="btn btn-info btn-rounded waves-effect waves-light mb-2">
+                                <span class="btn-label"><i class="mdi mdi-download"></i></span>{{__('sale.Export')}}
                             </a>
-                            <a href="{{url('projects/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{ __('project.add') }}
+                            <a href="{{url('sales/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
+                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{ __('sale.add') }}
                             </a>
                         </div>
 
@@ -51,50 +51,47 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>{{ __('project.client_id') }}</th>
-                                <th>{{ __('project.logo') }}</th>
+                                <th>{{ __('sale.product_id') }}</th>
+                                <th>{{ __('sale.logo') }}</th>
 
-                                <th>{{ __('project.name') }}</th>
-                                <th>{{ __('project.description') }}</th>
-                               <!-- <th>Date début</th>-->
-                                <!--<th>Date d'échéance</th>-->
-                                <th>{{ __('project.Budget') }}</th>
-                                <!--<th>teamMember</th>-->
-                                <th style="width: 15%;">{{ __('project.action') }}</th>
+                                <th>{{ __('sale.title') }}</th>
+                                <th>{{ __('sale.description') }}</th>
+                                <th>{{ __('sale.price') }}</th>
+                            <!--<th>{{ __('sale.date') }}</th>-->
+                                <th style="width: 15%;">{{ __('sale.action') }}</th>
 
                             </tr>
                             </thead>
 
 
                             <tbody>
-                            @foreach($projects as $index => $project)
+                            @foreach($sales as $index => $sale)
                                 <tr>
                                     <td class="align-middle">{{$index + 1}}</td>
-                                    <td class="align-middle">{{$project->client->name}}&nbsp;
-                                        @if($project->client->logo)
-                                            <img src="{{asset('storage/clients/'.$project->client->logo)}}" alt="image" class="avatar-sm rounded-circle">
+                                    <td class="align-middle">{{$sale->product->title}}&nbsp;
+                                        @if($sale->product->logo)
+                                            <img src="{{asset('storage/sales/'.$sale->product->logo)}}" alt="image" class="avatar-sm rounded-circle">
                                         @else
                                             <img src="{{asset('assets/images/users/default_user.png')}}" alt="image" class="avatar-sm rounded-circle">
                                         @endif
                                     </td>
                                     <td class="align-middle">
-                                        @if($project->logo)
-                                            <img src="{{asset('storage/projects/'.$project->logo)}}" alt="image" class="avatar-sm rounded-circle">
+                                        @if($sale->logo)
+                                            <img src="{{asset('storage/sales/'.$sale->logo)}}" alt="image" class="avatar-sm rounded-circle">
                                         @else
                                             <img src="{{asset('assets/images/users/default_user.png')}}" alt="image" class="avatar-sm rounded-circle">
                                         @endif
                                     </td>
 
-                                    <td class="align-middle">{{$project->name}}</td>
-                                    <td class="align-middle">{{$project->description}}</td>
-                                    <!--<td class="align-middle">{{$project->startDate}}</td>-->
-                                   <!-- <td class="align-middle">{{$project->dueDate}}</td>-->
-                                    <td class="align-middle">{{$project->budget}}</td>
+                                    <td class="align-middle">{{$sale->title}}</td>
+                                    <td class="align-middle">{{$sale->description}}</td>
+                                    <td class="align-middle">{{$sale->price}}</td>
+                                <!-- <td class="align-middle">{{$sale->date}}</td>-->
 
                                     <td class="align-middle">
-                                        <a href="{{route('projects.show', $project->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
-                                        <a href="{{route('projects.edit', $project->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{url('projects/'.$project->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-project"><i class="mdi mdi-trash-can-outline"></i></a>
+                                        <a href="{{route('sales.show', $sale->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
+                                        <a href="{{route('sales.edit', $sale->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
+                                        <a href="{{url('sales/'.$sale->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-sale"><i class="mdi mdi-trash-can-outline"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -126,73 +123,73 @@
     <script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>>
 
-   <!-- <script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>-->
+    <!-- <script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>-->
 
     <!-- Sweet alert init js-->
-   <!-- <script src="{{asset('assets/js/pages/sweet-alerts.init.js')}}"></script>-->
+    <!-- <script src="{{asset('assets/js/pages/sweet-alerts.init.js')}}"></script>-->
 
     {{--file of delete client--}}
 
-    <script src="{{asset('ajax/projects/project_delete_ajax.js')}}"></script>
+    <script src="{{asset('ajax/sales/sale_delete_ajax.js')}}"></script>
 
     @if(session('success'))
-       <!-- <script>
+        <!-- <script>
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "{{ __('project.Add_Success') }}",
+                title: "{{ __('sale.Add_Success') }}",
                 showConfirmButton: !1,
                 timer: 1500
             })
         </script>-->
-       <script>
-           const Toast = Swal.mixin({
-               toast: true,
-               position: 'top-end',
-               showConfirmButton: false,
-               timer: 3000,
-               timerProgressBar: true,
-               didOpen: (toast) => {
-                   toast.addEventListener('mouseenter', Swal.stopTimer)
-                   toast.addEventListener('mouseleave', Swal.resumeTimer)
-               }
-           })
+        <script>
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
 
-           Toast.fire({
-               icon: 'success',
-               title: '{{ __('project.Add_Success') }}'
-           })
-       </script>
+            Toast.fire({
+                icon: 'success',
+                title: '{{ __('sale.Add_Success') }}'
+            })
+        </script>
     @endif
 
     @if(session('update'))
-       <!-- <script>
+        <!-- <script>
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "{{ __('project.Edit_Success') }}",
+                title: "{{ __('sale.Edit_Success') }}",
                 showConfirmButton: !1,
                 timer: 1500
             })
             </script>-->
-       <script>
-           const Toast = Swal.mixin({
-               toast: true,
-               position: 'top-end',
-               showConfirmButton: false,
-               timer: 3000,
-               timerProgressBar: true,
-               didOpen: (toast) => {
-                   toast.addEventListener('mouseenter', Swal.stopTimer)
-                   toast.addEventListener('mouseleave', Swal.resumeTimer)
-               }
-           })
+        <script>
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
 
-           Toast.fire({
-               icon: 'success',
-               title: '{{ __('project.Edit_Success') }}'
-           })
-       </script>
+            Toast.fire({
+                icon: 'success',
+                title: '{{ __('sale.Edit_Success') }}'
+            })
+        </script>
     @endif
 
     <script>
@@ -207,12 +204,12 @@
                     $(".dataTables_paginate > .pagination").addClass("pagination-rounded")
                 },
                 "oLanguage": {
-                    "sInfo": "{{__('project.show_page')}} _PAGE_ {{__('project.in')}} _PAGES_",
+                    "sInfo": "{{__('sale.show_page')}} _PAGE_ {{__('sale.in')}} _PAGES_",
                     "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
-                    "sSearchPlaceholder": "{{ __('project.Search') }}...",
-                    "sLengthMenu": "{{ __('project.Result') }} :  _MENU_",
-                    "sEmptyTable": "{{ __('project.NoData') }}",
-                    "sZeroRecords": "{{ __('project.Not_save') }}",
+                    "sSearchPlaceholder": "{{ __('sale.Search') }}...",
+                    "sLengthMenu": "{{ __('sale.Result') }} :  _MENU_",
+                    "sEmptyTable": "{{ __('sale.NoData') }}",
+                    "sZeroRecords": "{{ __('sale.Not_save') }}",
                     "sInfoFiltered":   "(filtré de _MAX_ entrées au total)",
                 },
                 'aoColumnDefs': [{
@@ -228,13 +225,13 @@
     </script>
 
     <script>
-        var delete_confirmation = '{{ __('project.warning_message') }}';
-        var _delete = '{{ __('project.delete') }}';
-        var cancel = '{{ __('project.Button_cancel') }}';
-        var deleted = '{{ __('project.deleted') }}';
-        var data_deleted = '{{ __('project.deleted_data') }}';
-        var canceled = '{{ __('project.canceled') }}';
-        var data_is_safe = '{{ __('project.secure_data') }}';
+        var delete_confirmation = '{{ __('sale.warning_message') }}';
+        var _delete = '{{ __('sale.delete') }}';
+        var cancel = '{{ __('sale.Button_cancel') }}';
+        var deleted = '{{ __('sale.deleted') }}';
+        var data_deleted = '{{ __('sale.deleted_data') }}';
+        var canceled = '{{ __('sale.canceled') }}';
+        var data_is_safe = '{{ __('sale.secure_data') }}';
     </script>
 
     <script>
