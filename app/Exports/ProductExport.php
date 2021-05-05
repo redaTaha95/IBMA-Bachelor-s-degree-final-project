@@ -1,31 +1,26 @@
 <?php
 
-
 namespace App\Exports;
 
-
-use App\Models\Material;
+use App\Models\Product;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Events\AfterSheet;
 
-class MaterialExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
+class ProductExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
 {
     /**
-     * @return \Illuminate\Support\Collection
-     */
+    * @return \Illuminate\Support\Collection
+    */
     public function collection()
     {
-        return Material::select(
+        return Product::select(
             'id',
-            'material_code',
-            'designation',
-            'category',
-            'quantity',
-            'origin',
-            'condition'
+            'title',
+            'description',
+            'price'
         )->get();
     }
 
@@ -33,12 +28,9 @@ class MaterialExport implements FromCollection, WithHeadings, ShouldAutoSize, Wi
     {
         return [
             '#',
-            'Référence du matériel',
-            'Désignation',
-            'Catégorie',
-            'Quantité',
-            'Origine',
-            'Condition'
+            'title',
+            'description',
+            'price'
         ];
     }
 
@@ -46,7 +38,7 @@ class MaterialExport implements FromCollection, WithHeadings, ShouldAutoSize, Wi
     {
         return [
             AfterSheet::class    => function(AfterSheet $event) {
-                $cellRange = 'A1:W1'; // All headers
+                $cellRange = 'A1:D1'; // All headers
                 $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(14);
             },
         ];

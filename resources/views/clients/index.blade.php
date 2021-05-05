@@ -73,7 +73,7 @@
                                     <td class="align-middle">
                                         <a href="{{route('clients.show', $client->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
                                         <a href="{{route('clients.edit', $client->id)}}" class="btn btn-blue btn-sm waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{url('clients/'.$client->id)}}" class="btn btn-danger btn-sm waves-effect waves-light delete-client"><i class="mdi mdi-trash-can-outline"></i></a>
+                                        <a href="{{url('clients/'.$client->id)}}" projects="{{$client->projects->count()}}" class="btn btn-danger btn-sm waves-effect waves-light delete-client"><i class="mdi mdi-trash-can-outline"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -187,6 +187,8 @@
         var data_deleted = '{{__('client.data_deleted')}}';
         var canceled = '{{__('client.canceled')}}';
         var data_is_safe = '{{__('client.data_is_safe')}}';
+        var delete_impossible = '{{__('client.delete_impossible')}}';
+        var delete_impossible_explanation = '{{__('client.delete_impossible_explanation')}}';
     </script>
 
 @endsection

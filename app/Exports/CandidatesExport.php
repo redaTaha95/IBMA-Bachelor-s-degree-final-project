@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Events\AfterSheet;
 
-class CandidatesExport implements FromCollection
+class CandidatesExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
 {
     public function collection()
     {
@@ -26,18 +26,18 @@ class CandidatesExport implements FromCollection
         )->get();
     }
 
-    public function headings(): array
+    public function headings() : array
     {
         return [
             '#',
-            'Last Name',
-            'First Name',
+            'Nom',
+            'Prénom',
             'CIN',
-            'Birthday',
-            'Phone',
+            'Date de naissance',
+            'Téléphone',
             'Email',
-            'Address',
-            'City'
+            'Adresse',
+            'Ville'
         ];
     }
 

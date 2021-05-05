@@ -26,4 +26,6 @@ return [
     'location' => 'Lieu',
     'example' =>'Exemple',
     'export' =>'Exporter',
+    'delete_impossible' => 'Suppréssion Impossible',
+    'delete_impossible_explanation' => 'Impossible de supprimer un client qui a des projets',
 ];

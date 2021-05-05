@@ -5,7 +5,7 @@ return[
     'material_folder' => 'matériaux',
     'list' => 'Liste des matériaux',
     'addMaterial' => 'Ajouter un matériel',
-    'material_code'=> 'Code du matériel',
+    'material_reference'=> 'référence du matériel',
     'designation'=> 'Désignation',
     'category' => 'Catégorie',
     'quantity'=> 'Quantité',

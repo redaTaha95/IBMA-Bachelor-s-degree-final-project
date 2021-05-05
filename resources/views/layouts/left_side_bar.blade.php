@@ -67,7 +67,7 @@
 
                 <li>
                     <a href="{{url('suppliers')}}">
-                        <i data-feather="users"></i>
+                        <i class="mdi mdi-account-tie"></i>
                         <span> Fournisseurs </span>
                     </a>
                 </li>

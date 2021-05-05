@@ -12,6 +12,7 @@ class Product extends Model
 
     protected $guarded = [];
 
+
     public function purchases()
     {
         return $this->hasMany(Purchase::class);
@@ -20,5 +21,10 @@ class Product extends Model
     public function sales()
     {
         return $this->hasMany(Sale::class);
+    }
+
+    public function supplier() {
+        return $this->belongsTo(Supplier::class);
+
     }
 }

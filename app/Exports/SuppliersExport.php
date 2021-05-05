@@ -1,31 +1,28 @@
 <?php
 
-
 namespace App\Exports;
 
-
-use App\Models\Material;
+use App\Models\Supplier;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Events\AfterSheet;
 
-class MaterialExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
+class SuppliersExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
 {
-    /**
-     * @return \Illuminate\Support\Collection
-     */
     public function collection()
     {
-        return Material::select(
+        return Supplier::select(
             'id',
-            'material_code',
-            'designation',
-            'category',
-            'quantity',
-            'origin',
-            'condition'
+            'full_name',
+            'cin',
+            'address',
+            'postal_code',
+            'city',
+            'country',
+            'phone',
+            'email'
         )->get();
     }
 
@@ -33,12 +30,14 @@ class MaterialExport implements FromCollection, WithHeadings, ShouldAutoSize, Wi
     {
         return [
             '#',
-            'Référence du matériel',
-            'Désignation',
-            'Catégorie',
-            'Quantité',
-            'Origine',
-            'Condition'
+            'Nom & Prénom',
+            'CIN',
+            'Adresse',
+            'Code Postal',
+            'Ville',
+            'Pays',
+            'Téléphone',
+            'Email'
         ];
     }
 

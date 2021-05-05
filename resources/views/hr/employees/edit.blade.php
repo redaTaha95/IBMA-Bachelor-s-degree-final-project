@@ -69,7 +69,8 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('employee.salary') }}</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="salary" placeholder="{{ __('employee.salary') }}" value="{{old('salary', $employee->salary)}}">
+                                        <!--<input type="text" id="simpleinput" class="form-control" name="salary" placeholder="{{ __('employee.salary') }}" value="{{old('salary', $employee->salary)}}">-->
+                                        <input type="text" id="simpleinput" class="form-control" data-toggle="input-mask" name="salary" placeholder="{{ __('employee.salary') }}" data-mask-format="0000000000" data-reverse="true" maxlength="22" value="{{old('salary', $employee->salary)}}">
                                     </div>
 
                                 </div> <!-- end col -->
@@ -86,7 +87,7 @@
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('employee.logo') }}</label>
-                                        <input type="file" data-plugins="dropify" name="logo" data-default-file="@if($employee->logo) {{asset('storage/employees/'.$employee->logo)}} @endif"/>
+                                        <input type="file" data-plugins="dropify" name="logo" data-default-file="{{$employee->logo ? asset('storage/employees/'.$employee->logo) : ''}}"/>
                                     </div>
 
 

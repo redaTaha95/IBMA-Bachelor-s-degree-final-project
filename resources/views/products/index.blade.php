@@ -48,6 +48,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Image</th>
+                                <th>{{__('product.supplier')}}</th>
                                 <th>{{__('product.title')}}</th>
                                 <th>{{__('product.description')}}</th>
                                 <th>{{__('product.price')}}</th>
@@ -66,6 +67,9 @@
                                         @else
                                             <img src="{{asset('assets/images/products/default_product.png')}}" alt="image" class="avatar-sm rounded-circle">
                                         @endif
+                                    </td>
+                                    <td class="{{isset($product->supplier->full_name) ? '' : 'text-danger'}} align-middle">
+                                        {{isset($product->supplier->full_name) ? $product->supplier->full_name : __('product.unknown')}}
                                     </td>
                                     <td class="align-middle">{{$product->title}}</td>
                                     <td class="align-middle"><a href="Javascript:void(0)" data="{{$product->title. '$$' . $product->description}}" class="showDescriptionModal">{{strlen($product->description) > 30 ? Str::limit($product->description, 30).'...' : $product->description }}</a></td>

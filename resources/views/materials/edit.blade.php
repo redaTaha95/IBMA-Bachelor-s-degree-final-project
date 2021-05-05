@@ -51,7 +51,7 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('material.material_code') }} *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="material_code" placeholder="{{ __('material.material_code') }}" value="{{old('material_code', $material->material_code)}}">
+                                        <input type="text" id="simpleinput" class="form-control" name="material_reference" placeholder="{{ __('material.material_reference') }}" value="{{old('material_reference', $material->material_reference)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
