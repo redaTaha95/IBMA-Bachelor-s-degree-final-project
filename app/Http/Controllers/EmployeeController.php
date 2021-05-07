@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\EmployeeRequest;
+use App\Models\User;
+use App\Models\Employee;
 use App\Repositories\Interfaces\EmployeeRepositoryInterface;
+use App\Repositories\EmployeeRepository;
+use App\Repositories\UserRepository;
+use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
     private $employeeRepository;
+    private $userRepository;
     private $projectRepository;
 
     public function __construct(EmployeeRepositoryInterface $employeeRepository)
@@ -32,7 +38,10 @@ class EmployeeController extends Controller
 
     public function store(EmployeeRequest $request)
     {
+        //$this->userRepository->create($request->only(['name', 'email','_token']));
+        //$res = array_merge($request->all(), ['user_id' => $this->employeeRepository->lastUser()->id]);
         $this->employeeRepository->addEmployee($request->all());
+        //$this->employeeRepository->addEmployee($res);
         session()->flash('success', 'Employee has been added');
         return redirect('/employees');
     }
