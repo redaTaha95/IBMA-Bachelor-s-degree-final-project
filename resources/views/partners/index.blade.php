@@ -44,7 +44,7 @@
                                 <span class="btn-label"><i class="mdi mdi-download"></i></span>{{__('partner.Export')}}
                             </a>
                             <a href="{{url('partners/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{ __('partner.ajout') }}
+                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{ __('partner.add') }}
                             </a>
                         </div>
 
@@ -53,13 +53,13 @@
                             <tr>
                                 <th>#</th>
                                 <th>{{ __('partner.logo') }}</th>
-                                <th>{{ __('partner.nom') }}</th>
+                                <th>{{ __('partner.Name') }}</th>
                                 <th>{{ __('partner.city') }}</th>
                                 <!-- <th>Date début</th>-->
                                 <!--<th>Date d'échéance</th>-->
-                                <th>{{ __('partner.inc') }}</th>
+                                <th>{{ __('partner.income') }}</th>
 
-                                <th style="width: 15%;">{{ __('partner.act') }}</th>
+                                <th style="width: 15%;">{{ __('partner.action') }}</th>
 
                             </tr>
                             </thead>
@@ -129,7 +129,7 @@
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "{{ __('partner.AjoutSuccess') }}",
+                title: "{{ __('partner.Add_Success') }}",
                 showConfirmButton: !1,
                 timer: 1500
             })
@@ -149,7 +149,7 @@
 
             Toast.fire({
                 icon: 'success',
-                title: '{{ __('partner.AjoutSuccess') }}'
+                title: '{{ __('partner.Add_Success') }}'
             })
         </script>
     @endif
@@ -159,7 +159,7 @@
             Swal.fire({
                 position: "top-end",
                 type: "success",
-                title: "{{ __('partner.ModifSuccess') }}",
+                title: "{{ __('partner.Edit_Success') }}",
                 showConfirmButton: !1,
                 timer: 1500
             })
@@ -179,7 +179,7 @@
 
             Toast.fire({
                 icon: 'success',
-                title: '{{ __('partner.ModifSuccess') }}'
+                title: '{{ __('partner.Edit_Success') }}'
             })
         </script>
     @endif
@@ -198,10 +198,10 @@
                 "oLanguage": {
                     "sInfo": "Affichage de la page _PAGE_ sur _PAGES_",
                     "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
-                    "sSearchPlaceholder": "{{ __('partner.Rech') }}...",
-                    "sLengthMenu": "{{ __('partner.Res') }} :  _MENU_",
+                    "sSearchPlaceholder": "{{ __('partner.Search') }}...",
+                    "sLengthMenu": "{{ __('partner.Result') }} :  _MENU_",
                     "sEmptyTable": "{{ __('partner.NoData') }}",
-                    "sZeroRecords": "{{ __('partner.NoErg') }}",
+                    "sZeroRecords": "{{ __('partner.Not_save') }}",
                     "sInfoFiltered":   "(filtré de _MAX_ entrées au total)",
                 },
                 'aoColumnDefs': [{
@@ -219,7 +219,7 @@
     <script>
         var delete_confirmation = '{{ __('partner.warning_message') }}';
         var _delete = '{{ __('partner.delete') }}';
-        var cancel = '{{ __('partner.btnannul') }}';
+        var cancel = '{{ __('partner.Button_cancel') }}';
         var deleted = '{{ __('partner.deleted') }}';
         var data_deleted = '{{ __('partner.deleted_data') }}';
         var canceled = '{{ __('partner.canceled') }}';

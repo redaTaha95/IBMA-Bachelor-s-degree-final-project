@@ -15,12 +15,12 @@
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.title8') }}</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.title9') }}</a></li>
-                            <li class="breadcrumb-item active">{{ __('project.title10') }}</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('sale.title8') }}</a></li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('sale.title9') }}</a></li>
+                            <li class="breadcrumb-item active">{{ __('sale.title10') }}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{ __('project.introduction3') }}</h4>
+                    <h4 class="page-title">{{ __('sale.introduction3') }}</h4>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{ __('project.title11') }}</h4>
+                        <h4 class="header-title">{{ __('sale.title11') }}</h4>
 
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -43,7 +43,7 @@
                         @endif
 
                         <br>
-                        <form action="{{route('projects.update', $project->id)}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('sales.update', $sale->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row">
@@ -54,10 +54,10 @@
                                         <div class="col-12">
                                             <div class="dropdown">
 
-                                                <label for="client">{{ __('project.edit_client_id') }}</label>
-                                                <select name="client_id" class="form-control">
-                                                    @foreach ($clients as $client)
-                                                        <option value="{{ $client->id}}" {{old('client_id', $client->id) == $project->client_id ? 'selected' : ' '}}>{{ $client->name }}</option>
+                                                <label for="product">{{ __('sale.edit_product_id') }}</label>
+                                                <select name="product_id" class="form-control">
+                                                    @foreach ($products as $product)
+                                                        <option value="{{ $product->id}}" {{old('product_id', $product->id) == $product->product_id ? 'selected' : ' '}}>{{ $product->title }}</option>
                                                     @endforeach
 
                                                 </select>
@@ -69,37 +69,34 @@
                                     <br>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('project.Edit_name') }}</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name', $project->name)}}">
+                                        <label for="simpleinput">{{ __('sale.Edit_title') }}</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="title" placeholder="Titre" value="{{old('title', $sale->title)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('project.Edit_description') }}</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="description" placeholder="Description" value="{{old('description', $project->description)}}">
+                                        <label for="simpleinput">{{ __('sale.Edit_description') }}</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="description" placeholder="Description" value="{{old('description', $sale->description)}}">
+                                    </div>
+
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">{{ __('sale.Edit_price') }}</label>
+                                        <input type="number" id="simpleinput" class="form-control" name="price" placeholder="Prix" value="{{old('price', $sale->price)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('project.Edit_startdate') }}</label>
-                                        <input type="date" id="simpleinput" class="form-control" name="startDate" placeholder="Date début" value="{{old('startDate', $project->startDate)}}">
-                                    </div>
-
-                                    <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('project.Edit_duedate') }}</label>
-                                        <input type="date" id="simpleinput" class="form-control" name="dueDate" placeholder="Date d'échéance" value="{{old('dueDate', $project->dueDate)}}">
-                                    </div>
-
-                                    <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('project.Edit_budget') }}</label>
-                                        <input type="number" id="simpleinput" class="form-control" name="budget" placeholder="Budget" value="{{old('budget', $project->budget)}}">
+                                        <label for="simpleinput">{{ __('sale.Edit_date') }}</label>
+                                        <input type="date" id="simpleinput" class="form-control" name="date" placeholder="Date" value="{{old('date', $sale->date)}}">
                                     </div>
 
                                 </div> <!-- end col -->
 
                                 <div class="col-lg-6">
 
+
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('project.Edit_logo') }}</label>
-                                        <input type="file" data-plugins="dropify" name="logo" data-default-file="{{asset('storage/projects/'.$project->logo)}}"/>
+                                        <label for="simpleinput">{{ __('sale.Edit_logo') }}</label>
+                                        <input type="file" data-plugins="dropify" name="logo" data-default-file="{{asset('storage/sales/'.$sale->logo)}}"/>
                                     </div>
 
 
@@ -107,8 +104,8 @@
                             </div>
                             <!-- end row-->
                             <div class="row">
-                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">{{ __('project.Button_edit') }}</button>
-                                <a href="{{url('projects')}}" class="btn btn-white btn-rounded waves-effect">{{ __('project.Button_cancel') }}</a>
+                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">{{ __('sale.Button_edit') }}</button>
+                                <a href="{{url('sales')}}" class="btn btn-white btn-rounded waves-effect">{{ __('sale.Button_cancel') }}</a>
                             </div>
                         </form>
 

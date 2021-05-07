@@ -3,16 +3,16 @@
 
 namespace App\Exports;
 
-use App\Models\Partner;
 
 use Illuminate\Support\Collection;
+use App\Models\Sale;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Events\AfterSheet;
 
-class PartnerExport implements FromCollection,WithHeadings,ShouldAutoSize,WithEvents
+class SaleExport implements FromCollection, WithEvents, ShouldAutoSize, WithHeadings
 {
 
     /**
@@ -20,26 +20,15 @@ class PartnerExport implements FromCollection,WithHeadings,ShouldAutoSize,WithEv
      */
     public function collection()
     {
-        return Partner::select(
+        return Sale::select(
             'id',
+            'product_id',
             'logo',
-            'name',
-            'city',
+            'title',
             'description',
-            'income'
+            'price',
+            'date'
         )->get();
-    }
-
-    public function headings(): array
-    {
-        return [
-            '#',
-            'logo',
-            'name',
-            'city',
-            'description',
-            'income'
-        ];
     }
 
     public function registerEvents(): array
@@ -49,6 +38,19 @@ class PartnerExport implements FromCollection,WithHeadings,ShouldAutoSize,WithEv
                 $cellRange = 'A1:W1'; // All headers
                 $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(14);
             },
+        ];
+    }
+
+    public function headings(): array
+    {
+        return [
+            '#',
+            'product_id',
+            'logo',
+            'title',
+            'description',
+            'price',
+            'date'
         ];
     }
 }
