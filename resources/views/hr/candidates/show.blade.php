@@ -1,9 +1,17 @@
 @extends('layouts.app')
 
 @section('css')
+    <link href="{{asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/libs/datatables.net-select-bs4/css//select.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+
+    <!-- Sweet Alert-->
+    <link href="{{asset('assets/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
+
     <!-- Plugins css -->
-    <link href="{{asset('assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 
 @section('content')
@@ -56,68 +64,106 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form action="{{route('candidates.show', $candidate->id)}}"  enctype="multipart/form-data">
-                                @csrf
-                                <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle mr-1"></i> {{__('candidate.general_information')}}</h5>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h4 class="header-title mb-0" style="display: inline-block">{{__('candidate.last_name')}} & {{__('candidate.first_name')}} :</h4>
-                                        <p class="header-title mb-0 text-center" style="display: inline-block">{{$candidate->first_name.' '.$candidate->last_name}}</p></span>
+                            <h5 class="mb-4 text-uppercase"><i
+                                    class="mdi mdi-account-circle mr-1"></i> {{__('candidate.general_information')}}
+                            </h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4 class="header-title mb-0"
+                                        style="display: inline-block">{{__('candidate.last_name')}}
+                                        & {{__('candidate.first_name')}} :</h4>
+                                    <p class="header-title mb-0 text-center"
+                                       style="display: inline-block">{{$candidate->first_name.' '.$candidate->last_name}}</p></span>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h4 class="header-title mb-0"
+                                        style="display: inline-block">{{__('candidate.birthday')}} :</h4>
+                                    <p class="header-title mb-0 text-center"
+                                       style="display: inline-block">{{$candidate->birthday   }}</p></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <h4 class="header-title mb-0" style="display: inline-block">{{__('candidate.cin')}}
+                                        :</h4>
+                                    <p class="header-title mb-0 text-center"
+                                       style="display: inline-block">{{$candidate->cin}}</p></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <h4 class="header-title mb-0"
+                                        style="display: inline-block">{{__('candidate.phone')}} :</h4>
+                                    <p class="header-title mb-0 text-center"
+                                       style="display: inline-block">{{$candidate->phone}}</p></span>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h4 class="header-title mb-0"
+                                        style="display: inline-block">{{__('candidate.email')}} :</h4>
+                                    <p class="header-title mb-0 text-center"
+                                       style="display: inline-block">{{$candidate->email}}</p></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <h4 class="header-title mb-0"
+                                        style="display: inline-block">{{__('candidate.status')}} :</h4>
+                                    <p class="header-title mb-0 text-center"
+                                       style="display: inline-block">{{$candidate->status}}</p></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <h4 class="header-title mb-0" style="display: inline-block">{{__('candidate.city')}}
+                                        :</h4>
+                                    <p class="header-title mb-0 text-center"
+                                       style="display: inline-block">{{$candidate->city}}</p></span>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group mb-3">
+                                        <h5 class="mb-4 text-uppercase"><i
+                                            class="mdi mdi-handshake mr-1"></i> {{__('recruitment_demand.recruitment_demands')}}
+                                        </h5>
+                                        <table id="data_table" class="table table-striped dt-responsive nowrap w-100">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>{{__('recruitment_demand.post_name')}}</th>
+                                                <th>{{__('recruitment_demand.number_of_profiles')}}</th>
+                                                <th>{{__('recruitment_demand.date_of_demand')}}</th>
+                                                <th>{{__('recruitment_demand.status_of_demand')}}</th>
+                                                <th style="width: 15%;">Action</th>
+                                            </tr>
+                                            </thead>
+
+
+                                            <tbody>
+                                            @foreach($recruitmentDemands as $index => $recruitmentDemand)
+                                                <tr>
+                                                    <td class="align-middle">{{$index + 1}}</td>
+                                                    <td class="align-middle">{{$recruitmentDemand->post_name}}</td>
+                                                    <td class="align-middle">{{$recruitmentDemand->number_of_profiles}}</td>
+                                                    <td class="align-middle">{{$recruitmentDemand->date_of_demand}}</td>
+                                                    <td class="align-middle">{{$recruitmentDemand->status_of_demand}}</td>
+                                                    <td class="align-middle">
+                                                        @if(isset($recruitmentDemand->candidates($candidate->id)->first()->id))
+                                                            <a href="{{url('disaffect/candidate/'.$candidate->id.'/demand/'.$recruitmentDemand->id)}}" class="btn btn-danger btn-sm waves-effect waves-light btn-block">Désaffecter</a>
+                                                        @else
+                                                            <a href="{{url('affect/candidate/'.$candidate->id.'/demand/'.$recruitmentDemand->id)}}" class="btn btn-success btn-sm waves-effect waves-light btn-block">Affecter</a>
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <h4 class="header-title mb-0" style="display: inline-block">{{__('candidate.birthday')}} :</h4>
-                                        <p class="header-title mb-0 text-center" style="display: inline-block">{{$candidate->birthday   }}</p></span>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <h4 class="header-title mb-0" style="display: inline-block">{{__('candidate.cin')}} :</h4>
-                                        <p class="header-title mb-0 text-center" style="display: inline-block">{{$candidate->cin}}</p></span>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <h4 class="header-title mb-0" style="display: inline-block">{{__('candidate.phone')}} :</h4>
-                                        <p class="header-title mb-0 text-center" style="display: inline-block">{{$candidate->phone}}</p></span>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <h4 class="header-title mb-0" style="display: inline-block">{{__('candidate.email')}} :</h4>
-                                        <p class="header-title mb-0 text-center" style="display: inline-block">{{$candidate->email}}</p></span>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <h4 class="header-title mb-0" style="display: inline-block">{{__('candidate.status')}} :</h4>
-                                        <p class="header-title mb-0 text-center" style="display: inline-block">{{$candidate->status}}</p></span>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <h4 class="header-title mb-0" style="display: inline-block">{{__('candidate.city')}} :</h4>
-                                        <p class="header-title mb-0 text-center" style="display: inline-block">{{$candidate->city}}</p></span>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group mb-3">
-                                            <h4 class="header-title mb-0" style="display: inline-block">Liste des demandes de recrutement :</h4>
-                                            <select id="select-recruitment_demands" multiple class="form-control">
-                                                <option>Technicien spécialisé en Réseau Informatique</option>
-                                                <option>Ingénieur en Développement Mobile</option>
-                                                <option>Assistante RH</option>
-                                                <option>Chef de projets</option>
-                                                <option>Développeur Full Stack</option>
-                                                <option>Technicien spécialisé en Finance</option>
-                                                <option>Ingénieur DevOps</option>
-                                                <option>Développeur Support</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
+                            </div>
                         </div>
 
                         <div class="tab-pane" id="experiences">
@@ -162,13 +208,16 @@
                             <ul class="list-unstyled timeline-sm">
                                 <li class="timeline-sm-item">
                                     <span class="timeline-sm-date">2020 - 2021</span>
-                                    <h5 class="mt-0 mb-1">Licence d’Ingénierie de Conception et de Développement d'Applications</h5>
+                                    <h5 class="mt-0 mb-1">Licence d’Ingénierie de Conception et de Développement
+                                        d'Applications</h5>
                                     <p class="text-uppercase">IT Learning / Fst Settat.</p>
                                 </li>
                                 <li class="timeline-sm-item">
                                     <span class="timeline-sm-date">2018 - 2020</span>
-                                    <h5 class="mt-0 mb-1">Diplôme de Technicien Spécialisé (DTS) en Développement Informatique.</h5>
-                                    <p class="text-uppercase">Institut Spécialisé de Gestion et d’Informatique (ISGI).</p>
+                                    <h5 class="mt-0 mb-1">Diplôme de Technicien Spécialisé (DTS) en Développement
+                                        Informatique.</h5>
+                                    <p class="text-uppercase">Institut Spécialisé de Gestion et d’Informatique
+                                        (ISGI).</p>
                                 </li>
                                 <li class="timeline-sm-item">
                                     <span class="timeline-sm-date">2018</span>
@@ -184,5 +233,52 @@
     </div>
 
 
+@endsection
+
+@section('js')
+    <!-- third party js -->
+    <script src="{{asset('assets/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
+
+    <!-- third party js ends -->
+
+    <!-- Datatables init -->
+    <script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#data_table').DataTable( {
+                language: {
+                    paginate: {
+                        previous: "<i class='mdi mdi-chevron-left'>",
+                        next: "<i class='mdi mdi-chevron-right'>"
+                    }
+                }, drawCallback: function () {
+                    $(".dataTables_paginate > .pagination").addClass("pagination-rounded")
+                },
+                "oLanguage": {
+                    "sInfo": "{{__('datatable.show_page')}} _PAGE_ {{__('datatable.in')}} _PAGES_",
+                    "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+                    "sSearchPlaceholder": "{{__('datatable.search')}}...",
+                    "sLengthMenu": "{{__('datatable.results')}} :  _MENU_",
+                    "sEmptyTable": "{{__('datatable.no_data')}}",
+                    "sZeroRecords": "{{__('datatable.search_failed')}}",
+                    "sInfoFiltered":   "({{__('datatable.filtered_from')}} _MAX_ {{__('datatable.total_inputs')}})",
+                },
+                'aoColumnDefs': [{
+                    'bSortable': false,
+                    'aTargets': [-1] /* 1st one, start by the right */
+                }],
+                "stripeClasses": [],
+                "lengthMenu": [5, 10, 20, 50],
+                "pageLength": 5,
+                "aaSorting": []
+            } );
+        } );
+    </script>
 @endsection
 

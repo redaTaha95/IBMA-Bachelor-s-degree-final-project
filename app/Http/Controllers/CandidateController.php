@@ -36,7 +36,8 @@ class CandidateController extends Controller
     public function show($id)
     {
         $candidate = $this->candidateRepository->find($id);
-        return view('hr.candidates.show', compact('candidate'));
+        $recruitmentDemands = $this->candidateRepository->getRecruitmentDemands();
+        return view('hr.candidates.show', compact('candidate', 'recruitmentDemands'));
     }
 
     public function edit($id)
@@ -59,5 +60,15 @@ class CandidateController extends Controller
 
     public function export(){
         return $this->candidateRepository->exportCandidatesDataAsExcel();
+    }
+
+    public function affectDemand($candidate_id, $demand_id){
+        $this->candidateRepository->affectRecruitmentDemandToCandidate($candidate_id, $demand_id);
+        return redirect()->back();
+    }
+
+    public function disaffectDemand($candidate_id, $demand_id){
+        $this->candidateRepository->disaffectRecruitmentDemandToCandidate($candidate_id, $demand_id);
+        return redirect()->back();
     }
 }
