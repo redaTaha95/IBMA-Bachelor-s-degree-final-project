@@ -27,7 +27,8 @@ class VacationController extends Controller
 
     public function store(Request $request)
     {
-        return $this->vacationRepository->create($request->all());
+        $this->vacationRepository->create($request->all());
+        return redirect('/calendar');
     }
 
     public function show($id)
