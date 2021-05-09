@@ -5,12 +5,8 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\EmployeeRequest;
-use App\Models\User;
-use App\Models\Employee;
 use App\Repositories\Interfaces\EmployeeRepositoryInterface;
-use App\Repositories\EmployeeRepository;
 use App\Repositories\UserRepository;
-use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -19,10 +15,11 @@ class EmployeeController extends Controller
     private $userRepository;
     private $projectRepository;
 
-    public function __construct(EmployeeRepositoryInterface $employeeRepository)
+    public function __construct(EmployeeRepositoryInterface $employeeRepository,UserRepository $userRepository)
     {
         $this->middleware('auth');
         $this->employeeRepository = $employeeRepository;
+        $this->userRepository=$userRepository;
     }
 
     public function index()
@@ -33,15 +30,24 @@ class EmployeeController extends Controller
 
     public function create()
     {
-        return view('hr.employees.create');
+        $roles = ["Admin","Resource humaine","Chef","Employee"];
+        return view('hr.employees.create',compact('roles'));
     }
 
     public function store(EmployeeRequest $request)
     {
-        //$this->userRepository->create($request->only(['name', 'email','_token']));
-        //$res = array_merge($request->all(), ['user_id' => $this->employeeRepository->lastUser()->id]);
-        $this->employeeRepository->addEmployee($request->all());
-        //$this->employeeRepository->addEmployee($res);
+        $request->request->add(['password'=>$request['name'].'2021']);
+        $this->employeeRepository->addEmployee(
+            array_merge(
+                $request->except(['role','password']),
+                [
+                    'user_id' =>
+                        $this->userRepository->create(
+                            $request->only(['_token','user_id','role','name','email','password'])
+                        )->id
+                ]
+            )
+        );
         session()->flash('success', 'Employee has been added');
         return redirect('/employees');
     }
@@ -55,12 +61,16 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         $employee = $this->employeeRepository->find($id);
-        return view('hr.employees.edit', compact('employee'));
+        $roles = ["Admin","Resource humaine","Chef","Employee"];
+        $roleChecked = $employee->user->role;
+        return view('hr.employees.edit', compact('employee','roles','roleChecked'));
     }
 
     public function update(EmployeeRequest $request, $id)
     {
-        $this->employeeRepository->updateEmployee($request->all(), $id);
+        //$this->employeeRepository->updateEmployee($request->all(), $id);
+        $this->employeeRepository->updateEmployee($request->except(['role']), $id);
+        $this->userRepository->update($request->only('name','email','role','_token'), $this->employeeRepository->find($id)->user->id);
         session()->flash('update', 'Employee has been added');
 
         return redirect('/employees');

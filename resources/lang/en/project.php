@@ -87,6 +87,7 @@ return[
     'edcltid' => 'Client id',
     'show_page' => 'showing page',
     'in' => 'of',
-    'selectclt' => 'Select client'
+    'selectclt' => 'Select client',
+    'material_name' => 'Material name',
 
 ];

@@ -4,6 +4,12 @@
     <!-- Plugins css -->
     <link href="{{asset('assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" />
+
+    <!-- for multi list -->
+   <link href="../assets/libs/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
+
+    <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+    <!-- for multi list -->
 @endsection
 
 @section('content')
@@ -101,6 +107,21 @@
                                         <label for="simpleinput">{{ __('project.Edteam') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="teamMember" placeholder="Membres d'équipe" value="{{old('teamMember', $project->teamMember)}}">
                                     </div>-->
+                                    <div>
+                                         <label for="material">{{ __('project.material_name') }}</label>
+
+
+                                         <select multiple="multiple" class="multi-select" id="material" name="material_id[]" data-plugin="multiselect">
+                                             @foreach($materials as $material)
+                                                 @if($materials_checked->contains($material))
+                                                     <option selected="" value="{{$material->id}}">{{$material->designation}}</option>
+                                                 @else
+                                                     <option value="{{$material->id}}">{{$material->designation}}</option>
+                                                 @endif
+                                             @endforeach
+                                         </select>
+                                     </div>
+                                     <br>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('project.Edlogo') }}</label>
                                         <input type="file" data-plugins="dropify" name="logo" data-default-file="{{asset('storage/projects/'.$project->logo)}}"/>
@@ -131,4 +152,15 @@
 
     <!-- Init js-->
     <script src="{{asset('assets/js/pages/form-fileuploads.init.js')}}"></script>
+
+    <!-- for multi list -->
+
+    <script src="../assets/libs/selectize/js/standalone/selectize.min.js"></script>
+    <script src="../assets/libs/multiselect/js/jquery.multi-select.js"></script>
+    <script src="../assets/libs/select2/js/select2.min.js"></script>
+    <script src="../assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+    <script src="../assets/js/pages/form-advanced.init.js"></script>
+
+    <!-- for multi list -->
+
 @endsection

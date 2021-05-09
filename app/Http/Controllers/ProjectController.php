@@ -33,8 +33,9 @@ class ProjectController extends Controller
     public function store(ProjectRequest $request)
     {
         //return $request;//->only('material_name','id','_token');
-        $this->projectRepository->addProject($request->except('material_name'));
+        //$this->projectRepository->addProject($request->except('material_name'));
         //$this->projectRepository->addProject($request->all());
+        $this->projectRepository->addProject($request->except(['material_id']))->materials()->attach($request['material_id']);
         session()->flash('success', 'Project has been added');
         return redirect('/projects');
     }
@@ -50,19 +51,23 @@ class ProjectController extends Controller
         $project = $this->projectRepository->find($id);
         $clients = $this->projectRepository->getClients();
         $materials = $this->projectRepository->getMaterials();
-        return view('projects.edit', compact('project','clients'));
+        $materials_checked =  $project->materials;
+
+        return view('projects.edit', compact('project','clients','materials','materials_checked'));
 
     }
 
     public function update(ProjectRequest $request, $id)
     {
-        $this->projectRepository->updateProject($request->all(), $id);
+        //$this->projectRepository->updateProject($request->all(), $id);
+        $this->projectRepository->updateProject($request->except(['material_id']), $id)->materials()->sync($request['material_id']);
         session()->flash('update', 'Project has been added');
         return redirect('/projects');
     }
 
     public function destroy($id)
     {
+        $this->projectRepository->find($id)->materials()->detach();
         $this->projectRepository->delete($id);
     }
 

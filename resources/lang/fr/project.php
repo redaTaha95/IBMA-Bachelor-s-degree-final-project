@@ -87,6 +87,8 @@ return[
     'edcltid' => 'Client id',
     'show_page' => 'Affichage de la page',
     'in' => 'sur',
-    'selectclt' => 'Selectionner un client'
+    'selectclt' => 'Selectionner un client',
+    'material_name' => 'Le nom du matériel',
+
 
 ];
