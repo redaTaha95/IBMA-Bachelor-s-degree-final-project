@@ -10,6 +10,8 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
 
+    @yield('css')
+
     <!-- App css -->
     <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
     <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
@@ -20,7 +22,6 @@
     <!-- icons -->
     <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
 
-    @yield('css')
 
 </head>
 
@@ -61,10 +62,10 @@
 <!-- Vendor js -->
 <script src="{{asset('assets/js/vendor.min.js')}}"></script>
 
+@yield('js')
+
 <!-- App js-->
 <script src="{{asset('assets/js/app.min.js')}}"></script>
-
-@yield('js')
 
 </body>
 </html>
