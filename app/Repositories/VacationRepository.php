@@ -30,4 +30,14 @@ class VacationRepository extends BaseRepository implements Interfaces\VacationRe
             'number_of_days' => $this->calculateNumberOfVacationDays($data['start_date'], $data['end_date'])
         ]);
     }
+
+    public function update(array $data, $id)
+    {
+        return parent::update([
+            'employee_id' => $data['employee_id'],
+            'start_date' => $data['start_date'],
+            'end_date' => $data['end_date'],
+            'number_of_days' => $this->calculateNumberOfVacationDays($data['start_date'], $data['end_date'])
+        ], $id);
+    }
 }

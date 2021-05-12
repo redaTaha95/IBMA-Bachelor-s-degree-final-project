@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VacationRequest;
 use App\Repositories\Interfaces\VacationRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class VacationController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(VacationRequest $request)
     {
         $this->vacationRepository->create($request->all());
         return redirect('/calendar');
@@ -41,13 +42,14 @@ class VacationController extends Controller
         //
     }
 
-    public function update(Request $request, $id)
+    public function update(VacationRequest $request, $id)
     {
-        //
+        $this->vacationRepository->update($request->all(), $id);
+        return redirect()->back();
     }
 
     public function destroy($id)
     {
-        //
+        $this->vacationRepository->delete($id);
     }
 }
