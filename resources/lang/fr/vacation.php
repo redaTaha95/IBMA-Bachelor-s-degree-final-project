@@ -22,4 +22,5 @@ return [
     'select_employee' => 'Séléctionner un employé',
     'vacation_of' => 'Congé de ',
     'local' => 'fr',
+    'number_of_days' => 'Nombre du jours'
 ];

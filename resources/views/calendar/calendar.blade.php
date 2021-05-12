@@ -158,6 +158,12 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label id="number-of-days-label" class="control-label text-danger"></label>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-6">
@@ -232,6 +238,7 @@
                             'employee_id': {{$vacation->employee_id}},
                             'start_date': '{{$vacation->start_date}}',
                             'end_date': '{{$vacation->end_date}}',
+                            'number_of_days': '{{$vacation->number_of_days}}',
                         },
                         className: "bg-info"
                     },
@@ -254,6 +261,7 @@
                         right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth"
                     },
                     events: t,
+                    eventLimit: !0,
                     eventClick: function (e) {
                         if (e.event.extendedProps.data.type === 'vacation'){
                             var url = '{{ route("vacations.update", ":id") }}';
@@ -265,6 +273,7 @@
                             $("#edit-vacation-select").val(e.event.extendedProps.data.employee_id).change();
                             $('#edit-start-vacation-datepicker').val(e.event.extendedProps.data.start_date);
                             $('#edit-end-vacation-datepicker').val(e.event.extendedProps.data.end_date);
+                            $('#number-of-days-label').text("{{__('vacation.number_of_days')}}: " + e.event.extendedProps.data.number_of_days);
                             $('#edit-vacation-modal').modal('show');
                         }
                     }
