@@ -6,9 +6,9 @@
     <link href="{{asset('assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" />
 
     <!-- for multi list -->
-   <link href="../assets/libs/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/libs/multiselect/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
 
-    <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+    <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
     <!-- for multi list -->
 @endsection
 
@@ -155,11 +155,11 @@
 
     <!-- for multi list -->
 
-    <script src="../assets/libs/selectize/js/standalone/selectize.min.js"></script>
-    <script src="../assets/libs/multiselect/js/jquery.multi-select.js"></script>
-    <script src="../assets/libs/select2/js/select2.min.js"></script>
-    <script src="../assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
-    <script src="../assets/js/pages/form-advanced.init.js"></script>
+    <script src="{{asset('assets/libs/selectize/js/standalone/selectize.min.js')}}"></script>
+    <script src="{{asset('assets/libs/multiselect/js/jquery.multi-select.js')}}"></script>
+    <script src="{{asset('assets/libs/select2/js/select2.min.js')}}"></script>
+    <script src="{{asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
+    <script src="{{asset('assets/js/pages/form-advanced.init.js')}}"></script>
 
     <!-- for multi list -->
 

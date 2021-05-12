@@ -32,9 +32,6 @@ class ProjectController extends Controller
 
     public function store(ProjectRequest $request)
     {
-        //return $request;//->only('material_name','id','_token');
-        //$this->projectRepository->addProject($request->except('material_name'));
-        //$this->projectRepository->addProject($request->all());
         $this->projectRepository->addProject($request->except(['material_id']))->materials()->attach($request['material_id']);
         session()->flash('success', 'Project has been added');
         return redirect('/projects');
@@ -59,7 +56,6 @@ class ProjectController extends Controller
 
     public function update(ProjectRequest $request, $id)
     {
-        //$this->projectRepository->updateProject($request->all(), $id);
         $this->projectRepository->updateProject($request->except(['material_id']), $id)->materials()->sync($request['material_id']);
         session()->flash('update', 'Project has been added');
         return redirect('/projects');
