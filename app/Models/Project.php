@@ -17,8 +17,8 @@ class Project extends Model
         return $this->belongsTo(Client::class);
     }
 
-    public function Materials()
+    public function materials()
     {
-        return $this->belongsToMany(Material::class,'material_project');
+        return $this->belongsToMany(Material::class,'material_project')->withTimestamps();
     }
 }

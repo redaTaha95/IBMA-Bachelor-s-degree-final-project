@@ -12,7 +12,7 @@ class Material extends Model
 
     protected $guarded = [];
 
-    public function Projects(){
+    public function projects(){
         return $this->belongsToMany(Project::class,'material_project');
     }
 }

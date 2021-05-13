@@ -4,7 +4,6 @@
 namespace App\Repositories;
 
 use App\Exports\EmployeeExport;
-use App\Models\User;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Employee;
 
@@ -37,20 +36,5 @@ class EmployeeRepository extends BaseRepository implements Interfaces\EmployeeRe
     {
         return Excel::download(new EmployeeExport, 'employees.xlsx');
     }
-    public function createUser($data){
-        $name = $data->input('name');
-        $pass = $data->input('name').'2021';
-        $email = $data->input('email');
-        $user = new User();
-        $user->name = $name;
-        $user->email = $email;
-        $user->password = $pass;
-        $user->save();
-        $id_user = $user->id;
-        //$request->fullUrlWithQuery(['user_id' => $id_user]);
-        $data->request->add(['user_id' => $id_user]);
-    }
-    public function lastUser(){
-        return User::all()->last();
-    }
+
 }

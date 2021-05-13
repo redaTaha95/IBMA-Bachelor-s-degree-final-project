@@ -84,6 +84,8 @@ return[
     'edit_client_id' => 'Client id',
     'show_page' => 'Affichage de la page',
     'in' => 'sur',
-    'select_client' => 'Selectionner un client'
+    'select_client' => 'Selectionner un client',
+    'selectclt' => 'Selectionner un client',
+    'material_name' => 'Le nom du matériel',
 
 ];
