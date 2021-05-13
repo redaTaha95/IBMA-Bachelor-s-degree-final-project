@@ -136,15 +136,6 @@
     <script src="{{asset('ajax/projects/project_delete_ajax.js')}}"></script>
 
     @if(session('success'))
-       <!-- <script>
-            Swal.fire({
-                position: "top-end",
-                type: "success",
-                title: "{{ __('project.Add_Success') }}",
-                showConfirmButton: !1,
-                timer: 1500
-            })
-        </script>-->
        <script>
            const Toast = Swal.mixin({
                toast: true,
@@ -166,15 +157,6 @@
     @endif
 
     @if(session('update'))
-       <!-- <script>
-            Swal.fire({
-                position: "top-end",
-                type: "success",
-                title: "{{ __('project.Edit_Success') }}",
-                showConfirmButton: !1,
-                timer: 1500
-            })
-            </script>-->
        <script>
            const Toast = Swal.mixin({
                toast: true,

@@ -52,10 +52,10 @@ return [
     'canceled' => 'canceled',
     'Export' => 'Export',
     'Partners' => 'Partners',
-    'Details_Partners' => 'Details partner',
+    'Details_Partners' => 'List of partners',
     'title12' => 'IBMA',
     'title13' => 'Partners',
-    'title14' => 'Partners',
+    'title14' => 'list of partners',
     'Income' => 'Income (DHS)',
     'more' => 'View more info',
     'search' => 'Search',
@@ -65,5 +65,5 @@ return [
     'Description' => 'Description',
     'Inc' => 'Income',
     'Select' => 'Select',
-    'add_new' => 'Add new'
+    'add_partner' => 'Add partner'
 ];
