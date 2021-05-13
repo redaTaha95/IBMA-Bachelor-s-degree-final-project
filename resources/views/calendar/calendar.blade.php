@@ -261,7 +261,7 @@
                         right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth"
                     },
                     events: t,
-                    eventLimit: !0,
+                    // eventLimit: 1,
                     eventClick: function (e) {
                         if (e.event.extendedProps.data.type === 'vacation'){
                             var url = '{{ route("vacations.update", ":id") }}';
