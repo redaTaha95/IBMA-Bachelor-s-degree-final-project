@@ -3,10 +3,12 @@
 namespace App\Providers;
 
 use App\Repositories\BaseRepository;
+use App\Repositories\CalendarRepository;
 use App\Repositories\CandidateRepository;
 use App\Repositories\ClientRepository;
 use App\Repositories\EmployeeRepository;
 use App\Repositories\Interfaces\BaseRepositoryInterface;
+use App\Repositories\Interfaces\CalendarRepositoryInterface;
 use App\Repositories\Interfaces\CandidateRepositoryInterface;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 use App\Repositories\Interfaces\EmployeeRepositoryInterface;
@@ -16,6 +18,7 @@ use App\Repositories\Interfaces\PurchaseRepositoryInterface;
 use App\Repositories\Interfaces\RecruitmentDemandRepositoryInterface;
 use App\Repositories\Interfaces\SaleRepositoryInterface;
 use App\Repositories\Interfaces\TaskRepositoryInterface;
+use App\Repositories\Interfaces\VacationRepositoryInterface;
 use App\Repositories\ProductRepository;
 use App\Repositories\Interfaces\SupplierRepositoryInterface;
 use App\Repositories\Interfaces\MaterialRepositoryInterface;
@@ -28,6 +31,7 @@ use App\Repositories\RecruitmentDemandRepository;
 use App\Repositories\SaleRepository;
 use App\Repositories\SupplierRepository;
 use App\Repositories\TaskRepository;
+use App\Repositories\VacationRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -48,6 +52,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(PurchaseRepositoryInterface::class, PurchaseRepository::class);
         $this->app->bind(SaleRepositoryInterface::class, SaleRepository::class);
         $this->app->bind(TaskRepositoryInterface::class, TaskRepository::class);
+        $this->app->bind(CalendarRepositoryInterface::class, CalendarRepository::class);
+        $this->app->bind(VacationRepositoryInterface::class, VacationRepository::class);
     }
 
 

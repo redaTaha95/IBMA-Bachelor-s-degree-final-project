@@ -8,6 +8,7 @@ use App\Models\Partner;
 use App\Exports\PartnerExport;
 use Illuminate\Database\Eloquent\Model;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\DB;
 
 class PartnerRepository extends BaseRepository implements Interfaces\PartnerRepositoryInterface
 {
@@ -37,5 +38,9 @@ class PartnerRepository extends BaseRepository implements Interfaces\PartnerRepo
     public function exportPartnersDataAsExcel()
     {
         return Excel::download(new PartnerExport, 'partners.xlsx');
+    }
+
+    public function getPartnersWithPaginate(){
+        return Partner::paginate(3);
     }
 }

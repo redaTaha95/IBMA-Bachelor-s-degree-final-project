@@ -84,6 +84,8 @@ return[
     'edit_client_id' => 'Client id',
     'show_page' => 'showing page',
     'in' => 'of',
-    'select_client' => 'Select client'
+    'select_client' => 'Select client',
+    'selectclt' => 'Select client',
+    'material_name' => 'Material name',
 
 ];

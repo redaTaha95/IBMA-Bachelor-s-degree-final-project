@@ -22,6 +22,7 @@ class ProjectRepository extends BaseRepository implements Interfaces\ProjectRepo
     {
         $project = $this->create($data);
         $this->storeImage($project->id, 'logo', 'projects', 'projects');
+        return $project;
     }
 
     public function updateProject($data, $id)
@@ -29,6 +30,7 @@ class ProjectRepository extends BaseRepository implements Interfaces\ProjectRepo
         $this->update($data, $id);
         $project = $this->find($id);
         $this->storeImage($project->id, 'logo', 'projects', 'projects');
+        return $project;
     }
 
     public function storeImage($id, $file_name, $folder_name, $table)

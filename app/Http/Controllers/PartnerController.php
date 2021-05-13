@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PartnerRequest;
+use App\Models\Partner;
 use App\Repositories\Interfaces\PartnerRepositoryInterface;
 use Illuminate\Http\Request;
+
 
 class PartnerController extends Controller
 {
@@ -18,7 +20,7 @@ class PartnerController extends Controller
 
     public function index()
     {
-        $partners =$this->partnerRepository->all();
+        $partners =$this->partnerRepository->getPartnersWithPaginate();
         return view('partners.index', compact('partners'));
     }
 
@@ -61,4 +63,8 @@ class PartnerController extends Controller
     public function export(){
         return $this->partnerRepository->exportPartnersDataAsExcel();
     }
+
+
+
+
 }

@@ -91,6 +91,18 @@
                                         <label for="simpleinput">{{ __('employee.hire_date') }} *</label>
                                         <input class="form-control" type="date" id="example-date-input" name="hire_date" value="{{old('hire_date')}}">
                                     </div>
+
+                                    <div class="dropdown">
+
+                                        <label for="role">{{ __('employee.role') }}</label>
+                                        <select name="role" class="form-control">
+                                            @foreach ($roles as $key => $value)
+                                                <option value={{$key}}>{{ $value }}</option>
+                                            @endforeach
+
+                                        </select>
+                                    </div>
+                                    <br>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('employee.logo') }}</label>
                                         <input type="file" data-plugins="dropify" name="logo"/>

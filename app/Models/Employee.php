@@ -20,4 +20,8 @@ class Employee extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function vacations(){
+        return $this->hasMany(Vacation::class);
+    }
 }

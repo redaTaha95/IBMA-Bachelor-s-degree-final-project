@@ -4,6 +4,12 @@
     <!-- Plugins css -->
     <link href="{{asset('assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" />
+
+    <!-- for multi list -->
+    <link href="{{asset('assets/libs/multiselect/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
+
+    <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+    <!-- for multi list -->
 @endsection
 
 
@@ -62,14 +68,14 @@
                                             </select>
                                         </div>
 
-                                    <div class="form-group mb-3">
+                                    <!--<div class="form-group mb-3">
                                         <label for="example-multiselect">Materials </label>
                                         <select name="material_name[]" id="example-multiselect" multiple class="form-control" size="3">
                                             @foreach ($materials as $material)
                                                 <option value="{{ $material->id }}" >{{ $material->designation }}</option>
                                             @endforeach
                                         </select>
-                                    </div>
+                                    </div>-->
 
                                     <br>
 
@@ -106,9 +112,15 @@
                                 </div> <!-- end col -->
 
                                 <div class="col-lg-6">
-
-
-
+                                      <div>
+                                          <label for="material">{{ __('project.material_name') }}</label>
+                                          <select multiple="multiple" class="multi-select" id="material" name="material_id[]" data-plugin="multiselect">
+                                              @foreach($materials as $material)
+                                                  <option value="{{$material->id}}">{{$material->designation}}</option>
+                                              @endforeach
+                                          </select>
+                                      </div>
+                                      <br>
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('project.add_logo') }}</label>
                                         <input type="file" data-plugins="dropify" name="logo"/>
@@ -141,4 +153,15 @@
     <script src="{{asset('assets/js/pages/form-fileuploads.init.js')}}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <!-- for multi list -->
+
+    <script src="{{asset('assets/libs/selectize/js/standalone/selectize.min.js')}}"></script>
+    <script src="{{asset('assets/libs/multiselect/js/jquery.multi-select.js')}}"></script>
+    <script src="{{asset('assets/libs/select2/js/select2.min.js')}}"></script>
+    <script src="{{asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
+    <script src="{{asset('assets/js/pages/form-advanced.init.js')}}"></script>
+
+    <!-- for multi list -->
+
 @endsection

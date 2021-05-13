@@ -15,7 +15,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="{{url('/calendar')}}">
                         <i data-feather="calendar"></i>
                         <span> Calendrier </span>
                     </a>
