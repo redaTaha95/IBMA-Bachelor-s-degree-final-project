@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VacationRequest extends FormRequest
+class ClientAppointmentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +24,16 @@ class VacationRequest extends FormRequest
     public function rules()
     {
         return [
-            'employee_id' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
+            'client_id' => 'required',
+            'datetime' => 'required',
         ];
     }
 
     public function messages()
     {
         return [
-          'employee_id.required' => 'Séléctionner un employee SVP !!',
-          'start_date.required' => 'La date de sortie est obligatoire !!',
-          'end_date.required' => 'La date d\'entrée est obligatoire',
+            'client_id.required' => 'Séléctionner un client SVP !!',
+            'datetime.required' => 'La date & heure sont obligatoires !!',
         ];
     }
 }

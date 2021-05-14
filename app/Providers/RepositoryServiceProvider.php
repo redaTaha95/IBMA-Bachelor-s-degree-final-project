@@ -5,11 +5,13 @@ namespace App\Providers;
 use App\Repositories\BaseRepository;
 use App\Repositories\CalendarRepository;
 use App\Repositories\CandidateRepository;
+use App\Repositories\ClientAppointmentRepository;
 use App\Repositories\ClientRepository;
 use App\Repositories\EmployeeRepository;
 use App\Repositories\Interfaces\BaseRepositoryInterface;
 use App\Repositories\Interfaces\CalendarRepositoryInterface;
 use App\Repositories\Interfaces\CandidateRepositoryInterface;
+use App\Repositories\Interfaces\ClientAppointmentRepositoryInterface;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 use App\Repositories\Interfaces\EmployeeRepositoryInterface;
 use App\Repositories\Interfaces\ProductRepositoryInterface;
@@ -51,6 +53,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(SaleRepositoryInterface::class, SaleRepository::class);
         $this->app->bind(CalendarRepositoryInterface::class, CalendarRepository::class);
         $this->app->bind(VacationRepositoryInterface::class, VacationRepository::class);
+        $this->app->bind(ClientAppointmentRepositoryInterface::class, ClientAppointmentRepository::class);
     }
 
 

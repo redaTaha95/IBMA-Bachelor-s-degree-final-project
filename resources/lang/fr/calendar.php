@@ -22,5 +22,16 @@ return [
     'select_employee' => 'Séléctionner un employé',
     'vacation_of' => 'Congé de ',
     'local' => 'fr',
-    'number_of_days' => 'Nombre du jours'
+    'number_of_days' => 'Nombre du jours',
+    'add_appointment_with_client' => 'Ajouter un rendez-vous avec un client',
+    'add_events' => 'Ajouter des évenements par type',
+    'add_appointment' => 'Ajouter un rendez-vous',
+    'please_select_client' => 'Séléctionner un client SVP !!',
+    'datetime' => 'Date & Heure',
+    'datetime_required' => 'La date est obligatoire !!',
+    'select_client' => 'Séléctionner un client',
+    'appointment_with_client' => 'Rendez-vous avec le client',
+    'employee' => 'Employé',
+    'client_appointment_delete_confirmation' => 'Souhaitez-vous vraiment supprimer ce rendez-vous avec le client ?',
+
 ];
