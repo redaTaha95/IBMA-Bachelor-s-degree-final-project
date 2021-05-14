@@ -43,7 +43,7 @@
                                 <span class="btn-label"><i class="mdi mdi-download"></i></span>{{__('project.Export')}}
                             </a>
                             <a href="{{url('projects/create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2">
-                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{ __('project.ajout') }}
+                                <span class="btn-label"><i class="mdi mdi-account-plus"></i></span>{{ __('project.add') }}
                             </a>
                         </div>
 
@@ -51,16 +51,16 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>{{ __('project.cltid') }}</th>
+                                <th>{{ __('project.client_id') }}</th>
                                 <th>{{ __('project.logo') }}</th>
 
-                                <th>{{ __('project.nom') }}</th>
-                                <th>{{ __('project.desc') }}</th>
+                                <th>{{ __('project.name') }}</th>
+                                <th>{{ __('project.description') }}</th>
                                <!-- <th>Date début</th>-->
                                 <!--<th>Date d'échéance</th>-->
-                                <th>{{ __('project.Bud') }}</th>
+                                <th>{{ __('project.Budget') }}</th>
                                 <!--<th>teamMember</th>-->
-                                <th style="width: 15%;">{{ __('project.act') }}</th>
+                                <th style="width: 15%;">{{ __('project.action') }}</th>
 
                             </tr>
                             </thead>
@@ -136,15 +136,6 @@
     <script src="{{asset('ajax/projects/project_delete_ajax.js')}}"></script>
 
     @if(session('success'))
-       <!-- <script>
-            Swal.fire({
-                position: "top-end",
-                type: "success",
-                title: "{{ __('project.AjoutSuccess') }}",
-                showConfirmButton: !1,
-                timer: 1500
-            })
-        </script>-->
        <script>
            const Toast = Swal.mixin({
                toast: true,
@@ -160,21 +151,12 @@
 
            Toast.fire({
                icon: 'success',
-               title: '{{ __('project.AjoutSuccess') }}'
+               title: '{{ __('project.Add_Success') }}'
            })
        </script>
     @endif
 
     @if(session('update'))
-       <!-- <script>
-            Swal.fire({
-                position: "top-end",
-                type: "success",
-                title: "{{ __('project.ModifSuccess') }}",
-                showConfirmButton: !1,
-                timer: 1500
-            })
-            </script>-->
        <script>
            const Toast = Swal.mixin({
                toast: true,
@@ -190,7 +172,7 @@
 
            Toast.fire({
                icon: 'success',
-               title: '{{ __('project.ModifSuccess') }}'
+               title: '{{ __('project.Edit_Success') }}'
            })
        </script>
     @endif
@@ -209,10 +191,10 @@
                 "oLanguage": {
                     "sInfo": "{{__('project.show_page')}} _PAGE_ {{__('project.in')}} _PAGES_",
                     "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
-                    "sSearchPlaceholder": "{{ __('project.Rech') }}...",
-                    "sLengthMenu": "{{ __('project.Res') }} :  _MENU_",
+                    "sSearchPlaceholder": "{{ __('project.Search') }}...",
+                    "sLengthMenu": "{{ __('project.Result') }} :  _MENU_",
                     "sEmptyTable": "{{ __('project.NoData') }}",
-                    "sZeroRecords": "{{ __('project.NoErg') }}",
+                    "sZeroRecords": "{{ __('project.Not_save') }}",
                     "sInfoFiltered":   "(filtré de _MAX_ entrées au total)",
                 },
                 'aoColumnDefs': [{
@@ -230,7 +212,7 @@
     <script>
         var delete_confirmation = '{{ __('project.warning_message') }}';
         var _delete = '{{ __('project.delete') }}';
-        var cancel = '{{ __('project.btnannul') }}';
+        var cancel = '{{ __('project.Button_cancel') }}';
         var deleted = '{{ __('project.deleted') }}';
         var data_deleted = '{{ __('project.deleted_data') }}';
         var canceled = '{{ __('project.canceled') }}';

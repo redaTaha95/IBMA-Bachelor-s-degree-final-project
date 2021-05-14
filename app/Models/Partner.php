@@ -11,4 +11,8 @@ class Partner extends Model
     use HasFactory,SoftDeletes;
 
     protected $guarded = [];
+
+
+
+
 }

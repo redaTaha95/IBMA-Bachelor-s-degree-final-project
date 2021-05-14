@@ -50,29 +50,24 @@
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('partner.addnom') }}</label>
+                                        <label for="simpleinput">{{ __('partner.add_name') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name')}}" required>
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('partner.addcity') }}</label>
+                                        <label for="simpleinput">{{ __('partner.add_city') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="city" placeholder="Ville" value="{{old('city')}}">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('partner.adddesc') }}</label>
+                                        <label for="simpleinput">{{ __('partner.add_description') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="description" placeholder="Description" value="{{old('description')}}" required>
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('partner.addinc') }}</label>
+                                        <label for="simpleinput">{{ __('partner.add_income') }}</label>
                                         <input type="number" id="simpleinput" class="form-control" name="income" placeholder="revenu" value="{{old('income')}} ">
                                     </div>
-
-                                  <!--  <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('partner.addnbemp') }}</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="NumberOfEmployees" placeholder="nombre des employés" value="{{old('NumberOfEmployees')}}">
-                                    </div>-->
 
 
 
@@ -81,7 +76,7 @@
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('partner.addlogo') }}</label>
+                                        <label for="simpleinput">{{ __('partner.add_logo') }}</label>
                                         <input type="file" data-plugins="dropify" name="logo"/>
                                     </div>
 
@@ -90,8 +85,8 @@
                             </div>
                             <!-- end row-->
                             <div class="row">
-                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">{{ __('partner.btnajout') }}</button>
-                                <a href="{{url('partners')}}" class="btn btn-white btn-rounded waves-effect">{{ __('partner.btnan') }}</a>
+                                <button type="submit" class="btn btn-success btn-rounded waves-effect waves-light">{{ __('partner.button_add') }}</button>
+                                <a href="{{url('partners')}}" class="btn btn-white btn-rounded waves-effect">{{ __('partner.button_cancel') }}</a>
                             </div>
                         </form>
 

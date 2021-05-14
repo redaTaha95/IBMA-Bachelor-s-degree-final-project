@@ -45,7 +45,7 @@
                         <table id="data_table" class="table table-striped dt-responsive nowrap w-100">
                             <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>#</th>
                                 <th>{{__('recruitment_demand.post_name')}}</th>
                                 <th>{{__('recruitment_demand.number_of_profiles')}}</th>
                                 <th>{{__('recruitment_demand.date_of_demand')}}</th>

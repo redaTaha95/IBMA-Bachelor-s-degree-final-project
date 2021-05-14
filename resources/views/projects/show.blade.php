@@ -18,9 +18,9 @@
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.titre12') }}</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.titre13') }}</a></li>
-                                    <li class="breadcrumb-item active">{{ __('project.titre14') }}</li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.title12') }}</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.title13') }}</a></li>
+                                    <li class="breadcrumb-item active">{{ __('project.title14') }}</li>
                                 </ol>
                             </div>
                             <h4 class="page-title">{{ __('project.introduction4') }}</h4>
@@ -58,7 +58,7 @@
                                 </h3>
                                 <div class="badge badge-secondary mb-3">{{ __('project.Ongoing') }}</div>
 
-                                <h5>{{ __('project.Aperçu') }}</h5>
+                                <h5>{{ __('project.Show') }}</h5>
 
                                 <p class="text-muted mb-2">
                                 {{$project->description}}
@@ -86,20 +86,20 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="mb-4">
-                                            <h5>{{ __('project.showstartd') }}</h5>
+                                            <h5>{{ __('project.show_startdate') }}</h5>
                                             <p>{{$project->startDate}}<small class="text-muted"></small></p>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-4">
-                                            <h5>{{ __('project.showdued') }}</h5>
+                                            <h5>{{ __('project.show_duedate') }}</h5>
                                             <p>{{$project->dueDate}} <small class="text-muted"></small></p>
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="mb-4">
-                                            <h5>{{ __('project.showbud') }}</h5>
+                                            <h5>{{ __('project.show_budget') }}</h5>
                                             <p>{{$project->budget}}</p>
                                         </div>
                                     </div>
@@ -149,19 +149,19 @@
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item">Latest</a>
                                         <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item">{{ __('project.pop') }}</a>
+                                        <a href="javascript:void(0);" class="dropdown-item">{{ __('project.population') }}</a>
                                     </div>
                                 </div>
 
                                 <h4 class="mt-0 mb-3">{{ __('project.Comment') }}</h4>
 
-                                <textarea class="form-control form-control-light mb-2" placeholder="{{ __('project.writemsg') }}" id="example-textarea" rows="3"></textarea>
+                                <textarea class="form-control form-control-light mb-2" placeholder="{{ __('project.write_msg') }}" id="example-textarea" rows="3"></textarea>
                                 <div class="text-right">
                                     <div class="btn-group mb-2">
                                         <button type="button" class="btn btn-link btn-sm text-muted font-18"><i class="dripicons-paperclip"></i></button>
                                     </div>
                                     <div class="btn-group mb-2 ml-2">
-                                        <button type="button" class="btn btn-primary btn-sm">{{ __('project.btnenv') }}</button>
+                                        <button type="button" class="btn btn-primary btn-sm">{{ __('project.submit') }}</button>
                                     </div>
                                 </div>
 
@@ -173,7 +173,7 @@
                                             Nice work, makes me think of The Money Pit.
 
                                             <br>
-                                            <a href="javascript: void(0);" class="text-muted font-13 d-inline-block mt-2"><i class="mdi mdi-reply"></i> {{ __('project.Rep') }}</a>
+                                            <a href="javascript: void(0);" class="text-muted font-13 d-inline-block mt-2"><i class="mdi mdi-reply"></i> {{ __('project.Response') }}</a>
 
                                             <div class="media mt-3">
                                                 <a class="pr-2" href="#">
@@ -190,11 +190,11 @@
                                     <div class="media mt-3">
                                         <img class="mr-2 avatar-sm rounded-circle" src="../assets/images/users/user-2.jpg" alt="Generic placeholder image">
                                         <div class="media-body">
-                                            <h5 class="mt-0"><a href="contacts-profile.html" class="text-reset">Jonathan Tiner</a> <small class="text-muted">{{ __('project.oneD') }}</small></h5>
+                                            <h5 class="mt-0"><a href="contacts-profile.html" class="text-reset">Jonathan Tiner</a> <small class="text-muted">{{ __('project.one_Day') }}</small></h5>
                                             The parallax is a little odd but O.o that house build is awesome!!
 
                                             <br>
-                                            <a href="javascript: void(0);" class="text-muted font-13 d-inline-block mt-2"><i class="mdi mdi-reply"></i> {{ __('project.Rep') }}</a>
+                                            <a href="javascript: void(0);" class="text-muted font-13 d-inline-block mt-2"><i class="mdi mdi-reply"></i> {{ __('project.Response') }}</a>
 
                                         </div>
                                     </div>
@@ -204,7 +204,7 @@
                                             <img src="../assets/images/users/user-1.jpg" class="rounded-circle" alt="Generic placeholder image" height="31">
                                         </a>
                                         <div class="media-body">
-                                            <input type="text" id="simpleinput" class="form-control form-control-sm form-control-light" placeholder="{{ __('project.Addcmt') }}">
+                                            <input type="text" id="simpleinput" class="form-control form-control-sm form-control-light" placeholder="{{ __('project.Add_comment') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -232,21 +232,21 @@
                                         </a>
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item">
-                                            <i class="mdi mdi-pencil-outline mr-1"></i>{{ __('project.attEd') }}
+                                            <i class="mdi mdi-pencil-outline mr-1"></i>{{ __('project.attachment_Edit') }}
                                         </a>
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item">
-                                            <i class="mdi mdi-content-copy mr-1"></i>{{ __('project.Dup') }}
+                                            <i class="mdi mdi-content-copy mr-1"></i>{{ __('project.Duplicata') }}
                                         </a>
                                         <div class="dropdown-divider"></div>
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item text-danger">
-                                            <i class="mdi mdi-delete-outline mr-1"></i>{{ __('project.Del') }}
+                                            <i class="mdi mdi-delete-outline mr-1"></i>{{ __('project.Delete') }}
                                         </a>
                                     </div> <!-- end dropdown menu-->
                                 </div> <!-- end dropdown-->
 
-                                <h5 class="card-title font-16 mb-3">{{ __('project.atach') }}</h5>
+                                <h5 class="card-title font-16 mb-3">{{ __('project.Attachment') }}</h5>
 
                                 <form action="/" method="post" class="dropzone dz-clickable" id="myAwesomeDropzone" data-plugin="dropzone" data-previews-container="#file-previews" data-upload-preview-template="#uploadPreviewTemplate">
 

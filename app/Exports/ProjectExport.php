@@ -28,8 +28,7 @@ class ProjectExport implements FromCollection, WithEvents, ShouldAutoSize, WithH
             'description',
             'startDate',
             'dueDate',
-            'budget',
-            'teamMember'
+            'budget'
         )->get();
     }
 
@@ -53,8 +52,7 @@ class ProjectExport implements FromCollection, WithEvents, ShouldAutoSize, WithH
             'description',
             'startDate',
             'dueDate',
-            'budget',
-            'teamMember'
+            'budget'
         ];
     }
 }

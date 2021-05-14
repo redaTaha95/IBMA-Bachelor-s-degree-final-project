@@ -21,12 +21,12 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('partner.titre12') }}</a></li>
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('partner.titre13') }}</a></li>
-                                <li class="breadcrumb-item active">{{ __('partner.titre14') }}</li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('partner.title12') }}</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('partner.title13') }}</a></li>
+                                <li class="breadcrumb-item active">{{ __('partner.title14') }}</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">{{ __('partner.DetPart') }}</h4>
+                        <h4 class="page-title">{{ __('partner.Details_Partners') }}</h4>
                     </div>
                 </div>
             </div>
@@ -45,11 +45,11 @@
                                     <div class="form-group mx-sm-3">
                                         <label for="status-select" class="mr-2">{{ __('partner.sort') }}</label>
                                         <select class="custom-select" id="status-select">
-                                            <option hidden>{{ __('partner.selec') }}</option>
+                                            <option hidden>{{ __('partner.select') }}</option>
                                             <option>{{ __('partner.name') }}</option>
-                                            <option selected="">{{ __('partner.cit') }}</option>
-                                            <option>{{ __('partner.Descr') }}</option>
-                                            <option>{{ __('partner.inco') }}</option>
+                                            <option selected="">{{ __('partner.City') }}</option>
+                                            <option>{{ __('partner.Description') }}</option>
+                                            <option>{{ __('partner.Inc') }}</option>
                                         </select>
                                     </div>
                                 </form>
@@ -57,7 +57,7 @@
                             <div class="col-lg-4">
                                 <div class="text-lg-right mt-3 mt-lg-0">
                                     <button type="button" class="btn btn-success waves-effect waves-light mr-1"><i class="mdi mdi-cog"></i></button>
-                                    <button type="button" class="btn btn-danger waves-effect waves-light mr-1"><i class="mdi mdi-plus-circle mr-1"></i>{{ __('partner.addnew') }}</button>
+                                    <button type="button" class="btn btn-danger waves-effect waves-light mr-1"><i class="mdi mdi-plus-circle mr-1"></i>{{ __('partner.add_new') }}</button>
                                 </div>
                             </div><!-- end col-->
                         </div> <!-- end row -->
@@ -85,12 +85,8 @@
 
                         <div class="row mt-4 text-center">
                             <div class="col-6">
-                                <h5 class="font-weight-normal text-muted">{{ __('partner.rev') }}</h5>
+                                <h5 class="font-weight-normal text-muted">{{ __('partner.Income') }}</h5>
                                 <h4>{{$partners->income}}</h4>
-                            </div>
-                            <div class="col-6">
-                                <h5 class="font-weight-normal text-muted">{{ __('partner.nbE') }}</h5>
-                                <h4>{{$partners->NumberOfEmployees}}</h4>
                             </div>
                         </div>
                     </div> <!-- end card-box -->

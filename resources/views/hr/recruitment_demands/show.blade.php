@@ -2,8 +2,8 @@
 
 @section('css')
     <!-- Plugins css -->
-    <link href="{{asset('assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 
 @section('content')
@@ -39,39 +39,40 @@
                         @endif
 
                         <br>
-                        <form action="{{route('recruitment_demands.show', $recruitmentDemand->id)}}"  enctype="multipart/form-data">
-                            @csrf
-                            <div class="col-12">
-                                <div class="card-box text-center">
+                        <div class="col-12">
+                            <div class="card-box text-center">
 
-                                    <div class="text-left mt-3">
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('recruitment_demand.post_name')}} :</strong>
-                                            <span class="ml-1">{{$recruitmentDemand->post_name}}</span>
-                                        </p>
+                                <div class="text-left mt-3">
+                                    <p class="text-muted mb-2 font-13"><strong>{{__('recruitment_demand.post_name')}}
+                                            :</strong>
+                                        <span class="ml-1">{{$recruitmentDemand->post_name}}</span>
+                                    </p>
 
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('recruitment_demand.number_of_profiles')}} :</strong>
-                                            <span class="ml-1">{{$recruitmentDemand->number_of_profiles}}</span>
-                                        </p>
+                                    <p class="text-muted mb-2 font-13">
+                                        <strong>{{__('recruitment_demand.number_of_profiles')}} :</strong>
+                                        <span class="ml-1">{{$recruitmentDemand->number_of_profiles}}</span>
+                                    </p>
 
-                                        <p class="text-muted mb-2 font-13"><strong>{{__('recruitment_demand.date_of_demand')}} :</strong>
-                                            <span class="ml-1 ">{{$recruitmentDemand->date_of_demand}}</span>
-                                        </p>
+                                    <p class="text-muted mb-2 font-13">
+                                        <strong>{{__('recruitment_demand.date_of_demand')}} :</strong>
+                                        <span class="ml-1 ">{{$recruitmentDemand->date_of_demand}}</span>
+                                    </p>
 
-                                        <p class="text-muted mb-1 font-13"><strong>{{__('recruitment_demand.status_of_demand')}} :</strong>
-                                            <span class="ml-1">{{$recruitmentDemand->status_of_demand}}</span>
-                                        </p>
+                                    <p class="text-muted mb-1 font-13">
+                                        <strong>{{__('recruitment_demand.status_of_demand')}} :</strong>
+                                        <span class="ml-1">{{$recruitmentDemand->status_of_demand}}</span>
+                                    </p>
 
-                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                        </form>
                     </div> <!-- end card-body -->
                 </div> <!-- end card -->
             </div><!-- end col -->
 
         </div>
-        </div>
+    </div>
     </div>
 
 @endsection

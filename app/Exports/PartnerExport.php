@@ -26,8 +26,7 @@ class PartnerExport implements FromCollection,WithHeadings,ShouldAutoSize,WithEv
             'name',
             'city',
             'description',
-            'income',
-            'NumberOfEmployees'
+            'income'
         )->get();
     }
 
@@ -39,8 +38,7 @@ class PartnerExport implements FromCollection,WithHeadings,ShouldAutoSize,WithEv
             'name',
             'city',
             'description',
-            'income',
-            'NumberOfEmployees'
+            'income'
         ];
     }
 

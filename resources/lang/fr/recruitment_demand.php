@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'recruitment_demands' => 'Demandes de recrutement',
     'list_of_recruitment_demands' => 'Liste des demandes de recrutement',
     'add_recruitment_demand' => 'Ajouter une demande de recrutement',
     'edit_recruitment_demand' => 'Modifier une demande de recrutement',

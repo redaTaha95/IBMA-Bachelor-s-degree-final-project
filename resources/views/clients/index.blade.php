@@ -100,7 +100,7 @@
     <!-- Datatables init -->
     <script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>
 
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     {{--file of delete client--}}
     <script src="{{asset('ajax/clients/client_delete_ajax.js')}}"></script>
