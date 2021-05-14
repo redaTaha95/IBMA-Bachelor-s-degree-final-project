@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class EmployeeRequest extends FormRequest
 {
@@ -24,20 +26,29 @@ class EmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
             'hire_date' => 'required',
             'phone' => 'required',
-            'email' => 'required',
+            //'email' => ['required' , Rule::unique('employees')->ignore($this->employee->id)],
+            //'email' => 'required | unique:users,email',
+            'email'=>[
+                Rule::unique('users')->ignore($this->id),
+            ]
         ];
+    }
+
+    public function ignore(){
+        return ['email'];
     }
 
     public function messages()
     {
         return [
-            'name.required' => 'Nom du employee est obligatoire !!',
-            'email.required' => 'Email du employee est obligatoire !!',
-            'phone.required' => 'Téléphone du employee est obligatoire !!',
-            'hire_date.required' => 'la date d embouche du employee est obligatoire !!',
+            'name.required' => 'Nom d\'employé est obligatoire !!',
+            'email.required' => 'Email d\'employé est obligatoire !!',
+            'phone.required' => 'Téléphone d\'employé est obligatoire !!',
+            'hire_date.required' => 'la date d embouche d\'employé est obligatoire !!',
         ];
     }
 }

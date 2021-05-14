@@ -49,8 +49,8 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>{{ __('employee.logo') }}</th>
-                                <th>{{ __('employee.name') }}</th>
+                                <th>{{ __('employee.image') }}</th>
+                                <th>{{ __('employee.first_name') }}</th>
                                 <th>{{ __('employee.phone') }}</th>
                                 <th>{{ __('employee.email') }}</th>
                                 <th style="width: 15%;">{{ __('employee.actions') }}</th>
@@ -69,7 +69,7 @@
                                             <img src="{{asset('assets/images/users/default_user.png')}}" alt="image" class="avatar-sm rounded-circle">
                                         @endif
                                     </td>
-                                    <td class="align-middle">{{$employee->name}}</td>
+                                    <td class="align-middle">{{$employee->first_name}}</td>
                                     <td class="align-middle">{{$employee->phone}}</td>
                                     <td class="align-middle">{{$employee->email}}</td>
                                     <td class="align-middle">

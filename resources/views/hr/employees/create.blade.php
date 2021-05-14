@@ -49,8 +49,13 @@
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('employee.name') }} *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="name" placeholder="{{ __('employee.name') }}" value="{{old('name')}}">
+                                        <label for="simpleinput">{{ __('employee.first_name') }} *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="first_name" placeholder="{{ __('employee.first_name') }}" value="{{old('first_name')}}">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">{{ __('employee.last_name') }} *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="last_name" placeholder="{{ __('employee.last_name') }}" value="{{old('last_name')}}">
                                     </div>
 
                                     <div class="form-group">
@@ -104,8 +109,8 @@
                                     </div>
                                     <br>
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('employee.logo') }}</label>
-                                        <input type="file" data-plugins="dropify" name="logo"/>
+                                        <label for="simpleinput">{{ __('employee.image') }}</label>
+                                        <input type="file" data-plugins="dropify" name="image"/>
                                     </div>
 
 
