@@ -39,6 +39,15 @@
 
                 <div class="card">
                     <div class="card-body">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="row">
                             <div class="col-lg-3">
                                 <button class="btn btn-lg font-16 btn-primary btn-block"><i class="mdi mdi-plus-circle-outline"></i> {{__('calendar.add_appointment')}}</button>
@@ -48,6 +57,7 @@
                                     <p class="text-muted">{{__('calendar.add_events')}}</p>
                                     <button id="btn-new-vacation" type="button" class="external-event btn font-14 btn-block btn-info text-left"><i class="mdi mdi-plus-circle-outline"></i> {{__('calendar.add_vacation')}}</button>
                                     <button id="btn-new-client-appointment" type="button" class="external-event btn font-14 btn-block btn-warning text-left"><i class="mdi mdi-plus-circle-outline"></i> {{__('calendar.add_appointment_with_client')}}</button>
+                                    <button id="btn-new-interview" type="button" class="external-event btn font-14 btn-block btn-success text-left"><i class="mdi mdi-plus-circle-outline"></i> {{__('calendar.add_interview')}}</button>
                                 </div>
                             </div> <!-- end col-->
 
@@ -62,6 +72,8 @@
                 @include('calendar.calendar-modals.vacation-modal', ['employees' => $employees]);
 
                 @include('calendar.calendar-modals.client-appointment-modal', ['clients' => $clients]);
+
+                @include('calendar.calendar-modals.interview-modal', ['employees' => $employees, 'candidates' => $candidates]);
             </div>
             <!-- end col-12 -->
         </div> <!-- end row -->
@@ -94,6 +106,7 @@
     {{--file of delete client--}}
     <script src="{{asset('ajax/vacations/vacation_delete_ajax.js')}}"></script>
     <script src="{{asset('ajax\client-appointment\client_appointment-delet_ajax.js')}}"></script>
+    <script src="{{asset('ajax\interviews\interview_delete_ajax.js')}}"></script>
 
     <!-- Calendar init -->
     <script>
@@ -110,7 +123,7 @@
                 var t = [
                     @foreach($vacations as $vacation)
                     {
-                        title: "{{__('calendar.vacation_of')}}" + '{{$vacation->employee->name}}',
+                        title: "{{__('calendar.vacation_of')}}" + '{{$vacation->employee->first_name.' '.$vacation->employee->last_name}}',
                         start: '{{$vacation->start_date}}',
                         end: '{{$vacation->end_date}}',
                         data: {
@@ -135,6 +148,20 @@
                                 'datetime': '{{$clientAppointment->datetime}}',
                             },
                         className: "bg-warning"
+                    },
+                    @endforeach
+                        @foreach($interviews as $interview)
+                    {
+                        title: "{{__('calendar.interview_with')}} " + '{{$interview->candidate->first_name.' '.$interview->candidate->last_name}}',
+                        start: '{{$interview->datetime}}',
+                        data: {
+                            'type': 'interview',
+                            'interview_id': {{$interview->id}},
+                            'employee_id': {{$interview->employee_id}},
+                            'candidate_id': {{$interview->candidate_id}},
+                            'datetime': '{{$interview->datetime}}',
+                        },
+                        className: "bg-success"
                     },
                     @endforeach
                     ], a = this;
@@ -182,6 +209,19 @@
                             $('#edit-client-appointment-datepicker').val(e.event.extendedProps.data.datetime);
                             $('#edit-client-appointment-modal').modal('show');
                         }
+
+                        if (e.event.extendedProps.data.type === 'interview'){
+                            var url = '{{ route("interviews.update", ":id") }}';
+                            var deleteUrl = '{{ route("interviews.destroy", ":id") }}';
+                            url = url.replace(':id', e.event.extendedProps.data.interview_id);
+                            deleteUrl = deleteUrl.replace(':id', e.event.extendedProps.data.interview_id);
+                            $('#edit-interview-form').attr('action', url);
+                            $('#btn-delete-interview').attr('url', deleteUrl);
+                            $("#edit-interview-employees-select").val(e.event.extendedProps.data.employee_id).change();
+                            $("#edit-interview-candidates-select").val(e.event.extendedProps.data.candidate_id).change();
+                            $('#edit-interview-datepicker').val(e.event.extendedProps.data.datetime);
+                            $('#edit-interview-modal').modal('show');
+                        }
                     },
                 }), a.$calendarObj.render()
             }, l.CalendarApp = new e, l.CalendarApp.Constructor = e
@@ -198,6 +238,9 @@
         $('#btn-new-client-appointment').on('click', function (event) {
             $('#client-appointment-modal').modal('show');
         })
+        $('#btn-new-interview').on('click', function (event) {
+            $('#interview-modal').modal('show');
+        })
     </script>
 
     <script>
@@ -207,6 +250,25 @@
         });
         $('#add-client-appointment-select').select2({
             placeholder: "{{__('calendar.select_client')}}",
+        });
+        $('#add-interview-employees-select').select2({
+            placeholder: "{{__('calendar.select_responsible')}}",
+        });
+        $('#add-interview-candidates-select').select2({
+            placeholder: "{{__('calendar.select_candidate')}}",
+        });
+
+        $('#edit-vacation-select').select2({
+            placeholder: "{{__('calendar.select_employee')}}",
+        });
+        $('#edit-client-appointment-select').select2({
+            placeholder: "{{__('calendar.select_employee')}}",
+        });
+        $('#edit-interview-employees-select').select2({
+            placeholder: "{{__('calendar.select_responsible')}}",
+        });
+        $('#edit-interview-candidates-select').select2({
+            placeholder: "{{__('calendar.select_candidate')}}",
         });
 
         $("#start-vacation-datepicker").flatpickr({
@@ -221,10 +283,20 @@
             altFormat: "Y-m-d",
             dateFormat: "Y-m-d"
         })
-
-        $('#edit-vacation-select').select2({
-            placeholder: "{{__('calendar.select_employee')}}",
-        });
+        $("#client-appointment-datepicker").flatpickr({
+            allowInput: true,
+            altInput: true,
+            enableTime: !0,
+            altFormat: "Y-m-d H:i",
+            dateFormat: "Y-m-d H:i"
+        })
+        $("#interview-datepicker").flatpickr({
+            allowInput: true,
+            altInput: true,
+            enableTime: !0,
+            altFormat: "Y-m-d H:i",
+            dateFormat: "Y-m-d H:i"
+        })
 
         $("#edit-start-vacation-datepicker").flatpickr({
             allowInput: true,
@@ -234,14 +306,12 @@
             allowInput: true,
             dateFormat: "Y-m-d"
         })
-        $("#client-appointment-datepicker").flatpickr({
+        $("#edit-client-appointment-datepicker").flatpickr({
             allowInput: true,
-            altInput: true,
             enableTime: !0,
-            altFormat: "Y-m-d H:i",
             dateFormat: "Y-m-d H:i"
         })
-        $("#edit-client-appointment-datepicker").flatpickr({
+        $("#edit-interview-datepicker").flatpickr({
             allowInput: true,
             enableTime: !0,
             dateFormat: "Y-m-d H:i"
@@ -251,6 +321,7 @@
     <script>
         var vacation_delete_confirmation = '{{__('calendar.vacation_delete_confirmation')}}';
         var client_appointment_delete_confirmation = '{{__('calendar.client_appointment_delete_confirmation')}}';
+        var interview_delete_confirmation = '{{__('calendar.interview_delete_confirmation')}}';
         var _delete = '{{__('calendar.delete')}}';
         var cancel = '{{__('calendar.cancel')}}';
         var deleted = '{{__('calendar.deleted')}}';

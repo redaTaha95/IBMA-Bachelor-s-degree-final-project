@@ -33,5 +33,16 @@ return [
     'appointment_with_client' => 'Rendez-vous avec le client',
     'employee' => 'Employé',
     'client_appointment_delete_confirmation' => 'Souhaitez-vous vraiment supprimer ce rendez-vous avec le client ?',
-
+    'add_interview' => 'Ajouter un entretien',
+    'edit_interview' => 'Modifier l\'entretien',
+    'interview' => 'Entretien',
+    'add_new_interview' => 'Ajouter un nouveau entretien',
+    'responsible' => 'Responsable',
+    'select_responsible' => 'Séléctionner un responsable',
+    'please_select_responsible' => 'Séléctionner un responsable SVP !!',
+    'candidate' => 'Candidat',
+    'select_candidate' => 'Séléctionner un candidat',
+    'please_select_candidate' => 'Séléctionner un candidat SVP !!',
+    'interview_delete_confirmation' => 'Souhaitez-vous vraiment supprimer cet entretien ?',
+    'interview_with' => 'Entretien avec'
 ];

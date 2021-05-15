@@ -22,36 +22,18 @@ class CalendarController extends Controller
         $vacations = $this->calendarRepository->getVacations();
         $clients = $this->calendarRepository->getClients();
         $clientsAppointments = $this->calendarRepository->getClientsAppointments();
-        return view('calendar.calendar', compact('employees', 'vacations', 'clients', 'clientsAppointments'));
+        $interviews = $this->calendarRepository->getInterviews();
+        $candidates = $this->calendarRepository->getCandidates();
+        return view('calendar.calendar',
+            compact(
+                'employees',
+                'vacations',
+                'clients',
+                'clientsAppointments',
+                'interviews',
+                'candidates'
+            )
+        );
     }
 
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
 }
