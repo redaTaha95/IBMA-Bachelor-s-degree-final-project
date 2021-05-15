@@ -33,7 +33,7 @@ class MaterialExport implements FromCollection, WithHeadings, ShouldAutoSize, Wi
     {
         return [
             '#',
-            'Référence du matériel',
+            'Référence',
             'Désignation',
             'Catégorie',
             'Quantité',
