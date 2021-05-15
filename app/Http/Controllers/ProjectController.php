@@ -41,7 +41,6 @@ class ProjectController extends Controller
     {
         $project = $this->projectRepository->find($id);
         $materials = $project->materials;
-       // $material = $this->projectRepository->getMaterialsWithPaginate();
         return view('projects.show', compact('project','materials'));
     }
 

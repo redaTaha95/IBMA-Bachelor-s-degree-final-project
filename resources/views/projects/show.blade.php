@@ -179,7 +179,7 @@
                                         <tbody>
                                         @foreach($materials as $material)
                                             <tr data-index="0">
-                                                <td style="">{{$material->material_reference}}</td>
+                                                <td style="">{{$material->reference}}</td>
                                                 <td style="">{{$material->designation}}</td>
                                                 <td style="">{{$material->category}}</td>
                                                 <td style="">{{$material->quantity}}</td>
