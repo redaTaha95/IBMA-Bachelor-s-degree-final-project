@@ -49,8 +49,13 @@
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('employee.name') }} *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="name" placeholder="{{ __('employee.name') }}" value="{{old('name')}}">
+                                        <label for="simpleinput">{{ __('employee.first_name') }} *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="first_name" placeholder="{{ __('employee.first_name') }}" value="{{old('first_name')}}">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">{{ __('employee.last_name') }} *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="last_name" placeholder="{{ __('employee.last_name') }}" value="{{old('last_name')}}">
                                     </div>
 
                                     <div class="form-group">
@@ -65,21 +70,13 @@
                                         <ul class="parsley-errors-list" id="parsley-id-7" aria-hidden="true"></ul>
                                     </div>
 
-                                <!--<div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('employee.salary') }}</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="salary" placeholder="{{ __('employee.salary') }}" value="{{old('salary')}}">
-                                    </div>
-                                <div class="form-group">
-                                        <label for="simpleinput">{{ __('employee.salary') }}</label>
-                                        <input type="text" id="simpleinput" class="form-control autonumber" name="salary" placeholder="{{ __('employee.salary') }}" data-a-sep="." data-a-dec="," value="{{old('salary')}}">
-                                        <span class="font-13 text-muted">e.g. "1.234.567.890.123"</span>
-                                    </div>-->
                                     <div class="form-group">
                                         <label for="simpleinput">{{ __('employee.salary') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" data-toggle="input-mask" name="salary" placeholder="{{ __('employee.salary') }}" data-mask-format="0000000000" data-reverse="true" maxlength="22" value="{{old('salary')}}">
                                     </div>
 
-                                </div> <!-- end col -->
+                                </div>
+                                <!-- end col -->
 
                                 <div class="col-lg-6">
 
@@ -104,12 +101,13 @@
                                     </div>
                                     <br>
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('employee.logo') }}</label>
-                                        <input type="file" data-plugins="dropify" name="logo"/>
+                                        <label for="simpleinput">{{ __('employee.image') }}</label>
+                                        <input type="file" data-plugins="dropify" name="image"/>
                                     </div>
 
 
-                                </div> <!-- end col -->
+                                </div>
+                                <!-- end col -->
                             </div>
                             <!-- end row-->
                             <div class="row">

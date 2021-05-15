@@ -20,7 +20,9 @@ class CalendarController extends Controller
     {
         $employees = $this->calendarRepository->getEmployees();
         $vacations = $this->calendarRepository->getVacations();
-        return view('calendar.calendar', compact('employees', 'vacations'));
+        $clients = $this->calendarRepository->getClients();
+        $clientsAppointments = $this->calendarRepository->getClientsAppointments();
+        return view('calendar.calendar', compact('employees', 'vacations', 'clients', 'clientsAppointments'));
     }
 
     public function create()

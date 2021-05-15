@@ -50,8 +50,13 @@
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('employee.name') }} *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="name" placeholder="{{ __('employee.name') }}" value="{{old('name', $employee->name)}}">
+                                        <label for="simpleinput">{{ __('employee.first_name') }} *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="first_name" placeholder="{{ __('employee.first_name') }}" value="{{old('first_name', $employee->first_name)}}">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">{{ __('employee.last_name') }} *</label>
+                                        <input type="text" id="simpleinput" class="form-control" name="last_name" placeholder="{{ __('employee.last_name') }}" value="{{old('last_name', $employee->last_name)}}">
                                     </div>
 
                                     <div class="form-group mb-3">
@@ -69,7 +74,6 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('employee.salary') }}</label>
-                                        <!--<input type="text" id="simpleinput" class="form-control" name="salary" placeholder="{{ __('employee.salary') }}" value="{{old('salary', $employee->salary)}}">-->
                                         <input type="text" id="simpleinput" class="form-control" data-toggle="input-mask" name="salary" placeholder="{{ __('employee.salary') }}" data-mask-format="0000000000" data-reverse="true" maxlength="22" value="{{old('salary', $employee->salary)}}">
                                     </div>
 
@@ -101,8 +105,8 @@
                                     </div>
                                     <br>
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('employee.logo') }}</label>
-                                        <input type="file" data-plugins="dropify" name="logo" data-default-file="{{$employee->logo ? asset('storage/employees/'.$employee->logo) : ''}}"/>
+                                        <label for="simpleinput">{{ __('employee.image') }}</label>
+                                        <input type="file" data-plugins="dropify" name="image" data-default-file="{{$employee->image ? asset('storage/employees/'.$employee->image) : ''}}"/>
                                     </div>
 
 

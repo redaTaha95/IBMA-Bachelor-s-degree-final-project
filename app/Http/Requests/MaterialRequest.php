@@ -25,7 +25,7 @@ class MaterialRequest extends FormRequest
     public function rules()
     {
         return [
-            'material_reference' => 'required',
+            'reference' => 'required',
             'designation' => 'required',
             'category' => 'required',
             'quantity' => 'required',

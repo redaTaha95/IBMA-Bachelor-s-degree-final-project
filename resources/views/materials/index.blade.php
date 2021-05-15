@@ -61,7 +61,7 @@
                             @foreach($materials as $index => $material)
                                 <tr>
                                     <td class="align-middle">{{$index + 1}}</td>
-                                    <td class="align-middle">{{$material->material_reference}}</td>
+                                    <td class="align-middle">{{$material->reference}}</td>
                                     <td class="align-middle">{{$material->designation}}</td>
                                     <td class="align-middle">{{$material->category}}</td>
                                     <td class="align-middle">

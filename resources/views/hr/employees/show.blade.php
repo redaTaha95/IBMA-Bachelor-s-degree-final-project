@@ -31,7 +31,7 @@
                         <li class="breadcrumb-item active">{{ __('employee.profile') }}</li>
                     </ol>
                 </div>
-                <h4 class="page-title">{{ __('employee.employee_profile') }} {{$employee->name}}</h4>
+                <h4 class="page-title">{{ __('employee.employee_profile') }} {{$employee->first_name}}</h4>
             </div>
         </div>
     </div>
@@ -40,13 +40,13 @@
         <div class="col-sm-4">
             <div class="card-box text-center">
                 <!--<img src="../assets/images/users/user-1.jpg" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">-->
-                @if($employee->logo)
-                    <img src="{{asset('storage/employees/'.$employee->logo)}}" alt="image" class="avatar-lg rounded-circle">
+                @if($employee->image)
+                    <img src="{{asset('storage/employees/'.$employee->image)}}" alt="image" class="avatar-lg rounded-circle">
                 @else
                     <img src="{{asset('assets/images/users/default_user.png')}}" alt="image" class="avatar-lg rounded-circle">
                 @endif
 
-                <h4 class="mb-0">{{$employee->name}}</h4><br>
+                <h4 class="mb-0">{{$employee->first_name}}</h4><br>
                <!-- <p class="text-muted">@webdesigner</p>-->
 
                 <!--<button type="button" class="btn btn-success btn-xs waves-effect mb-2 waves-light">Follow</button>-->
@@ -55,7 +55,7 @@
                 <div class="text-left mt-3">
                     <div class="row">
                         <div class="col-sm-12">
-                            <p class="text-muted mb-2 font-13"><strong>{{ __('employee.name') }} :</strong> <span class="ml-2" style="color: #0a0a0a">{{$employee->name}}</span></p>
+                            <p class="text-muted mb-2 font-13"><strong>{{ __('employee.first_name') }} :</strong> <span class="ml-2" style="color: #0a0a0a">{{$employee->first_name}}</span></p>
 
                             <p class="text-muted mb-2 font-13"><strong>{{ __('employee.phone') }} :</strong><span class="ml-2" style="color: #0a0a0a">{{$employee->phone}}</span></p>
 
