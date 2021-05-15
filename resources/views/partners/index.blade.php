@@ -24,12 +24,12 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('partner.title12') }}</a></li>
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('partner.title13') }}</a></li>
-                                <li class="breadcrumb-item active">{{ __('partner.title14') }}</li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('partner.partners') }}</a></li>
+                                <li class="breadcrumb-item active">{{ __('partner.List_partners') }}</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">{{ __('partner.Details_Partners') }}</h4>
+                        <h4 class="page-title">{{ __('partner.list_partner') }}</h4>
                     </div>
                 </div>
             </div>

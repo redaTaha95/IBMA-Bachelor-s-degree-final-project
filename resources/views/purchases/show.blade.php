@@ -13,12 +13,12 @@
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('purchase.title12') }}</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{__('purchase.title13')}}</a></li>
-                            <li class="breadcrumb-item active">{{__('purchase.title14')}}</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{__('purchase.purchase')}}</a></li>
+                            <li class="breadcrumb-item active">{{__('purchase.purchase_details')}}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{__('purchase.introduction4')}}</h4>
+                    <h4 class="page-title">{{__('purchase.detail_purchase')}}</h4>
                 </div>
             </div>
         </div>

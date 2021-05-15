@@ -21,12 +21,12 @@
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.title1') }}</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.title2') }}</a></li>
-                            <li class="breadcrumb-item active">{{ __('project.title3') }}</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.Projects') }}</a></li>
+                            <li class="breadcrumb-item active">{{ __('project.List_project') }}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{ __('project.introduction') }}</h4>
+                    <h4 class="page-title">{{ __('project.list_project') }}</h4>
                 </div>
             </div>
         </div>

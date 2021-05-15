@@ -16,12 +16,12 @@
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('partner.title4') }}</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('partner.title5') }}</a></li>
-                            <li class="breadcrumb-item active">{{ __('partner.title6') }}</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('partner.Partner') }}</a></li>
+                            <li class="breadcrumb-item active">{{ __('partner.add_Partner') }}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{ __('partner.introduction2') }}</h4>
+                    <h4 class="page-title">{{ __('partner.partner_added') }}</h4>
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{ __('partner.title7') }}</h4>
+                        <h4 class="header-title">{{ __('partner.info_partner') }}</h4>
 
                         @if ($errors->any())
                             <div class="alert alert-danger">
