@@ -97,7 +97,7 @@
                     </div>
                 </form>
             </div>
-        </div> <!-- end modal-content-->
+        </div> <!-- end modroal-content-->
     </div> <!-- end modal dialog-->
 </div>
 <!-- end modal-->
