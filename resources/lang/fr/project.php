@@ -68,5 +68,12 @@ return[
     'select_client' => 'Selectionner un client',
     'select_clt' => 'Selectionner un client',
     'material_name' => 'Le nom du matériel',
+    'materials_list' => 'Matériaux affectés',
+    'reference_material' => 'Reference matériel',
+    'Designation' => 'Désignation',
+    'Category' => 'Categorie',
+    'Quantity' => 'Quantité',
+    'Origin' => 'Origine',
+    'Condition' => 'Condition',
 
 ];

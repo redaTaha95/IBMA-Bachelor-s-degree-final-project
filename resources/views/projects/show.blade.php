@@ -129,6 +129,81 @@
                 </div>
                 <!-- end row -->
 
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-box">
+                        <h4 class="header-title">{{ __('project.materials_list') }}</h4>
+
+
+                        <div class="bootstrap-table bootstrap4">
+                            <div class="fixed-table-toolbar"></div>
+
+                            <div class="fixed-table-container" style="padding-bottom: 0px;">
+                                <div class="fixed-table-header" style="display: none;"><table></table></div>
+                                <div class="fixed-table-body">
+                                    <div class="fixed-table-loading table table-bordered table-hover" style="top: 1px;">
+
+           <span class="animation-wrap"><span class="animation-dot"></span></span>
+           </span>
+                                    </div>
+                                    <table data-toggle="table" data-show-columns="false" data-page-list="[5, 10, 20]" data-page-size="5" data-buttons-class="xs btn-light" data-pagination="true" class="table-borderless table table-bordered table-hover" style="display: table;">
+                                        <thead class="thead-light" style="">
+                                        <tr>
+                                            <th style="" data-field="id">
+                                                <div class="th-inner ">{{ __('project.reference_material') }}</div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th style="" data-field="name">
+                                                <div class="th-inner ">{{ __('project.Designation') }}</div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th style="" data-field="text">
+                                                <div class="th-inner ">{{ __('project.Category') }}</div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th style="" data-field="text">
+                                                <div class="th-inner ">{{ __('project.Quantity') }}</div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th style="" data-field="name">
+                                                <div class="th-inner ">{{ __('project.Origin') }}</div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                            <th style="" data-field="name">
+                                                <div class="th-inner ">{{ __('project.Condition') }}</div>
+                                                <div class="fht-cell"></div>
+                                            </th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        @foreach($materials as $material)
+                                            <tr data-index="0">
+                                                <td style="">{{$material->material_reference}}</td>
+                                                <td style="">{{$material->designation}}</td>
+                                                <td style="">{{$material->category}}</td>
+                                                <td style="">{{$material->quantity}}</td>
+                                                <td style="">{{$material->origin}}</td>
+                                                <td style="">{{$material->condition}}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="fixed-table-footer">
+                                    <table>
+                                        <thead>
+                                        <tr></tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div><div class="clearfix"></div>
+                    </div> <!-- end card-box-->
+                </div> <!-- end col-->
+            </div> <!-- end row table-->
+
             </div> <!-- container -->
 
 

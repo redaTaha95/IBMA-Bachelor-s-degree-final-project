@@ -43,4 +43,6 @@ class PartnerRepository extends BaseRepository implements Interfaces\PartnerRepo
     public function getPartnersWithPaginate(){
         return Partner::paginate(6);
     }
+
+
 }

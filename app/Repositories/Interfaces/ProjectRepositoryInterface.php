@@ -12,4 +12,5 @@ interface ProjectRepositoryInterface
     public function exportProjectsDataAsExcel();
     public function getClients();
     public function getMaterials();
+    //public function getMaterialsWithPaginate();
 }

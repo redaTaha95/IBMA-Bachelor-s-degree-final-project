@@ -40,7 +40,9 @@ class ProjectController extends Controller
     public function show($id)
     {
         $project = $this->projectRepository->find($id);
-        return view('projects.show', compact('project'));
+        $materials = $project->materials;
+       // $material = $this->projectRepository->getMaterialsWithPaginate();
+        return view('projects.show', compact('project','materials'));
     }
 
     public function edit($id)
