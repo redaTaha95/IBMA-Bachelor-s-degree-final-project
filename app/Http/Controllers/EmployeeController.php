@@ -8,6 +8,7 @@ use App\Http\Requests\EmployeeRequest;
 use App\Repositories\Interfaces\EmployeeRepositoryInterface;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
@@ -36,7 +37,7 @@ class EmployeeController extends Controller
 
     public function store(EmployeeRequest $request)
     {
-        $request->request->add(['password'=>$request['name'].'2021']);
+        $request->request->add(['password'=>Hash::make($request['first_name'].'2021')]);
         $this->employeeRepository->addEmployee(
             array_merge(
                 $request->except(['role','password']),
@@ -70,7 +71,7 @@ class EmployeeController extends Controller
     {
         //$this->employeeRepository->updateEmployee($request->all(), $id);
         $this->employeeRepository->updateEmployee($request->except(['role']), $id);
-        $this->userRepository->update($request->only('name','email','role','_token'), $this->employeeRepository->find($id)->user->id);
+        $this->userRepository->update($request->only('first_name','email','role','_token'), $this->employeeRepository->find($id)->user->id);
         session()->flash('update', 'Employee has been added');
 
         return redirect('/employees');

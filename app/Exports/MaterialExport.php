@@ -20,7 +20,7 @@ class MaterialExport implements FromCollection, WithHeadings, ShouldAutoSize, Wi
     {
         return Material::select(
             'id',
-            'material_code',
+            'reference',
             'designation',
             'category',
             'quantity',
@@ -33,7 +33,7 @@ class MaterialExport implements FromCollection, WithHeadings, ShouldAutoSize, Wi
     {
         return [
             '#',
-            'Référence du matériel',
+            'Référence',
             'Désignation',
             'Catégorie',
             'Quantité',

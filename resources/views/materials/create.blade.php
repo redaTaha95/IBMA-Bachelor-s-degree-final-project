@@ -50,13 +50,12 @@
 
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('material.material_reference') }} *</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="material_reference" placeholder="{{ __('material.material_reference') }}" value="{{old('material_reference')}}">
+                                        <input type="text" id="simpleinput" class="form-control" name="reference" placeholder="{{ __('material.material_reference') }}" value="{{old('reference')}}">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="simpleinput">{{ __('material.designation') }} *</label>
                                         <input type="text" id="simpleinput" class="form-control" name="designation" placeholder="{{ __('material.designation') }}" value="{{old('designation')}}">
-                                        <!--<span class="font-13 text-muted">e.g "(xx) xxxx-xxxx"</span>-->
                                     </div>
 
                                     <div class="form-group">
