@@ -37,18 +37,12 @@ class EmployeeController extends Controller
 
     public function store(EmployeeRequest $request)
     {
-        $request->request->add(['password'=>Hash::make($request['first_name'].'2021')]);
-        $this->employeeRepository->addEmployee(
-            array_merge(
-                $request->except(['role','password']),
-                [
-                    'user_id' =>
-                        $this->userRepository->create(
-                            $request->only(['_token','user_id','role','name','email','password'])
-                        )->id
-                ]
-            )
-        );
+        $userRequest = array_merge($request->only(['email','role']),['password'=> Hash::make($request->first_name . '2021'),'name'=>$request->first_name]);
+        $employeeRequest = array_merge($request->except(['role']),['user_id'=>$this->userRepository->create($userRequest)->id]);
+
+
+        $this->employeeRepository->addEmployee($employeeRequest);
+
         session()->flash('success', 'Employee has been added');
         return redirect('/employees');
     }
@@ -69,10 +63,13 @@ class EmployeeController extends Controller
 
     public function update(EmployeeRequest $request, $id)
     {
-        //$this->employeeRepository->updateEmployee($request->all(), $id);
-        $this->employeeRepository->updateEmployee($request->except(['role']), $id);
-        $this->userRepository->update($request->only('first_name','email','role','_token'), $this->employeeRepository->find($id)->user->id);
-        session()->flash('update', 'Employee has been added');
+        $employeeRequest = $request->except(['role']);
+        $userRequest = array_merge($request->only('email','role'),['name'=>$request->first_name,'password'=>$request->first_name . '2021']);
+
+
+        $this->employeeRepository->updateEmployee($employeeRequest, $id);
+        $this->userRepository->update($userRequest, $this->employeeRepository->find($id)->user->id);
+        session()->flash('update', 'Employee has been updated');
 
         return redirect('/employees');
 
