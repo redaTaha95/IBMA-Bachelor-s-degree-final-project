@@ -110,7 +110,7 @@
                 var t = [
                     @foreach($vacations as $vacation)
                     {
-                        title: "{{__('calendar.vacation_of')}}" + '{{$vacation->employee->name}}',
+                        title: "{{__('calendar.vacation_of')}}" + '{{$vacation->employee->first_name}}',
                         start: '{{$vacation->start_date}}',
                         end: '{{$vacation->end_date}}',
                         data: {

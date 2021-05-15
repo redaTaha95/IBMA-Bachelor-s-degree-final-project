@@ -17,7 +17,7 @@
                                 <select id="add-vacation-select" class="form-control" name="employee_id" required>
                                     <option></option>
                                     @foreach($employees as $employee)
-                                        <option value="{{$employee->id}}">{{$employee->name}}</option>
+                                        <option value="{{$employee->id}}">{{$employee->first_name}}</option>
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">
@@ -77,7 +77,7 @@
                                 <select id="edit-vacation-select" class="form-control" name="employee_id" required>
                                     <option></option>
                                     @foreach($employees as $employee)
-                                        <option value="{{$employee->id}}">{{$employee->name}}</option>
+                                        <option value="{{$employee->id}}">{{$employee->first_name}}</option>
                                     @endforeach
                                     <div class="invalid-feedback">
                                         {{__('calendar.please_select_employee')}}

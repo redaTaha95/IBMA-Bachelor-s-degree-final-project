@@ -37,7 +37,7 @@ class EmployeeController extends Controller
 
     public function store(EmployeeRequest $request)
     {
-        $userRequest = array_merge($request->only(['email','role']),['password'=> Hash::make($request->first_name . '2021'),'name'=>$request->first_name]);
+        $userRequest = array_merge($request->only(['email','role']),['password'=> Hash::make($request->first_name .'_'.$request->last_name . '2021'),'name'=>$request->first_name.' '.$request->last_name]);
         $employeeRequest = array_merge($request->except(['role']),['user_id'=>$this->userRepository->create($userRequest)->id]);
 
 
@@ -64,7 +64,7 @@ class EmployeeController extends Controller
     public function update(EmployeeRequest $request, $id)
     {
         $employeeRequest = $request->except(['role']);
-        $userRequest = array_merge($request->only('email','role'),['name'=>$request->first_name,'password'=>$request->first_name . '2021']);
+        $userRequest = array_merge($request->only('email','role'),['name'=>$request->first_name .'_'.$request->last_name,'password'=>$request->first_name . '2021']);
 
 
         $this->employeeRepository->updateEmployee($employeeRequest, $id);
@@ -77,6 +77,10 @@ class EmployeeController extends Controller
 
     public function destroy($id)
     {
+
+        if($this->employeeRepository->find($id)->vacations->isEmpty() !=1) {
+            return response()->json(['errors'=>'Interdit de supprimer cet employé.']);
+        }
         $this->employeeRepository->delete($id);
     }
 
