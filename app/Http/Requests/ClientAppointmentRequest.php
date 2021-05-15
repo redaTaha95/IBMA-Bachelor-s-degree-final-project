@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProjectRequest extends FormRequest
+class ClientAppointmentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,17 +25,15 @@ class ProjectRequest extends FormRequest
     {
         return [
             'client_id' => 'required',
-            'name' => 'required',
-            'description' => 'required'
+            'datetime' => 'required',
         ];
     }
 
     public function messages()
     {
         return [
-            'client_id.required' => 'client du projet est obligatoire',
-            'name.required' => 'Nom du project est obligatoire !!',
-            'description.required' => 'Description du project est obligatoire !!',
+            'client_id.required' => 'Séléctionner un client SVP !!',
+            'datetime.required' => 'La date & heure sont obligatoires !!',
         ];
     }
 }

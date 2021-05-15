@@ -24,11 +24,11 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{__('vacation.calendar')}}</a></li>
-                            <li class="breadcrumb-item active">{{__('vacation.calendar')}}</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{__('calendar.calendar')}}</a></li>
+                            <li class="breadcrumb-item active">{{__('calendar.calendar')}}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{__('vacation.calendar')}}</h4>
+                    <h4 class="page-title">{{__('calendar.calendar')}}</h4>
                 </div>
             </div>
         </div>
@@ -41,8 +41,14 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-3">
-                                <button class="btn btn-lg font-16 btn-info btn-block" id="btn-new-vacation"><i class="mdi mdi-plus-circle-outline"></i> {{__('vacation.add_vacation')}}</button>
+                                <button class="btn btn-lg font-16 btn-primary btn-block"><i class="mdi mdi-plus-circle-outline"></i> {{__('calendar.add_appointment')}}</button>
 
+                                <div id="external-events" class="m-t-20">
+                                    <br>
+                                    <p class="text-muted">{{__('calendar.add_events')}}</p>
+                                    <button id="btn-new-vacation" type="button" class="external-event btn font-14 btn-block btn-info text-left"><i class="mdi mdi-plus-circle-outline"></i> {{__('calendar.add_vacation')}}</button>
+                                    <button id="btn-new-client-appointment" type="button" class="external-event btn font-14 btn-block btn-warning text-left"><i class="mdi mdi-plus-circle-outline"></i> {{__('calendar.add_appointment_with_client')}}</button>
+                                </div>
                             </div> <!-- end col-->
 
                             <div class="col-lg-9">
@@ -53,133 +59,9 @@
                     </div> <!-- end card body-->
                 </div> <!-- end card -->
 
-                <!-- Add Vacation MODAL -->
-                <div class="modal fade" id="vacation-modal" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header py-3 px-4 border-bottom-0 d-block">
-                                <button type="button" class="close" data-dismiss="modal"
-                                        aria-hidden="true">&times;</button>
-                                <h5 class="modal-title" id="modal-title">{{__('vacation.add_new_vacation')}}</h5>
-                            </div>
-                            <div class="modal-body p-4">
-                                <form id="add-vacation-form" action="{{route('vacations.store')}}" method="post" class="needs-validation" novalidate>
-                                    @csrf
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label class="control-label">Employé</label>
-                                                <select id="add-vacation-select" class="form-control" name="employee_id" required>
-                                                    <option></option>
-                                                    @foreach($employees as $employee)
-                                                        <option value="{{$employee->id}}">{{$employee->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                                <div class="invalid-feedback">
-                                                    {{__('vacation.please_select_employee')}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label class="control-label">La date de sortie</label>
-                                                <input type="text" id="start-vacation-datepicker" name="start_date" class="form-control flatpickr-input active" placeholder="{{__('vacation.start_date')}}" readonly="readonly" required>
-                                                <div class="invalid-feedback">
-                                                    {{__('vacation.start_date_required')}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label class="control-label">La date d'entrée</label>
-                                                <input type="text" id="end-vacation-datepicker" name="end_date" class="form-control flatpickr-input active" placeholder="{{__('vacation.end_date')}}" readonly="readonly" required>
-                                                <div class="invalid-feedback">
-                                                    {{__('vacation.end_date_required')}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-2">
-                                        <div class="col-12 text-right">
-                                            <button type="button" class="btn btn-light mr-1" data-dismiss="modal">{{__('vacation.cancel')}}</button>
-                                            <button type="submit" class="btn btn-success">{{__('vacation.add')}}</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div> <!-- end modal-content-->
-                    </div> <!-- end modal dialog-->
-                </div>
-                <!-- end modal-->
+                @include('calendar.calendar-modals.vacation-modal', ['employees' => $employees]);
 
-                <!-- Edit Vacation MODAL -->
-                <div class="modal fade" id="edit-vacation-modal" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header py-3 px-4 border-bottom-0 d-block">
-                                <button type="button" class="close" data-dismiss="modal"
-                                        aria-hidden="true">&times;</button>
-                                <h5 class="modal-title" id="modal-title">{{__('vacation.edit_vacation')}}</h5>
-                            </div>
-                            <div class="modal-body p-4">
-                                <form id="edit-vacation-form" action="" method="post" class="needs-validation" novalidate>
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label class="control-label">Employé</label>
-                                                <select id="edit-vacation-select" class="form-control" name="employee_id" required>
-                                                    <option></option>
-                                                    @foreach($employees as $employee)
-                                                        <option value="{{$employee->id}}">{{$employee->name}}</option>
-                                                    @endforeach
-                                                    <div class="invalid-feedback">
-                                                        {{__('vacation.please_select_employee')}}
-                                                    </div>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label class="control-label">La date de sortie</label>
-                                                <input type="text" id="edit-start-vacation-datepicker" name="start_date" class="form-control flatpickr-input active" placeholder="{{__('vacation.start_date')}}" readonly="readonly" required>
-                                                <div class="invalid-feedback">
-                                                    {{__('vacation.start_date_required')}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label class="control-label">La date d'entrée</label>
-                                                <input type="text" id="edit-end-vacation-datepicker" name="end_date" class="form-control flatpickr-input active" placeholder="{{__('vacation.end_date')}}" readonly="readonly" required>
-                                                <div class="invalid-feedback">
-                                                    {{__('vacation.end_date_required')}}
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label id="number-of-days-label" class="control-label text-danger"></label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-2">
-                                        <div class="col-6">
-                                            <button type="button" class="btn btn-danger delete-vacation" url="" id="btn-delete-vacation">{{__('vacation.delete')}}</button>
-                                        </div>
-                                        <div class="col-6 text-right">
-                                            <button type="button" class="btn btn-light mr-1" data-dismiss="modal">{{__('vacation.cancel')}}</button>
-                                            <button type="submit" class="btn btn-success">{{__('vacation.edit')}}</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div> <!-- end modal-content-->
-                    </div> <!-- end modal dialog-->
-                </div>
-                <!-- end modal-->
+                @include('calendar.calendar-modals.client-appointment-modal', ['clients' => $clients]);
             </div>
             <!-- end col-12 -->
         </div> <!-- end row -->
@@ -188,6 +70,7 @@
 @endsection
 
 @section('js')
+
     <!-- plugin js -->
     <script src="{{asset('assets/libs/moment/min/moment.min.js')}}"></script>
     <script src="{{asset('assets/libs/@fullcalendar/core/main.min.js')}}"></script>
@@ -210,9 +93,7 @@
 
     {{--file of delete client--}}
     <script src="{{asset('ajax/vacations/vacation_delete_ajax.js')}}"></script>
-
-    <!-- Init js-->
-
+    <script src="{{asset('ajax\client-appointment\client_appointment-delet_ajax.js')}}"></script>
 
     <!-- Calendar init -->
     <script>
@@ -229,7 +110,7 @@
                 var t = [
                     @foreach($vacations as $vacation)
                     {
-                        title: "{{__('vacation.vacation_of')}}" + '{{$vacation->employee->name}}',
+                        title: "{{__('calendar.vacation_of')}}" + '{{$vacation->employee->name}}',
                         start: '{{$vacation->start_date}}',
                         end: '{{$vacation->end_date}}',
                         data: {
@@ -243,9 +124,22 @@
                         className: "bg-info"
                     },
                     @endforeach
+                    @foreach($clientsAppointments as $clientAppointment)
+                    {
+                        title: "{{__('calendar.appointment_with_client')}} " + '{{$clientAppointment->client->name}}',
+                        start: '{{$clientAppointment->datetime}}',
+                        data: {
+                                'type': 'client-appointment',
+                                'client_appointment_id': {{$clientAppointment->id}},
+                                'client_id': {{$clientAppointment->client_id}},
+                                'datetime': '{{$clientAppointment->datetime}}',
+                            },
+                        className: "bg-warning"
+                    },
+                    @endforeach
                     ], a = this;
                 a.$calendarObj = new FullCalendar.Calendar(a.$calendar[0], {
-                    locale: "{{__('vacation.local')}}",
+                    locale: "{{__('calendar.local')}}",
                     plugins: ["bootstrap", "interaction", "dayGrid", "timeGrid", "list"],
                     slotDuration: "00:15:00",
                     minTime: "08:00:00",
@@ -261,6 +155,7 @@
                         right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth"
                     },
                     events: t,
+                    editable: true,
                     // eventLimit: 1,
                     eventClick: function (e) {
                         if (e.event.extendedProps.data.type === 'vacation'){
@@ -273,10 +168,21 @@
                             $("#edit-vacation-select").val(e.event.extendedProps.data.employee_id).change();
                             $('#edit-start-vacation-datepicker').val(e.event.extendedProps.data.start_date);
                             $('#edit-end-vacation-datepicker').val(e.event.extendedProps.data.end_date);
-                            $('#number-of-days-label').text("{{__('vacation.number_of_days')}}: " + e.event.extendedProps.data.number_of_days);
+                            $('#number-of-days-label').text("{{__('calendar.number_of_days')}}: " + e.event.extendedProps.data.number_of_days);
                             $('#edit-vacation-modal').modal('show');
                         }
-                    }
+                        if (e.event.extendedProps.data.type === 'client-appointment'){
+                            var url = '{{ route("client-appointments.update", ":id") }}';
+                            var deleteUrl = '{{ route("client-appointments.destroy", ":id") }}';
+                            url = url.replace(':id', e.event.extendedProps.data.client_appointment_id);
+                            deleteUrl = deleteUrl.replace(':id', e.event.extendedProps.data.client_appointment_id);
+                            $('#edit-client-appointment-form').attr('action', url);
+                            $('#btn-delete-client-appointment').attr('url', deleteUrl);
+                            $("#edit-client-appointment-select").val(e.event.extendedProps.data.client_id).change();
+                            $('#edit-client-appointment-datepicker').val(e.event.extendedProps.data.datetime);
+                            $('#edit-client-appointment-modal').modal('show');
+                        }
+                    },
                 }), a.$calendarObj.render()
             }, l.CalendarApp = new e, l.CalendarApp.Constructor = e
         }(window.jQuery), function () {
@@ -289,12 +195,18 @@
         $('#btn-new-vacation').on('click', function (event) {
             $('#vacation-modal').modal('show');
         })
+        $('#btn-new-client-appointment').on('click', function (event) {
+            $('#client-appointment-modal').modal('show');
+        })
     </script>
 
     <script>
 
         $('#add-vacation-select').select2({
-            placeholder: "{{__('vacation.select_employee')}}",
+            placeholder: "{{__('calendar.select_employee')}}",
+        });
+        $('#add-client-appointment-select').select2({
+            placeholder: "{{__('calendar.select_client')}}",
         });
 
         $("#start-vacation-datepicker").flatpickr({
@@ -311,7 +223,7 @@
         })
 
         $('#edit-vacation-select').select2({
-            placeholder: "{{__('vacation.select_employee')}}",
+            placeholder: "{{__('calendar.select_employee')}}",
         });
 
         $("#edit-start-vacation-datepicker").flatpickr({
@@ -322,16 +234,29 @@
             allowInput: true,
             dateFormat: "Y-m-d"
         })
+        $("#client-appointment-datepicker").flatpickr({
+            allowInput: true,
+            altInput: true,
+            enableTime: !0,
+            altFormat: "Y-m-d H:i",
+            dateFormat: "Y-m-d H:i"
+        })
+        $("#edit-client-appointment-datepicker").flatpickr({
+            allowInput: true,
+            enableTime: !0,
+            dateFormat: "Y-m-d H:i"
+        })
     </script>
 
     <script>
-        var vacation_delete_confirmation = '{{__('vacation.vacation_delete_confirmation')}}';
-        var _delete = '{{__('vacation.delete')}}';
-        var cancel = '{{__('vacation.cancel')}}';
-        var deleted = '{{__('vacation.deleted')}}';
-        var data_deleted = '{{__('vacation.data_deleted')}}';
-        var canceled = '{{__('vacation.canceled')}}';
-        var data_is_safe = '{{__('vacation.data_is_safe')}}';
+        var vacation_delete_confirmation = '{{__('calendar.vacation_delete_confirmation')}}';
+        var client_appointment_delete_confirmation = '{{__('calendar.client_appointment_delete_confirmation')}}';
+        var _delete = '{{__('calendar.delete')}}';
+        var cancel = '{{__('calendar.cancel')}}';
+        var deleted = '{{__('calendar.deleted')}}';
+        var data_deleted = '{{__('calendar.data_deleted')}}';
+        var canceled = '{{__('calendar.canceled')}}';
+        var data_is_safe = '{{__('calendar.data_is_safe')}}';
     </script>
 
 @endsection

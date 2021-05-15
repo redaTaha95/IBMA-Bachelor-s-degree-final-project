@@ -34,8 +34,8 @@ class VacationRequest extends FormRequest
     {
         return [
           'employee_id.required' => 'Séléctionner un employee SVP !!',
-          'start_date' => 'La date de sortie est obligatoire !!',
-          'end_date' => 'La date d\'entrée est obligatoire',
+          'start_date.required' => 'La date de sortie est obligatoire !!',
+          'end_date.required' => 'La date d\'entrée est obligatoire',
         ];
     }
 }

@@ -99,6 +99,13 @@
                         <span> Ventes </span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="{{url('tasks')}}">
+                        <i class=" fas fa-tasks"></i>
+                        <span> Tâches </span>
+                    </a>
+                </li>
             </ul>
 
         </div>

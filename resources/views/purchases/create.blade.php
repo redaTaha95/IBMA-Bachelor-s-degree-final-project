@@ -16,12 +16,12 @@
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('purchase.title4') }}</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('purchase.title5') }}</a></li>
-                            <li class="breadcrumb-item active">{{ __('purchase.title6') }}</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('purchase.purchases') }}</a></li>
+                            <li class="breadcrumb-item active">{{ __('purchase.purchase_added') }}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{ __('purchase.introduction2') }}</h4>
+                    <h4 class="page-title">{{ __('purchase.add_purchase') }}</h4>
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{ __('purchase.title7') }}</h4>
+                        <h4 class="header-title">{{ __('purchase.info_purchase') }}</h4>
 
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -66,7 +66,7 @@
 
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('purchase.add_nom') }}</label>
+                                        <label for="simpleinput">{{ __('purchase.add_name') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name')}}" required>
                                     </div>
 
