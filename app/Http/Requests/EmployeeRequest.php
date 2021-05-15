@@ -31,10 +31,8 @@ class EmployeeRequest extends FormRequest
             'hire_date' => 'required',
             'phone' => 'required',
             //'email' => ['required' , Rule::unique('employees')->ignore($this->employee->id)],
-            //'email' => 'required | unique:users,email',
-            'email'=>[
-                Rule::unique('users')->ignore($this->id),
-            ]
+            'email' => 'required | unique:users,email',
+            //'email'=>[Rule::unique('users')->ignore($this->id),]
         ];
     }
 
