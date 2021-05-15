@@ -56,7 +56,6 @@
                                     <div class="form-group">
                                         <label for="simpleinput">{{ __('material.designation') }} *</label>
                                         <input type="text" id="simpleinput" class="form-control" name="designation" placeholder="{{ __('material.designation') }}" value="{{old('designation')}}">
-                                        <!--<span class="font-13 text-muted">e.g "(xx) xxxx-xxxx"</span>-->
                                     </div>
 
                                     <div class="form-group">

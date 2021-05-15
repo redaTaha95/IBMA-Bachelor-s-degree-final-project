@@ -63,13 +63,13 @@
                                 <tr>
                                     <td class="align-middle">{{$index + 1}}</td>
                                     <td class="align-middle">
-                                        @if($employee->logo)
-                                            <img src="{{asset('storage/employees/'.$employee->logo)}}" alt="image" class="avatar-sm rounded-circle">
+                                        @if($employee->image)
+                                            <img src="{{asset('storage/employees/'.$employee->image)}}" alt="image" class="avatar-sm rounded-circle">
                                         @else
                                             <img src="{{asset('assets/images/users/default_user.png')}}" alt="image" class="avatar-sm rounded-circle">
                                         @endif
                                     </td>
-                                    <td class="align-middle">{{$employee->first_name}}</td>
+                                    <td class="align-middle">{{$employee['first_name']}}</td>
                                     <td class="align-middle">{{$employee->phone}}</td>
                                     <td class="align-middle">{{$employee->email}}</td>
                                     <td class="align-middle">

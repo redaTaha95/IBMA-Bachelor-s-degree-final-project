@@ -44,7 +44,7 @@ class EmployeeController extends Controller
                 [
                     'user_id' =>
                         $this->userRepository->create(
-                            $request->only(['_token','user_id','role','first_name','email','password'])
+                            $request->only(['_token','user_id','role','name','email','password'])
                         )->id
                 ]
             )

@@ -6,7 +6,7 @@ return[
     'material_folder' => 'Materials',
     'list' => 'List of materials',
     'addMaterial' => 'Add Material',
-    'material_reference'=> 'Material reference',
+    'material_reference'=> 'Reference',
     'designation'=> 'Designation',
     'category' => 'Category',
     'quantity'=> 'Quantity',
