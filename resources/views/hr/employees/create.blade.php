@@ -94,7 +94,7 @@
                                         <label for="role">{{ __('employee.role') }}</label>
                                         <select name="role" class="form-control">
                                             @foreach ($roles as $key => $value)
-                                                <option value={{$key}}>{{ $value }}</option>
+                                                <option value={{$key + 1}} selected>{{ $value }}</option>
                                             @endforeach
 
                                         </select>

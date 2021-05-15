@@ -31,7 +31,7 @@ class EmployeeController extends Controller
 
     public function create()
     {
-        $roles = ["Admin","Resource humaine","Chef","Employee"];
+        $roles = ["Resource humaine","Chef","Employee"];
         return view('hr.employees.create',compact('roles'));
     }
 
@@ -56,7 +56,7 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         $employee = $this->employeeRepository->find($id);
-        $roles = ["Admin","Resource humaine","Chef","Employee"];
+        $roles = ["Resource humaine","Chef","Employee"];
         $roleChecked = $employee->user->role;
         return view('hr.employees.edit', compact('employee','roles','roleChecked'));
     }
