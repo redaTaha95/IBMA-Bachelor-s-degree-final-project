@@ -24,6 +24,7 @@ class ProjectRequest extends FormRequest
     public function rules()
     {
         return [
+            'client_id' => 'required',
             'name' => 'required',
             'description' => 'required'
         ];
@@ -32,6 +33,7 @@ class ProjectRequest extends FormRequest
     public function messages()
     {
         return [
+            'client_id.required' => 'client du projet est obligatoire',
             'name.required' => 'Nom du project est obligatoire !!',
             'description.required' => 'Description du project est obligatoire !!',
         ];

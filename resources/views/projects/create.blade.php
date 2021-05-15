@@ -22,12 +22,12 @@
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.title4') }}</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.title5') }}</a></li>
-                            <li class="breadcrumb-item active">{{ __('project.title6') }}</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">IBMA</a></li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">{{ __('project.projects') }}</a></li>
+                            <li class="breadcrumb-item active">{{ __('project.add_project') }}</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">{{ __('project.introduction2') }}</h4>
+                    <h4 class="page-title">{{ __('project.project_add') }}</h4>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{ __('project.title7') }}</h4>
+                        <h4 class="header-title">{{ __('project.project_information') }}</h4>
 
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -58,8 +58,8 @@
 
                                         <div class="dropdown">
 
-                                            <label for="simpleinput">{{ __('project.client_id') }}</label>
-                                            <select name="client_id" class="form-control">
+                                            <label for="simpleinput" >{{ __('project.client_id') }}</label>
+                                            <select name="client_id" class="form-control" required>
                                                 <option value="" hidden>--- {{ __('project.select_client') }} ---</option>
                                                 @foreach ($clients as $client)
                                                     <option value="{{ $client->id }}">{{ $client->name }}</option>
