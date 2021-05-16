@@ -53,7 +53,9 @@ class ProjectRepository extends BaseRepository implements Interfaces\ProjectRepo
         return Material::all();
     }
 
-    /*public function getMaterialsWithPaginate(){
-      return Material::paginate(2);
+    /*public function exportMaterialsDataAsExcel(){
+
     }*/
+
+
 }
