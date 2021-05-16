@@ -61,18 +61,16 @@ class EmployeeController extends Controller
         return view('hr.employees.edit', compact('employee','roles','roleChecked'));
     }
 
-    public function update(EmployeeRequest $request, $id)
+    public function update(Request $request, $id)
     {
+        $request->validate(['email'=>'unique:employees,email,'.$id]);
+
         $employeeRequest = $request->except(['role']);
         $userRequest = array_merge($request->only('email','role'),['name'=>$request->first_name .'_'.$request->last_name,'password'=>$request->first_name . '2021']);
-
-
         $this->employeeRepository->updateEmployee($employeeRequest, $id);
         $this->userRepository->update($userRequest, $this->employeeRepository->find($id)->user->id);
         session()->flash('update', 'Employee has been updated');
-
         return redirect('/employees');
-
     }
 
     public function destroy($id)

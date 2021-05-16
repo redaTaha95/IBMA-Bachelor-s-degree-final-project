@@ -8,6 +8,7 @@ use Illuminate\Validation\Rule;
 
 class EmployeeRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -25,14 +26,14 @@ class EmployeeRequest extends FormRequest
      */
     public function rules()
     {
+        $user = $this->user()->id;
+
         return [
             'first_name' => 'required',
             'last_name' => 'required',
             'hire_date' => 'required',
             'phone' => 'required',
-            'email' => 'required | unique:users,email',//.Rule::unique('users')->ignore($this->id),
-            //'email' => ['required' , Rule::unique('employees')->ignore($this->employee->id)],
-            //'email'=>[Rule::unique('users')->ignore($this->id),]
+            'email' => 'required | unique:employees,email',
 
         ];
     }
