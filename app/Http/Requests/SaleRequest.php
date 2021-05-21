@@ -25,7 +25,7 @@ class SaleRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+
             'description' => 'required'
 
         ];
@@ -34,7 +34,7 @@ class SaleRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Titre de vente est obligatoire !!',
+
             'description.required' => 'Description de vente est obligatoire !!',
 
         ];

@@ -63,13 +63,6 @@
                                     </div>
                                     <br>
 
-
-
-                                    <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('purchase.add_name') }}</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name')}}" required>
-                                    </div>
-
                                     <div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('purchase.add_description') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="description" placeholder="Description" value="{{old('description')}}" required>
@@ -93,8 +86,13 @@
                                 <div class="col-lg-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('purchase.add_logo') }}</label>
-                                        <input type="file" data-plugins="dropify" name="logo"/>
+                                        <label for="simpleinput">{{ __('purchase.add_quantity') }}</label>
+                                        <input type="number" id="simpleinput" class="form-control" name="quantity" placeholder="Quantity" value="{{old('quantity')}}">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">{{ __('purchase.add_total') }}</label>
+                                        <input type="number" id="simpleinput" class="form-control" name="total" placeholder="Total" value="{{old('total')}}">
                                     </div>
 
 

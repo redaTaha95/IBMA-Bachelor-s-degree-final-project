@@ -69,11 +69,6 @@
                                     <br>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('purchase.Edit_name') }}</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Nom" value="{{old('name', $purchase->name)}}">
-                                    </div>
-
-                                    <div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('purchase.Edit_description') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="description" placeholder="Description" value="{{old('description', $purchase->description)}}">
                                     </div>
@@ -89,14 +84,20 @@
                                         <input type="date" id="simpleinput" class="form-control" name="date" placeholder="Date" value="{{old('date', $purchase->date)}}">
                                     </div>
 
+
                                 </div> <!-- end col -->
 
                                 <div class="col-lg-6">
 
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('purchase.Edit_logo') }}</label>
-                                        <input type="file" data-plugins="dropify" name="logo" data-default-file="{{asset('storage/purchases/'.$purchase->logo)}}"/>
+                                        <label for="simpleinput">{{ __('purchase.Edit_quantity') }}</label>
+                                        <input type="number" id="simpleinput" class="form-control" name="quantity" placeholder="Quantity" value="{{old('quantity', $purchase->quantity)}}">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">{{ __('purchase.Edit_total') }}</label>
+                                        <input type="number" id="simpleinput" class="form-control" name="total" placeholder="Total" value="{{old('total', $purchase->total)}}">
                                     </div>
 
 

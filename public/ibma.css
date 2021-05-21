@@ -1,0 +1,13 @@
+body html{
+    margin: 0;
+    padding: 0;
+}
+
+.auth-fluid{
+    background-image: url('assets/images/ibma_cover.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}

@@ -23,11 +23,11 @@ class SaleExport implements FromCollection, WithEvents, ShouldAutoSize, WithHead
         return Sale::select(
             'id',
             'product_id',
-            'logo',
-            'title',
             'description',
             'price',
-            'date'
+            'date',
+            'quantity',
+            'total'
         )->get();
     }
 
@@ -46,11 +46,11 @@ class SaleExport implements FromCollection, WithEvents, ShouldAutoSize, WithHead
         return [
             '#',
             'product_id',
-            'logo',
-            'title',
             'description',
             'price',
-            'date'
+            'date',
+            'quantity',
+            'total'
         ];
     }
 }

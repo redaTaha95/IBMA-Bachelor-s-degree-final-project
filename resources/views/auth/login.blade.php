@@ -18,28 +18,13 @@
 
     <!-- icons -->
     <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link  rel="stylesheet" type="text/css" href="{{asset('ibma.css')}}"/>
 
 </head>
 
 <body class="auth-fluid-pages pb-0">
-<style>
-    body html{
-        margin: 0;
-        padding: 0;
-    }
-</style>
 
-<div class="auth-fluid" >
-<style>
-    .auth-fluid{
-        background-image: url('{{asset('assets/images/ibma_cover.png')}}');
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        height: 100%;
-        width: 100%;
-    }
-</style>
+<div class="auth-fluid"  >
     <!--Auth fluid left content -->
     <div class="auth-fluid-form-box">
         <div class="align-items-center d-flex h-100">
