@@ -19,12 +19,14 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = $this->taskRepository->all();
-        return view('tasks.index', compact('tasks'));
+        $tasks_list = $this->taskRepository->getTasksList();
+        $employees = $this->taskRepository->getEmployees();
+        return view('tasks.index', compact('tasks', 'tasks_list', 'employees'));
     }
 
     public function create()
     {
-        return view('tasks.create');
+        //
     }
 
     public function store(TaskRequest $request)
@@ -40,8 +42,7 @@ class TaskController extends Controller
 
     public function edit($id)
     {
-        $task = $this->taskRepository->find($id);
-        return view('');
+        //
     }
 
     public function update(TaskRequest $request, $id)

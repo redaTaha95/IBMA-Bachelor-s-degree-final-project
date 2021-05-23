@@ -21,4 +21,8 @@ class Project extends Model
     {
         return $this->belongsToMany(Material::class,'material_project')->withTimestamps();
     }
+
+    public function tasks(){
+        return $this->hasMany(Task::class);
+    }
 }

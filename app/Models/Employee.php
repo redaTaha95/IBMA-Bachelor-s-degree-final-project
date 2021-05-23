@@ -24,4 +24,8 @@ class Employee extends Model
     public function vacations(){
         return $this->hasMany(Vacation::class);
     }
+
+    public function tasks(){
+        return $this->belongsToMany(Employee::class, 'employee_task');
+    }
 }

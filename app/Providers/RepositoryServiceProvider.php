@@ -20,6 +20,7 @@ use App\Repositories\Interfaces\PurchaseRepositoryInterface;
 use App\Repositories\Interfaces\RecruitmentDemandRepositoryInterface;
 use App\Repositories\Interfaces\SaleRepositoryInterface;
 use App\Repositories\Interfaces\TaskRepositoryInterface;
+use App\Repositories\Interfaces\TasksListRepositoryInterface;
 use App\Repositories\Interfaces\VacationRepositoryInterface;
 use App\Repositories\ProductRepository;
 use App\Repositories\Interfaces\SupplierRepositoryInterface;
@@ -33,6 +34,7 @@ use App\Repositories\RecruitmentDemandRepository;
 use App\Repositories\SaleRepository;
 use App\Repositories\SupplierRepository;
 use App\Repositories\TaskRepository;
+use App\Repositories\TasksListRepository;
 use App\Repositories\VacationRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -57,6 +59,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(CalendarRepositoryInterface::class, CalendarRepository::class);
         $this->app->bind(VacationRepositoryInterface::class, VacationRepository::class);
         $this->app->bind(ClientAppointmentRepositoryInterface::class, ClientAppointmentRepository::class);
+        $this->app->bind(TasksListRepositoryInterface::class, TasksListRepository::class);
     }
 
 

@@ -4,9 +4,13 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TaskRequest extends FormRequest
+class TasksListRequest extends FormRequest
 {
-
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
     public function authorize()
     {
         return true;
@@ -16,7 +20,6 @@ class TaskRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'status' => 'required',
         ];
     }
 
@@ -24,7 +27,6 @@ class TaskRequest extends FormRequest
     {
         return [
             'title.required' => 'Titre de la tâche sont obligatoires !',
-            'status.required' => 'Statut de la tâche est obligatoire !',
         ];
     }
 }
