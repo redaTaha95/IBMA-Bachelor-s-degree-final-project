@@ -15,6 +15,7 @@ use App\Repositories\Interfaces\ClientAppointmentRepositoryInterface;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 use App\Repositories\Interfaces\EmployeeRepositoryInterface;
 use App\Repositories\Interfaces\InterviewRepositoryInterface;
+use App\Repositories\Interfaces\MeetingRepositoryInterface;
 use App\Repositories\Interfaces\ProductRepositoryInterface;
 use App\Repositories\Interfaces\ProjectRepositoryInterface;
 use App\Repositories\Interfaces\PurchaseRepositoryInterface;
@@ -23,6 +24,7 @@ use App\Repositories\Interfaces\SaleRepositoryInterface;
 use App\Repositories\Interfaces\TaskRepositoryInterface;
 use App\Repositories\Interfaces\VacationRepositoryInterface;
 use App\Repositories\InterviewRepository;
+use App\Repositories\MeetingRepository;
 use App\Repositories\ProductRepository;
 use App\Repositories\Interfaces\SupplierRepositoryInterface;
 use App\Repositories\Interfaces\MaterialRepositoryInterface;
@@ -60,6 +62,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(VacationRepositoryInterface::class, VacationRepository::class);
         $this->app->bind(ClientAppointmentRepositoryInterface::class, ClientAppointmentRepository::class);
         $this->app->bind(InterviewRepositoryInterface::class, InterviewRepository::class);
+        $this->app->bind(MeetingRepositoryInterface::class, MeetingRepository::class);
     }
 
 

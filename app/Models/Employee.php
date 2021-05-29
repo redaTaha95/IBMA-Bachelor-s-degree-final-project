@@ -29,4 +29,9 @@ class Employee extends Model
     {
         return $this->hasMany(Interview::class);
     }
+
+    public function meetings()
+    {
+        return $this->belongsToMany(Meeting::class);
+    }
 }

@@ -32,6 +32,7 @@ return [
     'select_client' => 'Séléctionner un client',
     'appointment_with_client' => 'Rendez-vous avec le client',
     'employee' => 'Employé',
+    'employees' => 'Employés',
     'client_appointment_delete_confirmation' => 'Souhaitez-vous vraiment supprimer ce rendez-vous avec le client ?',
     'add_interview' => 'Ajouter un entretien',
     'edit_interview' => 'Modifier l\'entretien',
@@ -44,5 +45,14 @@ return [
     'select_candidate' => 'Séléctionner un candidat',
     'please_select_candidate' => 'Séléctionner un candidat SVP !!',
     'interview_delete_confirmation' => 'Souhaitez-vous vraiment supprimer cet entretien ?',
-    'interview_with' => 'Entretien avec'
+    'interview_with' => 'Entretien avec',
+    'add_meeting' => 'Ajouter une réunion',
+    'add_new_meeting' => 'Ajouter un nouveau réunion',
+    'description' => 'Description',
+    'meeting_datetime' => 'Date & heure de réunion',
+    'please_add_description' => 'Ajouter une description SVP !!',
+    'start_meeting_date_required' => 'Date & heure sont obligatoires !!',
+    'meeting' => 'Réunion',
+    'edit_meeting' => 'Modifier la réunion',
+    'meeting_delete_confirmation' => 'Souhaitez-vous vraiment supprimer cette réunion ?'
 ];

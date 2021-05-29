@@ -9,6 +9,7 @@ use App\Models\Client;
 use App\Models\ClientAppointment;
 use App\Models\Employee;
 use App\Models\Interview;
+use App\Models\Meeting;
 use App\Models\Vacation;
 
 class CalendarRepository implements Interfaces\CalendarRepositoryInterface
@@ -42,5 +43,10 @@ class CalendarRepository implements Interfaces\CalendarRepositoryInterface
     public function getCandidates()
     {
         return Candidate::all();
+    }
+
+    public function getMeetings()
+    {
+        return Meeting::all();
     }
 }

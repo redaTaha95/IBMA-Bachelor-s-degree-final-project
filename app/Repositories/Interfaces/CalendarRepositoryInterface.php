@@ -12,4 +12,5 @@ interface CalendarRepositoryInterface
     public function getClientsAppointments();
     public function getInterviews();
     public function getCandidates();
+    public function getMeetings();
 }
