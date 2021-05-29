@@ -12,8 +12,19 @@ class EmailController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function inbox()
     {
-        return view('emails.index');
+        return view('emails.actions.inbox');
     }
+
+    public function send(){
+        return view('emails.actions.send');
+    }
+
+    public function read(){
+        return view('emails.actions.read');
+    }
+    /*public function inbox(){
+        return view('emails.inbox');
+    }*/
 }

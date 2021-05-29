@@ -1,89 +1,9 @@
-@extends('layouts.app')
+@extends('emails.index')
 
-@section('css')
-
-
-    <!-- Summernote css -->
-    <link href="{{asset('assets/libs/summernote/summernote-bs4.min.css')}}" rel="stylesheet" type="text/css" />
-    <!-- Summernote css -->
-    <link href="{{asset('assets/libs/summernote/summernote-bs4.min.css')}}" rel="stylesheet" type="text/css" />
-
-@endsection
-
-@section('content')
-
-            <!-- Start Content-->
-            <div class="container-fluid">
-
-                <!-- start page title -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="page-title-box">
-                            <div class="page-title-right">
-                                <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">UBold</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Email</a></li>
-                                    <li class="breadcrumb-item active">Inbox</li>
-                                </ol>
-                            </div>
-                            <h4 class="page-title">Inbox</h4>
-                        </div>
-                    </div>
-                </div>
-                <!-- end page title -->
-                <div class="row">
-
-        <!-- Right Sidebar -->
-        <div class="col-12">
-            <div class="card-box">
-                <!-- Left sidebar -->
-                <div class="inbox-leftbar">
-
-                    <a href="{{url('emails/send')}}" class="btn btn-danger btn-block waves-effect waves-light">Compose</a>
-
-                    <div class="mail-list mt-4">
-                        <a href="{{url('emails/inbox')}}" class="text-danger font-weight-bold"><i class="dripicons-inbox mr-2"></i>Inbox<span class="badge badge-soft-danger float-right ml-2">7</span></a>
-                        <a href="javascript: void(0);"><i class="dripicons-exit mr-2"></i>Sent Mail</a>
-                        <a href="javascript: void(0);"><i class="dripicons-trash mr-2"></i>Trash</a>
-                    </div>
-
-                </div>
-                <!-- End Left sidebar -->
-
-                <div class="inbox-rightbar">
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-light waves-effect"><i class="mdi mdi-archive font-18"></i></button>
-                    </div>
-                    <div class="btn-group">
-
-                        <div class="dropdown-menu">
-                            <span class="dropdown-header">Move to</span>
-                            <a class="dropdown-item" href="javascript: void(0);">Social</a>
-                            <a class="dropdown-item" href="javascript: void(0);">Promotions</a>
-                            <a class="dropdown-item" href="javascript: void(0);">Updates</a>
-                            <a class="dropdown-item" href="javascript: void(0);">Forums</a>
-                        </div>
-                    </div>
+@section('cont')
 
 
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle waves-effect" data-toggle="dropdown" aria-expanded="false">
-                            <i class="mdi mdi-dots-horizontal font-18"></i> More
-                            <i class="mdi mdi-chevron-down"></i>
-                        </button>
-                        <div class="dropdown-menu">
-                            <span class="dropdown-header">More Option :</span>
-                            <a class="dropdown-item" href="javascript: void(0);">Mark as Unread</a>
-                            <a class="dropdown-item" href="javascript: void(0);">Add to Tasks</a>
-                            <a class="dropdown-item" href="javascript: void(0);">Add Star</a>
-                            <a class="dropdown-item" href="javascript: void(0);">Mute</a>
-                        </div>
-                    </div>
-
-                @yield('cont')
-
-                   <!-- <div class="mt-3">
+    <div class="mt-3">
                         <ul class="message-list">
                             <li class="unread">
                                 <div class="col-mail col-mail-1">
@@ -92,7 +12,7 @@
                                         <label for="chk1" class="toggle"></label>
                                     </div>
                                     <span class="star-toggle far fa-star text-warning"></span>
-                                    <a href="" class="title">Lucas Kriebel (via Twitter)</a>
+                                    <a href="{{url('emails/read')}}" class="title">Lucas Kriebel (via Twitter)</a>
                                 </div>
                                 <div class="col-mail col-mail-2">
                                     <a href="" class="subject">Lucas Kriebel (@LucasKriebel) has sent
@@ -393,56 +313,21 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>-->
-                    <!-- end .mt-4 -->
+                    </div>
+    <!-- end .mt-4 -->
 
-                  <!--  <div class="row">
-                        <div class="col-7 mt-1">
-                            Showing 1 - 20 of 289
-                        </div>
-                        <div class="col-5">
-                            <div class="btn-group float-right">
-                                <button type="button" class="btn btn-light btn-sm"><i class="mdi mdi-chevron-left"></i></button>
-                                <button type="button" class="btn btn-info btn-sm"><i class="mdi mdi-chevron-right"></i></button>
-                            </div>
-                        </div>
-                    </div>--><!-- end col--><!-- end col-->
-                    <!-- end row-->
-                </div>
-                <!-- end inbox-rightbar-->
-
-                <div class="clearfix"></div>
-            </div> <!-- end card-box -->
-
-        </div> <!-- end Col -->
-    </div><!-- End row -->
-            </div> <!-- container -->
-
+      <div class="row">
+          <div class="col-7 mt-1">
+              Showing 1 - 20 of 289
+          </div>
+          <div class="col-5">
+              <div class="btn-group float-right">
+                  <button type="button" class="btn btn-light btn-sm"><i class="mdi mdi-chevron-left"></i></button>
+                  <button type="button" class="btn btn-info btn-sm"><i class="mdi mdi-chevron-right"></i></button>
+              </div>
+          </div>
+      </div>
+    <!-- end row--><!-- end col--><!-- end col-->
 
 
 @endsection
-
-@section('js')
-    <!--Summernote js-->
-    <script src="{{asset('assets/libs/summernote/summernote-bs4.min.js')}}"></script>
-
-    <script>
-        jQuery(document).ready(function(){
-            $('.summernote').summernote({
-                height: 230,                 // set editor height
-                minHeight: null,             // set minimum height of editor
-                maxHeight: null,             // set maximum height of editor
-                focus: false                 // set focus to editable area after initializing summernote
-            });
-        });
-    </script>
-    <!-- Vendor js -->
-    <script src="{{asset('assets/js/vendor.min.js')}}"></script>
-
-    <!-- Inbox init -->
-    <script src="{{asset('assets/js/pages/inbox.js')}}"></script>
-
-    <!-- App js-->
-    <script src="{{asset('assets/js/app.min.js')}}"></script>
-@endsection
-
