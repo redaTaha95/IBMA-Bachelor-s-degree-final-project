@@ -444,5 +444,32 @@
 
     <!-- App js-->
     <script src="{{asset('assets/js/app.min.js')}}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#receiver').on('blur',function(e){
+                console.log('Working');
+                e.preventDefault();
+                $.ajax({
+                    url: '{{url("emails/getEmployeeById")}}',
+                    type: "GET",
+                    data:{receiver:$('#receiver').val()},
+                    // processData:false,
+                    // dataType:'json',
+                    // contentType:false,
+                    success:function(response){
+                        if(response.error) {
+                            console.log(response.error);
+                        }else{
+                            $.each(response,function(pref,val){
+                                $('#'+pref+"_id").val(val);
+                            });
+                        }
+
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
 

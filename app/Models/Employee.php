@@ -24,4 +24,12 @@ class Employee extends Model
     public function vacations(){
         return $this->hasMany(Vacation::class);
     }
+
+    public function emails() {
+        return $this->hasMany(Email::class,'sender_id');
+    }
+
+    public function receivers() {
+        return $this->hasMany(Receiver::class,'receiver_id');
+    }
 }
