@@ -13,6 +13,7 @@
     <link href="{{asset('assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
 
     <link href="{{asset('assets/libs/multiselect/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
+
 @endsection
 
 @section('content')
@@ -131,8 +132,6 @@
             }
 
             e.prototype.init = function () {
-                var e = new Date(l.now());
-
                 var t = [
                     @foreach($vacations as $vacation)
                     {
@@ -209,8 +208,14 @@
                         right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth"
                     },
                     events: t,
-                    editable: true,
+                    editable: false,
                     // eventLimit: 1,
+                    eventRender: function(info) {
+                        if(!info.event.startEditable) {
+                            $(info.el).css('cursor','pointer');
+                            return;
+                        }
+                    },
                     eventClick: function (e) {
                         if (e.event.extendedProps.data.type === 'vacation'){
                             var url = '{{ route("vacations.update", ":id") }}';
