@@ -151,9 +151,20 @@
                                                     <td class="align-middle">{{$recruitmentDemand->date_of_demand}}</td>
                                                     <td class="align-middle">{{$recruitmentDemand->status_of_demand}}</td>
                                                     <td class="align-middle">
-                                                        @if(isset($recruitmentDemand->candidates($candidate->id)->first()->id))
-                                                            <a href="{{url('disaffect/candidate/'.$candidate->id.'/demand/'.$recruitmentDemand->id)}}" class="btn btn-danger btn-sm waves-effect waves-light btn-block">Désaffecter</a>
-                                                        @else
+                                                        @php
+                                                            $exist = false;
+                                                        @endphp
+
+                                                        @foreach($recruitmentDemand->candidates as $recruitmentDemand_candidate)
+                                                            @if($recruitmentDemand_candidate->id === $candidate->id)
+                                                                @php
+                                                                    $exist = true;
+                                                                @endphp
+                                                                <a href="{{url('disaffect/candidate/'.$candidate->id.'/demand/'.$recruitmentDemand->id)}}" class="btn btn-danger btn-sm waves-effect waves-light btn-block">Désaffecter</a>
+                                                            @endif
+                                                        @endforeach
+
+                                                        @if($exist === false)
                                                             <a href="{{url('affect/candidate/'.$candidate->id.'/demand/'.$recruitmentDemand->id)}}" class="btn btn-success btn-sm waves-effect waves-light btn-block">Affecter</a>
                                                         @endif
                                                     </td>
