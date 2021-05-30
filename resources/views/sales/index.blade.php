@@ -210,7 +210,8 @@
                     "sLengthMenu": "{{ __('sale.Result') }} :  _MENU_",
                     "sEmptyTable": "{{ __('sale.NoData') }}",
                     "sZeroRecords": "{{ __('sale.Not_save') }}",
-                    "sInfoFiltered":   "(filtré de _MAX_ entrées au total)",
+                    "sInfoFiltered":   "({{__('datatable.filtered_from')}} _MAX_ {{__('datatable.total_inputs')}})",
+                    "infoEmpty": "{{__('datatable.no_entries_to_show')}}"
                 },
                 'aoColumnDefs': [{
                     'bSortable': false,

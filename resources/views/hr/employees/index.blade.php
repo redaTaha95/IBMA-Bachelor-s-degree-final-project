@@ -170,6 +170,7 @@
                     "sEmptyTable": "{{ __('employee.nothing_found') }}",
                     "sZeroRecords": "{{ __('employee.No_matching_records_found') }}",
                     "sInfoFiltered":   "({{ __('employee.filtered') }})",
+                    "infoEmpty": "{{__('datatable.no_entries_to_show')}}"
                 },
                 'aoColumnDefs': [{
                     'bSortable': false,

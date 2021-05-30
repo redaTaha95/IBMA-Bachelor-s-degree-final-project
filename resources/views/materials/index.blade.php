@@ -163,6 +163,7 @@
                     "sEmptyTable": "{{ __('material.nothing_found') }}",
                     "sZeroRecords": "{{ __('material.No_matching_records_found') }}",
                     "sInfoFiltered":   "({{ __('material.filtered') }})",
+                    "infoEmpty": "{{__('datatable.no_entries_to_show')}}"
                 },
                 'aoColumnDefs': [{
                     'bSortable': false,
