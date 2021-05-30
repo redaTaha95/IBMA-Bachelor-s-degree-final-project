@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 
+use App\Models\Appointment;
 use App\Models\Candidate;
 use App\Models\Client;
 use App\Models\ClientAppointment;
@@ -48,5 +49,10 @@ class CalendarRepository implements Interfaces\CalendarRepositoryInterface
     public function getMeetings()
     {
         return Meeting::all();
+    }
+
+    public function getAppointments()
+    {
+        return Appointment::all();
     }
 }

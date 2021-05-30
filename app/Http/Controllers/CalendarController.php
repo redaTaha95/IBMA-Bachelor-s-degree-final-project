@@ -25,6 +25,7 @@ class CalendarController extends Controller
         $interviews = $this->calendarRepository->getInterviews();
         $candidates = $this->calendarRepository->getCandidates();
         $meetings = $this->calendarRepository->getMeetings();
+        $appointments = $this->calendarRepository->getAppointments();
         return view('calendar.calendar',
             compact(
                 'employees',
@@ -33,7 +34,8 @@ class CalendarController extends Controller
                 'clientsAppointments',
                 'interviews',
                 'candidates',
-                'meetings'
+                'meetings',
+                'appointments'
             )
         );
     }

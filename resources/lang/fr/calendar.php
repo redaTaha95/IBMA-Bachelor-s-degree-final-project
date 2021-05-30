@@ -54,5 +54,9 @@ return [
     'start_meeting_date_required' => 'Date & heure sont obligatoires !!',
     'meeting' => 'Réunion',
     'edit_meeting' => 'Modifier la réunion',
-    'meeting_delete_confirmation' => 'Souhaitez-vous vraiment supprimer cette réunion ?'
+    'meeting_delete_confirmation' => 'Souhaitez-vous vraiment supprimer cette réunion ?',
+    'add_new_appointment' => 'Ajouter un nouveau rendez-vous',
+    'appointment' => 'Render-vous',
+    'edit_appointment' => 'Modifier le render-vous',
+    'appointment_delete_confirmation' => 'Souhaitez-vous vraiment supprimer ce rendez-vous ?',
 ];

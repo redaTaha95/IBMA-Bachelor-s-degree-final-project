@@ -53,7 +53,7 @@
                         @endif
                         <div class="row">
                             <div class="col-lg-3">
-                                <button class="btn btn-lg font-16 btn-primary btn-block"><i class="mdi mdi-plus-circle-outline"></i> {{__('calendar.add_appointment')}}</button>
+                                <button id="btn-new-appointment" class="btn btn-lg font-16 btn-primary btn-block"><i class="mdi mdi-plus-circle-outline"></i> {{__('calendar.add_appointment')}}</button>
 
                                 <div id="external-events" class="m-t-20">
                                     <br>
@@ -80,6 +80,8 @@
                 @include('calendar.calendar-modals.interview-modal', ['employees' => $employees, 'candidates' => $candidates]);
 
                 @include('calendar.calendar-modals.meeting_modal', ['employees' => $employees]);
+
+                @include('calendar.calendar-modals.appointment-modal');
             </div>
             <!-- end col-12 -->
         </div> <!-- end row -->
@@ -119,6 +121,7 @@
     <script src="{{asset('ajax\client-appointment\client_appointment-delete_ajax.js')}}"></script>
     <script src="{{asset('ajax\interviews\interview_delete_ajax.js')}}"></script>
     <script src="{{asset('ajax\meetings\meeting_delete_ajax.js')}}"></script>
+    <script src="{{asset('ajax\appointments\appointment_delete_ajax.js')}}"></script>
 
 
 
@@ -190,6 +193,19 @@
                         className: "bg-danger"
                     },
                     @endforeach
+                    @foreach($appointments as $appointment)
+                    {
+                        title: "{{__('calendar.appointment')}} " + ': {{$appointment->description}}',
+                        start: '{{$appointment->datetime}}',
+                        data: {
+                            'type': 'appointment',
+                            'appointment_id': {{$appointment->id}},
+                            'description': '{{$appointment->description}}',
+                            'datetime': '{{$appointment->datetime}}',
+                        },
+                        className: "bg-primary"
+                    },
+                    @endforeach
                     ], a = this;
                 a.$calendarObj = new FullCalendar.Calendar(a.$calendar[0], {
                     locale: "{{__('calendar.local')}}",
@@ -209,12 +225,17 @@
                     },
                     events: t,
                     editable: false,
+                    selectable: true,
                     // eventLimit: 1,
                     eventRender: function(info) {
                         if(!info.event.startEditable) {
                             $(info.el).css('cursor','pointer');
                             return;
                         }
+                    },
+                    dateClick: function (e) {
+                        $('#appointment-datepicker').val(e.dateStr);
+                        $('#appointment-modal').modal('show');
                     },
                     eventClick: function (e) {
                         if (e.event.extendedProps.data.type === 'vacation'){
@@ -268,6 +289,18 @@
                             $('#edit-start-meeting-datepicker').val(e.event.extendedProps.data.start_datetime);
                             $('#edit-meeting-modal').modal('show');
                         }
+
+                        if (e.event.extendedProps.data.type === 'appointment'){
+                            var url = '{{ route("appointments.update", ":id") }}';
+                            var deleteUrl = '{{ route("appointments.destroy", ":id") }}';
+                            url = url.replace(':id', e.event.extendedProps.data.appointment_id);
+                            deleteUrl = deleteUrl.replace(':id', e.event.extendedProps.data.appointment_id);
+                            $('#edit-appointment-form').attr('action', url);
+                            $('#btn-delete-appointment').attr('url', deleteUrl);
+                            $('#edit-appointment-description').val(e.event.extendedProps.data.description);
+                            $('#edit-appointment-datepicker').val(e.event.extendedProps.data.datetime);
+                            $('#edit-appointment-modal').modal('show');
+                        }
                     },
                 }), a.$calendarObj.render()
             }, l.CalendarApp = new e, l.CalendarApp.Constructor = e
@@ -289,6 +322,9 @@
         })
         $('#btn-new-meeting').on('click', function (event) {
             $('#meeting-modal').modal('show');
+        })
+        $('#btn-new-appointment').on('click', function (event) {
+            $('#appointment-modal').modal('show');
         })
     </script>
 
@@ -348,6 +384,12 @@
             altFormat: "Y-m-d H:i",
             dateFormat: "Y-m-d H:i"
         })
+        $("#appointment-datepicker").flatpickr({
+            allowInput: true,
+            enableTime: !0,
+            altFormat: "Y-m-d H:i",
+            dateFormat: "Y-m-d H:i"
+        })
 
         $("#edit-start-vacation-datepicker").flatpickr({
             allowInput: true,
@@ -372,6 +414,11 @@
             enableTime: !0,
             dateFormat: "Y-m-d H:i"
         })
+        $("#edit-appointment-datepicker").flatpickr({
+            allowInput: true,
+            enableTime: !0,
+            dateFormat: "Y-m-d H:i"
+        })
     </script>
 
     <script>
@@ -379,6 +426,7 @@
         var client_appointment_delete_confirmation = '{{__('calendar.client_appointment_delete_confirmation')}}';
         var interview_delete_confirmation = '{{__('calendar.interview_delete_confirmation')}}';
         var meeting_delete_confirmation = '{{__('calendar.meeting_delete_confirmation')}}';
+        var appointment_delete_confirmation = '{{__('calendar.appointment_delete_confirmation')}}';
         var _delete = '{{__('calendar.delete')}}';
         var cancel = '{{__('calendar.cancel')}}';
         var deleted = '{{__('calendar.deleted')}}';
