@@ -49,12 +49,6 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="{{url('emails')}}">
-                        <i class="fas fa-envelope"></i>
-                        <span> Emails </span>
-                    </a>
-                </li>
 
                 <li>
                     <a href="{{url('projects')}}">
