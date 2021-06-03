@@ -10,11 +10,11 @@
 
             <li class="dropdown notification-list topbar-dropdown">
                 <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                   <!-- <img src="{{asset('assets/images/users/user-1.jpg')}}" alt="user-image" class="rounded-circle">-->
-                       @if(Auth::user()->employee->image)
+
+                       @if(Auth::user()->role==1)
                            <img src="{{asset('storage/employees/'.Auth::user()->employee->image)}}" alt="image" class="avatar-sm rounded-circle">
                        @else
-                           <img src="{{asset('assets/images/users/default_user.png')}}" alt="image" class="avatar-sm rounded-circle">
+                           <img src="{{asset('assets/images/users/user-5.jpg')}}" alt="image" class="avatar-sm rounded-circle">
                        @endif
                        {{ Auth::user()->employee->first_name }} {{ Auth::user()->employee->last_name }}
                     <span class="pro-user-name ml-1">
@@ -34,11 +34,6 @@
                         <span>{{ __('navbar.account') }}</span>
                     </a>
 
-                    <!-- item-->
-                    <a href="{{ url('/contact_user') }}" class="dropdown-item notify-item">
-                        <i class="fe-lock"></i>
-                        <span>{{ __('navbar.profile') }}</span>
-                    </a>
 
 
 

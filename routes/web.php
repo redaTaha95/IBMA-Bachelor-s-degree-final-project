@@ -24,6 +24,4 @@ Auth::routes([
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
-Route::get('/contact_user', [App\Http\Controllers\HomeController::class, 'contact_user'])->name('contact_user');
-
 Route::get('logout', [LoginController::class, 'logout']);

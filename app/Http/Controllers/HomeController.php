@@ -31,8 +31,4 @@ class HomeController extends Controller
         return view('profile');
     }
 
-    public function contact_user()
-    {
-        return view('contact_user');
-    }
 }

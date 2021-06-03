@@ -4,12 +4,11 @@
     <div class="container"><br>
         <div class="col-lg-12 col-xl-6">
             <div class="card-box text-center">
-                <!--<img src="../assets/images/users/user-1.jpg" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">-->
 
-                @if(Auth::user()->employee->image)
+                @if(Auth::user()->role==1)
                     <img src="{{asset('storage/employees/'.Auth::user()->employee->image)}}" alt="image" class="avatar-sm rounded-circle">
                 @else
-                    <img src="{{asset('assets/images/users/default_user.png')}}" alt="image" class="avatar-sm rounded-circle">
+                    <img src="{{asset('assets/images/users/user-5.jpg')}}" alt="image" class="avatar-sm rounded-circle">
                 @endif
 
                 <h4 class="mb-0">{{ Auth::user()->employee->first_name }} {{ Auth::user()->employee->last_name }} <br><br></h4>
