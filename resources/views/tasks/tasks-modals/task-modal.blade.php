@@ -12,27 +12,30 @@
                     @csrf
                     <div class="row">
                         <div class="col-12">
+                            <input name="tasks_list_id" type="hidden" value="{{isset($task_list->id)}}">
+                            <input name="project_id" type="hidden" value="1">
+
                             <div class="form-group">
                                 <label class="control-label">{{__('task.title')}} *</label>
-                                <input type="text" id="task-title" name="title" class="form-control" placeholder="{{__('task.title')}}" required value="{{old('title')}}">
+                                <input type="text" id="task-title" name="title" class="form-control" placeholder="{{__('task.title')}}" required>
                                 <div class="invalid-feedback">
-                                    {{__('task.enter_task_title')}}
+                                    {{__('task.task_title_required')}}
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">{{__('task.description')}}</label>
-                                <textarea id="task-description" class="form-control" rows="5" placeholder="{{__('task.description')}}"  value="{{old('description')}}"></textarea>
+                                <textarea id="task-description" class="form-control" rows="5" placeholder="{{__('task.description')}}"></textarea>
                             </div>
+
                             <div class="form-group">
-                                <label class="control-label">{{__('task.status')}} *</label>
-                                <select id="select-status" class="form-control" name="status" required>
-                                    <option value="select-status" disabled selected>Sélectionner un statut</option>
-                                    <option value="High" {{old('status') == 'High' ? 'selected' : ''}}>High</option>
-                                    <option value="Medium" {{old('status') == 'Medium ' ? 'selected' : ''}}>Medium</option>
-                                    <option value="Low" {{old('status') == 'Low' ? 'selected' : ''}}>Low</option>
+                                <label for="employee">{{ __('task.employee') }} *</label>
+                                <select class="form-control select2-multiple" data-toggle="select2" multiple="multiple" data-placeholder="" required>
+                                    @foreach($employees as $employee)
+                                        <option value="{{$employee->id}}">{{$employee->first_name.' '.$employee->last_name}}</option>
+                                    @endforeach
                                 </select>
                                 <div class="invalid-feedback">
-                                    {{__('task.select_task_status')}}
+                                    {{__('task.select_employee')}}
                                 </div>
                             </div>
                         </div>
@@ -47,16 +50,15 @@
         </div>
     </div>
 </div>
+
 {{--End Modal--}}
 
 {{--Edit Task Modal--}}
-{{--
-<div class="modal fade" id="edit-task" tabindex="-1">
+<div class="modal fade" id="edit-task-modal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header py-3 px-4 border-bottom-0 d-block">
-                <button type="button" class="close" data-dismiss="modal"
-                        aria-hidden="true">&times;</button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h5 class="modal-title" id="modal-title">{{__('task.edit_task')}}</h5>
                 <div class="modal-body p-4">
                     <form id="edit-task-form" action="" method="post" class="needs-validation" novalidate>
@@ -66,45 +68,32 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label class="control-label">{{__('task.title')}} *</label>
-                                    <input type="text" id="task-title" name="title" class="form-control" placeholder="{{__('task.title')}}" required value="{{old('title', $tasks->title)}}">
+                                    <input type="text" id="task-title" name="title" class="form-control" placeholder="{{__('task.title')}}" required>
                                     <div class="invalid-feedback">
-                                        {{__('task.enter_task_title')}}
+                                        {{__('task.task_title_required')}}
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">{{__('task.description')}}</label>
-                                    <textarea id="task-description" class="form-control" rows="5" placeholder="{{__('task.description')}}">{{old('description', $tasks->description)}}</textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">{{__('task.status')}} *</label>
-                                    <select id="select-status" class="form-control" name="status" data-value="{{ old('status', $tasks->status) }}" required>
-                                        <option value="select-status" disabled selected>Sélectionner un statut</option>
-                                        <option value="High">High</option>
-                                        <option value="Medium">Medium </option>
-                                        <option value="Low">Low</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        {{__('task.select_task_status')}}
-                                    </div>
+                                    <textarea id="task-description" class="form-control" rows="5" placeholder="{{__('task.description')}}"></textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label">{{__('task.employee')}}</label>
-                                    <select class="form-control" name="employee_id" required>
-                                        <option></option>
+                                    <label class="control-label">{{__('task.employee')}} *</label>
+                                    <select id="employee-select" class="form-control" name="employee_id" required>
                                         @foreach($employees as $employee)
-                                            <option value="{{$employee->id}}">{{$employee->name}}</option>
+                                            <option value="{{$employee->id}}">{{$employee->first_name.' '.$employee->last_name}}</option>
                                         @endforeach
-                                        <div class="invalid-feedback">
-                                            {{__('task.select_employee')}}
-                                        </div>
                                     </select>
+                                    <div class="invalid-feedback">
+                                        {{__('task.select_employee')}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row mt-2">
                             <div class="col-3">
-                                <button type="button" class="btn btn-danger delete-task">{{__('task.delete')}}</button>
+                                <button type="button" class="btn btn-danger delete-task" url="" id="btn-delete-task">{{__('task.delete')}}</button>
                             </div>
                             <div class="col-9 text-right">
                                 <button type="button" class="btn btn-light mr-1" data-dismiss="modal">{{__('task.cancel')}}</button>
@@ -117,16 +106,4 @@
         </div>
     </div>
 </div>
---}}
 {{--End Edit Task Modal--}}
-
-<script>
-    $(function() {
-        $("select").each(function (index, element) {
-            const val = $(this).data('value');
-            if(val !== '') {
-                $(this).val(val);
-            }
-        });
-    })
-</script>

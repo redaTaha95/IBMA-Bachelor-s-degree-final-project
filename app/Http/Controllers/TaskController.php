@@ -21,7 +21,8 @@ class TaskController extends Controller
         $tasks = $this->taskRepository->all();
         $tasks_list = $this->taskRepository->getTasksList();
         $employees = $this->taskRepository->getEmployees();
-        return view('tasks.index', compact('tasks', 'tasks_list', 'employees'));
+        $projects = $this->taskRepository->getProjects();
+        return view('tasks.index', compact('tasks', 'tasks_list', 'employees', 'projects'));
     }
 
     public function create()
@@ -29,10 +30,10 @@ class TaskController extends Controller
         //
     }
 
-    public function store(TaskRequest $request)
+    public function store(Request $request)
     {
-        $this->taskRepository->create($request->all());
-        return redirect('tasks');
+        $this->taskRepository->create($request->except('employee_id'));
+        return redirect('/tasks');
     }
 
     public function show($id)
@@ -47,12 +48,16 @@ class TaskController extends Controller
 
     public function update(TaskRequest $request, $id)
     {
-        $this->taskRepository->update($request->all(), $id);
-        return redirect('tasks');
+        $this->taskRepository->update($request->except('employee_id'), $id);
+        return redirect('/tasks');
     }
 
     public function destroy($id)
     {
         $this->taskRepository->delete($id);
+    }
+
+    public function affectEmployee($task_id, $employee_id){
+        $this->taskRepository->affectTaskToEmployee($task_id, $employee_id);
     }
 }

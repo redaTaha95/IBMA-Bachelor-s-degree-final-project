@@ -26,7 +26,7 @@ class TasksListRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Titre de la tâche sont obligatoires !',
+            'title.required' => 'Titre de la liste des tâches est obligatoire !',
         ];
     }
 }

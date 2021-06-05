@@ -16,15 +16,13 @@ class TaskRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'status' => 'required',
         ];
     }
 
     public function messages()
     {
         return [
-            'title.required' => 'Titre de la tâche sont obligatoires !',
-            'status.required' => 'Statut de la tâche est obligatoire !',
+            'title.required' => 'Titre de la tâche est obligatoire !',
         ];
     }
 }
