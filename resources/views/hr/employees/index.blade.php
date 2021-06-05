@@ -191,6 +191,8 @@
             var data_deleted = '{{ __('employee.deleted_data') }}';
             var canceled = '{{ __('employee.canceled') }}';
             var data_is_safe = '{{ __('employee.secure_data') }}';
+            var forbidden = '{{ __('employee.forbidden_to_delete_an_employee') }}';
+            var warning = '{{ __('employee.warning') }}';
         </script>
 
 @endsection

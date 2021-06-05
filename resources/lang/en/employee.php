@@ -39,5 +39,7 @@ return[
     'projects_assigned'=>'Projects assigned to this employee',
     'export' =>'Export',
     'role' => 'Role',
+    'forbidden_to_delete_an_employee' => 'Forbidden to remove this employee.',
+    'warning' => 'Warning!',
 
 ];

@@ -94,6 +94,7 @@
                                         <label for="role">{{ __('employee.role') }}</label>
                                         <select name="role" class="form-control">
                                             @foreach ($roles as $key => $value)
+                                                {{$key++}}
                                                 @if($roleChecked==$key)
                                                     <option selected value={{$key}}>{{ $value }}</option>
                                                 @else
