@@ -56,6 +56,13 @@ class RegisterController extends Controller
         ]);
     }
 
+    public function index()
+    {
+        //$clients =$this->clientRepository->all();
+        //return view('register.register');
+        return 'hello';
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
