@@ -60,7 +60,7 @@
                         <br>
                         <div class="row">
                             @foreach($tasks_list as $task_list)
-                                <div class="col-lg">
+                                <div class="{{$tasks_list->count() > 3 ? 'col-lg' : 'col-lg-4' }}">
                                     <div class="card-box">
                                         <div class="dropdown float-right">
                                             <a class="dropdown-toggle arrow-none" data-toggle="dropdown" aria-expanded="false">

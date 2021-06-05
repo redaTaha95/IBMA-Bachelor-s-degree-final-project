@@ -12,7 +12,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-12">
-                            <input name="tasks_list_id" type="hidden" value="{{isset($task_list->id)}}">
+                            <input name="tasks_list_id" type="hidden" value="{{isset($task_list->id) ? $task_list->id : ''}}">
                             <input name="project_id" type="hidden" value="1">
 
                             <div class="form-group">
