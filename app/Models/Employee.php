@@ -25,6 +25,16 @@ class Employee extends Model
         return $this->hasMany(Vacation::class);
     }
 
+    public function interviews()
+    {
+        return $this->hasMany(Interview::class);
+    }
+
+    public function meetings()
+    {
+        return $this->belongsToMany(Meeting::class);
+    }
+
     public function tasks(){
         return $this->belongsToMany(Employee::class, 'employee_task');
     }

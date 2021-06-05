@@ -160,6 +160,7 @@
                     "sEmptyTable": "{{__('datatable.no_data')}}",
                     "sZeroRecords": "{{__('datatable.search_failed')}}",
                     "sInfoFiltered":   "({{__('datatable.filtered_from')}} _MAX_ {{__('datatable.total_inputs')}})",
+                    "infoEmpty": "{{__('datatable.no_entries_to_show')}}"
                 },
                 'aoColumnDefs': [{
                     'bSortable': false,

@@ -9,4 +9,5 @@ return [
     'search_failed' => 'Aucun enregistrements correspondants trouvés',
     'filtered_from' => 'filtré de',
     'total_inputs' => 'entrées au total',
+    'no_entries_to_show' => 'Aucune entrée à afficher'
 ];

@@ -18,12 +18,13 @@
 
     <!-- icons -->
     <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link  rel="stylesheet" type="text/css" href="{{asset('ibma.css')}}"/>
 
 </head>
 
 <body class="auth-fluid-pages pb-0">
 
-<div class="auth-fluid" style="background: url('{{asset('assets/images/ibma_cover.png')}}')">
+<div class="auth-fluid"  >
     <!--Auth fluid left content -->
     <div class="auth-fluid-form-box">
         <div class="align-items-center d-flex h-100">

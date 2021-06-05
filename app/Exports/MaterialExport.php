@@ -11,6 +11,7 @@ use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Events\AfterSheet;
 
+
 class MaterialExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
 {
     /**
@@ -51,4 +52,5 @@ class MaterialExport implements FromCollection, WithHeadings, ShouldAutoSize, Wi
             },
         ];
     }
+
 }

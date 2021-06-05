@@ -31,24 +31,18 @@ class EmployeeController extends Controller
 
     public function create()
     {
-        $roles = ["Admin","Resource humaine","Chef","Employee"];
+        $roles = ["Resource humaine","Chef","Employee"];
         return view('hr.employees.create',compact('roles'));
     }
 
     public function store(EmployeeRequest $request)
     {
-        $request->request->add(['password'=>Hash::make($request['first_name'].'2021')]);
-        $this->employeeRepository->addEmployee(
-            array_merge(
-                $request->except(['role','password']),
-                [
-                    'user_id' =>
-                        $this->userRepository->create(
-                            $request->only(['_token','user_id','role','name','email','password'])
-                        )->id
-                ]
-            )
-        );
+        $userRequest = array_merge($request->only(['email','role']),['password'=> Hash::make($request->first_name .'_'.$request->last_name . '2021'),'name'=>$request->first_name.' '.$request->last_name]);
+        $employeeRequest = array_merge($request->except(['role']),['user_id'=>$this->userRepository->create($userRequest)->id]);
+
+
+        $this->employeeRepository->addEmployee($employeeRequest);
+
         session()->flash('success', 'Employee has been added');
         return redirect('/employees');
     }
@@ -62,24 +56,29 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         $employee = $this->employeeRepository->find($id);
-        $roles = ["Admin","Resource humaine","Chef","Employee"];
+        $roles = ["Resource humaine","Chef","Employee"];
         $roleChecked = $employee->user->role;
         return view('hr.employees.edit', compact('employee','roles','roleChecked'));
     }
 
-    public function update(EmployeeRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        //$this->employeeRepository->updateEmployee($request->all(), $id);
-        $this->employeeRepository->updateEmployee($request->except(['role']), $id);
-        $this->userRepository->update($request->only('first_name','email','role','_token'), $this->employeeRepository->find($id)->user->id);
-        session()->flash('update', 'Employee has been added');
+        $request->validate(['email'=>'unique:employees,email,'.$id]);
 
+        $employeeRequest = $request->except(['role']);
+        $userRequest = array_merge($request->only('email','role'),['name'=>$request->first_name .'_'.$request->last_name,'password'=>$request->first_name . '2021']);
+        $this->employeeRepository->updateEmployee($employeeRequest, $id);
+        $this->userRepository->update($userRequest, $this->employeeRepository->find($id)->user->id);
+        session()->flash('update', 'Employee has been updated');
         return redirect('/employees');
-
     }
 
     public function destroy($id)
     {
+
+        if($this->employeeRepository->find($id)->vacations->isEmpty() !=1) {
+            return response()->json(['errors'=>'Interdit de supprimer cet employé.']);
+        }
         $this->employeeRepository->delete($id);
     }
 

@@ -6,15 +6,17 @@ namespace App\Exports;
 
 use Illuminate\Support\Collection;
 use App\Models\Project;
+use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 use Maatwebsite\Excel\Events\AfterSheet;
 
 class ProjectExport implements FromCollection, WithEvents, ShouldAutoSize, WithHeadings
 {
-
+    use Exportable;
     /**
      * @inheritDoc
      */
@@ -55,4 +57,6 @@ class ProjectExport implements FromCollection, WithEvents, ShouldAutoSize, WithH
             'budget'
         ];
     }
+
+
 }

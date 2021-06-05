@@ -34,13 +34,31 @@ $('.delete-employee').on('click', function (event) {
                     '_method': 'DELETE',
                     '_token': csrf_token
                 },
+                success:function(response) {
+                    if(response.errors) {
+                        swalWithBootstrapButtons.fire(
+                            warning,
+                            forbidden,
+                            'error'
+                        )
+                    }else
+                        {
+                            swalWithBootstrapButtons.fire(
+                                deleted,
+                                data_deleted,
+                                'success'
+                            )
+                        }
+                    window.setTimeout(function(){location.reload()},2000)
+
+                }
             })
-            swalWithBootstrapButtons.fire(
+            /*swalWithBootstrapButtons.fire(
                 deleted,
                 data_deleted,
                 'success'
-            )
-            window.setTimeout(function(){location.reload()},1000)
+            )*/
+            //window.setTimeout(function(){location.reload()},1000)
         } else if (
             /* Read more about handling dismissals below */
             result.dismiss === Swal.DismissReason.cancel

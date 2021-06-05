@@ -52,12 +52,12 @@
                             <tr>
                                 <th>#</th>
                                 <th>{{ __('sale.product_id') }}</th>
-                                <th>{{ __('sale.logo') }}</th>
-
-                                <th>{{ __('sale.title') }}</th>
                                 <th>{{ __('sale.description') }}</th>
+
                                 <th>{{ __('sale.price') }}</th>
-                            <!--<th>{{ __('sale.date') }}</th>-->
+                                <th>{{ __('sale.date') }}</th>
+                                <th>{{ __('sale.quantity') }}</th>
+                            <!--<th>{{ __('sale.total') }}</th>-->
                                 <th style="width: 15%;">{{ __('sale.action') }}</th>
 
                             </tr>
@@ -72,21 +72,13 @@
                                         @if($sale->product->logo)
                                             <img src="{{asset('storage/sales/'.$sale->product->logo)}}" alt="image" class="avatar-sm rounded-circle">
                                         @else
-                                            <img src="{{asset('assets/images/users/default_user.png')}}" alt="image" class="avatar-sm rounded-circle">
+                                            <img src="{{asset('assets/images/products/default_product.png')}}" alt="image" class="avatar-sm rounded-circle">
                                         @endif
                                     </td>
-                                    <td class="align-middle">
-                                        @if($sale->logo)
-                                            <img src="{{asset('storage/sales/'.$sale->logo)}}" alt="image" class="avatar-sm rounded-circle">
-                                        @else
-                                            <img src="{{asset('assets/images/users/default_user.png')}}" alt="image" class="avatar-sm rounded-circle">
-                                        @endif
-                                    </td>
-
-                                    <td class="align-middle">{{$sale->title}}</td>
                                     <td class="align-middle">{{$sale->description}}</td>
                                     <td class="align-middle">{{$sale->price}}</td>
-                                <!-- <td class="align-middle">{{$sale->date}}</td>-->
+                                    <td class="align-middle">{{$sale->date}}</td>
+                                    <td class="align-middle">{{$sale->quantity}}</td>
 
                                     <td class="align-middle">
                                         <a href="{{route('sales.show', $sale->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
@@ -210,7 +202,8 @@
                     "sLengthMenu": "{{ __('sale.Result') }} :  _MENU_",
                     "sEmptyTable": "{{ __('sale.NoData') }}",
                     "sZeroRecords": "{{ __('sale.Not_save') }}",
-                    "sInfoFiltered":   "(filtré de _MAX_ entrées au total)",
+                    "sInfoFiltered":   "({{__('datatable.filtered_from')}} _MAX_ {{__('datatable.total_inputs')}})",
+                    "infoEmpty": "{{__('datatable.no_entries_to_show')}}"
                 },
                 'aoColumnDefs': [{
                     'bSortable': false,
