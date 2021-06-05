@@ -34,4 +34,8 @@ class Employee extends Model
     {
         return $this->belongsToMany(Meeting::class);
     }
+
+    public function tasks(){
+        return $this->belongsToMany(Employee::class, 'employee_task');
+    }
 }
