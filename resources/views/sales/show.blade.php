@@ -32,17 +32,17 @@
 
                             <div class="tab-content pt-0">
                                 <div class="tab-pane active show" id="product-1-item">
-                                    @if($sale->logo)
-                                        <img src="{{asset('storage/sales/'.$sale->logo)}}" alt="image" class="img-fluid mx-auto d-block rounded">
+                                    @if($sale->product->logo)
+                                        <img src="{{asset('storage/sales/'.$sale->product->logo)}}" alt="image" class="img-fluid mx-auto d-block rounded">
                                     @else
-                                        <img src="{{asset('assets/images/sales/default_sale.png')}}" alt="image" class="img-fluid mx-auto d-block rounded">
+                                        <img src="{{asset('assets/images/products/default_product.png')}}" alt="image" class="img-fluid mx-auto d-block rounded">
                                     @endif
                                 </div>
                             </div>
                         </div> <!-- end col -->
                         <div class="col-lg-7">
                             <div class="pl-xl-3 mt-3 mt-xl-0">
-                                <h4 class="mb-3">{{$sale->title}}</h4>
+                                <h4 class="mb-3">{{$sale->description}}</h4>
                                 <p class="text-muted float-left mr-3">
                                     <span class="mdi mdi-star text-warning"></span>
                                     <span class="mdi mdi-star text-warning"></span>
@@ -54,7 +54,8 @@
                                 <h6 class="text-danger text-uppercase">Soon</h6>
                                 <h4 class="mb-4">{{ __('sale.Price') }} : <span class="text-muted mr-2"></span> <b>${{$sale->price}} USD</b></h4>
                                 <h4><span class="badge bg-soft-success text-success mb-4">Soon</span></h4>
-                                <p class="text-muted mb-4">{{$sale->description}}</p>
+                                <h4 class="mb-4">{{ __('sale.Quantity') }} : <span class="text-muted mb-4">{{$sale->quantity}}</span>
+                                    <h4 class="mb-4">{{ __('sale.Total') }} : <span class="text-muted mb-4">{{$sale->total}}</span><br/><br/><br/>
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <div>

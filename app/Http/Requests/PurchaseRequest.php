@@ -26,7 +26,6 @@ class PurchaseRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
             'description' => 'required'
         ];
     }
@@ -34,8 +33,7 @@ class PurchaseRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Nom d"achat est obligatoire !!',
-            'description.required' => 'Description d"achat est obligatoire !!',
+            'description.required' => 'Description d"achat est obligatoire !!'
         ];
     }
 }
