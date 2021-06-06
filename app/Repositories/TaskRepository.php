@@ -16,19 +16,14 @@ class TaskRepository extends BaseRepository implements Interfaces\TaskRepository
         parent::__construct($model);
     }
 
-    public function getTasksList()
-    {
-        return TasksList::all();
-    }
-
     public function getEmployees()
     {
         return Employee::all();
     }
 
-    public function getProjects()
+    public function getProject($id)
     {
-        return Project::all();
+        return Project::find($id);
     }
 
     public function affectTaskToEmployee($task_id, $employee_id)

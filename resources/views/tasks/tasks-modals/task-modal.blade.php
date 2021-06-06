@@ -8,13 +8,12 @@
                 <h5 class="modal-title" id="modal-title">{{__('task.add_new_task')}}</h5>
             </div>
             <div class="modal-body p-4">
-                <form id="add-new-task-form" action="{{route('tasks.store')}}" method="post" class="needs-validation" novalidate>
+                <form id="add-new-task-form" action="{{route('tasks.store', $project_id)}}" method="post" class="needs-validation" novalidate>
                     @csrf
                     <div class="row">
                         <div class="col-12">
                             <input name="tasks_list_id" type="hidden" value="{{isset($task_list->id) ? $task_list->id : ''}}">
-                            <input name="project_id" type="hidden" value="1">
-
+                            <input name="project_id" type="hidden" value="{{$project_id}}">
                             <div class="form-group">
                                 <label class="control-label">{{__('task.title')}} *</label>
                                 <input type="text" id="task-title" name="title" class="form-control" placeholder="{{__('task.title')}}" required>
@@ -93,7 +92,7 @@
                         </div>
                         <div class="row mt-2">
                             <div class="col-3">
-                                <button type="button" class="btn btn-danger delete-task" url="" id="btn-delete-task">{{__('task.delete')}}</button>
+                                <button type="button" class="btn btn-danger " url="" id="">{{__('tasks_list.delete')}}</button>
                             </div>
                             <div class="col-9 text-right">
                                 <button type="button" class="btn btn-light mr-1" data-dismiss="modal">{{__('task.cancel')}}</button>

@@ -1,6 +1,6 @@
-$('.delete-tasks_list').on('click', function (event) {
+$('.btn-delete-tasks-list').on('click', function (event) {
     event.preventDefault();
-    var url = $(this).attr('href');
+    var url = $(this).attr('url');
     csrf_token = $('meta[name="csrf-token"]').attr('content');
 
     const swalWithBootstrapButtons = Swal.mixin({
