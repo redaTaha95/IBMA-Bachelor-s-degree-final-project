@@ -8,6 +8,7 @@ use App\Repositories\CalendarRepository;
 use App\Repositories\CandidateRepository;
 use App\Repositories\ClientAppointmentRepository;
 use App\Repositories\ClientRepository;
+use App\Repositories\EmailRepository;
 use App\Repositories\EmployeeRepository;
 use App\Repositories\Interfaces\AppointmentRepositoryInterface;
 use App\Repositories\Interfaces\BaseRepositoryInterface;
@@ -15,6 +16,7 @@ use App\Repositories\Interfaces\CalendarRepositoryInterface;
 use App\Repositories\Interfaces\CandidateRepositoryInterface;
 use App\Repositories\Interfaces\ClientAppointmentRepositoryInterface;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
+use App\Repositories\Interfaces\EmailRepositoryInterface;
 use App\Repositories\Interfaces\EmployeeRepositoryInterface;
 use App\Repositories\Interfaces\InterviewRepositoryInterface;
 use App\Repositories\Interfaces\MeetingRepositoryInterface;
@@ -22,6 +24,7 @@ use App\Repositories\Interfaces\ProductRepositoryInterface;
 use App\Repositories\Interfaces\ProjectRepositoryInterface;
 use App\Repositories\Interfaces\PurchaseRepositoryInterface;
 use App\Repositories\Interfaces\RecruitmentDemandRepositoryInterface;
+use App\Repositories\Interfaces\ResponseRepositoryInterface;
 use App\Repositories\Interfaces\SaleRepositoryInterface;
 use App\Repositories\Interfaces\TaskRepositoryInterface;
 use App\Repositories\Interfaces\TasksListRepositoryInterface;
@@ -37,6 +40,7 @@ use App\Repositories\PartnerRepository;
 use App\Repositories\ProjectRepository;
 use App\Repositories\PurchaseRepository;
 use App\Repositories\RecruitmentDemandRepository;
+use App\Repositories\ResponseRepository;
 use App\Repositories\SaleRepository;
 use App\Repositories\SupplierRepository;
 use App\Repositories\TaskRepository;
@@ -69,6 +73,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(MeetingRepositoryInterface::class, MeetingRepository::class);
         $this->app->bind(AppointmentRepositoryInterface::class, AppointmentRepository::class);
         $this->app->bind(TasksListRepositoryInterface::class, TasksListRepository::class);
+        $this->app->bind(EmailRepositoryInterface::class, EmailRepository::class);
+        $this->app->bind(ResponseRepositoryInterface::class, ResponseRepository::class);
     }
 
 

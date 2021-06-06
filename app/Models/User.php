@@ -46,4 +46,17 @@ class User extends Authenticatable
     {
         return $this->hasOne(Employee::class);
     }
+
+    public function emails()
+    {
+        return $this->hasMany(Email::class);
+    }
+
+    public function received_emails(){
+        return $this->belongsToMany(Email::class);
+    }
+
+    public function responses(){
+        return $this->hasMany(Response::class);
+    }
 }

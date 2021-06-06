@@ -17,14 +17,14 @@ class EmployeeRepository extends BaseRepository implements Interfaces\EmployeeRe
     public function addEmployee($data)
     {
         $employee = $this->create($data);
-        $this->storeImage($employee->id, 'logo', 'employees', 'employees');
+        $this->storeImage($employee->id, 'image', 'employees', 'employees');
     }
 
     public function updateEmployee($data, $id)
     {
         $this->update($data, $id);
         $employee = $this->find($id);
-        $this->storeImage($employee->id, 'logo', 'employees', 'employees');
+        $this->storeImage($employee->id, 'image', 'employees', 'employees');
     }
 
     public function storeImage($id, $file_name, $folder_name, $table)

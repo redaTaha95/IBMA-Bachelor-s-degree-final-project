@@ -40,7 +40,6 @@ class EmployeeController extends Controller
         $userRequest = array_merge($request->only(['email','role']),['password'=> Hash::make($request->first_name .'_'.$request->last_name . '2021'),'name'=>$request->first_name.' '.$request->last_name]);
         $employeeRequest = array_merge($request->except(['role']),['user_id'=>$this->userRepository->create($userRequest)->id]);
 
-
         $this->employeeRepository->addEmployee($employeeRequest);
 
         session()->flash('success', 'Employee has been added');

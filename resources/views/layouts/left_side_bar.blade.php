@@ -22,6 +22,13 @@
                 </li>
 
                 <li>
+                    <a href="{{url('/emails')}}">
+                        <i data-feather="mail"></i>
+                        <span> Email </span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="#sidebarEcommerce" data-toggle="collapse">
                         <i class="fe-layers"></i>
                         <span> Gestion RH </span>
