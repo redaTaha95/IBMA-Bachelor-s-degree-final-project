@@ -51,7 +51,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label class="control-label">{{__('tasks_list.title')}}</label>
-                                <input type="text" id="edit-tasks-list" name="title" class="form-control" placeholder="{{__('tasks_list.title')}}" required>
+                                <input type="text" id="edit-tasks-list-title" name="title" class="form-control" placeholder="{{__('tasks_list.title')}}" required>
                                 <div class="invalid-feedback">
                                     {{__('tasks_list.tasks_list_title')}}
                                 </div>
@@ -59,9 +59,6 @@
                         </div>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-3">
-                            {{--<button type="button" class="btn btn-danger" url="" id="btn-delete-tasks-list">{{__('tasks_list.delete')}}</button>--}}
-                        </div>
                         <div class="col-9 text-right">
                             <button type="button" class="btn btn-light mr-1" data-dismiss="modal">{{__('tasks_list.cancel')}}</button>
                             <button type="submit" class="btn btn-success">{{__('tasks_list.edit')}}</button>

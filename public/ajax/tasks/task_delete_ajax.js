@@ -1,4 +1,4 @@
-$('.delete-task').on('click', function (event) {
+$('.btn-delete-task').on('click', function (event) {
     event.preventDefault();
     var url = $(this).attr('href');
     csrf_token = $('meta[name="csrf-token"]').attr('content');

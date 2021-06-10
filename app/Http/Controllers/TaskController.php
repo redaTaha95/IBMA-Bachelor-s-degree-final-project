@@ -40,7 +40,7 @@ class TaskController extends Controller
     public function store(Request $request, $project_id)
     {
         $this->taskRepository->create($request->except('employee_id'));
-        return redirect('/tasks', compact('project_id'));
+        return redirect()->back();
     }
 
     public function show($id)
@@ -56,7 +56,7 @@ class TaskController extends Controller
     public function update(TaskRequest $request, $id, $project_id)
     {
         $this->taskRepository->update($request->except('employee_id'), $id);
-        return redirect('/tasks');
+        return redirect()->back();
     }
 
     public function destroy($id)

@@ -67,11 +67,11 @@
                         <!-- End Dropdown -->
                         <h4 class="header-title text-center">{{$task_list->title}}</h4>
                         <br>
-                        <ul class="sortable-list tasklist list-unstyled">
+                        <ul class="sortable-list tasklist list-unstyled btn-edit-task">
                             @foreach($task_list->tasks as $task)
                                 <li>
                                     <span class="badge bg-soft-success  float-right">{{$task->status}}</span>
-                                    <h5 class="mt-0" id="btn-edit-task"><a class="text-dark">{{$task->title}}</a></h5>
+                                    <h5 class="mt-0"><a class="text-dark">{{$task->title}}</a></h5>
                                     <p>{{$task->description}}</p>
                                     <div class="clearfix"></div>
                                     <div class="row">
@@ -129,20 +129,33 @@
     {{-- File of delete tasks list --}}
     <script src="{{asset('ajax/tasks_list/tasks_list_delete_ajax.js')}}"></script>
 
+    <script src="{{asset('ajax/tasks/task_delete_ajax.js')}}"></script>
+
+    <script>
+        $('.btn-new-task').on('click', function (event) {
+            $('#task-modal').modal('show');
+        })
+        $('.btn-edit-task').on('click', function (event) {
+            var data = $(this).attr('data');
+            // data = data.split('$$');
+            // $('#edit-task-title').val(data[0]);
+            // $('#edit-task-description').val(data[1]);
+            // $('#edit-select-employee').val(data[2]);
+            // $('#edit-task-form').attr('action', data[3]);
+            // $('.btn-delete-task').attr('url', );
+            $('#edit-task-modal').modal('show');
+        })
+    </script>
+
     <script>
         $('#btn-new-tasks-list').on('click', function (event) {
             $('#tasks-list-modal').modal('show');
         })
-        $('.btn-new-task').on('click', function (event) {
-            $('#task-modal').modal('show');
-        })
-        $('#btn-edit-task').on('click', function (event) {
-            $('#edit-task-modal').modal('show');
-        })
+
         $('.btn-edit-tasks-list').on('click', function (event) {
             var data = $(this).attr('data');
             data = data.split('$$');
-            $('#edit-tasks-list').val(data[0]);
+            $('#edit-tasks-list-title').val(data[0]);
             $('#edit-tasks-list-form').attr('action', data[1]);
             $('.btn-delete-tasks-list').attr('url', data[2]);
             $('#edit-tasks-list-modal').modal('show');
@@ -153,6 +166,30 @@
         $('#add-employee-select').select2({
             placeholder: "{{__('task.select_employee')}}",
         });
+    </script>
+
+    <script>
+        !function (n) {
+            "use strict";
+
+            function t() {
+                this.$body = n("body")
+            }
+
+            t.prototype.init = function () {
+                n(".tasklist").each(function () {
+                    Sortable.create(n(this)[0],
+                        {
+                            group: "shared",
+                            animation: 150,
+                            ghostClass: "bg-ghost"
+                        })
+                })
+            }, n.KanbanBoard = new t, n.KanbanBoard.Constructor = t
+        }(window.jQuery), function () {
+            "use strict";
+            window.jQuery.KanbanBoard.init()
+        }();
     </script>
 
     <script>
