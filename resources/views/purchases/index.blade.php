@@ -52,12 +52,12 @@
                             <tr>
                                 <th>#</th>
                                 <th>{{ __('purchase.product_id') }}</th>
-                                <th>{{ __('purchase.logo') }}</th>
-
-                                <th>{{ __('purchase.name') }}</th>
                                 <th>{{ __('purchase.description') }}</th>
+
                                 <th>{{ __('purchase.price') }}</th>
-                                <!--<th>{{ __('purchase.date') }}</th>-->
+                                <th>{{ __('purchase.date') }}</th>
+                                <th>{{ __('purchase.quantity') }}</th>
+                                <!--<th>{{ __('purchase.total') }}</th>-->
                                 <th style="width: 15%;">{{ __('purchase.action') }}</th>
 
                             </tr>
@@ -72,21 +72,16 @@
                                         @if($purchase->product->logo)
                                             <img src="{{asset('storage/purchases/'.$purchase->product->logo)}}" alt="image" class="avatar-sm rounded-circle">
                                         @else
-                                            <img src="{{asset('assets/images/users/default_user.png')}}" alt="image" class="avatar-sm rounded-circle">
-                                        @endif
-                                    </td>
-                                    <td class="align-middle">
-                                        @if($purchase->logo)
-                                            <img src="{{asset('storage/purchases/'.$purchase->logo)}}" alt="image" class="avatar-sm rounded-circle">
-                                        @else
-                                            <img src="{{asset('assets/images/users/default_user.png')}}" alt="image" class="avatar-sm rounded-circle">
+                                            <img src="{{asset('assets/images/products/default_product.png')}}" alt="image" class="avatar-sm rounded-circle">
                                         @endif
                                     </td>
 
-                                    <td class="align-middle">{{$purchase->name}}</td>
                                     <td class="align-middle">{{$purchase->description}}</td>
                                     <td class="align-middle">{{$purchase->price}}</td>
-                                   <!-- <td class="align-middle">{{$purchase->date}}</td>-->
+
+                                    <td class="align-middle">{{$purchase->date}}</td>
+                                    <td class="align-middle">{{$purchase->quantity}}</td>
+                                    <!--<td class="align-middle">{{$purchase->total}}</td>-->
 
                                     <td class="align-middle">
                                         <a href="{{route('purchases.show', $purchase->id)}}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
@@ -210,7 +205,8 @@
                     "sLengthMenu": "{{ __('purchase.Result') }} :  _MENU_",
                     "sEmptyTable": "{{ __('purchase.NoData') }}",
                     "sZeroRecords": "{{ __('purchase.Not_save') }}",
-                    "sInfoFiltered":   "(filtré de _MAX_ entrées au total)",
+                    "sInfoFiltered":   "({{__('datatable.filtered_from')}} _MAX_ {{__('datatable.total_inputs')}})",
+                    "infoEmpty": "{{__('datatable.no_entries_to_show')}}"
                 },
                 'aoColumnDefs': [{
                     'bSortable': false,

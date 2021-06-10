@@ -18,12 +18,13 @@
 
     <!-- icons -->
     <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link  rel="stylesheet" type="text/css" href="{{asset('ibma.css')}}"/>
 
 </head>
 
 <body class="auth-fluid-pages pb-0">
 
-<div class="auth-fluid" style="background: url('{{asset('assets/images/ibma_cover.png')}}')">
+<div class="auth-fluid"  >
     <!--Auth fluid left content -->
     <div class="auth-fluid-form-box">
         <div class="align-items-center d-flex h-100">
@@ -81,6 +82,11 @@
                                 Mot de passe oublié ?
                             </a>
                         @endif
+                    </div>
+
+                    <div class="form-group mb-0 text-center">
+                       <!-- <a href="{{url('/register')}}" class="btn btn-primary btn-block">Inscription</a> -->
+                           <u><a href="{{url('/register')}}" class="link-secondary font-16">Inscription</a></u>
                     </div>
                 </form>
                 <!-- end form-->

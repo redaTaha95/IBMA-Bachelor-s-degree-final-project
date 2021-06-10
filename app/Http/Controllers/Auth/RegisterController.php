@@ -3,11 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Company;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Repositories\UserRepository;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+
 
 class RegisterController extends Controller
 {
@@ -36,9 +40,11 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    private $userRepository;
+    public function __construct(UserRepository $userRepository)
     {
         $this->middleware('guest');
+        $this->userRepository=$userRepository;
     }
 
     /**
@@ -56,17 +62,19 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function index()
+    public function company(array $data)
     {
-        //$clients =$this->clientRepository->all();
-        //return view('register.register');
-        return 'hello';
+         return Company::create([
+            'company_name' => $data['company'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+        ]);
     }
-
+//@param  array  $data
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \App\Models\User
      */
     protected function create(array $data)
@@ -75,6 +83,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'role'=>0,
+            'company_id' =>$this->company($data)->id,
         ]);
     }
 }

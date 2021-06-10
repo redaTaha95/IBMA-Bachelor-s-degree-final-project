@@ -15,4 +15,9 @@ class Candidate extends Model
     public function recruitment_demands(){
         return $this->belongsToMany(RecruitmentDemand::class, 'candidate_recruitment_demand');
     }
+
+    public function interviews()
+    {
+        return $this->hasMany(Interview::class);
+    }
 }

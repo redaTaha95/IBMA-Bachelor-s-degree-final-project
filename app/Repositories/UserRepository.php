@@ -2,6 +2,7 @@
 
 
 namespace App\Repositories;
+use App\Models\Company;
 use App\Models\User;
 
 
@@ -14,4 +15,9 @@ class UserRepository  extends BaseRepository implements Interfaces\UserRepositor
     public function lastUser(){
         return User::all()->last();
     }
+
+    public function getCompany(){
+        return Company::all();
+    }
+
 }

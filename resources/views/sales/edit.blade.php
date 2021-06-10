@@ -69,11 +69,6 @@
                                     <br>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('sale.Edit_title') }}</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="title" placeholder="Titre" value="{{old('title', $sale->title)}}">
-                                    </div>
-
-                                    <div class="form-group mb-3">
                                         <label for="simpleinput">{{ __('sale.Edit_description') }}</label>
                                         <input type="text" id="simpleinput" class="form-control" name="description" placeholder="Description" value="{{old('description', $sale->description)}}">
                                     </div>
@@ -92,11 +87,14 @@
                                 </div> <!-- end col -->
 
                                 <div class="col-lg-6">
-
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">{{ __('purchase.Edit_quantity') }}</label>
+                                        <input type="number" id="simpleinput" class="form-control" name="quantity" placeholder="Quantity" value="{{old('quantity', $sale->quantity)}}">
+                                    </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">{{ __('sale.Edit_logo') }}</label>
-                                        <input type="file" data-plugins="dropify" name="logo" data-default-file="{{asset('storage/sales/'.$sale->logo)}}"/>
+                                        <label for="simpleinput">{{ __('purchase.Edit_total') }}</label>
+                                        <input type="number" id="simpleinput" class="form-control" name="total" placeholder="Total" value="{{old('total', $sale->total)}}">
                                     </div>
 
 

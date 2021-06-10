@@ -68,5 +68,12 @@ return[
     'select_client' => 'Select client',
     'select_clt' => 'Select client',
     'material_name' => 'Material name',
+    'materials_list' => 'Affected materials',
+    'reference_material' => 'Reference material',
+    'Designation' => 'Designation',
+    'Category' => 'Category',
+    'Quantity' => 'Quantity',
+    'Origin' => 'Origin',
+    'Condition' => 'Condition',
 
 ];

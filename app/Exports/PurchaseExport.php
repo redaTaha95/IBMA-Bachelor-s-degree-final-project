@@ -24,11 +24,11 @@ class PurchaseExport implements FromCollection, WithHeadings, ShouldAutoSize, Wi
         return Purchase::select(
             'id',
             'product_id',
-            'logo',
-            'name',
             'description',
             'price',
-            'date'
+            'date',
+            'quantity',
+            'total',
         )->get();
     }
 
@@ -47,11 +47,11 @@ class PurchaseExport implements FromCollection, WithHeadings, ShouldAutoSize, Wi
         return [
             '#',
             'product_id',
-            'logo',
-            'name',
             'description',
             'price',
-            'date'
+            'date',
+            'quantity',
+            'total',
         ];
     }
 }
