@@ -9,6 +9,7 @@ use App\Repositories\CandidateRepository;
 use App\Repositories\ClientAppointmentRepository;
 use App\Repositories\ClientRepository;
 use App\Repositories\EmployeeRepository;
+use App\Repositories\ExperienceRepository;
 use App\Repositories\Interfaces\AppointmentRepositoryInterface;
 use App\Repositories\Interfaces\BaseRepositoryInterface;
 use App\Repositories\Interfaces\CalendarRepositoryInterface;
@@ -16,6 +17,7 @@ use App\Repositories\Interfaces\CandidateRepositoryInterface;
 use App\Repositories\Interfaces\ClientAppointmentRepositoryInterface;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 use App\Repositories\Interfaces\EmployeeRepositoryInterface;
+use App\Repositories\Interfaces\ExperienceRepositoryInterface;
 use App\Repositories\Interfaces\InterviewRepositoryInterface;
 use App\Repositories\Interfaces\MeetingRepositoryInterface;
 use App\Repositories\Interfaces\ProductRepositoryInterface;
@@ -25,6 +27,7 @@ use App\Repositories\Interfaces\RecruitmentDemandRepositoryInterface;
 use App\Repositories\Interfaces\SaleRepositoryInterface;
 use App\Repositories\Interfaces\TaskRepositoryInterface;
 use App\Repositories\Interfaces\TasksListRepositoryInterface;
+use App\Repositories\Interfaces\TrainingRepositoryInterface;
 use App\Repositories\Interfaces\VacationRepositoryInterface;
 use App\Repositories\InterviewRepository;
 use App\Repositories\MeetingRepository;
@@ -41,6 +44,7 @@ use App\Repositories\SaleRepository;
 use App\Repositories\SupplierRepository;
 use App\Repositories\TaskRepository;
 use App\Repositories\TasksListRepository;
+use App\Repositories\TrainingRepository;
 use App\Repositories\VacationRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -69,6 +73,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(MeetingRepositoryInterface::class, MeetingRepository::class);
         $this->app->bind(AppointmentRepositoryInterface::class, AppointmentRepository::class);
         $this->app->bind(TasksListRepositoryInterface::class, TasksListRepository::class);
+        $this->app->bind(ExperienceRepositoryInterface::class, ExperienceRepository::class);
+        $this->app->bind(TrainingRepositoryInterface::class, TrainingRepository::class);
     }
 
 

@@ -11,6 +11,7 @@ return [
     'total' => 'Total',
     'description' => 'Description',
     'price' => 'Price',
+    'date' => 'Date',
     'action' => 'Actions',
     'add_sale' => 'Add a sale',
     'sales' => 'Sales',

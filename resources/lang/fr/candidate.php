@@ -36,5 +36,13 @@ return [
     'deleted' => 'Supprimé',
     'data_deleted' => 'Vos données ont été supprimées',
     'canceled' => 'Annulé',
-    'data_is_safe' => 'Vos données sont en sécurité'
+    'data_is_safe' => 'Vos données sont en sécurité',
+    'description' => 'Déscription',
+    'post_work' => 'Poste',
+    'years' => 'Année',
+    'candidate' => 'Candidat',
+    'experience' => 'Expériences',
+    'training' => 'Formations',
+    'next' => 'Suivant',
+    'previous' => 'Précédent'
 ];
