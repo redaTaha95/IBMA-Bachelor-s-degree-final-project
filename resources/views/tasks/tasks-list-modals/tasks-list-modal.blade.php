@@ -13,6 +13,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
+                                <input name="project_id" type="hidden" value="{{$project_id}}">
                                 <label class="control-label">{{__('tasks_list.title')}}</label>
                                 <input type="text" id="tasks-list-title" name="title" class="form-control" placeholder="{{__('tasks_list.title')}}" required>
                                 <div class="invalid-feedback">
@@ -43,14 +44,14 @@
                 <h5 class="modal-title" id="modal-title">{{__('tasks_list.edit_list')}}</h5>
             </div>
             <div class="modal-body p-4">
-                <form id="edit-tasks-list-form" action="" method="post" class="needs-validation" novalidate>
+                        <form id="edit-tasks-list-form" action="" method="post" class="needs-validation" novalidate>
                     @csrf
                     @method('PUT')
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
                                 <label class="control-label">{{__('tasks_list.title')}}</label>
-                                <input type="text" id="tasks-list-title" name="title" class="form-control" placeholder="{{__('tasks_list.title')}}" required>
+                                <input type="text" id="edit-tasks-list-title" name="title" class="form-control" placeholder="{{__('tasks_list.title')}}" required>
                                 <div class="invalid-feedback">
                                     {{__('tasks_list.tasks_list_title')}}
                                 </div>
@@ -58,8 +59,6 @@
                         </div>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-3">
-                        </div>
                         <div class="col-9 text-right">
                             <button type="button" class="btn btn-light mr-1" data-dismiss="modal">{{__('tasks_list.cancel')}}</button>
                             <button type="submit" class="btn btn-success">{{__('tasks_list.edit')}}</button>

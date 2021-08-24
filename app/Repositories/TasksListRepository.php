@@ -12,4 +12,9 @@ class TasksListRepository extends BaseRepository implements Interfaces\TasksList
     {
         parent::__construct($model);
     }
+
+    public function getTasksListsByProject($project_id)
+    {
+        return TasksList::where('project_id', $project_id)->get();
+    }
 }

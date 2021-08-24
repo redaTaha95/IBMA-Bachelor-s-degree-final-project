@@ -28,7 +28,7 @@ class TasksListController extends Controller
 
     public function store(TasksListRequest $request)
     {
-        $this->tasksListRepository->create($request->only('title'));
+        $this->tasksListRepository->create($request->all());
         return redirect()->back();
     }
 
@@ -44,7 +44,7 @@ class TasksListController extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->tasksListRepository->update($request->only('title'), $id);
+        $this->tasksListRepository->update($request->all(), $id);
         return redirect()->back();
     }
 

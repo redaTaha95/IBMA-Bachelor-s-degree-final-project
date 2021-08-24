@@ -3,26 +3,33 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TaskRequest;
+use App\Models\Project;
 use App\Repositories\Interfaces\TaskRepositoryInterface;
+use App\Repositories\Interfaces\TasksListRepositoryInterface;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
     private $taskRepository;
+    private $listRepository;
 
-    public function __construct(TaskRepositoryInterface $taskRepository)
+    public function __construct(TaskRepositoryInterface $taskRepository, TasksListRepositoryInterface $listRepository)
     {
         $this->middleware('auth');
         $this->taskRepository = $taskRepository;
+        $this->listRepository = $listRepository;
     }
 
-    public function index()
+    public function index($project_id)
     {
-        $tasks = $this->taskRepository->all();
-        $tasks_list = $this->taskRepository->getTasksList();
+        $tasks_list = $this->listRepository->getTasksListsByProject($project_id);
         $employees = $this->taskRepository->getEmployees();
-        $projects = $this->taskRepository->getProjects();
-        return view('tasks.index', compact('tasks', 'tasks_list', 'employees', 'projects'));
+        $project = $this->taskRepository->getProject($project_id);
+        return view('tasks.index', compact(
+            'tasks_list',
+            'employees',
+            'project'
+        ));
     }
 
     public function create()
@@ -30,10 +37,10 @@ class TaskController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $project_id)
     {
         $this->taskRepository->create($request->except('employee_id'));
-        return redirect('/tasks');
+        return redirect()->back();
     }
 
     public function show($id)
@@ -46,10 +53,10 @@ class TaskController extends Controller
         //
     }
 
-    public function update(TaskRequest $request, $id)
+    public function update(TaskRequest $request, $id, $project_id)
     {
         $this->taskRepository->update($request->except('employee_id'), $id);
-        return redirect('/tasks');
+        return redirect()->back();
     }
 
     public function destroy($id)
