@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\TrainingController;
 
 Route::resource('candidates', CandidateController::class);
 

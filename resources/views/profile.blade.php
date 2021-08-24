@@ -7,8 +7,10 @@
 
                 @if(Auth::user()->role==1)
                     <img src="{{asset('storage/employees/'.Auth::user()->employee->image)}}" alt="image" class="avatar-sm rounded-circle">
-                @else
-                    <img src="{{asset('assets/images/users/user-5.jpg')}}" alt="image" class="avatar-sm rounded-circle">
+
+                @elseif((Auth::user()->role==0))
+                    <img src="{{asset('assets/images/users/user-6.jpg')}}" alt="image" class="avatar-sm rounded-circle">
+
                 @endif
 
                 <h4 class="mb-0">{{ Auth::user()->employee->first_name }} {{ Auth::user()->employee->last_name }} <br><br></h4>

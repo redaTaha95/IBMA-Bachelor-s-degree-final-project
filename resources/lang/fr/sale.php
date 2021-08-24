@@ -11,6 +11,7 @@ return[
     'total' => 'Total',
     'description' => 'Description',
     'price' => 'Prix',
+    'date' => 'Date',
     'action' => 'Actions',
     'add_sale' => 'Ajouter une vente',
     'sales' => 'achats',
@@ -56,7 +57,7 @@ return[
     'in' => 'sur',
     'select_product' => 'Selectionner un produit',
     'Price' => 'Prix',
-    'Quantity' => 'Quantity',
+    'Quantity' => 'Quantité',
     'Total' => 'Total',
 
 ];

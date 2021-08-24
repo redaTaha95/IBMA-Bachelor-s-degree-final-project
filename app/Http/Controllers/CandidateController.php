@@ -8,6 +8,7 @@ use App\Repositories\Interfaces\CandidateRepositoryInterface;
 class CandidateController extends Controller
 {
     private $candidateRepository;
+   // private $experienceRepository;
 
     public function __construct(CandidateRepositoryInterface $candidateRepository)
     {
@@ -28,7 +29,7 @@ class CandidateController extends Controller
 
     public function store(CandidateRequest $request)
     {
-        $this->candidateRepository->create($request->all());
+        $this->candidateRepository->addCandidateWithExperienceAndDiploma($request->all());
         session()->flash('success', 'Candidat ajouté avec succès !');
         return redirect('/candidates');
     }
@@ -43,12 +44,14 @@ class CandidateController extends Controller
     public function edit($id)
     {
         $candidate = $this->candidateRepository->find($id);
-        return view('hr.candidates.edit', compact('candidate'));
+        $experiences =  $candidate->experiences;
+        $trainings =  $candidate->trainings;
+        return view('hr.candidates.edit', compact('candidate','experiences','trainings'));
     }
 
     public function update(CandidateRequest $request, $id)
     {
-        $this->candidateRepository->update($request->all(), $id);
+        $this->candidateRepository->updateCandidateWithExperienceAndDiploma($request->all(), $id);
         session()->flash('update', 'Candidat modifié avec succès !');
         return redirect('candidates');
     }
