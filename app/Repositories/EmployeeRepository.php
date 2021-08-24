@@ -4,6 +4,8 @@
 namespace App\Repositories;
 
 use App\Exports\EmployeeExport;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Employee;
 
@@ -35,6 +37,12 @@ class EmployeeRepository extends BaseRepository implements Interfaces\EmployeeRe
     public function exportEmployeesDataAsExcel()
     {
         return Excel::download(new EmployeeExport, 'employees.xlsx');
+    }
+    public function addUser($data){
+        return array_merge($data->only(['email','role']),['password'=> Hash::make($data->first_name .'_'.$data->last_name . '2021'),'name'=>$data->first_name.' '.$data->last_name,'company_id'=>Auth::user()->company->id]);
+    }
+    public function editUser($data){
+        return array_merge($data->only('email','role'),['name'=>$data->first_name .' '.$data->last_name,'password'=>Hash::make($data->first_name.'_'.$data->last_name. '2021')]);
     }
 
 }

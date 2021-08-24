@@ -83,6 +83,11 @@
                             </a>
                         @endif
                     </div>
+
+                    <div class="form-group mb-0 text-center">
+                       <!-- <a href="{{url('/register')}}" class="btn btn-primary btn-block">Inscription</a> -->
+                           <u><a href="{{url('/register')}}" class="link-secondary font-16">Inscription</a></u>
+                    </div>
                 </form>
                 <!-- end form-->
 
