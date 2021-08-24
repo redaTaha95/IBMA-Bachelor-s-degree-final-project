@@ -20,6 +20,8 @@ class EmailController extends Controller
     {
         $emails = $this->emailRepository->getReceivedEmailsOfAuthenticatedUser();
         return view('emails.inbox', compact('emails'));
+
+//        return $this->emailRepository->getReceivedEmailsOfAuthenticatedUser();
     }
 
     public function create()

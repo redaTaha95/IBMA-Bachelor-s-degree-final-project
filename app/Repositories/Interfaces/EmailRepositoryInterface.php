@@ -13,4 +13,5 @@ interface EmailRepositoryInterface
     public function changeEmailStatusAfterBeenRead($id);
     public function getEmailsSentByUser();
     public function getResponsesOfEmail($email_id);
+    public function getPreviousRouterName();
 }

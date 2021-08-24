@@ -8,6 +8,7 @@ use App\Models\Email;
 use App\Models\Response;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 
 class EmailRepository extends BaseRepository implements Interfaces\EmailRepositoryInterface
 {
@@ -40,14 +41,20 @@ class EmailRepository extends BaseRepository implements Interfaces\EmailReposito
 
     public function getReceivedEmailsOfAuthenticatedUser()
     {
-        return Auth()->user()->received_emails()->orderBy('created_at', 'DESC')->get();
+        $emailsReceived = Auth()->user()->received_emails()->orderBy('updated_at', 'DESC')->get();
+        $emailsSentWithNewResponses = Auth()->user()->emails()->whereHas('responses', function($q){
+            $q->where('user_id', '!=', Auth()->user()->id);
+        })->get();
+        return $emailsReceived->merge($emailsSentWithNewResponses);
     }
 
     public function changeEmailStatusAfterBeenRead($id)
     {
-        $this->update([
-            'status' => 1
-        ], $id);
+        if($this->getPreviousRouterName() != 'emails.show'){
+            $this->update([
+                'status' => 1
+            ], $id);
+        }
     }
 
     public function getEmailsSentByUser()
@@ -58,5 +65,10 @@ class EmailRepository extends BaseRepository implements Interfaces\EmailReposito
     public function getResponsesOfEmail($email_id)
     {
         return Response::where('email_id', $email_id)->get();
+    }
+
+    public function getPreviousRouterName()
+    {
+        return app('router')->getRoutes()->match(app('request')->create(URL::previous()))->getName();
     }
 }

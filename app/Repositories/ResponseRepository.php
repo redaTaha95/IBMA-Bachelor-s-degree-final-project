@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 
+use App\Models\Email;
 use App\Models\Response;
 
 class ResponseRepository extends BaseRepository implements Interfaces\ResponseRepositoryInterface
@@ -22,4 +23,11 @@ class ResponseRepository extends BaseRepository implements Interfaces\ResponseRe
         ]);
     }
 
+    public function updateEmailStatus($email_id)
+    {
+        $email = Email::find($email_id);
+        return $email->update([
+            'status' => 0,
+        ]);
+    }
 }
